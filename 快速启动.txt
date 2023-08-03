@@ -1,0 +1,52 @@
+后端服务：
+mvn clean compile
+bash ./build.sh -DskipTests
+bash ./scripts/start-dev-server.sh
+前端服务：
+yarn start-proxy
+yarn start-win
+
+APPSMITH_MONGODB_URI="mongodb://d118c364d6f9.c.methodot.com:31283/ce4"
+APPSMITH_REDIS_URL="redis://a79a31be77e7.c.methodot.com:30229"
+
+APPSMITH_MONGODB_URI="mongodb://10.10.13.43:27020/appsmith"
+APPSMITH_REDIS_URL="redis://10.10.13.43:63790"
+
+商业版使用
+123@qq.com
+123456
+
+官方文档
+docsify serve docs
+
+mysql实例（3.7.6）：
+8f5b749b5a22.c.methodot.com:30542
+
+docker配置
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "10GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "features": {
+    "buildkit": false
+  },
+  "insecure-registries": [
+    "registry.local",
+    "127.0.0.1:5001",
+    "10.10.11.21:5000",
+    "harbor.cloud2go.cn",
+    "registry-scu.cloudtogo.cn",
+    "docker-registry-idc01-sz.cloudtogo.cn",
+    "10.10.12.184:5000",
+    "harbor.dev2.staros.local",
+    "harbor.dev3.staros.local"
+  ],
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
+}
+

@@ -1,0 +1,21 @@
+build之前记得去rts文件夹yarn+build一下
+
+docker build -t pageplug-ce:v1.9.19 .
+
+如果Docker Hub 用户名是 zhaisifeng ,你要上传的镜像仓库名是 pageplug-ce，标签是 v1.9.19，则上传镜像的命令如下：
+docker tag pageplug-ce:v1.9.19 zhaisifeng/pageplug-ce:v1.9.19
+docker push zhaisifeng/pageplug-ce:v1.9.19
+
+push之前先login
+docker login -u admin -p Harbor12345 harbor.cloud2go.cn
+
+上传完成后，其他人就可以通过以下命令拉取你的镜像：
+docker pull zhaisifeng/pageplug-ce:v1.9.19
+
+然后使用这个镜像来创建新的容器实例：
+docker run -d zhaisifeng/pageplug-ce:v1.9.19
+
+也可以将镜像搞成tar包：
+docker save -o pageplug-ce-v1.9.19.tar pageplug-ce:v1.9.19
+然后别人想使用：
+docker load -i pageplug-ce-v1.9.19.tar
