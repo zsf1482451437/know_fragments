@@ -53,26 +53,77 @@ pp应用导入失败；
 hint提示替换；√
 切换文章自动到顶；√
 文件格式；√
-跳转格式：
-视频格式；
-图注格式；
-表格图片；
-滚动条部分样式bug；
+树形下拉菜单绑定数据案例；√
+拉取pro20镜像；√
+修改github gitee上logo；√
+
+8.7-8.11
+docusaurus官网文档迁移；
+顶部内容替换；√
+侧边栏内容替换；√
+侧边栏分组；√
+链接跳转名字替换；√
+处理视频和链接；√
+bug：
+案例演示/初阶学习/01-10分钟搭建一个用户系统的改查页面：
+react-dom.development.js:13231 Uncaught Error: Objects are not valid as a React child (found: object with keys {}). If you meant to render a collection of children, use an array instead.；√
+故障排除/组件错误：
+action is not define；√
+学习文档/部署安装/源码本地化部署-windows版：
+Cannot read properties of undefined (reading 'length')；√
+footer配置；√
+他人编辑配置；x
+hint部分内容调整；√
+hint部分背景跟随全局变化；√
+补充hosts；√
+
+8.14-8.18
+文档样式修改，部署到服务器；√
+nginx定义和使用后端地址；√
+禁用复制；x
+默认选中值；√
+接受函数返回数据；√
+标签；√
+校验；x
+属性；√
+样式；√
+
+8.21-8.25
+官网文档nginx配置；√
+官网文档的全文搜索；√
+搜索bug；√
+属性-动画；？
+事件；
+智能提示；
+语法高亮；√
+bug：
+1.WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；
+2.path:key must be unique. Duplicate values found
+3.拖动组件状态重置
+4.[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted.
+
+bug：
+2.配置单点登录之后登录页不出现单点登录按钮；
+3.树形菜单发布之后下拉没数据；
+
+gitlab搭建ci/cd;
+将二进制或可执行文件添加到环境变量中；
+nginx配置理解；
+官方文档变量数据替换；
+部署个人网站到github；
+单点登录理解；
+点击保存并重启服务之后发生了什么；
 
 
-
+log代码片段；
+本地警告过多？修改热更新速度慢？
+上传文件案例；
 
 pp注册流程；
-字体；
-
-
 使用内置mongoDB；
-切换文章自动到顶部；
-搜索框动画；
 使用本地nginx教程；
 官方文档有部分图片需要使用汉化图片；
 错误页面汉化；
-树形组件ui修改；
 iframe嵌入pp应用的跨域问题；
 安装本地Redis；
 

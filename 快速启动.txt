@@ -16,37 +16,21 @@ APPSMITH_REDIS_URL="redis://10.10.13.43:63790"
 123@qq.com
 123456
 
-官方文档
-docsify serve docs
+appsmith商业版许可证
+CD620E-4F2F75-F295B6-60D42F-A4160A-V3
+
 
 mysql实例（3.7.6）：
 8f5b749b5a22.c.methodot.com:30542
 
-docker配置
-{
-  "builder": {
-    "gc": {
-      "defaultKeepStorage": "10GB",
-      "enabled": true
-    }
-  },
-  "experimental": false,
-  "features": {
-    "buildkit": false
-  },
-  "insecure-registries": [
-    "registry.local",
-    "127.0.0.1:5001",
-    "10.10.11.21:5000",
-    "harbor.cloud2go.cn",
-    "registry-scu.cloudtogo.cn",
-    "docker-registry-idc01-sz.cloudtogo.cn",
-    "10.10.12.184:5000",
-    "harbor.dev2.staros.local",
-    "harbor.dev3.staros.local"
-  ],
-  "registry-mirrors": [
-    "https://docker.mirrors.ustc.edu.cn"
-  ]
-}
+
+构建镜像，登录，推
+docker build -t harbor.cloud2go.cn/pageplug/docus:时间戳 .
+echo "Harbor12345" | docker login -u admin --password-stdin harbor.cloud2go.cn
+docker push harbor.cloud2go.cn/pageplug/docus:时间戳
+
+远程服务器拉取、运行（部署）
+docker pull harbor.cloud2go.cn/pageplug/docus:20230817172217
+docker run -p 716:443 --name pageplug-docus -d harbor.cloud2go.cn/pageplug/docus:20230817172217
+
 

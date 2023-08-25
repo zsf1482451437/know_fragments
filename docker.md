@@ -301,7 +301,7 @@ docker build -t harbor.cloud2go.cn/pageplug/pageplug-ce:v1.9.20 .
 在终端中使用 `docker login` 命令登录到 Docker Hub，输入你的用户名和密码（最后的域名换成Docker Hub就行）。
 
 ```bash
-docker login -u admin -p Harbor12345 harbor.cloud2go.cn
+echo "Harbor12345" | docker login -u admin --password-stdin harbor.cloud2go.cn
 ```
 
 - `docker login`: 登录 Docker Registry 的命令。
@@ -309,16 +309,22 @@ docker login -u admin -p Harbor12345 harbor.cloud2go.cn
 - `-p Harbor12345`: 指定登录密码，这里是 `Harbor12345`。
 - `harbor.cloud2go.cn`: 指定 Docker Registry 的地址。
 
-使用 `docker tag` 命令给本地的镜像打上标签，格式为 `<username>/<repository>:<tag>`（如果构建镜像时就起好名就不用tag啦）
+使用 `docker tag` 命令给本地的镜像打上标签，格式为 `<Docker Registry 的地址>/<repository>:<tag>`（如果构建镜像时就起好名就不用tag啦）
+
+**格式**
+
+```
+docker tag <image-name>:<tag> <repository-name>:<tag>
+```
 
 ```bash
-docker tag pageplug-ce:v1.9.19 zhaisifeng/pageplug-ce:v1.9.19
+docker tag pageplug-ce:v1.9.19 pageplug-ce:v1.9.19
 ```
 
 如果Docker Hub 用户名是 zhaisifeng ,你要上传的镜像仓库名是 pageplug-ce，标签是 v1.9.19，则上传镜像的命令如下：
 
 ```bash
-docker push zhaisifeng/pageplug-ce:v1.9.19
+docker push pageplug-ce:v1.9.19
 ```
 
 ### 拉取
@@ -326,7 +332,7 @@ docker push zhaisifeng/pageplug-ce:v1.9.19
 上传完成后，其他人就可以通过以下命令拉取你的镜像：
 
 ```bash
-docker pull zhaisifeng/pageplug-ce:v1.9.19
+docker pull pageplug-ce:v1.9.19
 ```
 
 ## tar
@@ -353,3 +359,24 @@ docker load -i pageplug-ce-v1.9.19.tar
 docker run -d zhaisifeng/pageplug-ce:v1.9.19
 ```
 
+# 部署
+
+拉取完镜像之后，
+
+在**本地**或者**远程服务器**上
+
+```
+docker run -p 7777:80 --name pp-docus -d pageplug/docus:20230804201859
+```
+
+- `docker run`: 运行一个容器。
+- `-p 7777:80`: 进行端口映射，将容器内部的端口 80 映射到主机上的端口 7777。这样，当你访问主机的 7777 端口时，流量将被转发到容器的端口 80。
+- `--name pp-docus`: 为容器指定一个名称，本例中为 "pp-docus"。
+- `-d`: 以后台（守护进程）模式运行容器。
+- `pageplug/docus:20230804201859`: 要运行的镜像的名称和标签。在本例中，镜像名称为 "pageplug/docus"，标签为 "20230804201859"。
+
+```
+docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev
+```
+
+当在本地找不到该镜像，他会去quay.io/keycloak/keycloak拉取并run
