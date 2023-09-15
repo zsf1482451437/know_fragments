@@ -26,7 +26,7 @@ mysql实例（3.7.6）：
 
 构建镜像，登录，推
 docker build -t harbor.cloud2go.cn/pageplug/docus:时间戳 .
-echo "Harbor12345" | docker login -u admin --password-stdin harbor.cloud2go.cn
+echo "xxx" | docker login -u admin --password-stdin harbor.cloud2go.cn
 docker push harbor.cloud2go.cn/pageplug/docus:时间戳
 
 远程服务器拉取、运行（部署）
