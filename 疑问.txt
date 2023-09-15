@@ -51,7 +51,6 @@ pageplug相关
 4.14.pp的表单查询业务（√）
 5.组件是如何渲染在画布上的？
 6.导出应用的json再导入时是如何生成应用的？
-7.配置面板的属性是怎么传递给组件的？
 8.React.createRef()？
 9.useImperativeHandle()?
 10.什么情况下父组件传给子组件的props会为空？

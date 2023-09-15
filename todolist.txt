@@ -92,27 +92,58 @@ nginx定义和使用后端地址；√
 官网文档nginx配置；√
 官网文档的全文搜索；√
 搜索bug；√
-属性-动画；？
-事件；
-智能提示；
+智能提示；√
 语法高亮；√
+
+8.28-9.1
+事件；√
+属性-动画；？
+
+2.path:key must be unique. Duplicate values found；√
+3.拖动组件状态重置；√
+点击保存并重启服务之后发生了什么；√
+
+
+
+9.4-9.8
+微信单点登录；√
+-weChatEnable；x
+-绑定按钮置灰条件；√
+
+9.10-9.14
+待替换：
+-微信登录了解更多url；√
+bug：
+微信扫码登录；√
+树形属性获取；√
+树形使用主题色；√
+树形高度固定；wait
+默认值更改驱动视图；x
+
+微信登录配置文章（借鉴appsmith）；
+appsmith本地运行；
+
+表格组件分页bug；
+官网文档移动端适配-底部背景；
+pp权限管理理解流程；
+拉取appsmith镜像；
+
+set与cross-env工具区别；
+警告过多；
+json表单bug；
+单元测试；
 bug：
 1.WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；
-2.path:key must be unique. Duplicate values found
-3.拖动组件状态重置
-4.[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted.
+4.[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted；
 
-bug：
-2.配置单点登录之后登录页不出现单点登录按钮；
-3.树形菜单发布之后下拉没数据；
+
 
 gitlab搭建ci/cd;
 将二进制或可执行文件添加到环境变量中；
 nginx配置理解；
-官方文档变量数据替换；
 部署个人网站到github；
 单点登录理解；
-点击保存并重启服务之后发生了什么；
+验证码登录流程；
 
 
 log代码片段；

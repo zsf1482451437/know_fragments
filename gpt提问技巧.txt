@@ -1,0 +1,36 @@
+正则表达式：
+正则表达式：大于0的正整数
+
+评审代码：
+Review code and explain in Chinese
+
+检查代码出错原因：
+Check the cause of the code error and explain in Chinese
+
+重构/优化代码：
+refactor the code
+
+重构代码，以 vimdiff 格式展示更改的内容，并解释更改的内容
+Refactor the code to present the changes in vimdiff format and explain the changes in Chinese
+
+生成接口文档：
+Generate markdown API Chinese documentation
+
+测试：
+添加单元测试
+Adding unit tests
+
+生成 Mock 数据
+Generate data in json format
+例子：
+Generate data in json format
+
+interface AComponent {
+        id: string;
+        name: string;
+        bComponent: BComponent;
+}
+interface BComponent {
+        id: string;
+        name: string;
+}
