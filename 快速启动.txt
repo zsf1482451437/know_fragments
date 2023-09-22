@@ -23,6 +23,11 @@ CD620E-4F2F75-F295B6-60D42F-A4160A-V3
 mysql实例（3.7.6）：
 8f5b749b5a22.c.methodot.com:30542
 
+@jh测试前需要：
+打包、发布镜像；
+研发团队-功能设计中 编写提测说明；
+产品计划 - 2023 - 提测文档中 编写记录；
+
 
 构建镜像，登录，推
 docker build -t harbor.cloud2go.cn/pageplug/docus:时间戳 .
@@ -32,6 +37,7 @@ docker push harbor.cloud2go.cn/pageplug/docus:时间戳
 远程服务器拉取、运行（部署）
 docker pull harbor.cloud2go.cn/pageplug/docus:20230817172217
 docker run -p 716:443 --name pageplug-docus -d harbor.cloud2go.cn/pageplug/docus:20230817172217
+docker run -p 80:80 -p 443:443 --name pageplug-docus -d docker-registry-idc01-sz.cloudtogo.cn/pageplug/docus:20230922162340
 docker run -p 8161:443 -p 8160:80 --name pageplug-ee_v1.9.20 -d -e PAGEPLUG_LICENSE_KEY=ZL4Sj6iBx9FzXHbiEmW4IAqEpLsKmAcLrDDOhGETPgepGK1cQodTFqKdm4aKXGi3yQvCVLD2RO+xTE7+Ugn7JrHhuJqc1XJR47KJgDO/uCO3ZMbQRl3ScMpYtuCHLOydj/jFPL/3hRyYK1TayejsfW0enxapdDUUN0WjdI5+av/BgCgSDX9TWqOR6iQtIj/yGcnXkUxPemRomeNIMBDnczNb0mmoOepPNs8lzgrxQSqiP8aPL8bJDlUrBBPQR08+vK7iZLDiymswKhuARzXMVOm7R+e3Rr4wP/kQPqHgKwtLI2kQGMDE2wasPd2vidZR+Gn64z12RUKgicxx/1fs1w== harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.20_2023911192324 
 
 
