@@ -137,27 +137,84 @@ appsmith本地运行；√
 更新文章爬虫数据；√
 归档官方爬虫数据；√
 归档oidc单点登录过程；√
+oidc单点登录测试例子；√
+
+10.7-10.13
+合并代码；√
+docker登录错误；√
+拉取appsmith-ce35镜像；√
+运行appsmith-ce35源码；√
+
+修改ce合并后的问题：
+编辑或创建应用长时间等待，工作区空白；√
+工作区-底部连接git有两份；√
+工作区-树形组件没有；x
+首页-左下角信息隐藏；x
+登录页-修改没更新；x
+工作区-添加数据源 只有几种数据源；√
+工作区-组件拖进画布没渲染出来；√
+访问应用页面空白；√
+部分需要汉化；√
+工作区-点击添加查询/JS效果不对；√
+.eslintrc.js报错；x
+表格组件无渲染；√
+表格连接数据按钮失效；√
+表格组件配置项混乱；√
+工作区头部全局搜索消失；√
+
+10.16-10.20
+
+35镜像；√
+欢迎页-下拉框问题；√
+首页-邀请-嵌入报错；√
+开发区-组件错误提示-点击报错；√
+开发区-应用菜单-导入导出逻辑混淆；√
+开发区-关闭侧边栏效果不对；x
+开发区-组件-文本组件-默认值修改；√
+部分按钮的hover色；√
+首页-导入应用-重连数据源-测试-提示信息位置异常；x
+开发区-下拉单选-属性配置-报错；√
+开发区-下拉多选-属性配置-报错；√
+开发区-组件-formily、echart组件缺失；√
+部分按钮onclick色；√
+开发区-部分下拉菜单没有箭头图标；
+开发区-属性配置-位置-选项自动文本显示有误；
+开发区-组件-修改分类；
+测试git连接流程；
+登录页-ce改版；
+
+理解梯子的原理；
+下拉单选、多选报错；
+
+错误页无图像；
+ast/src/peekOverlay/index.ts 32:0 处报错
+1-react-dom.development.js:67 Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?警告
+2-react-dom.development.js:67 Warning: styled.input contains an input of type text with both value and defaultValue props. Input elements must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props.（input）
+3-react-dom.development.js:67 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.（Canvas）
+4-首页-点击分享：Warning: `value` in Select options should not be `null`. （WorkspaceInviteUsersForm ）
+5-开发区-点击应用设置：Warning: Received `true` for a non-boolean attribute `fill`.
+If you want to write it to the DOM, pass a string instead: fill="true" or fill={value.toString()}.（GeneralSettings ）
+6-开发区-删除input组件：Warning: React does not recognize the `isMultiLine` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `ismultiline` instead. If you accidentally passed it from a parent component, remove it from the DOM element.（ControlGroup ）
+
+
+
+
+
+
+
+
 理解全局对象global和storeValue；
-体验自定义组件；
-
-
-本地运行bug：
-oidc单点登录-配置完使用单点登录后，再使用管理员123那个账号密码登录不行了，且需要修改界面报错提示
-
-
-
-
-oidc单点登录测试例子；
+理解echart组件配置修改后，界面刷新的原理；
 pp权限管理理解流程；
-拉取appsmith镜像；
-
+体验自定义组件；
 set与cross-env工具区别；
 警告过多；
-json表单bug；
 单元测试；
 bug：
 1.WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；
 4.[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted；
+5.首次进入pp页面提示错误，手动刷新才能进入注册页（路由：/welcome）
+
 
 
 
@@ -165,14 +222,8 @@ gitlab搭建ci/cd;
 将二进制或可执行文件添加到环境变量中；
 nginx配置理解；
 部署个人网站到github；
-单点登录理解；
 验证码登录流程；
-
-
-log代码片段；
-本地警告过多？修改热更新速度慢？
 上传文件案例；
-
 pp注册流程；
 使用内置mongoDB；
 使用本地nginx教程；
