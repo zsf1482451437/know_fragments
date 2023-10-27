@@ -1997,15 +1997,27 @@ function* root() {
 
 # 疑问
 
-## **1.如何更新管理员配置的？**
+|      功能      |                      起点                      |                        历经组件/函数                         |                         过程其他函数                         |
+| :------------: | :--------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| 更新管理员配置 | app\client\src\pages\Settings\SettingsForm.tsx | SettingsForm.tsx（点击、必填字段校验、判断env或tenant设置dispatch不同action）<br />SaveAdminSettings.tsx<br />saveSettings()/updateTenantConfig()（action）<br />createReducer()、SaveAdminSettingsSaga()/updateTenantConfigSaga()（settingReducer、saga）<br />SaveAdminSettingsSaga()（请求、请求成功/失败reducer、获得当前tenant配置、获取管理员设置成功的reducer？、重启reducer、saga）<br />RestartServerPoll()（重启请求、RestryRestartServerPoll？）/updateTenantConfigSaga()（更新租户设置请求、更新成功/失败reducer、刷新路由） | onSave（点击）、checkMandatoryFileds（必填字段校验）、UserApi.saveAdminSettings（保存管理员设置请求）、getCurrentTenant（获得当前tenant配置）、UserApi.restartServer（重启请求）、TenantApi.updateTenantConfig（更新租户设置请求） |
+|                |                                                |                                                              |                                                              |
+|                |                                                |                                                              |                                                              |
+
+
+
+## **1.更新管理员配置？**
 
 1. 点击**保存&重启**按钮
-2. **saveAdminSettings**组件的**props**传递点击事件的处理函数
-3. **SettingsForm**组件使用saveAdminSettings组件，并绑定对于处理函数
-4. 根据不同情况，dispatch **saveSettings**或**updateTenantConfig**的action
-5. 根据ReduxActionTypes.SAVE_ADMIN_SETTINGS**类型**调用**reducer**，同时调用**InitSuperUserSaga**，接着调用**SaveAdminSettingsSaga**,接着调用**UserApi.saveAdminSettings**发起请求(请求参数是props.settings,是有修改的字段)
-6. 使用createReducer划分为**settingReducer**模块，汇总到reducerObject
-7. 使用**combine**处理**reducerObject**，返回为**appReducer**，然后再使用**createStore**处理appReducer
+
+2. **SettingsForm**组件使用**saveAdminSettings**组件，传递点击事件；
+
+3. 必填字段校验，判断env或tenant设置，dispatch **saveSettings**或**updateTenantConfig**的action
+
+4. 根据ReduxActionTypes.SAVE_ADMIN_SETTINGS**类型**调用**reducer**，调用**SaveAdminSettingsSaga**,接着调用**UserApi.saveAdminSettings**发起请求(请求参数是props.settings,是有修改的字段)；
+
+5. 或者根据ReduxActionTypes.UPDATE_TENANT_CONFIG**类型**调用**reducer**，调用**updateTenantConfigSaga()**,接着调用**TenantApi.updateTenantConfig**发起请求(请求参数是props.settings,是有修改的字段)；
+
+   
 
 **SettingsForm.tsx**
 
@@ -2210,6 +2222,8 @@ ConfigFactory.register(BrandingConfig);
 
 ## 4.组件拖到画布后，是如何渲染出来的？
 
+## 5.工作区的配置栏如何渲染出来的
+
 # 路由
 
 | 路由                                                         | 页面                        | 入口                                           | 区域                                                         |
@@ -2389,5 +2403,13 @@ export const requiresUnauth = (Component: React.ComponentType) => {
 
 # 改动区
 
-## widget
+欢迎页-去掉图片；
+
+登录页-UI、其他方式登录；
+
+首页-屏蔽部分入口；
+
+开发区-组件分类
+
+
 

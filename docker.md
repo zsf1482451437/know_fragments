@@ -381,6 +381,12 @@ docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
 
 当在本地找不到该镜像，他会去quay.io/keycloak/keycloak拉取并run
 
+# 小小疑惑
+
+## docker push速度？
+
+复现：一个600M出的镜像，从主机a（私有网段）push到主机b（公有网段）将近
+
 # 搭建基础镜像
 
 - 原本Dockerfile

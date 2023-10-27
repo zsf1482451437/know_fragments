@@ -177,14 +177,45 @@ docker登录错误；√
 开发区-下拉多选-属性配置-报错；√
 开发区-组件-formily、echart组件缺失；√
 部分按钮onclick色；√
-开发区-部分下拉菜单没有箭头图标；
-开发区-属性配置-位置-选项自动文本显示有误；
-开发区-组件-修改分类；
-测试git连接流程；
-登录页-ce改版；
+下拉单选、多选报错；√
+登录页-ce改版；√
 
+10.23-10.27
+首页-界面调整；√
+开发区-属性配置-位置-选项自动文本显示有误；√
+开发区-组件配置-默认关闭加载时显示动画；√
+字段翻译；√
+开发区-组件-可绑定变量不支持滚动；√
+开发区-list组件bug；√
+开发区-日期选择器bug；x
+欢迎页-图片去掉；√
+开发区-下拉多选组件bug；√
+开发区-部分下拉菜单没有箭头图标；√
+首页-管理员设置-百度地图和小程序入口；√
+登录页-账号输入框输入后的背景；x
+开发区-组件-修改分类；√
+开发区-发布后组件文本不支持复制；√
+开发区-组件-Formily属性提示消失；√
+登录页调整prd：部分logo，提示换弹窗，返回，按钮禁用置灰；√
+开发区-首次进右边弹窗翻译report a bug；√
+开发区-组件-搜索；√
+文案调整；√
+开发区-组件-配置-位置-宽度；√
+开发区-数据源-编写查询-滚动条；√
+开发区-组件-text组件-部分字体切换无效；√
+帮助文档-替换价格表；√
+
+
+
+欢迎页-翻译勾选框内容翻译；
+开发区-第一个应用没有侧边栏按钮；
+首页-新建应用组-重连数据源不生效；
+开发区-使用达梦数据源生成页面；
+商业版部分功能迁移到ce；
+
+测试git连接流程；
 理解梯子的原理；
-下拉单选、多选报错；
+
 
 错误页无图像；
 ast/src/peekOverlay/index.ts 32:0 处报错
@@ -195,10 +226,6 @@ ast/src/peekOverlay/index.ts 32:0 处报错
 5-开发区-点击应用设置：Warning: Received `true` for a non-boolean attribute `fill`.
 If you want to write it to the DOM, pass a string instead: fill="true" or fill={value.toString()}.（GeneralSettings ）
 6-开发区-删除input组件：Warning: React does not recognize the `isMultiLine` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `ismultiline` instead. If you accidentally passed it from a parent component, remove it from the DOM element.（ControlGroup ）
-
-
-
-
 
 
 
