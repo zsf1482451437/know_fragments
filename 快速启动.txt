@@ -28,9 +28,14 @@ mysql实例（3.7.6）：
 研发团队-功能设计中 编写提测说明；
 产品计划 - 2023 - 提测文档中 编写记录；
 
+测试账号：
+Github单点登录：
+9042e992eeed6ef72897
+d52d66e3401237674c24eefdb0744479888603de
+
 
 构建镜像，登录，推
-docker build -t harbor.cloud2go.cn/pageplug/docus:时间戳 .
+docker build -t harbor.cloud2go.cn/pageplug/pageplug:时间戳 .
 echo "xxx" | docker login -u admin --password-stdin harbor.cloud2go.cn
 docker push harbor.cloud2go.cn/pageplug/docus:时间戳
 

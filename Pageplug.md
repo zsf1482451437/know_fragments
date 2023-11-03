@@ -1972,6 +1972,1093 @@ function* root() {
 }
 ```
 
+## 导入应用（待复查）
+
+**流程：**
+1.应用组菜单；
+2.导入（传应用组id，打开上传json弹窗）；
+3.上传json弹窗（弹窗由应用组id控制显隐）；
+
+4.传入文件（上传完成时，关闭上传json弹窗，dispatch **importApplication**的action）；
+
+5.触发上传文件saga（调用**ApplicationApi.importApplicationToWorkspace**，成功响应后找出当前应用组，put **importApplicationSuccess**的action，如果是isPartialImport，则put **showReconnectDatasourceModal**的action，如果不是isPartialImport，则构建路由，路由跳转到默认页面）；
+
+6.触发**showReconnectDatasourcesModalSaga**（put getAllApplications、importApplicationSuccess、fetchPlugins、setUnconfiguredDatasourcesDuringImport、setWorkspaceIdForImport、setPageIdForImport、setIsReconnectingDatasourcesModalOpen 的action, 根据**isModalOpen**打开重连数据源弹窗）
+
+7.触发系列saga（**getAllApplicationSaga**、**fetchPluginsSaga**），触发系列reducer（importApplicationSuccess、setUnconfiguredDatasourcesDuringImport、setWorkspaceIdForImport、setPageIdForImport、setIsReconnectingDatasourcesModalOpen ）
+
+8.getAllApplicationSaga（调用**ApplicationApi.getAllApplication**， put FETCH_USER_APPLICATIONS_WORKSPACES_SUCCESS的action，根据isAirgappedInstance状态call fetchReleases）
+
+9.fetchPluginsSaga（调用**PluginsApi.fetchPlugins**，put FETCH_PLUGINS_SUCCESS的action）
+
+10.重连数据源弹窗打开，填写数据源信息后点击保存（dispatch toggleSaveActionFromPopupFlag的action）
+
+```tsx
+// 导入
+{enableImportExport &&
+    hasCreateNewApplicationPermission && (
+    <MenuItem
+        data-testid="t--workspace-import-app"
+        onSelect={() =>
+        setSelectedWorkspaceIdForImportApplication(
+            workspace.id,
+        )}
+        startIcon="download"
+        >
+        导入
+    </MenuItem>
+)}
+```
+
+```tsx
+// 上传json弹窗
+{selectedWorkspaceIdForImportApplication && (
+    <ImportApplicationModal
+        isModalOpen={
+            selectedWorkspaceIdForImportApplication === workspace.id
+        }
+        onClose={() => setSelectedWorkspaceIdForImportApplication("")}
+        workspaceId={selectedWorkspaceIdForImportApplication}
+        />
+)}
+```
+
+```tsx
+// 传入文件
+const FileUploader = useCallback(
+    async (file: File, setProgress: SetProgress) => {
+        if (!!file) {
+            setAppFileToBeUploaded({
+                file,
+                setProgress,
+            });
+            dispatch(
+                importApplication({
+                    appId: appId as string,
+                    workspaceId: workspaceId as string,
+                    applicationFile: file,
+                }),
+            );
+        } else {
+            setAppFileToBeUploaded(null);
+        }
+    },
+    [],
+);
+useEffect(() => {
+    // finished of importing application
+    if (appFileToBeUploaded && !importingApplication) {
+        setAppFileToBeUploaded(null);
+        onClose && onClose();
+        // should open "Add credential" modal
+    }
+}, [appFileToBeUploaded, importingApplication]);
+
+
+
+{!importingApplication && (
+    <Row>
+        <FileImportCard
+            className="t--import-json-card"
+            fillCardWidth={toApp}
+            >
+            <FilePickerV2
+                containerClickable
+                description={createMessage(IMPORT_APP_FROM_FILE_MESSAGE)}
+                fileType={FileType.JSON}
+                fileUploader={FileUploader}
+                iconFillColor={"var(--ads-v2-color-fg)"}
+                onFileRemoved={onRemoveFile}
+                title={createMessage(IMPORT_APP_FROM_FILE_TITLE)}
+                uploadIcon="file-line"
+                />
+        </FileImportCard>
+        {!toApp && <GitImportCard handler={onGitImport} />}
+    </Row>
+)}
+```
+
+```tsx
+// 触发上传文件saga
+export function* importApplicationSaga(
+action: ReduxAction<ImportApplicationRequest>,
+) {
+    try {
+        const response: ApiResponse = yield call(
+            ApplicationApi.importApplicationToWorkspace,
+            action.payload,
+        );
+        const isValidResponse: boolean = yield validateResponse(response);
+        if (isValidResponse) {
+            const allWorkspaces: Workspace[] = yield select(getCurrentWorkspace);
+            const currentWorkspace = allWorkspaces.filter(
+                (el: Workspace) => el.id === action.payload.workspaceId,
+            );
+            if (currentWorkspace.length > 0) {
+                const {
+                    // @ts-expect-error: response is of type unknown
+                    application: { pages },
+                    // @ts-expect-error: response is of type unknown
+                    isPartialImport,
+                } = response.data;
+
+                // @ts-expect-error: response is of type unknown
+                yield put(importApplicationSuccess(response.data?.application));
+
+                if (isPartialImport) {
+                    yield put(
+                        showReconnectDatasourceModal({
+                            // @ts-expect-error: response is of type unknown
+                            application: response.data?.application,
+                            unConfiguredDatasourceList:
+                            // @ts-expect-error: response is of type unknown
+                            response?.data.unConfiguredDatasourceList,
+                            workspaceId: action.payload.workspaceId,
+                        }),
+                    );
+                } else {
+                    // @ts-expect-error: pages is of type any
+                    // TODO: Update route params here
+                    const defaultPage = pages.filter((eachPage) => !!eachPage.isDefault);
+                    const pageURL = builderURL({
+                        pageId: defaultPage[0].id,
+                    });
+                    history.push(pageURL);
+                    const guidedTour: boolean = yield select(inGuidedTour);
+
+                    if (guidedTour) return;
+
+                    toast.show("应用导入成功！", {
+                        kind: "success",
+                    });
+                }
+            }
+        }
+    } catch (error) {
+        yield put({
+            type: ReduxActionErrorTypes.IMPORT_APPLICATION_ERROR,
+            payload: {
+                error,
+            },
+        });
+    }
+}
+
+export default function* applicationSagas() {
+  yield all([
+    ...
+    takeLatest(ReduxActionTypes.IMPORT_APPLICATION_INIT, importApplicationSaga),
+    ...
+  ]);
+}
+
+```
+
+```tsx
+// 触发显示重连数据源弹窗saga
+export function* showReconnectDatasourcesModalSaga(
+action: ReduxAction<{
+    application: ApplicationResponsePayload;
+    unConfiguredDatasourceList: Array<Datasource>;
+    workspaceId: string;
+    pageId?: string;
+}>,
+) {
+    const { application, pageId, unConfiguredDatasourceList, workspaceId } =
+          action.payload;
+    yield put(getAllApplications());
+    yield put(importApplicationSuccess(application));
+    yield put(fetchPlugins({ workspaceId }));
+
+    yield put(
+        setUnconfiguredDatasourcesDuringImport(unConfiguredDatasourceList || []),
+    );
+
+    yield put(setWorkspaceIdForImport(workspaceId));
+    yield put(setPageIdForImport(pageId));
+    yield put(setIsReconnectingDatasourcesModalOpen({ isOpen: true }));
+}
+
+export default function* applicationSagas() {
+  yield all([
+    ...
+    takeLatest(
+      ReduxActionTypes.SHOW_RECONNECT_DATASOURCE_MODAL,
+      showReconnectDatasourcesModalSaga,
+    ),
+    ...
+  ]);
+}
+
+```
+
+```tsx
+// 触发系列saga
+export function* getAllApplicationSaga() {
+  const isAirgappedInstance = isAirgapped();
+  try {
+    const response: FetchUsersApplicationsWorkspacesResponse = yield call(
+      ApplicationApi.getAllApplication,
+    );
+    const isValidResponse: boolean = yield validateResponse(response);
+    if (isValidResponse) {
+      const workspaceApplication: WorkspaceApplicationObject[] =
+        response.data.workspaceApplications.map(
+          (userWorkspaces: WorkspaceApplicationObject) => ({
+            workspace: userWorkspaces.workspace,
+            users: userWorkspaces.users,
+            applications: !userWorkspaces.applications
+              ? []
+              : userWorkspaces.applications.map(
+                  (application: ApplicationObject) => {
+                    return {
+                      ...application,
+                      defaultPageId: getDefaultPageId(application.pages),
+                    };
+                  },
+                ),
+          }),
+        );
+
+      yield put({
+        type: ReduxActionTypes.FETCH_USER_APPLICATIONS_WORKSPACES_SUCCESS,
+        payload: workspaceApplication,
+      });
+    }
+    if (!isAirgappedInstance) {
+      yield call(fetchReleases);
+    }
+  } catch (error) {
+    yield put({
+      type: ReduxActionErrorTypes.FETCH_USER_APPLICATIONS_WORKSPACES_ERROR,
+      payload: {
+        error,
+      },
+    });
+  }
+}
+```
+
+```tsx
+// getAllApplicationSaga
+export function* getAllApplicationSaga() {
+  const isAirgappedInstance = isAirgapped();
+  try {
+    const response: FetchUsersApplicationsWorkspacesResponse = yield call(
+      ApplicationApi.getAllApplication,
+    );
+    const isValidResponse: boolean = yield validateResponse(response);
+    if (isValidResponse) {
+      const workspaceApplication: WorkspaceApplicationObject[] =
+        response.data.workspaceApplications.map(
+          (userWorkspaces: WorkspaceApplicationObject) => ({
+            workspace: userWorkspaces.workspace,
+            users: userWorkspaces.users,
+            applications: !userWorkspaces.applications
+              ? []
+              : userWorkspaces.applications.map(
+                  (application: ApplicationObject) => {
+                    return {
+                      ...application,
+                      defaultPageId: getDefaultPageId(application.pages),
+                    };
+                  },
+                ),
+          }),
+        );
+
+      yield put({
+        type: ReduxActionTypes.FETCH_USER_APPLICATIONS_WORKSPACES_SUCCESS,
+        payload: workspaceApplication,
+      });
+    }
+    if (!isAirgappedInstance) {
+      yield call(fetchReleases);
+    }
+  } catch (error) {
+    yield put({
+      type: ReduxActionErrorTypes.FETCH_USER_APPLICATIONS_WORKSPACES_ERROR,
+      payload: {
+        error,
+      },
+    });
+  }
+}
+```
+
+```tsx
+// fetchPluginsSaga
+function* fetchPluginsSaga(
+  action: ReduxAction<{ workspaceId?: string } | undefined>,
+) {
+  try {
+    let workspaceId: string = yield select(getCurrentWorkspaceId);
+    if (action.payload?.workspaceId) workspaceId = action.payload?.workspaceId;
+
+    if (!workspaceId) {
+      throw Error("Workspace id does not exist");
+    }
+    const pluginsResponse: ApiResponse<Plugin[]> = yield call(
+      PluginsApi.fetchPlugins,
+      workspaceId,
+    );
+    const isValid: boolean = yield validateResponse(pluginsResponse);
+    if (isValid) {
+      yield put({
+        type: ReduxActionTypes.FETCH_PLUGINS_SUCCESS,
+        payload: pluginsResponse.data,
+      });
+    }
+  } catch (error) {
+    yield put({
+      type: ReduxActionErrorTypes.FETCH_PLUGINS_ERROR,
+      payload: { error },
+    });
+  }
+}
+```
+
+```tsx
+// 重连数据源弹窗打开，填写数据源信息后点击保存
+<div className="db-form-content-container">
+    {this.renderForm()}
+</div>
+
+renderForm() {
+    const {
+        datasource,
+        datasourceId,
+        formConfig,
+        formData,
+        formName,
+        isFormDirty,
+        isInsideReconnectModal,
+        isSaving,
+        location,
+        pageId,
+        pluginDatasourceForm,
+        pluginName,
+        pluginPackageName,
+        pluginType,
+        viewMode,
+    } = this.props;
+    console.log("123", 123);
+    console.log("formData", formData);
+
+    const shouldViewMode = viewMode && !isInsideReconnectModal;
+    // Check for specific form types first
+    if (
+        pluginDatasourceForm === DatasourceComponentTypes.RestAPIDatasourceForm &&
+        !shouldViewMode
+    ) {
+        return (
+            <>
+            <RestAPIDatasourceForm
+                applicationId={this.props.applicationId}
+                currentEnvironment={this.state.filterParams.id}
+                datasource={datasource}
+                datasourceId={datasourceId}
+                formData={formData}
+                formName={formName}
+                hiddenHeader={isInsideReconnectModal}
+                isFormDirty={isFormDirty}
+                isSaving={isSaving}
+                location={location}
+                pageId={pageId}
+                pluginName={pluginName}
+                pluginPackageName={pluginPackageName}
+                showFilterComponent={this.state.filterParams.showFilterPane}
+                />
+            {this.renderSaveDisacardModal()}
+    </>
+    );
+}
+
+// Default to DB Editor Form
+return (
+    <>
+    <DataSourceEditorForm
+        applicationId={this.props.applicationId}
+        currentEnvironment={this.getEnvironmentId()}
+        datasourceId={datasourceId}
+        formConfig={formConfig}
+        formData={formData}
+        formName={DATASOURCE_DB_FORM}
+        hiddenHeader={isInsideReconnectModal}
+        isSaving={isSaving}
+        pageId={pageId}
+        pluginType={pluginType}
+        setupConfig={this.setupConfig}
+        showFilterComponent={this.state.filterParams.showFilterPane}
+        viewMode={viewMode && !isInsideReconnectModal}
+        />
+    {this.renderSaveDisacardModal()}
+    </>
+);
+}
+
+renderSaveDisacardModal() {
+    return (
+        <SaveOrDiscardDatasourceModal
+            datasourceId={this.props.datasourceId}
+            datasourcePermissions={this.props.datasource?.userPermissions || []}
+            isOpen={this.state.showDialog}
+            onClose={this.closeDialog}
+            onDiscard={this.onDiscard}
+            onSave={this.onSave}
+            saveButtonText={createMessage(SAVE_BUTTON_TEXT)}
+            />
+    );
+}
+
+onSave() {
+    this.props.toggleSaveActionFromPopupFlag(true);
+}
+
+
+
+const mapDispatchToProps = (
+    dispatch: any,
+    ownProps: any,
+): DatasourcePaneFunctions => ({
+    ...
+    toggleSaveActionFromPopupFlag: (flag) =>
+    dispatch(toggleSaveActionFromPopupFlag(flag)),
+    ...
+});
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    )(DatasourceEditorRouter);
+```
+
+
+
+## 身份认证配置（待继续）
+
+1.首页-管理员设置；
+
+2.**Categories**组件渲染所有配置菜单（点击对应菜单，**adminSettingsCategoryUrl**根据每项的slug动态构建路由，然后进行跳转）；
+
+3.**Main**组件根据subCategory或category渲染右侧内容（如果wrapperCategory中组件有值，则渲染该组件**AuthMain**，）；
+
+4.渲染**AdminConfig**的内容（不同的菜单项有不同的配置）；
+
+5.**authentication**菜单的配置；
+
+6.**AuthPage**组件根据不同authMethods渲染不同鉴权方式入口；
+
+7.点击入口（入口按钮文本根据 isConnected 和 isFeatureEnabled 切换, **adminSettingsCategoryUrl**根据category动态构建路由并进行跳转，此时路由发生变化，）；
+
+8.详细的配置信息修改；
+
+9.保存；
+
+### 2
+
+```tsx
+// Categories组件渲染所有配置菜单
+<CategoryList className="t--settings-category-list">
+    {categories?.map((config) => {
+        const active =
+              !!currentSubCategory && showSubCategory
+        ? currentSubCategory == config.slug
+        : currentCategory == config.slug;
+        return (
+            <CategoryItem key={config.slug}>
+                <StyledLink
+                    $active={active}
+                    className={`t--settings-category-${config.slug} ${
+                    active ? "active" : ""
+                              }`}
+                    onClick={() =>
+            onClickHandler(config.slug, config?.needsUpgrade || false)
+                            }
+                    to={
+                        !parentCategory
+                            ? adminSettingsCategoryUrl({ category: config.slug })
+                        : adminSettingsCategoryUrl({
+                            category: parentCategory.slug,
+                            selected: config.slug,
+                        })
+                    }
+                    >
+                    {config?.needsUpgrade ? (
+                        <Icon name="lock-2-line" />
+                    ) : (
+                        config?.icon && <Icon name={config?.icon} size="md" />
+                    )}
+                    <SettingName active={active}>{config.title}</SettingName>
+                    {config?.needsUpgrade &&
+                        (config?.isEnterprise ? <EnterpriseTag /> : <BusinessTag />)}
+                </StyledLink>
+                {showSubCategory && (
+                    <Categories
+                        categories={config.children}
+                        currentCategory={currentCategory}
+                        currentSubCategory={currentSubCategory}
+                        parentCategory={config}
+                        />
+                )}
+            </CategoryItem>
+        );
+    })}
+</CategoryList>
+```
+
+```ts
+export function adminSettingsCategoryUrl({
+  category,
+  selected,
+}: {
+  category: string;
+  selected?: string;
+}) {
+  return `${ADMIN_SETTINGS_PATH}/${category}${selected ? "/" + selected : ""}`;
+}
+```
+
+### 3
+
+```tsx
+// Main组件根据subCategory或category渲染右侧内容；
+const Main = () => {
+  const params = useParams() as any;
+  const { category, selected: subCategory } = params;
+  const user = useSelector(getCurrentUser);
+  const tenantPermissions = useSelector(getTenantPermissions);
+  const isSuperUser = user?.isSuperUser || false;
+  const wrapperCategory =
+    AdminConfig.wrapperCategories[subCategory ?? category];
+
+  if (!!wrapperCategory?.component) {
+    const { component: WrapperCategoryComponent } = wrapperCategory;
+    return <WrapperCategoryComponent category={wrapperCategory} />;
+  } else if (
+    !Object.values(SettingCategories).includes(category) ||
+    (subCategory && !Object.values(SettingCategories).includes(subCategory))
+  ) {
+    return (
+      <Redirect
+        to={getDefaultAdminSettingsPath({ isSuperUser, tenantPermissions })}
+      />
+    );
+  } else {
+    return <SettingsForm />;
+  }
+};
+```
+
+### 4
+
+```tsx
+// 渲染AdminConfig的内容
+import { ConfigFactory } from "pages/Settings/config/ConfigFactory";
+
+import { config as GeneralConfig } from "@appsmith/pages/AdminSettings/config/general";
+import { config as EmailConfig } from "pages/Settings/config/email";
+import { config as MiniConfig } from "pages/Settings/config/mini";
+import { config as MapsConfig } from "pages/Settings/config/googleMaps";
+import { config as BaiduMapsConfig } from "pages/Settings/config/baiduMaps";
+import { config as VersionConfig } from "pages/Settings/config/version";
+import { config as AdvancedConfig } from "pages/Settings/config/advanced";
+import { config as Authentication } from "@appsmith/pages/AdminSettings/config/authentication";
+import { config as BrandingConfig } from "@appsmith/pages/AdminSettings/config/branding";
+import { config as ProvisioningConfig } from "@appsmith/pages/AdminSettings/config/provisioning";
+import { config as UserListing } from "@appsmith/pages/AdminSettings/config//userlisting";
+import { config as AuditLogsConfig } from "@appsmith/pages/AdminSettings/config/auditLogsConfig";
+
+ConfigFactory.register(GeneralConfig);
+ConfigFactory.register(EmailConfig);
+ConfigFactory.register(MiniConfig);
+ConfigFactory.register(MapsConfig);
+ConfigFactory.register(BaiduMapsConfig);
+ConfigFactory.register(Authentication);
+ConfigFactory.register(AdvancedConfig);
+ConfigFactory.register(VersionConfig);
+ConfigFactory.register(BrandingConfig);
+ConfigFactory.register(ProvisioningConfig);
+ConfigFactory.register(UserListing);
+ConfigFactory.register(AuditLogsConfig);
+
+export default ConfigFactory;
+```
+
+### 5
+
+```tsx
+// authentication菜单的配置
+import React from "react";
+import {
+  GITHUB_SIGNUP_SETUP_DOC,
+  GOOGLE_SIGNUP_SETUP_DOC,
+  SIGNUP_RESTRICTION_DOC,
+  WX_SIGNUP_SETUP_DOC,
+} from "constants/ThirdPartyConstants";
+import type { AdminConfigType } from "@appsmith/pages/AdminSettings/config/types";
+import {
+  CategoryType,
+  SettingCategories,
+  SettingSubCategories,
+  SettingSubtype,
+  SettingTypes,
+} from "@appsmith/pages/AdminSettings/config/types";
+import type { AuthMethodType } from "./AuthPage";
+import { AuthPage } from "./AuthPage";
+import Google from "assets/images/Google.png";
+import SamlSso from "assets/images/saml.svg";
+import OIDC from "assets/images/oidc.svg";
+import Github from "assets/images/Github.png";
+import Lock from "assets/images/lock-password-line.svg";
+import { useSelector } from "react-redux";
+import {
+  getThirdPartyAuths,
+  getIsFormLoginEnabled,
+} from "@appsmith/selectors/tenantSelectors";
+import {
+  FORM_LOGIN_DESC,
+  GITHUB_AUTH_DESC,
+  GOOGLE_AUTH_DESC,
+  OIDC_AUTH_DESC,
+  SAML_AUTH_DESC,
+  createMessage,
+} from "@appsmith/constants/messages";
+import { isSAMLEnabled, isOIDCEnabled } from "@appsmith/utils/planHelpers";
+import { selectFeatureFlags } from "@appsmith/selectors/featureFlagsSelectors";
+import store from "store";
+import WeChat from "assets/images/WeChat.svg";
+import { getAppsmithConfigs } from "@appsmith/configs";
+import { getWXLoginClientId } from "ce/selectors/settingsSelectors";
+
+const { enableWeChatOAuth } = getAppsmithConfigs();
+const featureFlags = selectFeatureFlags(store.getState());
+
+const FormAuth: AdminConfigType = {
+  type: SettingCategories.FORM_AUTH,
+  categoryType: CategoryType.GENERAL,
+  controlType: SettingTypes.GROUP,
+  title: "账号密码登录",
+  subText: createMessage(FORM_LOGIN_DESC),
+  canSave: true,
+  isConnected: false,
+  settings: [
+    {
+      id: "APPSMITH_FORM_LOGIN_DISABLED",
+      category: SettingCategories.FORM_AUTH,
+      controlType: SettingTypes.TOGGLE,
+      label: "登录",
+      toggleText: (value: boolean) => (value ? "关闭" : "开启"),
+    },
+    {
+      id: "APPSMITH_SIGNUP_DISABLED",
+      category: SettingCategories.FORM_AUTH,
+      controlType: SettingTypes.TOGGLE,
+      label: "注册",
+      toggleText: (value: boolean) =>
+        value ? "只允许邀请用户注册" : "允许任何用户注册",
+    },
+    {
+      id: "APPSMITH_FORM_CALLOUT_BANNER",
+      category: SettingCategories.FORM_AUTH,
+      controlType: SettingTypes.LINK,
+      label: "账号密码登录不会校验邮箱是否有效",
+      url: SIGNUP_RESTRICTION_DOC,
+      calloutType: "warning",
+    },
+  ],
+};
+
+const GoogleAuth: AdminConfigType = {
+  type: SettingCategories.GOOGLE_AUTH,
+  categoryType: CategoryType.GENERAL,
+  controlType: SettingTypes.GROUP,
+  title: "Google 登录",
+  subText: createMessage(GOOGLE_AUTH_DESC),
+  canSave: true,
+  settings: [
+    {
+      id: "APPSMITH_OAUTH2_GOOGLE_READ_MORE",
+      category: SettingCategories.GOOGLE_AUTH,
+      controlType: SettingTypes.LINK,
+      label: "如何配置？",
+      url: GOOGLE_SIGNUP_SETUP_DOC,
+    },
+    {
+      id: "APPSMITH_OAUTH2_GOOGLE_JS_ORIGIN_URL",
+      category: SettingCategories.GOOGLE_AUTH,
+      controlType: SettingTypes.UNEDITABLEFIELD,
+      label: "JavaScript origin URL",
+      fieldName: "js-origin-url-form",
+      value: "",
+      tooltip:
+        "This URL will be used while configuring the Google OAuth Client ID's authorized JavaScript origins",
+      helpText: "Paste this URL in your Google developer console.",
+    },
+    {
+      id: "APPSMITH_OAUTH2_GOOGLE_REDIRECT_URL",
+      category: SettingCategories.GOOGLE_AUTH,
+      controlType: SettingTypes.UNEDITABLEFIELD,
+      label: "Redirect URL",
+      fieldName: "redirect-url-form",
+      value: "/login/oauth2/code/google",
+      tooltip:
+        "This URL will be used while configuring the Google OAuth Client ID's authorized redirect URIs",
+      helpText: "Paste this URL in your Google developer console.",
+    },
+    {
+      id: "APPSMITH_OAUTH2_GOOGLE_CLIENT_ID",
+      category: SettingCategories.GOOGLE_AUTH,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "Client ID",
+      isRequired: true,
+    },
+    {
+      id: "APPSMITH_OAUTH2_GOOGLE_CLIENT_SECRET",
+      category: SettingCategories.GOOGLE_AUTH,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "Client secret",
+      isRequired: true,
+    },
+    {
+      id: "APPSMITH_SIGNUP_ALLOWED_DOMAINS",
+      category: SettingCategories.GOOGLE_AUTH,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "允许域名",
+      placeholder: "domain1.com, domain2.com",
+    },
+  ],
+};
+
+const GithubAuth: AdminConfigType = {
+  type: SettingCategories.GITHUB_AUTH,
+  categoryType: CategoryType.GENERAL,
+  controlType: SettingTypes.GROUP,
+  title: "Github 登录",
+  subText: createMessage(GITHUB_AUTH_DESC),
+  canSave: true,
+  settings: [
+    {
+      id: "APPSMITH_OAUTH2_GITHUB_READ_MORE",
+      category: SettingCategories.GITHUB_AUTH,
+      controlType: SettingTypes.LINK,
+      label: "如何配置？",
+      url: GITHUB_SIGNUP_SETUP_DOC,
+    },
+    {
+      id: "APPSMITH_OAUTH2_GITHUB_HOMEPAGE_URL",
+      category: SettingCategories.GITHUB_AUTH,
+      controlType: SettingTypes.UNEDITABLEFIELD,
+      label: "Homepage URL",
+      fieldName: "homepage-url-form",
+      value: "",
+      tooltip:
+        "This URL will be used while configuring the GitHub OAuth Client ID's homepage URL",
+      helpText: "Paste this URL in your GitHub developer settings.",
+    },
+    {
+      id: "APPSMITH_OAUTH2_GITHUB_REDIRECT_URL",
+      category: SettingCategories.GITHUB_AUTH,
+      controlType: SettingTypes.UNEDITABLEFIELD,
+      label: "Redirect URL",
+      fieldName: "callback-url-form",
+      value: "/login/oauth2/code/github",
+      tooltip:
+        "This URL will be used while configuring the GitHub OAuth Client ID's Authorization callback URL",
+      helpText: "Paste this URL in your GitHub developer settings.",
+    },
+    {
+      id: "APPSMITH_OAUTH2_GITHUB_CLIENT_ID",
+      category: SettingCategories.GITHUB_AUTH,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "Client ID",
+      isRequired: true,
+    },
+    {
+      id: "APPSMITH_OAUTH2_GITHUB_CLIENT_SECRET",
+      category: SettingCategories.GITHUB_AUTH,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "Client secret",
+      isRequired: true,
+    },
+  ],
+};
+
+const WeChatAuth: AdminConfigType = {
+  type: SettingCategories.WECHAT_AUTH,
+  controlType: SettingTypes.GROUP,
+  title: "微信登录",
+  subText: "让你可以微信账号进行登录",
+  canSave: true,
+  isConnected: enableWeChatOAuth,
+  categoryType: CategoryType.OTHER,
+  settings: [
+    {
+      id: "APPSMITH_OAUTH2_OIDC_READ_MORE",
+      category: SettingCategories.WECHAT_AUTH,
+      subCategory: SettingSubCategories.WECHAT,
+      controlType: SettingTypes.LINK,
+      label: "如何配置？",
+      url: WX_SIGNUP_SETUP_DOC,
+    },
+    {
+      id: "APPSMITH_WX_CLIENT_REDIRECT_URL",
+      category: SettingCategories.WECHAT_AUTH,
+      subCategory: SettingSubCategories.WECHAT,
+      controlType: SettingTypes.UNEDITABLEFIELD,
+      label: "Redirect URL",
+      fieldName: "oidc-redirect-url",
+      formName: "OidcRedirectUrl",
+      value: "/api/v1/wxLogin/callback",
+      helpText: "拷贝到你的认证服务器配置中",
+      forceHidden: true,
+    },
+    {
+      id: "APPSMITH_WX_CLIENT_ID",
+      category: SettingCategories.WECHAT_AUTH,
+      subCategory: SettingSubCategories.WECHAT,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "Client ID",
+      isRequired: true,
+    },
+    {
+      id: "APPSMITH_WX_CLIENT_SECRET",
+      category: SettingCategories.WECHAT_AUTH,
+      subCategory: SettingSubCategories.WECHAT,
+      controlType: SettingTypes.TEXTINPUT,
+      controlSubType: SettingSubtype.TEXT,
+      label: "Client Secret",
+      isRequired: true,
+    },
+  ],
+};
+
+export const FormAuthCallout: AuthMethodType = {
+  id: "APPSMITH_FORM_LOGIN_AUTH",
+  category: SettingCategories.FORM_AUTH,
+  label: "账号密码登录",
+  subText: createMessage(FORM_LOGIN_DESC),
+  image: Lock,
+  icon: "lock-password-line",
+  isFeatureEnabled: true,
+};
+
+export const GoogleAuthCallout: AuthMethodType = {
+  id: "APPSMITH_GOOGLE_AUTH",
+  category: SettingCategories.GOOGLE_AUTH,
+  label: "Google",
+  subText: createMessage(GOOGLE_AUTH_DESC),
+  image: Google,
+  isFeatureEnabled: true,
+};
+
+export const GithubAuthCallout: AuthMethodType = {
+  id: "APPSMITH_GITHUB_AUTH",
+  category: SettingCategories.GITHUB_AUTH,
+  label: "Github",
+  subText: createMessage(GITHUB_AUTH_DESC),
+  image: Github,
+  isFeatureEnabled: true,
+};
+
+export const SamlAuthCallout: AuthMethodType = {
+  id: "APPSMITH_SAML_AUTH",
+  category: SettingCategories.SAML_AUTH,
+  label: "SAML 2.0",
+  subText: createMessage(SAML_AUTH_DESC),
+  image: SamlSso,
+  isFeatureEnabled: isSAMLEnabled(featureFlags),
+};
+
+export const OidcAuthCallout: AuthMethodType = {
+  id: "APPSMITH_OIDC_AUTH",
+  category: SettingCategories.OIDC_AUTH,
+  label: "OIDC",
+  subText: createMessage(OIDC_AUTH_DESC),
+  image: OIDC,
+  isFeatureEnabled: isOIDCEnabled(featureFlags),
+};
+
+const WeChatCallout: AuthMethodType = {
+  id: "APPSMITH_WECHAT_AUTH",
+  category: SettingCategories.WECHAT_AUTH,
+  label: "微信",
+  subText: `允许使用 微信账号登录你的平台`,
+  image: WeChat,
+  isConnected: enableWeChatOAuth,
+  needsUpgrade: false,
+  isFeatureEnabled: true,
+};
+
+const AuthMethods = [
+  // OidcAuthCallout,
+  // SamlAuthCallout,
+  GoogleAuthCallout,
+  GithubAuthCallout,
+  FormAuthCallout,
+  WeChatCallout,
+];
+
+function AuthMain() {
+  const WXLoginClientId = useSelector(getWXLoginClientId);
+  FormAuthCallout.isConnected = useSelector(getIsFormLoginEnabled);
+  const socialLoginList = useSelector(getThirdPartyAuths);
+  WeChatAuth.isConnected = WeChatCallout.isConnected =
+    socialLoginList.includes("wechat") || !!WXLoginClientId;
+  GoogleAuth.isConnected = GoogleAuthCallout.isConnected =
+    socialLoginList.includes("google");
+  GithubAuth.isConnected = GithubAuthCallout.isConnected =
+    socialLoginList.includes("github");
+  return <AuthPage authMethods={AuthMethods} />;
+}
+
+export const config: AdminConfigType = {
+  icon: "lock-password-line",
+  type: SettingCategories.AUTHENTICATION,
+  categoryType: CategoryType.GENERAL,
+  controlType: SettingTypes.PAGE,
+  title: "身份认证",
+  canSave: false,
+  children: [FormAuth, GoogleAuth, GithubAuth, WeChatAuth],
+  component: AuthMain,
+};
+
+```
+
+### 6
+
+```tsx
+// AuthPage组件根据不同authMethods渲染不同鉴权方式入口
+{authMethods &&
+    authMethods.map((method) => {
+    return (
+        <div key={method.id}>
+            <MethodCard>
+                {method.icon ? (
+                    <Icon name={method.icon} size="lg" />
+                ) : (
+                    <Image alt={method.label} src={method.image} />
+                )}
+                <MethodDetailsWrapper>
+                    <MethodTitle
+                        color="var(--ads-v2-color-fg)"
+                        kind="heading-s"
+                        renderAs="p"
+                        >
+                        {method.label}&nbsp;
+                        {!method.isFeatureEnabled && <BusinessTag />}
+                        {method.isConnected && (
+                            <Tooltip
+                                content={createMessage(
+                                    AUTHENTICATION_METHOD_ENABLED,
+                                    method.label,
+                                )}
+                                placement="right"
+                                >
+                                <Icon
+                                    className={`${method.category}-green-check`}
+                                    color="var(--ads-v2-color-fg-success)"
+                                    name="oval-check-fill"
+                                    />
+                            </Tooltip>
+                        )}
+                    </MethodTitle>
+                    <MethodDets
+                        color="var(--ads-v2-color-fg)"
+                        kind="body-s"
+                        renderAs="p"
+                        >
+                        {method.subText}
+                    </MethodDets>
+                    {method.calloutBanner && (
+                        <Callout
+                            kind="info"
+                            links={[
+                                {
+                                    children: method.calloutBanner.actionLabel,
+                                    to: "",
+                                },
+                            ]}
+                            >
+                            {method.calloutBanner.title}
+                        </Callout>
+                    )}
+                </MethodDetailsWrapper>
+                <ActionButton method={method} />
+            </MethodCard>
+            <Divider />
+        </div>
+    );
+})}
+```
+
+### 7
+
+```tsx
+// 点击入口
+export function ActionButton({ method }: { method: AuthMethodType }) {
+  const history = useHistory();
+  const { onUpgrade } = useOnUpgrade({
+    logEventName: "ADMIN_SETTINGS_UPGRADE_AUTH_METHOD",
+    logEventData: { method: method.label },
+  });
+
+  const onClickHandler = (method: AuthMethodType) => {
+    if (method?.isFeatureEnabled || method.isConnected) {
+      AnalyticsUtil.logEvent(
+        method.isConnected
+          ? "ADMIN_SETTINGS_EDIT_AUTH_METHOD"
+          : "ADMIN_SETTINGS_ENABLE_AUTH_METHOD",
+        {
+          method: method.label,
+        },
+      );
+      history.push(
+        adminSettingsCategoryUrl({
+          category: SettingCategories.AUTHENTICATION,
+          selected: method.category,
+        }),
+      );
+    } else {
+      onUpgrade();
+    }
+  };
+
+  return (
+    <ButtonWrapper>
+      <Button
+        className={`t--settings-sub-category-${
+          !method?.isFeatureEnabled
+            ? `upgrade-${method.category}`
+            : method.category
+        }`}
+        data-testid="btn-auth-account"
+        kind={"secondary"}
+        onClick={() => onClickHandler(method)}
+        size="md"
+      >
+        {createMessage(
+          method.isConnected
+            ? EDIT
+            : !method?.isFeatureEnabled
+            ? UPGRADE
+            : ENABLE,
+        )}
+      </Button>
+    </ButtonWrapper>
+  );
+}
+```
+
+
+
+## 创建应用
+
 
 
 # 接口
@@ -1982,28 +3069,11 @@ function* root() {
 | https://dev.appsmith.com/api/v1/users                        | 请求个人信息       |      |      |
 | https://dev.appsmith.com/api/v1/wxLogin/code                 | 请求微信登录二维码 |      |      |
 | https://dev.appsmith.com/api/v1/plugins?workspaceId=64bfd3bfcc55337d325c4380 | 请求数据源列表     |      |      |
-
-# 请求
-
-## 数据源
-
-| 操作 | 方法             | 调用时机     | 文件位置                            |
-| ---- | ---------------- | ------------ | ----------------------------------- |
-| 获取 | fetchPluginsSaga | 应用首次加载 | app\client\src\sagas\PluginSagas.ts |
-|      |                  |              |                                     |
-|      |                  |              |                                     |
+|                                                              |                    |      |      |
 
 
 
 # 疑问
-
-|      功能      |                      起点                      |                        历经组件/函数                         |                         过程其他函数                         |
-| :------------: | :--------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| 更新管理员配置 | app\client\src\pages\Settings\SettingsForm.tsx | SettingsForm.tsx（点击、必填字段校验、判断env或tenant设置dispatch不同action）<br />SaveAdminSettings.tsx<br />saveSettings()/updateTenantConfig()（action）<br />createReducer()、SaveAdminSettingsSaga()/updateTenantConfigSaga()（settingReducer、saga）<br />SaveAdminSettingsSaga()（请求、请求成功/失败reducer、获得当前tenant配置、获取管理员设置成功的reducer？、重启reducer、saga）<br />RestartServerPoll()（重启请求、RestryRestartServerPoll？）/updateTenantConfigSaga()（更新租户设置请求、更新成功/失败reducer、刷新路由） | onSave（点击）、checkMandatoryFileds（必填字段校验）、UserApi.saveAdminSettings（保存管理员设置请求）、getCurrentTenant（获得当前tenant配置）、UserApi.restartServer（重启请求）、TenantApi.updateTenantConfig（更新租户设置请求） |
-|                |                                                |                                                              |                                                              |
-|                |                                                |                                                              |                                                              |
-
-
 
 ## **1.更新管理员配置？**
 
@@ -2226,14 +3296,14 @@ ConfigFactory.register(BrandingConfig);
 
 # 路由
 
-| 路由                                                         | 页面                        | 入口                                           | 区域                                                         |
-| ------------------------------------------------------------ | --------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
-| /setup/welcome                                               | 欢迎页                      | src\pages\setup\index.tsx                      |                                                              |
-| /applications                                                | 首页                        | app\client\src\ce\pages\Applications\index.tsx |                                                              |
-| /settings/${xxx}                                             | 管理员设置，general是通用栏 |                                                |                                                              |
-| /profile                                                     | 个人信息                    | src\pages\UserProfile\index.tsx                |                                                              |
-| /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit | 工作区                      | app\client\src\pages\Editor\loader.tsx         | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />顶部导航-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）属性配置-app\client\src\pages\Editor\PropertyPane\index.tsx |
-| /user/login                                                  | 登录页                      | app\client\src\pages\UserAuth\index.tsx        |                                                              |
+| 路由                                                         | 页面                        | 入口                                            | 区域                                                         |
+| ------------------------------------------------------------ | --------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| /setup/welcome                                               | 欢迎页                      | src\pages\setup\index.tsx                       |                                                              |
+| /applications                                                | 首页                        | app\client\src\ce\pages\Applications\index.tsx  |                                                              |
+| /settings/${xxx}                                             | 管理员设置，general是通用栏 | app\client\src\ce\pages\AdminSettings\index.tsx | （左）侧边栏app\client\src\ce\pages\AdminSettings\LeftPane.tsx<br />（右）详细配置app\client\src\ce\pages\AdminSettings\Main.tsx |
+| /profile                                                     | 个人信息                    | src\pages\UserProfile\index.tsx                 |                                                              |
+| /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit | 工作区                      | app\client\src\pages\Editor\loader.tsx          | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />顶部导航-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）属性配置-app\client\src\pages\Editor\PropertyPane\index.tsx |
+| /user/login                                                  | 登录页                      | app\client\src\pages\UserAuth\index.tsx         |                                                              |
 
 
 
@@ -2261,6 +3331,18 @@ ConfigFactory.register(BrandingConfig);
 | 组件 | 侧边栏显示<br />拖动<br />复制<br />编辑<br />删除<br />画布渲染<br />配置更新<br />事件绑定<br />引用变量 | 已理解-done |
 |      |                                                              |             |
 |      |                                                              |             |
+
+## 首页
+
+**核心功能**
+
+- 应用组
+
+| 主体   | 功能点   |      |
+| ------ | -------- | ---- |
+| 应用组 | 导入应用 |      |
+|        |          |      |
+|        |          |      |
 
 
 

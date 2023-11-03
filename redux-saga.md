@@ -50,71 +50,58 @@ npm install redux react-redux redux-saga
 
 ```js
 // taskReducer.js
-// 初始状态
-const initialState = {
-  tasks: [],
-};
+import { createSlice } from '@reduxjs/toolkit';
 
-// 任务 reducer
-const taskReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'ADD_TASK':
-      return {
-        ...state,
-        tasks: [...state.tasks, action.payload],
-      };
-    case 'COMPLETE_TASK':
+const taskSlice = createSlice({
+  name: 'tasks',
+  initialState: { tasks: [] },
+  reducers: {
+    addTask: (state, action) => {
+      state.tasks.push(action.payload);
+    },
+    completeTask: (state, action) => {
       // 处理完成任务的逻辑
       // ...
-      return state;
-    case 'DELETE_TASK':
-      // 处理删除任务的逻辑
-      // ...
-      return state;
-    default:
-      return state;
-  }
-};
+    },
+    deleteTask: (state, action) => {
+      // 在 action.payload 中假设有一个任务的唯一标识符，例如任务的 ID
+      const taskIdToDelete = action.payload;
 
-export default taskReducer;
+      // 使用 Array.prototype.filter 来过滤出不包括要删除任务的新任务数组
+      state.tasks = state.tasks.filter((task) => task.id !== taskIdToDelete);
+    },
+  },
+});
+
+export const { addTask, completeTask, deleteTask } = taskSlice.actions;
+export default taskSlice.reducer;
 ```
 
-使用 Redux 提供的 `createStore` 函数来创建 Redux store。将 reducer 传递给 `createStore` 函数以初始化 store。
+使用 Redux 提供的 `configureStore` 函数来创建 Redux store。将 reducer 和 需要使用的中间件 传递给 `configureStore` 函数以初始化 store。
 
 ```js
 // configureStore.js
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
+import taskReducer from '../reducers/taskReducer';
+import taskSaga from '../sagas/taskSaga';
 
-import { createStore } from 'redux';
-import taskReducer from './taskReducer';
+const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(taskReducer);
+const store = configureStore({
+  reducer: taskReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+});
+
+sagaMiddleware.run(taskSaga);
 
 export default store;
 ```
-
-redux4以上createStore就失效了，可以换一种方式
 
 安装@reduxjs/toolkit
 
 ```bash
 npm install @reduxjs/toolkit
-```
-
-修改后的逻辑
-
-```js
-// configureStore.js
-
-import { configureStore } from '@reduxjs/toolkit';
-import taskReducer from './taskReducer';
-
-const store = configureStore({
-  reducer: {
-    tasks: taskReducer, // 在 reducer 对象中配置任务 reducer
-  },
-});
-
-export default store;
 ```
 
 ## saga配置
@@ -123,7 +110,7 @@ export default store;
 // taskSaga.js
 
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { TaskService } from '../services/taskService';
+import TaskService from '../services/taskService';
 import { addTaskSuccess, addTaskFailure, deleteTaskSuccess, deleteTaskFailure, ReduxActionTypes } from '../actions/taskActions';
 
 // 添加任务的 Saga
@@ -161,7 +148,6 @@ function* taskSaga() {
 }
 
 export default taskSaga;
-
 ```
 
 
@@ -209,10 +195,9 @@ export const deleteTaskFailure = (error) => ({
   type: ReduxActionTypes.DELETE_TASK_FAILURE,
   payload: error,
 });
-
 ```
 
-
+## services（待补充）
 
 ```js
 // taskService.js
@@ -295,7 +280,6 @@ export default store;
 使用 `react-redux` 库中的 `Provider` 组件将 Redux store 与应用连接起来。
 
 ```js
-// index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -317,7 +301,6 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
 ```
 
 ```js
@@ -325,25 +308,22 @@ reportWebVitals();
 
 import React from 'react';
 import TaskList from './components/TaskList';
-import TaskInput from './components/TaskInput';
 
 const App = () => {
   return (
     <div>
       <h1>Task Management App</h1>
-      <TaskInput />
       <TaskList />
     </div>
   );
 };
 
 export default App;
-
 ```
 
 ## 组件行为
 
-在组件中使用 `connect` 函数从 Redux store 获取任务状态并触发任务相关的 actions。
+1.在组件中使用 `connect` 函数从 Redux store 获取任务状态并触发任务相关的 actions。
 
 ```js
 // TaskList.js
@@ -372,36 +352,56 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(TaskList);
 ```
 
- 在组件中触发任务相关的 actions，以更新任务状态。
+其中，**connect**函数的作用是将 **组件** 和 **全局状态** 连接在一起，使组件能够使用全局状态；
+
+要是使用redux/tookit写法的话，使用 **useSelector**去获取全局状态中的某一项；
+
+在组件中触发任务相关的 actions，以更新任务状态；
 
 ```js
-// TaskInput.js
-
+// TaskList.js
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTask, deleteTask } from '../reducers/taskReducer'; // 导入相应的 actions
 
-const TaskInput = ({ dispatch }) => {
-  const [newTask, setNewTask] = useState('');
+const TaskList = () => {
+  const [taskText, setTaskText] = useState('');
+  const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.tasks); // 使用 selector 获取任务列表
 
-  const addTask = () => {
-    if (newTask) {
-      dispatch({ type: 'ADD_TASK', payload: newTask });
-      setNewTask('');
+  const handleAddTask = () => {
+    if (taskText) {
+      dispatch(addTask(taskText)); // 调用 addTask action
+      setTaskText('');
     }
+  };
+
+  const handleDeleteTask = (task) => {
+    dispatch(deleteTask(task)); // 调用 deleteTask action
   };
 
   return (
     <div>
       <input
         type="text"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        value={taskText}
+        onChange={(e) => setTaskText(e.target.value)}
       />
-      <button onClick={addTask}>Add Task</button>
+      <button onClick={handleAddTask}>Add Task</button>
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>
+            {task}
+            <button onClick={() => handleDeleteTask(task)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default connect()(TaskInput);
+export default TaskList;
 ```
+
+
 

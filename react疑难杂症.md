@@ -25,3 +25,16 @@ Warning: React.jsx: type is invalid -- expected a string (for built-in component
 Check your code at index.tsx:122.
 ```
 
+# 修改create-react-app默认启动端口3000
+
+修改启动脚本
+
+```json
+"scripts": {
+    "start": "set PORT=3001 && react-scripts start",
+  },
+```
+
+参考链接
+
+- https://create-react-app.dev/docs/adding-custom-environment-variables
