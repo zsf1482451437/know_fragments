@@ -212,25 +212,45 @@ docker登录错误；√
 商业版部分功能迁移到ce；√
 迁移问题修理；√
 响应式布局bug；√
-首页-新建应用组-重连数据源不生效；√
+首页-新建应用组-导入应用-重连数据源不生效；√
 文案调整；√
-样式调整；
+11.6~11.10
+rest api、GraphQL API无法填写；√
+关闭注册功能，登录界面隐藏注册入口，并且无法注册提示信息汉化；√
+密码校验失败信息弹窗形式出现；√
+开启微信单点登陆后，关闭账号密码登陆，页面无法再登陆；√
+登录页-忘记密码-邮箱逻辑；√
+样式调整；√
+欢迎页-翻译勾选框内容翻译；√
+登录页-登录信息失效提示翻译；√
+代码框快捷方式隐藏；√
+首次注册的页面动图替换，增加PagePlug品牌属性；√
+导航；√
 
+连接git了解更多链接、报错翻译替换（The remote repository is not empty. Please create a new empty repository and configure the SSH keys. If you wish to clone and build an application from an existing remote repository, please use the "Import from a Git repository" option in the home page.）、连接到 git 仓库sitory；
+快照部分文案替换；
+首页-新建应用组-导入应用-重连数据源不生效；
+小程序组件可绑定属性；
+sql智能提示的开关配置；
+Table组件发布后，组件数量多的话，过滤功能不支持使用；
 开发区-使用达梦数据源生成页面；
-
+开发区-切换移动布局-组件数量全部暴露；
 测试git连接流程；
 开发区-第一个应用没有侧边栏按钮；
-欢迎页-翻译勾选框内容翻译；
-登录页-登录信息失效提示翻译；
-
+Github登录；
+右下角连接git-去github新建个仓库，复制ssh地址，粘贴-生成key-复制key-Github仓库设置-Security下的Deploy keys-Add deploy key- Allow write access-Add key
 
 待理解：
 组件如何显示在画布上？
 导入应用？√
+重置密码?
+开发区编辑器是如何运行sql语句的？
+git连接Pageplug原理；
 工作区-侧边栏-所有组件渲染处理的逻辑；
 isAirgapped()含义;
 工作流理解；
 理解梯子的原理；
+如何集成pageplug？
 知识库搭建；
 
 

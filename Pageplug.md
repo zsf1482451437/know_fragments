@@ -19,6 +19,7 @@
 | redux-sagas | *状态管理*       |      |
 | redux       | *状态管理*       |      |
 | react18     | *JavaScript框架* |      |
+| redux-form  |                  |      |
 
 redux-sagas中的takeEvery：`takeEvery` 是 Redux-Saga 中的一个效用函数，用于监听指定的 action 并在每次匹配的 action 被派发时执行一个指定的 generator 函数，它通常用于处理异步操作。
 
@@ -3296,14 +3297,15 @@ ConfigFactory.register(BrandingConfig);
 
 # 路由
 
-| 路由                                                         | 页面                        | 入口                                            | 区域                                                         |
-| ------------------------------------------------------------ | --------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| /setup/welcome                                               | 欢迎页                      | src\pages\setup\index.tsx                       |                                                              |
-| /applications                                                | 首页                        | app\client\src\ce\pages\Applications\index.tsx  |                                                              |
-| /settings/${xxx}                                             | 管理员设置，general是通用栏 | app\client\src\ce\pages\AdminSettings\index.tsx | （左）侧边栏app\client\src\ce\pages\AdminSettings\LeftPane.tsx<br />（右）详细配置app\client\src\ce\pages\AdminSettings\Main.tsx |
-| /profile                                                     | 个人信息                    | src\pages\UserProfile\index.tsx                 |                                                              |
-| /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit | 工作区                      | app\client\src\pages\Editor\loader.tsx          | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />顶部导航-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）属性配置-app\client\src\pages\Editor\PropertyPane\index.tsx |
-| /user/login                                                  | 登录页                      | app\client\src\pages\UserAuth\index.tsx         |                                                              |
+| 路由                                                         | 页面                        | 入口                                                         | 区域                                                         |
+| ------------------------------------------------------------ | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| /setup/welcome                                               | 欢迎页                      | src\pages\setup\index.tsx                                    |                                                              |
+| /applications                                                | 首页                        | app\client\src\ce\pages\Applications\index.tsx               |                                                              |
+| /settings/${xxx}                                             | 管理员设置，general是通用栏 | app\client\src\ce\pages\AdminSettings\index.tsx              | （左）侧边栏app\client\src\ce\pages\AdminSettings\LeftPane.tsx<br />（右）详细配置app\client\src\ce\pages\AdminSettings\Main.tsx |
+| /profile                                                     | 个人信息                    | src\pages\UserProfile\index.tsx                              |                                                              |
+| /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit | 工作区                      | app\client\src\pages\Editor\loader.tsx                       | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />顶部导航-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）属性配置-app\client\src\pages\Editor\PropertyPane\index.tsx |
+| /app/1/page1-6548c8dc80e6013da9f4dfd4/edit/queries/65499ead80e6013da9f4dfdd | 工作区-查询-语句编辑器      | app\client\src\pages\Editor\MainContainer                    | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）右边-app\client\src\pages\Editor\routes.tsx<br />代码编辑器-app\client\src\components\editorComponents\CodeEditor\EvaluatedValuePopup.tsx |
+| /app/1/page1-654afa6b7bdbbb67f235fbdd/edit                   | 工作区-应用设置             | app\client\src\pages\Editor\AppSettingsPane\AppSettings\index.tsx |                                                              |
 
 
 
