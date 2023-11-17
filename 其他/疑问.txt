@@ -1,0 +1,70 @@
+
+3.给出一对象，输出为json，并保存到txt中？
+4.抓包工具fiddler使用
+5.抓包工具Charles使用
+6.js实现倒计时
+7.遮罩层动画
+8.传组件的属性解析值的过程是怎么样的？
+9.
+10.证书的作用
+11.js实现回从开始日期到结束日期之间的月份字符串数组
+12.返回指定长度的随机整数数组js实现
+13.echart哪个配置项会移动图位置
+15.js实现去掉对象null，数组如何去掉空元素呢？
+16.pageplug如何加配置？
+17.pageplug是如何将路由映射到组件的
+18.一个组件如何变成json
+19.java实现整数转化为二进制数
+20.pp的属性配置面板是如何获取到其它组件信息的？
+21.搜索框聚焦是动画效果
+22.display和position fixed冲突？
+23.远程桌面控制的原理是什么？
+24.根据页面的h元素动态生成目录？
+25.如何实现hover时显示一层浅色背景，宽高和和本身一样
+26.鉴权方式
+27.实现鼠标hover事件显示某个背景色，active事件显示某个背景色
+28.权衡性能指标，工具查看
+29.share/ast目录什么作用
+31.craco而不用webpack？
+32.npm ls 作用
+33.iframe元素嵌入appsmith应用的登陆bug
+34.java单元测试
+35.为什么会滤除cookies
+如果您在使用 iframe 组件嵌入一个 Appsmith 应用时，出现了登陆成功但是页面重定向到登录页的问题，可能是由于浏览器的 Cookie 策略所导致的。
+在一个 Web 应用程序中，如果使用了 Cookie 来管理用户会话状态，那么在跨域访问时可能会出现 Cookie 跨站点传输的问题。为了保障用户安全，在某些情况下，浏览器会禁止或限制跨站点 Cookie 的传输，导致用户的会话状态丢失，需要重新登录。
+针对这个问题，可以尝试使用以下方案：
+将 Appsmith 应用嵌入到同一域名下的页面中，这样可以避免跨站点 Cookie 的传输问题。
+如果必须将 Appsmith 应用嵌入到不同域名下的页面中，可以考虑使用 JSON Web Token（JWT）等无状态的身份验证方案来管理用户会话状态。使用无状态的身份验证方案可以避免 Cookie 跨域传输的问题，并且可以更好地支持跨域场景。
+如果您正在使用第三方身份验证服务（例如 Google、Facebook 等），可以考虑使用 OAuth2 协议来实现身份验证和授权管理。OAuth2 协议可以避免 Cookie 跨域传输的问题，并且可以更好地支持跨域场景。
+37.点击发布应用之后的逻辑处理
+38.如果使用内置MongoDB，如何查看数据库？
+39.react-dom.development.js:67 Warning: Invalid DOM property `class`. Did you mean `className`?√
+40.webpack compile时间显示
+41.react-dom.development.js:67 Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
+
+
+
+pageplug相关
+1.上传文件过程√
+2.docker engine配置√
+3.docker 打包√
+4.14.pp的表单查询业务（√）
+5.组件是如何渲染在画布上的？
+6.导出应用的json再导入时是如何生成应用的？
+8.React.createRef()？
+9.useImperativeHandle()?
+10.什么情况下父组件传给子组件的props会为空？
+11.formily表单设计点击保存渲染两次？
+12.设置标签位置如何生效的？变量控制flex√
+13.react组件渲染两次？
+14.getPropertyPaneContentConfig返回的数组的配置属性是如何渲染在属性面板上的？
+15.属性面板的高度这一项怎么出现的？
+16.属性面板的校验这项有何用？
+17.getPropertyPaneContentConfig返回的配置中isJSConvertible、isBindProperty、isTriggerProperty有何作用？
+18.搜索组件属性如何实现？
+19.组件的属性智能提示是如何实现的？
+20.parseDerivedProperties.ts作用？
+21.一次push900+条commit很慢，有什么替代方案？
+22.白名单？
+23.DNS_PROBE_FINISHED_NXDOMAIN?
+

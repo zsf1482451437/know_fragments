@@ -1,3 +1,17 @@
+# 职责&参与
+
+| 职责         | 参与     | 使用技术/工具 |
+| ------------ | -------- | ------------- |
+| 文档官网搭建 | 菜单导航 |               |
+| 版本更新     |          |               |
+| 打包、部署   |          |               |
+| OIDC单点登录 |          |               |
+| 微信登录     |          |               |
+| 树形组件     |          |               |
+| 注册登录改动 |          |               |
+
+
+
 # 技术清单
 
 ## 前端
@@ -10,7 +24,7 @@
 
 **可视化**：fusioncharts、
 
-待归类：blueprintjs、draft-js-plugins、formily、googlemaps、github/g-emoji-element、loadable、manaflair/redux-batch
+待归类：CodeMirror、blueprintjs、draft-js-plugins、formily、googlemaps、github/g-emoji-element、loadable、manaflair/redux-batch、
 
 
 
@@ -3295,19 +3309,40 @@ ConfigFactory.register(BrandingConfig);
 
 ## 5.工作区的配置栏如何渲染出来的
 
-# 路由
+# 页面-路由-结构-逻辑
 
-| 路由                                                         | 页面                        | 入口                                                         | 区域                                                         |
-| ------------------------------------------------------------ | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| /setup/welcome                                               | 欢迎页                      | src\pages\setup\index.tsx                                    |                                                              |
-| /applications                                                | 首页                        | app\client\src\ce\pages\Applications\index.tsx               |                                                              |
-| /settings/${xxx}                                             | 管理员设置，general是通用栏 | app\client\src\ce\pages\AdminSettings\index.tsx              | （左）侧边栏app\client\src\ce\pages\AdminSettings\LeftPane.tsx<br />（右）详细配置app\client\src\ce\pages\AdminSettings\Main.tsx |
-| /profile                                                     | 个人信息                    | src\pages\UserProfile\index.tsx                              |                                                              |
-| /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit | 工作区                      | app\client\src\pages\Editor\loader.tsx                       | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />顶部导航-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）属性配置-app\client\src\pages\Editor\PropertyPane\index.tsx |
-| /app/1/page1-6548c8dc80e6013da9f4dfd4/edit/queries/65499ead80e6013da9f4dfdd | 工作区-查询-语句编辑器      | app\client\src\pages\Editor\MainContainer                    | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）右边-app\client\src\pages\Editor\routes.tsx<br />代码编辑器-app\client\src\components\editorComponents\CodeEditor\EvaluatedValuePopup.tsx |
-| /app/1/page1-654afa6b7bdbbb67f235fbdd/edit                   | 工作区-应用设置             | app\client\src\pages\Editor\AppSettingsPane\AppSettings\index.tsx |                                                              |
+|                页面                |                             路由                             |                             入口                             |                             结构                             |                           包含逻辑                           |
+| :--------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ，，，，，，，，，，，，，，，，， | ，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，， |                                                              | ，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，， |                ，，，，，，，，，，，，，，，                |
+|               欢迎页               |                        /setup/welcome                        |                  src\pages\setup\index.tsx                   |                                                              |                                                              |
+|               登录页               |                         /user/login                          |                                                              |                                                              |                                                              |
+|               注册页               |                         /user/signup                         |                                                              |                                                              |                                                              |
+|             忘记密码页             |                                                              |                                                              |                                                              |                                                              |
+|                首页                |                        /applications                         |        app\client\src\ce\pages\Applications\index.tsx        |                                                              |                                                              |
+|                                    |                                                              |                                                              |                                                              |                                                              |
+|                                    |                                                              |                                                              |                                                              |                                                              |
+|            管理员设置页            |              /settings/${xxx}，general是通用栏               |       app\client\src\ce\pages\AdminSettings\index.tsx        |               1）侧边栏<br />2）详细配置<br />               |                                                              |
+|         管理员设置-侧边栏          |                                                              |      app\client\src\ce\pages\AdminSettings\LeftPane.tsx      |                                                              |                                                              |
+|        管理员设置-详细配置         |                                                              |        app\client\src\ce\pages\AdminSettings\Main.tsx        |                                                              |                                                              |
+|         工作区-应用编辑页          | /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit |               app\client\src\ce\AppRouter.tsx                |              1）应用头部<br />2）动态内容<br />              |                      首次加载完成<br />                      |
+|     工作区-应用编辑页-应用头部     |                                                              |         app\client\src\pages\Editor\EditorHeader.tsx         |         1）左侧<br />2）中间搜索<br />3）右侧<br />          | 首次加载完成<br />1）<br />移动到菜单<br />钉住<br />3）<br />发布<br /> |
+|      工作区-应用编辑页-开发区      |                                                              |        app\client\src\pages\Editor\MainContainer.tsx         |               1）中间内容<br />2）底部栏<br />               |    1）<br />左侧边栏宽度改变<br />左侧边栏拖拽结束<br />     |
+|  工作区-应用编辑页-开发区-侧边栏   |                                                              |    app\client\src\components\editorComponents\Sidebar.tsx    | 1）页面列表<br />2）组件属性<br />3）资源管理器<br />4）宽度调整器<br /> | 首次加载完成<br />4）<br />鼠标移动<br />移动到宽度调整器<br />移动到宽度调整器结束<br /> |
+|   工作区-应用编辑页-开发区-画布    |                                                              | app\client\src\pages\Editor\WidgetsEditor\CanvasContainer.tsx |                                                              |                                                              |
+| 工作区-应用编辑页-开发区-属性配置  |                                                              |      app\client\src\pages\Editor\PropertyPane\index.tsx      |                                                              |                                                              |
+|         工作区-应用发布页          |                                                              |                                                              |                                                              |                                                              |
+|         工作区-应用设置页          |          /app/1/page1-654afa6b7bdbbb67f235fbdd/edit          | app\client\src\pages\Editor\AppSettingsPane\AppSettings\index.tsx |                                                              |                                                              |
+|      工作区-查询-语句编辑器页      | /app/1/page1-6548c8dc80e6013da9f4dfd4/edit/queries/65499ead80e6013da9f4dfdd |          app\client\src\pages\Editor\MainContainer           | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）右边-app\client\src\pages\Editor\routes.tsx<br />代码编辑器-app\client\src\components\editorComponents\CodeEditor\EvaluatedValuePopup.tsx |                                                              |
+|       工作区-应用菜单编辑页        |   /app/1/page1-654de37eb2d32269df5718c2/edit/viewerlayout    |   app\client\src\pages\Editor\ViewerLayoutEditor\index.tsx   |              1）顶部导航<br />2）菜单导航<br />              | 2）<br />获取当前应用布局数据<br />首次加载完成<br />初始化新树数据<br />关闭菜单编辑<br />增加节点<br />开始拖拽<br />拖拽完成<br />图标选择<br />修改节点名字<br />删除节点<br />隐藏节点<br />保存配置<br /> |
+|             个人信息页             |                           /profile                           |               src\pages\UserProfile\index.tsx                |                                                              |                                                              |
 
+## 共同入口
 
+| 页面                 | 共同入口                                | 逻辑 |
+| -------------------- | --------------------------------------- | ---- |
+| 登录、注册、忘记密码 | app\client\src\pages\UserAuth\index.tsx |      |
+|                      |                                         |      |
+|                      |                                         |      |
 
 
 
@@ -3487,13 +3522,13 @@ export const requiresUnauth = (Component: React.ComponentType) => {
 
 # 改动区
 
-欢迎页-去掉图片；
+- 欢迎页-替换图片；
 
-登录页-UI、其他方式登录；
+- 登录页-UI、其他方式登录；
 
-首页-屏蔽部分入口；
+- 首页-屏蔽部分入口；
 
-开发区-组件分类
+- 开发区-组件分类；
 
 
 

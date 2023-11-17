@@ -226,32 +226,58 @@ rest api、GraphQL API无法填写；√
 代码框快捷方式隐藏；√
 首次注册的页面动图替换，增加PagePlug品牌属性；√
 导航；√
+测试git连接流程；√
 
-连接git了解更多链接、报错翻译替换（The remote repository is not empty. Please create a new empty repository and configure the SSH keys. If you wish to clone and build an application from an existing remote repository, please use the "Import from a Git repository" option in the home page.）、连接到 git 仓库sitory；
-快照部分文案替换；
-首页-新建应用组-导入应用-重连数据源不生效；
-小程序组件可绑定属性；
-sql智能提示的开关配置；
-Table组件发布后，组件数量多的话，过滤功能不支持使用；
-开发区-使用达梦数据源生成页面；
+11.13-11.17
+报错翻译替换（The remote repository is not empty. Please create a new empty repository and configure the SSH keys. If you wish to clone and build an application from an existing remote repository, please use the "Import from a Git repository" option in the home page.）、连接到 git 仓库sitory；√
+快照部分文案替换；√
+导航问题；√
+登录页样式调整；√
+sql智能提示的开关配置；√
+开发区-数据源-生成新页面-应用组首个应用没有查看所有数据源入口；x
+开发区-菜单设计-目录编辑名字-回车保存；√
+组件-logo-背景；√
+导航样式微调；√
+导航样式微调-改良；√
+
+改动区：
+欢迎页，登录页，首页，开发区-组件分类，管理员设置页-身份认证；
+
+
+每个接口影响的state；
+错误页面汉化；
+连接git了解更多，体验模版商城链接的替换；
+寻找模版商场appUrl来源；
 开发区-切换移动布局-组件数量全部暴露；
-测试git连接流程；
-开发区-第一个应用没有侧边栏按钮；
-Github登录；
-右下角连接git-去github新建个仓库，复制ssh地址，粘贴-生成key-复制key-Github仓库设置-Security下的Deploy keys-Add deploy key- Allow write access-Add key
+Table组件发布后，组件数量多的话，过滤功能不支持使用；
+首页-新建应用组-导入应用-重连数据源不生效；
+开发区-使用达梦数据源生成页面；
+小程序组件可绑定属性；
+水印功能；
+
 
 待理解：
 组件如何显示在画布上？
-导入应用？√
+导入应用？
+导航的设计、配置过程、发布后如何生效？
+一个应用的数据结构、各个部分如何被渲染出来的？
+路由是如何控制的？
 重置密码?
-开发区编辑器是如何运行sql语句的？
-git连接Pageplug原理；
-工作区-侧边栏-所有组件渲染处理的逻辑；
-isAirgapped()含义;
-工作流理解；
-理解梯子的原理；
+开发区编辑器如何渲染、是如何运行sql语句的？
+git连接Pageplug原理?
+工作区-侧边栏-所有组件渲染处理的逻辑?
+isAirgapped()含义？
 如何集成pageplug？
+工作流理解？
+理解梯子的原理？
+何为集群？
+
+
+待办：
+封装一个自增表格；
 知识库搭建；
+拓展-小程序；
+
 
 
 错误页无图像；
@@ -292,7 +318,6 @@ pp注册流程；
 使用内置mongoDB；
 使用本地nginx教程；
 官方文档有部分图片需要使用汉化图片；
-错误页面汉化；
 iframe嵌入pp应用的跨域问题；
 安装本地Redis；
 
