@@ -471,6 +471,24 @@ docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
 
 复现：一个600M出的镜像，从主机a（私有网段）push到主机b（公有网段）将近
 
+# docker-compose
+
+`docker-compose up -d` 是使用 Docker Compose 启动容器的命令，其中的 `-d` 参数表示在后台运行（detached mode）。这个命令通常用于启动在 `docker-compose.yml` 文件中定义的服务；
+
+`docker-compose down` 停止容器并删除 up 创建的容器、网络、卷和镜像。
+
+默认情况下，删除的内容只有:
+
+- Compose 文件中定义的服务的容器
+- 在 Compose 文件的`networks`部分中定义的网络
+- 默认网络(如果使用了默认网络)
+
+定义为`external`的网络和卷永远不会被删除。
+
+
+
+
+
 # 搭建基础镜像
 
 - 原本Dockerfile

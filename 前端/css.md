@@ -18,6 +18,66 @@ li a
 
 **order**，数字越小越靠前；
 
+## 遮罩层
+
+```html
+<div class="container">
+  <!-- 其他内容 -->
+  <div class="overlay"></div>
+</div>
+```
+
+
+
+```css
+/* 初始时，遮罩层不可见 */
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+}
+
+/* 当包含遮罩层的容器被悬停时，显示遮罩层 */
+.container:hover .overlay {
+    display: block;
+}
+
+/* 假设要悬停的元素位于一个包含遮罩层的容器中 */
+.container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #ccc;
+}
+```
+
+
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+
+
+</body>
+</html>
+
+```
+
+
+
 ## hint效果
 
 ```css

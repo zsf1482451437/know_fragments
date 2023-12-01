@@ -112,7 +112,7 @@ const features =
 
 # 常见函数
 
-## 数组
+## Array
 
 - concat 连接
 
@@ -121,6 +121,108 @@ const features =
 **`concat()`** 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
 
 等效于 `[...arr1, arr2]`
+
+### from
+
+从类似数组或可迭代对象创建一个新的数组实例。
+
+```js
+// 从字符串创建数组
+const str = 'hello';
+const arrFromStr = Array.from(str);
+console.log(arrFromStr); // ['h', 'e', 'l', 'l', 'o']
+
+// 从可迭代对象创建数组
+const set = new Set([1, 2, 3, 4, 5]);
+const arrFromSet = Array.from(set);
+console.log(arrFromSet); // [1, 2, 3, 4, 5]
+
+// 使用映射函数
+const arr = [1, 2, 3];
+const arrSquared = Array.from(arr, x => x * x);
+console.log(arrSquared); // [1, 4, 9]
+
+```
+
+### isArray
+
+检查一个值是否为数组
+
+```js
+const arr = [1, 2, 3];
+
+console.log(Array.isArray(arr));  // 输出 true
+
+const obj = { key: 'value' };
+
+console.log(Array.isArray(obj));  // 输出 false
+```
+
+优势是在处理多种数据类型时更加安全，因为有时我们可能会遇到类似数组的对象（array-like objects）或者其他类似数组的数据结构，而这些并不是真正的数组。使用 `Array.isArray` 可以明确判断一个值是否为数组。
+
+`Array.isArray()` 也拒绝原型链中带有 `Array.prototype`，而实际不是数组的对象，但 `instanceof Array` 会接受。
+
+```js
+// 创建一个普通对象
+const notAnArray = {};
+
+// 将原型链设置为 Array.prototype
+Object.setPrototypeOf(notAnArray, Array.prototype);
+
+// 此时 notAnArray 具有 Array 的原型链，但它并不是一个数组
+console.log(Array.isArray(notAnArray)); // 输出: false
+console.log(notAnArray instanceof Array); // 输出: true
+
+// 添加一些属性，使其看起来更像一个对象
+notAnArray.foo = 'bar';
+notAnArray.length = 1;
+
+// 尝试使用数组的一些方法，会发现它并不是真正的数组
+console.log(notAnArray.join(',')); // 输出: "[object Object]"
+console.log(notAnArray.push('baz')); // 抛出 TypeError: notAnArray.push is not a function
+
+```
+
+
+
+## Object
+
+### freeze
+
+冻结一个对象相当于[阻止其扩展](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions)然后将所有现有[属性的描述符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#描述)的 `configurable` 特性更改为 `false`——对于数据属性，将同时把 `writable` 特性更改为 `false`。无法向被冻结的对象的属性中添加或删除任何内容。任何这样的尝试都将失败，可能是静默失败，也可能抛出一个 [`TypeError`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError) 异常（通常情况下，在[严格模式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)中抛出）。
+
+```js
+const obj = {
+  prop: 42,
+};
+
+Object.freeze(obj);
+
+obj.prop = 33;
+// Throws an error in strict mode
+
+console.log(obj.prop);
+// Expected output: 42
+```
+
+### assign
+
+如果目标对象与源对象具有相同的[键（属性名）](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)，则目标对象中的属性将被源对象中的属性覆盖，后面的源对象的属性将类似地覆盖前面的源对象的同名属性。
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// Expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget === target);
+// Expected output: true
+```
+
+`Object.assign()` 方法只会拷贝源对象*可枚举的*的*自有属性*到目标对象。该方法在源对象上使用 `[[Get]]`，在目标对象上使用 `[[Set]]`，因此它会调用 [getter](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/get) 和 [setter](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/set)。故它对属性进行*赋值*，而不仅仅是复制或定义新的属性。如果合并源对象包含 getter 的新属性到原型中，则可能不适合使用此方法。
 
 ## 类型
 
@@ -203,6 +305,14 @@ moment(info.inspectTime).utcOffset(8).format('YYYY-MM-DD HH:mm:ss')
 ```
 
 有值返回true，否则false
+
+# 经验
+
+**取值路径**较深时，推荐可选链或者lodash的get方法
+
+
+
+
 
 # 疑难杂症
 

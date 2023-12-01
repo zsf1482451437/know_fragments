@@ -240,15 +240,70 @@ sql智能提示的开关配置；√
 导航样式微调；√
 导航样式微调-改良；√
 
-改动区：
-欢迎页，登录页，首页，开发区-组件分类，管理员设置页-身份认证；
 
 
+11.20-11.24
+合并ee前端；√
+首页-删除应用组-信息弹窗样式；√
+翻译：
+应用组设置系列翻译；√
+首页-应用组-名字为空时提示Please select a name；√
+开发区-组件分类-大屏组件、自定义、树形；√
+开发区-菜单设计-下拉框颜色；√
+错误页面汉化；√
+首页-/product-alert/alert接口404；√
+开发区-数据源-新增报错；√
+管理员设置-其他设置项消失；√
+管理员设置-身份认证/自定义品牌-配置修改；√
+管理员设置-身份认证-钉钉、企微补充；√
+管理员设置-身份认证-启用微信-报错；√
+首页-应用组-鼠标移动到应用的样式（遮罩层、两个按钮位置）；√
+/api/v1/datasources/mocks接口后端报错；√
+开发区-切换移动布局-组件数量全部暴露；√
+首次弹窗提示内容汉化、时间处理；欢迎来到 PagePlug ！√
+解决本地eslint问题；√
+关闭sql的智能提示；√
+数据源-MongoDB设置汉化；√
+更新文档，跳转，代码格式，布局；√
+
+
+11.27-12.1
+ce-小程序编辑态导航栏；√
+WidgetFactory.tsx:408 Widget stylesheet properties not defined:  CANVAS_WIDGET：√
+ce-组件分类-文案、收缩张开箭头方向；√
+ee-镜像、线上环境；√
+ee-编辑-画布尺寸-自定义；√
+ee-企微登录；√
+ce-个人信息页调整；x
+
+钉钉登录；
+复现Formily属性引用；√
+ee-首次使用欢迎页报错，需刷新；
+汉化：身份验证复制地址成功提示；
+最近改动同步ee；
+
+身份认证-Github登录测试；
+帮助弹窗的教程链接替换；
 每个接口影响的state；
-错误页面汉化；
+自动化测试；
+gitlab自动化部署；
+
+
+bug：
+/api/v1/app-templates/filters接口的状态码500；
+public下index.html的问题；
+
+ResizeObserver loop completed with undelivered notifications.
+at handleError (http://localhost:8160/static/js/bundle.js:549651:58)
+at http://localhost:8160/static/js/bundle.js:549670:7
+
+React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+
+ce-组件（拖入、点击）-控制台报错：iframe、；
+
+待理解：
 连接git了解更多，体验模版商城链接的替换；
 寻找模版商场appUrl来源；
-开发区-切换移动布局-组件数量全部暴露；
 Table组件发布后，组件数量多的话，过滤功能不支持使用；
 首页-新建应用组-导入应用-重连数据源不生效；
 开发区-使用达梦数据源生成页面；
@@ -256,7 +311,9 @@ Table组件发布后，组件数量多的话，过滤功能不支持使用；
 水印功能；
 
 
+
 待理解：
+如何获取其他组件的属性的？
 组件如何显示在画布上？
 导入应用？
 导航的设计、配置过程、发布后如何生效？
@@ -271,12 +328,22 @@ isAirgapped()含义？
 工作流理解？
 理解梯子的原理？
 何为集群？
+ts-函数-参数数量不一致；
+put请求理解；
 
 
 待办：
 封装一个自增表格；
+实现弹幕效果；
 知识库搭建；
 拓展-小程序；
+拓展-java；
+拓展-flutter/uni-app;
+开发一个vscode插件：
+点击请求，跳转到对于文件位置；
+工具-提取视频文案（字幕）；
+文字+配音--》mp3；
+折叠效果；
 
 
 
@@ -301,9 +368,9 @@ set与cross-env工具区别；
 警告过多；
 单元测试；
 bug：
-1.WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；
+1.WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；√
 4.[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted；
-5.首次进入pp页面提示错误，手动刷新才能进入注册页（路由：/welcome）
+5.首次进入pp页面提示错误，手动刷新才能进入注册页（路由：/welcome）；√
 
 
 

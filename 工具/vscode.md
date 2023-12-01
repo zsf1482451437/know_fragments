@@ -29,3 +29,9 @@ git ls-files -z | xargs -0 perl -i -pe 's/\r$//g'
 ```
 
 修改所有文件！
+
+## 调试单个文件
+
+打开文件，在文件中打断点或添加debugger；
+
+导航-运行和调试-选择环境（Chrome或node）；

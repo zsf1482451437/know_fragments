@@ -467,7 +467,13 @@ export default TaskList;
 
 
 
+# 经验积累
+
+- 修改组件逻辑前，一定要清楚组件被哪些地方引用到；
+
 # 疑难杂症
+
+如何给style-componet的组件添加事件？
 
 ## react中使用svg
 
@@ -543,6 +549,8 @@ Warning: React.jsx: type is invalid -- expected a string (for built-in component
 
 Check your code at index.tsx:122.
 ```
+
+
 
 ## 修改create-react-app默认启动端口3000
 
@@ -678,4 +686,10 @@ function App() {
 </div>
 ```
 
-# 
+## Warning: validateDOMNesting(...): <button> cannot appear as a descendant of <button>.
+
+button不能嵌套，想方法让button不嵌套
+
+
+
+## React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.

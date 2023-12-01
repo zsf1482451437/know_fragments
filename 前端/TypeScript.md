@@ -1,3 +1,35 @@
+## 关键字
+
+
+
+## 函数
+
+### 参数数量不一致
+
+```ts
+// 定义
+export const getShouldFocusPropertyPath = createSelector(
+  [
+    getFocusablePropertyPaneField,
+    (_state: AppState, key: string | undefined) => key,
+  ],
+  (focusableField: string | undefined, key: string | undefined): boolean => {
+    return !!(key && focusableField === key);
+  },
+);
+```
+
+```ts
+// 调用
+getShouldFocusPropertyPath(
+    state,
+    dataTreePath,
+    hasDispatchedPropertyFocus.current,
+),
+```
+
+提示：应有 2 个参数，但获得 3 个。
+
 ## 泛型
 
 ```tsx

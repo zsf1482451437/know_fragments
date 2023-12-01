@@ -80,7 +80,15 @@ git push origin 分支名
 
 6.接着去公仓提交merge request，由项目的maintainer合并你的跟新（一般是developer，当然，优秀的你迟早maintainer）
 
-# 疑难杂症
+## 合并
+
+合并其他分支的某次提交
+
+> git cherry-pick 该提交的hash值
+
+git log 可查看提交hash值
+
+## 疑难杂症
 
 **本地仓库已经新建了很多文件，怎么和新建的Github远程仓库建立关联？**
 

@@ -3074,19 +3074,143 @@ export function ActionButton({ method }: { method: AuthMethodType }) {
 
 ## 创建应用
 
+## 如何获取其他组件的属性的？
+
+>  1.组件获得属性
+
+WidgetRegistry.tsx
+
+```ts
+for (const widget of ALL_WIDGETS_AND_CONFIG) {
+    registerWidget(widget[0], widget[1] as WidgetConfiguration);
+}
+```
+
+调用registerWidget，传入初始配置，使widget获得属性；
+
+> generateWidget: memoize、getWidgetComponent、withMeta、withLazyRender、Sentry.withProfiler
+> 2.1 返回一个经过处理的 `widget`。这个 `widget` 包含了元数据、懒加载渲染、性能分析等处理
+>
+> registerWidgetBuilder：enhancePropertyPaneConfig、convertFunctionsToString、addPropertyConfigIds、addSearchConfigToPanelConfig、generatePropertyPaneSearchConfig
+> 2.2 处理配置信息，并保存在WidgetFactory对应的映射表中
+>
+> configureWidget：generateReactKey、storeNonSerialisablewidgetConfig、storeWidgetConfig、setWidgetMethods
+> 2.3 对`widget`进行配置，并将其相关信息注册到 `WidgetFactory` 中，以及通过 Redux 更新应用程序状态。
+
+WidgetRegisterHelpers.tsx
+
+```ts
+export const registerWidget = (
+  Widget: typeof BaseWidget,
+  config: WidgetConfiguration,
+) => {
+  const ProfiledWidget = generateWidget(
+    Widget,
+    !!config.needsMeta,
+    !!config.eagerRender,
+  );
+
+  WidgetFactory.registerWidgetBuilder(
+    config.type,
+    {
+      buildWidget(widgetData: any): JSX.Element {
+        return <ProfiledWidget {...widgetData} key={widgetData.widgetId} />;
+      },
+    },
+    config.properties.derived,
+    config.properties.default,
+    config.properties.meta,
+    config.properties.config,
+    config.properties.contentConfig,
+    config.properties.styleConfig,
+    config.features,
+    config.properties.loadingProperties,
+    config.properties.stylesheetConfig,
+    config.properties.autocompleteDefinitions,
+    config.autoLayout,
+    config.properties.setterConfig,
+  );
+
+  configureWidget(config);
+};
+```
 
 
-# 接口
 
-| 接口路径                                                     | 说明               | 参数 | 响应 |
-| ------------------------------------------------------------ | ------------------ | ---- | ---- |
-| https://dev.appsmith.com/api/v1/admin/env                    | 请求env配置        |      |      |
-| https://dev.appsmith.com/api/v1/users                        | 请求个人信息       |      |      |
-| https://dev.appsmith.com/api/v1/wxLogin/code                 | 请求微信登录二维码 |      |      |
-| https://dev.appsmith.com/api/v1/plugins?workspaceId=64bfd3bfcc55337d325c4380 | 请求数据源列表     |      |      |
-|                                                              |                    |      |      |
+# 状态
+
+| 状态 | 说明 |      |
+| ---- | ---- | ---- |
+|      |      |      |
+|      |      |      |
+|      |      |      |
 
 
+
+# 接口-影响状态
+
+## 登录页
+
+| 接口路径                                   | 涉及状态【action】   | 说明           | 参数                                               | 状态入口   |
+| ------------------------------------------ | -------------------- | -------------- | -------------------------------------------------- | ---------- |
+| ，，，，，，，，，，，，，，，，，，，，， | ，，，，，，，，，， | ，，，，，，， | ，，，，，，，，，，，，，，，，，，，，，，，，， | ，，，，， |
+| /api/v1/captcha?                           |                      | 登录验证码     |                                                    |            |
+| /api/v1/login?redirectUrl=xxx/applications |                      | 登录           | redirectUrl、username、password、verificationCode  |            |
+| /api/v1/logout                             |                      | 登出           |                                                    |            |
+|                                            |                      |                |                                                    |            |
+|                                            |                      |                |                                                    |            |
+
+## 首页
+
+| 接口路径                                         | 涉及状态【action】                                           | 说明                     | 参数                                 | 状态入口                                                     |
+| ------------------------------------------------ | ------------------------------------------------------------ | ------------------------ | ------------------------------------ | ------------------------------------------------------------ |
+| ，，，，，，，，，，，，，，，                   | ，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，， | ，，，，，，，，，，，， | ，，，，，，，，，，，，，，，，，， |                                                              |
+| /api/v1/users/me                                 | entities-app-user【FETCH_USER_DETAILS_SUCCESS】<br />ui-users-currentUser | 个人信息                 | -                                    | app\client\src\reducers\entityReducers\appReducer.ts<br />app\client\src\reducers\uiReducers\usersReducer.ts |
+| /api/v1/users/features                           | ui-users-featureFlag【FETCH_FEATURE_FLAGS_SUCCESS】          |                          | -                                    | app\client\src\reducers\uiReducers\usersReducer.ts           |
+| /api/v1/product-alert/alert                      | ui-users-productAlert【FETCH_PRODUCT_ALERT_SUCCESS】         | 生产警告                 | -                                    | app\client\src\reducers\uiReducers\usersReducer.ts           |
+| /api/v1/tenants/current                          | settings-config【FETCH_CURRENT_TENANT_CONFIG_SUCCESS】<br />tenant-userPermissions、tenantConfiguration | 租户配置/用户权限        | -                                    | app\client\src\ce\reducers\settingsReducer.ts<br />app\client\src\ce\reducers\tenantReducer.ts |
+| /api/v1/applications/releaseItems                | mock数据                                                     | tag版本信息              | -                                    | app\client\src\mockResponses\FetchReleasesMockResponse.json  |
+| /api/v1/applications/new                         | ui-applications-userWorkspaces【FETCH_USER_APPLICATIONS_WORKSPACES_SUCCESS】 | 获取应用组               | -                                    | app\client\src\ce\reducers\uiReducers\applicationsReducer.tsx |
+| /api/v1/applications/import/:workspaceId         | ui-applications-importedApplication【IMPORT_APPLICATION_SUCCESS】 | 导入应用到应用组         | workspaceId、file                    | app\client\src\ce\reducers\uiReducers\applicationsReducer.tsx |
+| /api/v1/workspaces                               | ui-userWorkspaces【CREATE_WORKSPACE_SUCCESS】                | 新建应用组               | name                                 | app\client\src\ce\reducers\uiReducers\workspaceReducer.ts    |
+| /api/v1/workspaces/:workspaceId                  | ui-userWorkspaces【DELETE_WORKSPACE_SUCCESS】                | 删除应用组               | workspaceId                          |                                                              |
+| /api/v1/workspaces/:workspaceId                  | ui-userWorkspaces【SAVE_WORKSPACE_SUCCESS】                  | 修改应用组名称/网站/邮箱 | workspaceId、name/website/Email      |                                                              |
+| /api/v1/workspaces/:workspaceId/logo             | ui-userWorkspaces【SAVE_WORKSPACE_SUCCESS】                  | 修改应用组logo           | workspaceId、file                    |                                                              |
+| /api/v1/workspaces/:workspaceId/members          | ui-userWorkspaces-workspaceUsers【FETCH_ALL_USERS_SUCCESS】  | 获取应用组成员           |                                      |                                                              |
+| /api/v1/workspaces/:workspaceId/permissionGroups | ui-userWorkspaces-workspaceRoles【FETCH_ALL_ROLES_SUCCESS】  |                          |                                      |                                                              |
+
+## 编辑页
+
+| 接口路径                                                     | 涉及状态【action】                                           | 说明                 | 参数                                                         | 状态入口                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ，，，，，，，，，，，，，，，，，，，，，，，，，，，，，， | ，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，， | ，，，，，，，，，， | ，，，，，，，，，，                                         | ，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，，， |
+| /api/v1/pages?pageId=pageId&mode=EDIT                        | ui-applications-currentApplication【FETCH_APPLICATION_SUCCESS】<br />entity-pageList【FETCH_PAGE_LIST_SUCCESS】<br />ui-workspaces【SET_CURRENT_WORKSPACE_ID】 | 生成导入应用的页面   | pageId、mode                                                 | app\client\src\ce\reducers\uiReducers\applicationsReducer.tsx<br />app\client\src\reducers\entityReducers\pageListReducer.tsx<br />app\client\src\ee\reducers\uiReducers\workspaceReducer.tsx |
+| /api/v1/pages/:pageId                                        | ui-mainCanvas、editor【INIT_CANVAS_LAYOUT】<br />entity-canvasWidgets、canvasWidgetsStructureReducer、metaWidgets | 获取页面             | pageId                                                       | app\client\src\reducers\uiReducers\editorReducer.tsx<br />app\client\src\reducers\entityReducers\index.ts |
+| /api/v1/actions?applicationId=applicationId                  | entity-actions【FETCH_ACTIONS_SUCCESS】                      | 获取actions          | applicationId                                                | app\client\src\reducers\entityReducers\actionsReducer.tsx    |
+| /api/v1/collections/actions?=applicationId                   | entity-jsActions【FETCH_JS_ACTIONS_SUCCESS】                 | 获取jsActions        | applicationId                                                | app\client\src\reducers\entityReducers\jsActionsReducer.tsx  |
+| /api/v1/actions/:actionId                                    | entity-actions【UPDATE_ACTION_SUCCESS】<br />ui-queryPane    | 更新actions          | actionConfiguration<br />applicationId<br />autoComplete<br />confirmBeforeExecute<br />datasource<br />dynamicBindingPathList<br />eventData<br />executeOnLoad<br />id<br />invalids<br />isValid<br />jsonPathKeys<br />messages<br />pageId<br />pluginId<br />pluginType<br />userPermissions<br />validName<br />workspaceId<br /> | app\client\src\reducers\entityReducers\actionsReducer.tsx<br />app\client\src\reducers\uiReducers\queryPaneReducer.ts |
+|                                                              |                                                              |                      |                                                              |                                                              |
+| /api/v1/plugins/:id/form                                     | entity-plugins【FETCH_PLUGIN_FORM_CONFIGS_SUCCESS】          | 获取plugin相关配置   | pluginId                                                     | app\client\src\reducers\entityReducers\pluginsReducer.ts     |
+| /api/v1/themes/applications/:applicationId/current?mode=EDIT | ui-appTheming-selectedTheme【FETCH_SELECTED_APP_THEME_SUCCESS】 | 获取选中的主题       | applicationId、mode                                          | app\client\src\reducers\uiReducers\appThemingReducer.ts      |
+| /api/v1/themes/applications/:applicationId                   | ui-appTheming-themes【FETCH_APP_THEMES_SUCCESS】             | 获取应用主题         | applicationId                                                | app\client\src\reducers\uiReducers\appThemingReducer.ts      |
+|                                                              |                                                              |                      |                                                              |                                                              |
+| /api/v1/applications/snapshot/:applicationId                 |                                                              |                      |                                                              |                                                              |
+|                                                              |                                                              |                      |                                                              |                                                              |
+|                                                              |                                                              |                      |                                                              |                                                              |
+
+## 管理员设置页
+
+| 接口路径                                             | 涉及状态                                     | 说明                 | 参数 | 状态入口                                      |
+| ---------------------------------------------------- | -------------------------------------------- | -------------------- | ---- | --------------------------------------------- |
+|                                                      | ，，，，，，，，，，，，，，，，，，，，，， | ，，，，，，，，，， |      |                                               |
+| /api/v1/admin/env                                    | settings-config                              | env配置              | -    | app\client\src\ce\reducers\settingsReducer.ts |
+|                                                      |                                              |                      |      |                                               |
+|                                                      |                                              |                      |      |                                               |
+|                                                      |                                              |                      |      |                                               |
+|                                                      |                                              |                      |      |                                               |
+| /api/v1/wxLogin/code                                 |                                              | 微信登录二维码       |      |                                               |
+| /api/v1/plugins?workspaceId=64bfd3bfcc55337d325c4380 |                                              | 数据源列表           |      |                                               |
+|                                                      |                                              |                      |      |                                               |
 
 # 疑问
 
@@ -3324,7 +3448,7 @@ ConfigFactory.register(BrandingConfig);
 |            管理员设置页            |              /settings/${xxx}，general是通用栏               |       app\client\src\ce\pages\AdminSettings\index.tsx        |               1）侧边栏<br />2）详细配置<br />               |                                                              |
 |         管理员设置-侧边栏          |                                                              |      app\client\src\ce\pages\AdminSettings\LeftPane.tsx      |                                                              |                                                              |
 |        管理员设置-详细配置         |                                                              |        app\client\src\ce\pages\AdminSettings\Main.tsx        |                                                              |                                                              |
-|         工作区-应用编辑页          | /app/1/page1-6523de68897f404778e147cd/edit<br />动态路由<br />/app/:applicationSlug/:pageSlug(.*\-):pageId/edit |               app\client\src\ce\AppRouter.tsx                |              1）应用头部<br />2）动态内容<br />              |                      首次加载完成<br />                      |
+|         工作区-应用编辑页          |       /app/1/page1-6523de68897f404778e147cd/edit<br />       |               app\client\src\ce\AppRouter.tsx                |              1）应用头部<br />2）动态内容<br />              |                      首次加载完成<br />                      |
 |     工作区-应用编辑页-应用头部     |                                                              |         app\client\src\pages\Editor\EditorHeader.tsx         |         1）左侧<br />2）中间搜索<br />3）右侧<br />          | 首次加载完成<br />1）<br />移动到菜单<br />钉住<br />3）<br />发布<br /> |
 |      工作区-应用编辑页-开发区      |                                                              |        app\client\src\pages\Editor\MainContainer.tsx         |               1）中间内容<br />2）底部栏<br />               |    1）<br />左侧边栏宽度改变<br />左侧边栏拖拽结束<br />     |
 |  工作区-应用编辑页-开发区-侧边栏   |                                                              |    app\client\src\components\editorComponents\Sidebar.tsx    | 1）页面列表<br />2）组件属性<br />3）资源管理器<br />4）宽度调整器<br /> | 首次加载完成<br />4）<br />鼠标移动<br />移动到宽度调整器<br />移动到宽度调整器结束<br /> |
@@ -3332,7 +3456,7 @@ ConfigFactory.register(BrandingConfig);
 | 工作区-应用编辑页-开发区-属性配置  |                                                              |      app\client\src\pages\Editor\PropertyPane\index.tsx      |                                                              |                                                              |
 |         工作区-应用发布页          |                                                              |                                                              |                                                              |                                                              |
 |         工作区-应用设置页          |          /app/1/page1-654afa6b7bdbbb67f235fbdd/edit          | app\client\src\pages\Editor\AppSettingsPane\AppSettings\index.tsx |                                                              |                                                              |
-|      工作区-查询-语句编辑器页      | /app/1/page1-6548c8dc80e6013da9f4dfd4/edit/queries/65499ead80e6013da9f4dfdd |          app\client\src\pages\Editor\MainContainer           | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）右边-app\client\src\pages\Editor\routes.tsx<br />代码编辑器-app\client\src\components\editorComponents\CodeEditor\EvaluatedValuePopup.tsx |                                                              |
+|      工作区-查询-语句编辑器页      | /app/1/page1-6548c8dc80e6013da9f4dfd4/edit/queries/65499ead80e6013da9f4dfdd |        app\client\src\pages\Editor\MainContainer.tsx         | （左）侧边栏-app\client\src\components\editorComponents\Sidebar.tsx<br />（右）右边-app\client\src\pages\Editor\routes.tsx<br />代码编辑器-app\client\src\components\editorComponents\CodeEditor\EvaluatedValuePopup.tsx |                                                              |
 |       工作区-应用菜单编辑页        |   /app/1/page1-654de37eb2d32269df5718c2/edit/viewerlayout    |   app\client\src\pages\Editor\ViewerLayoutEditor\index.tsx   |              1）顶部导航<br />2）菜单导航<br />              | 2）<br />获取当前应用布局数据<br />首次加载完成<br />初始化新树数据<br />关闭菜单编辑<br />增加节点<br />开始拖拽<br />拖拽完成<br />图标选择<br />修改节点名字<br />删除节点<br />隐藏节点<br />保存配置<br /> |
 |             个人信息页             |                           /profile                           |               src\pages\UserProfile\index.tsx                |                                                              |                                                              |
 

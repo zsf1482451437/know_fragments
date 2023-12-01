@@ -64,6 +64,10 @@ nvm install xxx
 nvm use xxx
 ```
 
+### 疑难杂症
+
+**nvm use xxx, node -v不生效**
+
 
 
 # package.json
@@ -75,6 +79,10 @@ nvm use xxx
 ```
 
 自动格式化 `src` 目录下的所有 `.ts`、`.tsx` 和 `.js` 文件
+
+## 获取最新依赖
+
+
 
 # lodash
 
@@ -130,3 +138,5 @@ yarn add @sentry/webpack-plugin@1.18.9
 ## playwright安装慢
 
 执行yarn，link 步骤第三方库playwright安装慢
+
+### 

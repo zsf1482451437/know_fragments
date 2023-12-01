@@ -28,11 +28,19 @@ mysql实例（3.7.6）：
 研发团队-功能设计中 编写提测说明；
 产品计划 - 2023 - 提测文档中 编写记录；
 
-测试账号：
-Github单点登录：
+第三方登录测试账号：
+Github：
 9042e992eeed6ef72897
 d52d66e3401237674c24eefdb0744479888603de
-
+微信：
+wxed9954c01bb89b47
+a7482517235173ddb4083788de60b90e
+http://localhost:8160/api/v1/wxLogin/callback
+企业微信：
+CROP ID: ww813200fb08c865de
+AGENT: 1000002
+Secret: nY4xW2DmtfJRgM1V8F_ocxz7WyOPyRzCSkQk1S72Bug
+http://localhost:8160/api/v1/wecomLogin/callback
 
 构建镜像，登录，推
 docker build -t harbor.cloud2go.cn/pageplug/pageplug:时间戳 .
@@ -42,7 +50,7 @@ docker push harbor.cloud2go.cn/pageplug/docus:时间戳
 远程服务器拉取、运行（部署）
 docker pull harbor.cloud2go.cn/pageplug/docus:20230817172217
 docker run -p 716:443 --name pageplug-docus -d harbor.cloud2go.cn/pageplug/docus:20230817172217
-docker run -p 80:80 -p 443:443 --name pageplug-docus-1 -d docker-registry-idc01-sz.cloudtogo.cn/pageplug/docus:20231027153557
+docker run -p 80:80 -p 443:443 --name pageplug-docs -d docker-registry-idc01-sz.cloudtogo.cn/pageplug/docus:2023113019110
 docker run -p 8161:443 -p 8160:80 --name pageplug-ee_v1.9.20 -d -e PAGEPLUG_LICENSE_KEY=ZL4Sj6iBx9FzXHbiEmW4IAqEpLsKmAcLrDDOhGETPgepGK1cQodTFqKdm4aKXGi3yQvCVLD2RO+xTE7+Ugn7JrHhuJqc1XJR47KJgDO/uCO3ZMbQRl3ScMpYtuCHLOydj/jFPL/3hRyYK1TayejsfW0enxapdDUUN0WjdI5+av/BgCgSDX9TWqOR6iQtIj/yGcnXkUxPemRomeNIMBDnczNb0mmoOepPNs8lzgrxQSqiP8aPL8bJDlUrBBPQR08+vK7iZLDiymswKhuARzXMVOm7R+e3Rr4wP/kQPqHgKwtLI2kQGMDE2wasPd2vidZR+Gn64z12RUKgicxx/1fs1w== harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.20_2023911192324 
 
 
