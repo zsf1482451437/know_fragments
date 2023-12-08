@@ -275,9 +275,22 @@ ee-镜像、线上环境；√
 ee-编辑-画布尺寸-自定义；√
 ee-企微登录；√
 ce-个人信息页调整；x
-
-钉钉登录；
 复现Formily属性引用；√
+
+12.4-12.8
+钉钉登录测试；√
+企微登录测试；√
+企微登录-已绑定提示；√
+bug-钉钉绑定后已绑定的微信消失；√
+登录页-修改提示信息；√
+个人信息页-第三方登录逻辑调整；√
+jsonScheme组件；
+登出事件；LOGOUT_USER_INIT；√
+历史记录管理；
+数据源测试提醒信息调整；√
+Widget stylesheet properties not defined:  DIVIDER_WIDGET；
+登录页bug：
+http://localhost:8160/user/login?error=true&redirectUrl=http://localhost:8160/applications
 ee-首次使用欢迎页报错，需刷新；
 汉化：身份验证复制地址成功提示；
 最近改动同步ee；
@@ -285,6 +298,7 @@ ee-首次使用欢迎页报错，需刷新；
 身份认证-Github登录测试；
 帮助弹窗的教程链接替换；
 每个接口影响的state；
+本地运行open-block;
 自动化测试；
 gitlab自动化部署；
 
@@ -309,6 +323,8 @@ Table组件发布后，组件数量多的话，过滤功能不支持使用；
 开发区-使用达梦数据源生成页面；
 小程序组件可绑定属性；
 水印功能；
+开发者工具里请求中的type；
+项目中的日志；
 
 
 

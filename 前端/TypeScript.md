@@ -1,6 +1,23 @@
 ## 关键字
 
+### Omit
 
+省略类型中某个属性
+
+> 场景：想复用现有的某个类型，但是其中一个属性不想要
+
+```ts
+type OriginalType = {
+  property1: string;
+  property2: number;
+  unwantedProperty: boolean;
+};
+
+// 创建一个省略 unwantedProperty 的新类型
+type NewType = Omit<OriginalType, 'unwantedProperty'>;
+
+// 现在 NewType 就是省略 unwantedProperty 的类型
+```
 
 ## 函数
 
@@ -98,3 +115,92 @@ SelectProps,
 
 - `Required<T>` 是 TypeScript 中的类型操作符，用于将接口或类型 `T` 中的所有属性标记为必需属性，即不能为 `undefined` 或 `null`。
 - `Pick<SelectProps, "disabled" | "placeholder" | "loading" | "dropdownStyle" | "allowClear">` 表示从 `SelectProps` 接口中选择特定的属性，形成一个新的类型。在这里，我们选择了 `"disabled"`、`"placeholder"`、`"loading"`、`"dropdownStyle"` 和 `"allowClear"` 这些属性。
+
+## 疑难杂症
+
+### Function components cannot be given refs
+
+```tsx
+const AppsmithLink = styled(
+    (props) => {
+        // we are removing non input related props before passing them in the components
+        return <Link {...props} />;
+    }),
+      `
+  height: 24px;
+  min-width: 24px;
+  width: 24px;
+  display: inline-block;
+  img {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+  }
+`;
+```
+
+> 这样使用时，会有Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+>
+> 在使用 `styled` 函数时，如果要在样式化组件中访问 `ref` 属性，您需要使用 `React.forwardRef` 方法来包装组件。
+
+可以这么写
+
+```tsx
+type LinkProps = {
+    to: string;
+};
+
+const AppsmithLink = styled(
+    React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
+        // we are removing non input related props before passing them in the components
+        return <Link ref={ref} {...props} />;
+    }),
+)`
+  /* your styles here */
+`;
+
+<AppsmithLink to={APPLICATIONS_URL}>
+    <PagePlugLogoImg
+        alt="PagePlug logo"
+        className="t--appsmith-logo"
+        src={PagePlugLogo}
+        />
+</AppsmithLink>
+```
+
+- `HTMLAnchorElement` 指定了 `ref` 的类型为 `HTMLAnchorElement`，这表示 `ref` 应该是一个指向 `<a>` 元素的引用。
+- `LinkProps` 指定了 `props` 的类型为 `LinkProps`，这表示组件的其余属性应符合 `LinkProps` 类型的要求。
+
+使用
+
+```tsx
+<AppsmithLink to={APPLICATIONS_URL}>
+    <PagePlugLogoImg
+        alt="PagePlug logo"
+        className="t--appsmith-logo"
+        src={PagePlugLogo}
+        />
+</AppsmithLink>
+```
+
+> 这样会提示 No overload matches this call.
+
+可以这样使用：
+
+```tsx
+<AppsmithLink to={APPLICATIONS_URL} as={Link}>
+  <PagePlugLogoImg
+    alt="PagePlug logo"
+    className="t--appsmith-logo"
+    src={PagePlugLogo}
+  />
+</AppsmithLink>
+```
+
+> 通过 `as` 属性，你在使用 `styled-components` 包装的组件时，可以明确告诉 TypeScript 实际使用的组件类型。
+
+排除某个类型？
+
+### 参数不匹配
+
+> 使用时传的参数少

@@ -224,6 +224,10 @@ console.log(returnedTarget === target);
 
 `Object.assign()` 方法只会拷贝源对象*可枚举的*的*自有属性*到目标对象。该方法在源对象上使用 `[[Get]]`，在目标对象上使用 `[[Set]]`，因此它会调用 [getter](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/get) 和 [setter](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/set)。故它对属性进行*赋值*，而不仅仅是复制或定义新的属性。如果合并源对象包含 getter 的新属性到原型中，则可能不适合使用此方法。
 
+### entries
+
+
+
 ## 类型
 
 如何给一个第三方库的类型添加属性？比如Tree组件的DataNode添加属性
@@ -310,7 +314,11 @@ moment(info.inspectTime).utcOffset(8).format('YYYY-MM-DD HH:mm:ss')
 
 **取值路径**较深时，推荐可选链或者lodash的get方法
 
+> 某个变量接收string类型，如何传递{ type: "LOGOUT" }给他
 
+```js
+JSON.stringify({ type: "LOGOUT" })
+```
 
 
 
