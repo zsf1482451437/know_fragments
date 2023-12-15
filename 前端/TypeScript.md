@@ -204,3 +204,9 @@ const AppsmithLink = styled(
 ### 参数不匹配
 
 > 使用时传的参数少
+
+
+
+> Type 'Setting[] | undefined' must have a '[Symbol.iterator]()' method that returns an iterator.
+
+使用`...`运算符时，主体有可能是undefined，需要给个默认值

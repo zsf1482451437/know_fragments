@@ -51,5 +51,6 @@ docker pull harbor.cloud2go.cn/pageplug/docus:20230817172217
 docker run -p 716:443 --name pageplug-docus -d harbor.cloud2go.cn/pageplug/docus:20230817172217
 docker run -p 80:80 -p 443:443 --name pageplug-docs -d docker-registry-idc01-sz.cloudtogo.cn/pageplug/docus:2023113019110
 docker run -p 8161:443 -p 8160:80 --name pageplug-ee_v1.9.20 -d -e PAGEPLUG_LICENSE_KEY=ZL4Sj6iBx9FzXHbiEmW4IAqEpLsKmAcLrDDOhGETPgepGK1cQodTFqKdm4aKXGi3yQvCVLD2RO+xTE7+Ugn7JrHhuJqc1XJR47KJgDO/uCO3ZMbQRl3ScMpYtuCHLOydj/jFPL/3hRyYK1TayejsfW0enxapdDUUN0WjdI5+av/BgCgSDX9TWqOR6iQtIj/yGcnXkUxPemRomeNIMBDnczNb0mmoOepPNs8lzgrxQSqiP8aPL8bJDlUrBBPQR08+vK7iZLDiymswKhuARzXMVOm7R+e3Rr4wP/kQPqHgKwtLI2kQGMDE2wasPd2vidZR+Gn64z12RUKgicxx/1fs1w== harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.20_2023911192324 
+yaml文件启动： 修改好docker-compose.yaml后运行  docker-compose up -d
 
 

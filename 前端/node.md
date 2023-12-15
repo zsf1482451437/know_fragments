@@ -3,13 +3,13 @@
 ## 查看当前的镜像源：
 
 ```
-yarn config get registry
+yarn config get npmRegistryServer
 ```
 
 ## 修改为淘宝镜像源：
 
 ```
-yarn config set registry http://registry.npm.taobao.org
+yarn config set npmRegistryServer https://registry.npm.taobao.org
 ```
 
 ## 查看有效配置：
@@ -30,6 +30,31 @@ Yarn 包管理器会执行一系列步骤来确保顺利安装所需的包，并
 4. **Link（依赖链接）**：在下载完成后，Yarn 会将这些包链接到项目的 `node_modules` 目录中。这意味着它会在正确的位置创建符号链接，以使这些包可以被项目的其他部分引用。
 
 这些步骤的目的是确保包的正确安装，并处理依赖关系以避免冲突或版本不兼容的问题。此外，执行这些步骤还可以提高包的安装速度，因为它们允许 Yarn 在安装过程中利用缓存和链接的特性。
+
+## 疑难杂症
+
+> ➤ YN0000: ┌ Resolution step
+> ➤ YN0001: │ RequestError: connect ETIMEDOUT 104.16.3.35:443
+>     at ClientRequest.<anonymous> (D:\workspace\pp\pro\b_d\app\client\.yarn\releases\yarn-3.5.1.cjs:195:14340)
+>     at Object.onceWrapper (node:events:629:26)
+>     at ClientRequest.emit (node:events:526:35)
+>     at o.emit (D:\workspace\pp\pro\b_d\app\client\.yarn\releases\yarn-3.5.1.cjs:190:90286)
+>     at TLSSocket.socketErrorListener (node:_http_client:501:9)
+>     at TLSSocket.emit (node:events:514:28)
+>     at emitErrorNT (node:internal/streams/destroy:151:8)
+>     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+>     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+>     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+> ➤ YN0000: └ Completed in 1m 33s
+> ➤ YN0000: Failed with errors in 1m 33s
+
+访问不了国外的库源，切换库源切换成淘宝镜像：
+
+```bash
+yarn config set npmRegistryServer https://registry.npm.taobao.org
+```
+
+
 
 # node
 

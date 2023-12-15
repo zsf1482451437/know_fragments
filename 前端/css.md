@@ -1,3 +1,47 @@
+# 预处理器
+
+## less
+
+> &&
+
+类似于&，父选择器
+
+# 属性
+
+## gap
+
+`gap` 是 CSS 中 Flexbox 和 Grid 布局中的属性，用于设置子元素之间的间距。它是 `row-gap` 和 `column-gap` 的缩写，用于定义 Flexbox 容器或 Grid 容器中行和列之间的间距。
+
+> flex
+
+```css
+.flex-container {
+  display: flex;
+  gap: 10px; /* 设置子元素之间的间隔为10像素 */
+}
+```
+
+> grid
+
+```css
+.grid-container {
+  display: grid;
+  gap: 10px; /* 设置子元素之间的间隔为10像素 */
+}
+```
+
+## inset
+
+用于设置元素偏移的新属性，它是 `top`、`right`、`bottom` 和 `left` 属性的集合。
+
+```css
+element {
+  inset: top right bottom left;
+}
+```
+
+
+
 # 样式积累
 
 ## 子元素写>与不写的区别
@@ -276,3 +320,25 @@ export default MyLottieAnimation;
 而cover，保持图像的纵横比，尽量填充整个容器，图像将在垂直或水平方向上被**裁剪**。
 
 ## 如何覆盖掉用户代理样式表中输入框自动填充后的样式
+
+## @rjsf中的form组件
+
+有个注意点
+
+> https://rjsf-team.github.io/react-jsonschema-form/docs/api-reference/form-props#children
+
+当有这样的样式：
+```css
+position: relative;
+&:after {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+```
+
+触发form提交事件时，校验不会触发(去掉这段样式则可以)。
+这是为何？

@@ -6,13 +6,30 @@
 
 # md语法
 
-```bash
-[desc](url) 链接
-[https://blog.csdn.net](https://blog.csdn.net)这样可以显示该站点预览信息
-> 左边涂料，类似hint效果
+- 链接
+- 提示
+- 列表
 
+> 链接 
+
+`[显示文本](链接)`
+
+```bash
+[https://blog.csdn.net](https://blog.csdn.net)这样可以显示该站点预览信息
 ```
 
+> 提示
 
+`> 内容 `
 
-## 
+```
+> 左边涂料，类似hint效果
+```
+
+> 列表
+
+无序列表
+
+`+ 内容 `
+
+`*`、`-`等效

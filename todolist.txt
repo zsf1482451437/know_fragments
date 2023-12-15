@@ -284,36 +284,58 @@ ce-个人信息页调整；x
 bug-钉钉绑定后已绑定的微信消失；√
 登录页-修改提示信息；√
 个人信息页-第三方登录逻辑调整；√
-jsonScheme组件；
 登出事件；LOGOUT_USER_INIT；√
-历史记录管理；
 数据源测试提醒信息调整；√
-Widget stylesheet properties not defined:  DIVIDER_WIDGET；
-登录页bug：
-http://localhost:8160/user/login?error=true&redirectUrl=http://localhost:8160/applications
-ee-首次使用欢迎页报错，需刷新；
+
+
+12.11-12.15
+jsonScheme组件：
+Schema、ui、data校验函数；√
+提交按钮触发事件；√
+属性配置-样式；√
+表单项字体样式；√
+desc内容冗余；√
+提交按钮样式；√
+属性的获取、修改；√
+表单项校验提示；√
+初次获取属性为空；√
+Meta数据被修改；√
+赋予setData；√
+初始schema、ui、data；√
+自动高度时的底部按钮；√
+组件图标；√
+管理员设置-通过栏消失；√
+最近改动同步ee；√
+
+
+feat：
+历史记录管理；
+
+bug：
+审计日志过滤功能；
+json表单、json schema组件提交按钮阴影、边框视图不更新；
+json表单、json schema组件无法拖动选中；
+日期选择器汉化；
+首次使用欢迎页报错，需刷新；
+/api/v1/app-templates/filters接口的状态码500；
+public下index.html的问题；
+
+docs：
 汉化：身份验证复制地址成功提示；
-最近改动同步ee；
+帮助弹窗的教程链接替换；
 
 身份认证-Github登录测试；
-帮助弹窗的教程链接替换；
 每个接口影响的state；
-本地运行open-block;
 自动化测试；
 gitlab自动化部署；
 
 
 bug：
-/api/v1/app-templates/filters接口的状态码500；
-public下index.html的问题；
-
 ResizeObserver loop completed with undelivered notifications.
 at handleError (http://localhost:8160/static/js/bundle.js:549651:58)
 at http://localhost:8160/static/js/bundle.js:549670:7
 
 React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
-
-ce-组件（拖入、点击）-控制台报错：iframe、；
 
 待理解：
 连接git了解更多，体验模版商城链接的替换；

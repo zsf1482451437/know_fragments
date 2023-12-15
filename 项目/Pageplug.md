@@ -74,7 +74,7 @@ export default function* rootSaga() {
 
 
 
-# 理解
+# 理解&设计
 
 ## 配置面板的属性如何传递给画布中的组件？
 
@@ -3135,7 +3135,11 @@ export const registerWidget = (
 };
 ```
 
+## 日志功能
 
+## 组件工厂
+
+## 用户角色管理
 
 # 状态
 

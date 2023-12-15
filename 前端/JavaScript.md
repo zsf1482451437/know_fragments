@@ -312,13 +312,66 @@ moment(info.inspectTime).utcOffset(8).format('YYYY-MM-DD HH:mm:ss')
 
 # 经验
 
-**取值路径**较深时，推荐可选链或者lodash的get方法
+> **取值路径**较深时，推荐可选链或者lodash的get方法
 
 > 某个变量接收string类型，如何传递{ type: "LOGOUT" }给他
 
 ```js
 JSON.stringify({ type: "LOGOUT" })
 ```
+
+# 常见第三方库
+
+## lodash
+
+- pick
+
+> pick
+
+从**对象**中挑选指定属性
+
+基本用法：
+
+```js
+const _ = require('lodash');
+
+const sourceObject = {
+  name: 'John',
+  age: 25,
+  city: 'New York',
+  country: 'USA',
+};
+
+const pickedObject = _.pick(sourceObject, ['name', 'age']);
+
+console.log(pickedObject);
+// Output: { name: 'John', age: 25 }
+
+```
+
+注意事项：
+
+1. **不会修改原对象：** `_.pick` 不会修改传入的原始对象，而是返回一个新的对象。
+
+2. **不存在的属性：** 如果指定的属性在原对象中不存在，它们会被忽略。
+
+3. **数组作为属性列表：** 第二个参数是一个包含属性名的数组，你也可以传递多个参数，每个参数都是一个属性名。例如：
+
+   ```js
+   const pickedObject = _.pick(sourceObject, 'name', 'age');
+   ```
+
+4. **回调函数：** 你也可以传递一个回调函数，它决定了挑选哪些属性。例如：
+
+   ```js
+   const pickedObject = _.pick(sourceObject, (value, key) => key === 'name');
+   ```
+
+5. **深度挑选：** `_.pick` 默认只进行浅层次的挑选。如果你希望进行深度挑选，可以使用 `_.pick` 的 `deep` 参数：
+
+   ```js
+   const deepPickedObject = _.pick(sourceObject, ['name', 'address'], { deep: true });
+   ```
 
 
 
