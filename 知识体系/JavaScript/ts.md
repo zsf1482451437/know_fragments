@@ -1,0 +1,1226 @@
+# 1 js与ts的关系
+
+1.**js**本身没有对**变量、函数参数**进行**类型限制**;
+
+2.这样虽然**灵活**但是也**有安全隐患;**
+
+3.之后**facebook推出了flow**，**微软推出了ts**，他们都是致力于**为js提供类型检查**，而不是取代;
+
+4.并且在**ts的官方文档**上有这么一句话：**源于js，归于js！**;
+
+5.最终**ts**还是需要**转换成js代码**才能运行的;
+
+6.当然不排除有一天js本身也会加入类型检测，那么无论是ts还是flow都有可能因此退出历史舞台;
+
+# 2 类型检测
+
+## 2.1 共识
+
+**错误出现的越早越好**
+
+能在**写代码时**发现错误，就不要再**代码编译时**再发现（**IDE**的优势就是在**代码编写过程**中帮助我们发现错误）；
+
+能在**代码编译时**发现错误，就不要再**代码运行时**再发现（**类型检测**就可以很好的帮助我们做到这一点）；
+
+能在**开发阶段**发现错误，就不要在**测试期间**发现错误；
+
+能在**测试期间**发现错误，就不要在**上线后**发现错误；
+
+来看这么一段代码
+
+```js
+function foo(message) {
+  console.log(message.length)
+}
+foo('hello')
+// 后面有其它代码
+```
+
+运行，结果是5
+
+这么看来这段代码基本是没有什么问题的；
+
+但是存在一个非常大的**隐患**：当执行**foo()**不传任何参数时，就报错了；
+
+由于没传参数，导致foo()中的**message是undefined**，undefined哪来的length？
+
+这个报错导致**后面的代码**无法执行，这就导致一行报错，后面所有代码都无法运行，这是你希望看到的吗？；
+
+上面函数并没有**对参数进行校验**：
+
+- 参数类型
+- 是否传参
+
+这时，TypeScript应运而生。
+
+# 3 TypeScript
+
+ts是拥有**类型**的**js超集**，它可以编译成普通、干净、完整的js代码。
+
+js所有的特性，**ts都支持**，并且它紧随ECMAScript的标准，所以es6、es7、es8等新语法标准，ts都是支持的；
+
+在语言层面上，不仅仅增加了类型约束，而且包括一些**语法的拓展**，比如**枚举**类型（Enum）、**元组**类型（Tuple）等；
+
+所以，可以将ts理解为**加强版的js**；
+
+从开发者长远的角度看来，学习ts有助于培养**类型思维**，这种思维对于完成**大型项目**尤为重要。
+
+TypeScript官网：https://www.typescriptlang.org/
+
+## 3.1 编译环境
+
+我们知道ts是需要转换成js的，**那谁来负责转换呢？**
+
+- **tsc**，TypeScript Compiler
+- **babel**
+
+**全局安装**
+
+`npm install typescript -g`
+
+`tsc --version` 查看版本
+
+## 3.2 体验
+
+来编写一段ts代码
+
+```tsx
+function foo(message: string) {
+  console.log(message.length)
+}
+foo('hello')
+```
+
+当你执行foo()**不传参数**或者**传入非string类型**的参数，编辑器就会提醒你了，不需要等到运行期间才报错；
+
+然后执行 `tsc ts文件` 命令，转化为js文件，这时会出现同名的js文件；
+
+转化后的代码
+
+```js
+function foo(message) {
+  console.log(message.length)
+}
+foo('hello')
+```
+
+## 3.3 搭建ts编译环境
+
+当然，真实开发不是写一个ts文件转换一个
+
+我们需要：
+
+- 编写完ts，它**自动转换**成js；
+- 然后**自动在浏览器上运行**；
+- 也可以**自动更新**内容；
+
+搭建方式有几种：
+
+- 通过**webpack**搭建；
+- 安装node的一个库**ts-node**;
+
+### **使用ts-node库搭建**
+
+**ts-node做了什么事情？**
+
+将ts转换成js，然后在node环境上运行
+
+先全局安装 `npm install ts-node -g`;
+
+而ts-node又依赖于两个库，tslib、@types/node,全局安装它们 `npm install tslib @types/node -g`
+
+**测试**
+
+编写这么一段ts代码
+
+```tsx
+const name: string = 'abc'
+const age: number = 18
+
+console.log(name)
+console.log(age)
+
+export {}
+```
+
+为什么要写 `export {}` ？
+
+因为ts文件默认使用**全局作用域**(所有的ts文件)，使用export语法变成**模块**，就有**独立的作用域**了，防止**命名冲突**
+
+执行 `ts-node ts文件` 命令，你会看到**编辑器的终端**打印abc和18
+
+### 使用webpack搭建
+
+本地安装**ts-loader**和**typescript**，因为ts-loader本身又依赖于typescript
+
+`npm install ts-loader typescript -d`
+
+配置webpack.config.js
+
+```js
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loader: ts-loader
+            }
+        ]
+    }
+}
+```
+
+同时还需要**tscconfig.js**这个属于ts的配置文件，可以使用 `tsc --init` 生成；
+
+最后还需要搭建一个本地服务，利用webpack-dev-server；
+
+本地安装
+
+`npm install webpack-dev-server -d`
+
+## 3.4 变量声明
+
+声明的类型可以称之为**类型注解**；
+
+`let/const 标识符: 类型 = 值`
+
+例子
+
+```tsx
+let msg: string = 'hhh'
+```
+
+### 小写和大写区别
+
+类型的**小写**：TypeScript中的类型；
+
+类型的**大写**：JavaScript中的类型对应的**包装类**；
+
+### 类型推断
+
+默认情况下进行赋值时，会将**赋值的类型**，作为**标识符的类型**
+
+例子
+
+```tsx
+let msg = 'hhh'
+```
+
+msg默认的类型就是**字符串类型**
+
+## 3.5 数据类型
+
+- number类型
+- boolean类型
+- 字符串类型
+- **Array类型**
+- object类型
+- null和undefined
+- Symbol类型
+- **any类型**
+- **unknown类型**
+- **void类型**
+- **never类型**
+- **tuple类型**
+
+### Array类型
+
+规定一个数组类型并且元素是string类型的例子
+
+写法一，不推荐，可能会和jsx冲突
+
+```tsx
+const names: Array<string> = []
+```
+
+写法二，推荐
+
+```
+const names: string[] = []
+```
+
+### any类型
+
+类型不限制
+
+### tuple类型
+
+区别于数组类型，数组的元素类型一般一致，只有**“共性”**；
+
+而元组可以保留元素的**“个性”**；
+
+元组通常可以作为**返回的值**，在**使用时**会非常方便；
+
+```tsx
+const zsf: [string, number, number] = ['hhh', 18, 100]
+```
+
+
+
+## 3.6 联合类型
+
+**扩大类型的范围**；
+
+ts的类型系统允许使用多种运算符，从现有的类型中构建新类型；
+
+联合类型中每个类型被称之为**联合成员**（union’s members）;
+
+```tsx
+function printID(id: number | string) {
+  console.log(id)
+}
+```
+
+**联合类型**和**可选类型**有点**类似**；
+
+```tsx
+function printID(id?: number) {
+  console.log(id)
+}
+```
+
+可以转换成
+
+```tsx
+function printID(id: number | undefined) {
+  console.log(id)
+}
+```
+
+### 结合字面量类型
+
+其实字符串也是当成类型，也就是**字面量类型**;
+
+而字面量类型的**值**只能和**类型**一致；
+
+```tsx
+const msg: 'hhh' = 'hhh'
+```
+
+这时**字面量类型**就可以和**联合类型结合**使用了，不和结合类型结合使用，字面量类型没什么意义
+
+```tsx
+let align: 'left' | 'right' | 'center'
+align = 'right'
+```
+
+
+
+## 3.7 类型别名
+
+当联合类型有很多联合成员时，**类型会非常长**，可读性可能不好；
+
+此时可以**给类型起别名**，使用关键字**type**定义；
+
+```tsx
+type IdType = number | string
+type PointType = {
+    x: number, 
+    y: number, 
+    z?: number
+}
+
+function printID(id: IdType) {
+  console.log(id)
+}
+
+function printPoint(point: PointType) {
+  console.log(point.x, point.y, point.z)
+}
+
+```
+
+## 3.8 类型断言as
+
+有时候ts无法获取具体的类型信息，这时就需要使用**类型断言**（Type Assertions）；
+
+比如document.getElementById()，ts只知道该函数会返回**HTMLElement**，但**并不知道它具体的类型**；
+
+通过类型断言可以把一个**范围较大**的类型**转化为更为具体**的类型；
+
+比如这一段代码
+
+```tsx
+const el = document.getElementById('hhh')
+el.src = '...'
+```
+
+当直接使用**src**属性时，编辑器会提示错误，因为HTMLElement类型有很多，有的并没有src属性；
+
+而将类型断言为**HTMLImageElement**，一定有src属性；
+
+```tsx
+const el = document.getElementById('hhh') as HTMLImageElement
+el.src = '...'
+```
+
+### 非空类型断言
+
+看这一段代码
+
+```tsx
+function foo(msg?: string) {
+  console.log(msg.length)
+}
+```
+
+这段编译阶段是**不通过**的，参数是**可选**类型，当没传参数时msg就是undefined，undefined哪来的length？
+
+一般可以加个**if判断**;
+
+```tsx
+function foo(msg?: string) {
+  if(msg) {
+      console.log(msg.length)
+  }
+}
+```
+
+也可以使用**非空类型判断**
+
+```tsx
+function foo(msg?: string) {
+  console.log(msg!.length)
+}
+```
+
+感叹号!就可以确保msg一定有值；
+
+## 3.9 可选链
+
+可选链并不是ts独有的特性，在es11中js也增加了这一特性；
+
+操作符是`?`;
+
+它的作用是当对象的属性不存在时，会**短路**，直接返回**undefined**，如果存在，才会继续执行；
+
+```tsx
+type Person = {
+  name: string,
+  friend?: {
+    name: string,
+    age?: number
+  }
+}
+const info: Person = {
+  name: 'zsf'
+}
+
+console.log(info.friend?.name)
+```
+
+## 3.10 ??和!! 
+
+**!!操作符**将其它类型转化为**boolean类型**；
+
+```tsx
+const msg: string = 'hh'
+const flag = !!msg
+console.log(flag)
+```
+
+**空值合并运算符??**,es11新增，类似于**三元运算符**
+
+```tsx
+let msg: stirng | null = null
+const content = msg ?? 'hhh'
+console.log(content)
+```
+
+等价于
+
+```tsx
+let msg: stirng | null = null
+const content = msg ? msg : 'hhh'
+console.log(content)
+```
+
+## 3.11 类型缩小
+
+可以通过类似typeof padding === 'number'的判断语句来**改变ts的执行路径**；
+
+在给定的执行路径中，可以**缩小比声明时更小的类型**，这个过程叫**类型缩小**，也叫**类型保护**；
+
+常见的类型保护有：
+
+- typeof
+- 平等缩小（===、!==）
+- instanceof
+- in
+- 等等
+
+```tsx
+type IDType = number | string
+function printID(id: IDType) {
+  if (typeof id === 'string') {
+    console.log(id.toUpperCase())
+  } else {
+    console.log(id)
+  }
+}
+```
+
+本来是**number和string的联合类型**，`typeof id === 'string'`这个判断将类型**缩小为string类型**；
+
+这样才能使用**toUpperCase()**，number类型是没有这个方法的；
+
+## 3.12 函数相关的类型
+
+### 参数
+
+```tsx
+function sum(num1: number, num2: number) {
+  return num1 + num2
+}
+```
+
+**匿名函数的参数类型**
+
+```tsx
+const names = ['hhh', 'abc', 'nb']
+names.forEach((item) => {
+    console.log(item.split(''))
+})
+```
+
+item的类型可以根据**上下文推断**出来，这时可以不加类型注解；
+
+**复杂的参数一般用对象类型**
+
+比如打印一个点坐标的函数，参数是坐标，较为复杂，可以使用对象类型限制
+
+```tsx
+function printPoint(point: {x: number, y: number}) {
+  console.log(point.x, point.y)
+}
+```
+
+### 返回值
+
+可以不写返回值类型，会自动推断；
+
+```tsx
+function sum(num1: number, num2: number): number {
+  return num1 + num2
+}
+```
+
+如果没有返回值
+
+```tsx
+function sum(num1: number, num2: number): void {
+  return num1 + num2
+}
+```
+
+### **可选类型**
+
+有些点没有z坐标，所以z参数可选；
+
+可选类型放必选类型**后面**；
+
+```tsx
+function printPoint(point: {x: number, y: number, z?: number}) {
+  console.log(point.x, point.y, point.z)
+}
+```
+
+### 函数的类型
+
+在js中，函数是重要的组成部分，并且函数可以作为**一等公民**（可以作为**参数**，也可以作为**返回值**）；
+
+既然ts中传递参数要类型注解，那**把函数当参数传递时应该怎么写类型注解呢？**
+
+```tsx
+function foo() {}
+type FooType = () => void
+function bar(fn: FooType) {
+  fn()
+}
+bar(foo)
+```
+
+声明函数时，另一种编写类型的方式
+
+```tsx
+type AddFnType = (num1: number, num2: number) => number
+const add: AddFnType = (a1: number, a2: number) => {
+  return a1 + a2
+}
+```
+
+### 可推导的this类型
+
+**this**在不同情况下会**绑定不同的值**，所以对于它的类型就更难把握了；
+
+#### 默认推导
+
+```tsx
+const info = {
+  name: 'zsf',
+  eating() {
+    console.log(this.name + 'eating')
+  }
+}
+info.eating()
+```
+
+ts默认推导this就是info对象；
+
+如果ts能推导出this，那就可以放心使用this；
+
+但是下面这种情况ts推导不出this
+
+```tsx
+function eating() {
+  console.log(this.name + 'eating')
+}
+const info = {
+  name: 'zsf',
+  eating: eating
+}
+info.eating()
+```
+
+这段代码如果放在js中，this绑定的是info对象；
+
+但在ts中，它推导不出this，要是想能让ts推导出，第一个参数得传this；
+
+```tsx
+type ThisType = {
+    name: string
+}
+function eating(this: ThisType) {
+  console.log(this.name + 'eating')
+}
+const info = {
+  name: 'zsf',
+  eating: eating
+}
+info.eating()
+```
+
+## 3.13 函数的重载
+
+先来实现一个简单的函数：对两个数字或者字符串执行+的操作
+
+以前的做法: 使用联合类型，以及一些逻辑判断（类型缩小）
+
+```tsx
+type AddType = number | string
+function add(a1: AddType, a2: AddType) {
+  if (typeof a1 === 'number' && typeof a2 === 'number') {
+    return a1 + a2
+  } else if(typeof a1 === 'string' && typeof a2 === 'string') {
+    return a1 + a2
+  }
+}
+add(10, 20)
+```
+
+使用联合类型实现有两个缺点：
+
+- 进行很多的**逻辑判断**（类型缩小）；
+- 返回值的类型依然是**不能确定**的；
+
+这时使用**函数重载**就可以啦
+
+ts中的函数重载是**函数名一样**，参数不一样（**类型、数量**），**不用具体实现**；
+
+而函数的**具体实现**，参数用的是广泛的**any类型**；
+
+```tsx
+function add(num1: number, num2: number): number 
+function add(num1: string, num2: string): string
+function add(num1: any, num2: any) {
+  return num1 + num2
+}
+add(10, 20)
+```
+
+有时候，**联合类型**和**函数重载**都可以实现某个逻辑，优先使用联合类型，如果联合类型实现起来复杂，那才考虑重载
+
+## 3.14 ts中类的使用
+
+### 基本使用
+
+```tsx
+class Person {
+  name: string
+  age: number
+
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+
+  eating() {
+    console.log(this.name + 'eat')
+  }
+}
+
+const p = new Person('zsf', 18)
+```
+
+继承，多态，重写等等语法类似~
+
+### 成员修饰符
+
+在TypeScript中，类的成员支持三种修饰符：public、private、protected；
+
+**public**修饰**任何地方可见**、**公有**的成员，默认；
+
+**protected**修饰的是**仅在类自身及子类中可见**、**受保护**的成员；
+
+**private**修饰的是仅在**同一类中可见**、**私有**的成员；
+
+### 只读属性
+
+readonly，是**属性的修饰符**；
+
+只读属性只能在**构造器**中赋值，且赋值后不可改变；
+
+属性本身不能修改，但属性要是**对象**类型，那对象的内容可以修改（和**const**声明的对象类似）；
+
+```tsx
+class Person {
+  readonly name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
+const p = new Person('zsf')
+console.log(p.name)
+```
+
+### 访问器
+
+和setter/getter写法有点区别;
+
+有个规范，**私有属性**一般在前面加个下划线`_`;
+
+```tsx
+class Person {
+  private _name: string
+
+  constructor(name: string) {
+    this._name = name
+  }
+  
+  set name(newName) {
+      this._name = newName
+  }
+  
+  get name() {
+      return this._name
+  }
+}
+
+const p = new Person('zsf')
+console.log(p.name)
+p.name = 'hhh'
+```
+
+### 静态成员
+
+static修饰
+
+不用实例化，可以通过类直接访问
+
+### 抽象类
+
+定义通用接口时，通常会让**调用者传入父类**，通过**多态**来实现更加灵活的调用方式；
+
+但是，父类本身可能并**不需要**对某些方法进行**具体实现**，这时就可以定义为**抽象方法**；
+
+```tsx
+function makeArea(shape: Shape) {
+  return shape.getArea()
+}
+
+abstract class Shape {
+  abstract getArea()
+}
+
+class Rectangle extends Shape {
+  private width: number
+  private height: number
+
+  constructor(width: number, height: number) {
+    super()
+    this.width = width
+    this.height = height
+  }
+
+  getArea() {
+    return this.width * this.height
+  }
+}
+
+class Circle extends Shape {
+  private r: number
+
+  constructor(r: number) {
+    super()
+    this.r = r
+  }
+
+  getArea() {
+    return this.r * this.r * 3.14
+  }
+}
+
+const rectangle = new Rectangle(20, 30)
+const circle = new Circle(10) 
+
+console.log(makeArea(rectangle))
+console.log(makeArea(circle))
+```
+
+防止makeArea()传入其它类型导致无法计算面积，应该**限制**只能传**Shape**类型；
+
+所以**Circle**和**Rectangle**应该**继承Shape**；
+
+**抽象类不能被实例化**，防止`makeArea(new Shape())` ，应该将Shape类变成抽象类；
+
+抽象类的抽象方法**没有具体实现**（没有方法体），具体实现交给**子类**；
+
+抽象类的子类，**必须实现**其父类的抽象方法；
+
+所以你看，这样的代码不是严谨、安全许多了吗？
+
+### 类的类型
+
+和使用type给**类型起别名**有点类似~
+
+```tsx
+class Person {
+  name: string
+}
+
+const p: Person = {
+  name: 'hhh'
+}
+```
+
+## 3.15 ts中接口的使用
+
+我们知道，通过type可以声明对象类型
+
+```tsx
+type InfoType = {
+  name: string
+}
+
+const info: InfoType = {
+  name: 'hhh'
+}
+```
+
+其实，还可以通过**interface**声明对象类型，用法类似class；
+
+有个接口规范，就是在接口前面加个大写字母`I`
+
+```tsx
+class IInfoType {
+  name: string
+}
+
+const info: IInfoType = {
+  name: 'hhh'
+}
+```
+
+### 索引类型
+
+通过interface可以定义索引类型，使对象的key-value保持类型的统一；
+
+```tsx
+interface IndexLang {
+  [index: number]: string
+}
+
+const frontLang: IndexLang = {
+  0: 'html',
+  1: 'css',
+  2: 'js',
+  3: 'vue'
+}
+```
+
+### 函数类型
+
+以前可以通过type定义一个函数类型
+
+```tsx
+type CalcFn = (n1: number, n2: number) => number
+function calc(num1: number, num2: number, calcFn: CalcFn) {
+  return calcFn(num1, num2)
+}
+
+const add: CalcFn = (num1, num2) => {
+  return num1 + num2
+}
+
+calc(10, 20, add)
+```
+
+interface也可以定义一个函数类型
+
+```tsx
+interface CalcFn {
+    (n1: number, n2: number): number
+}
+function calc(num1: number, num2: number, calcFn: CalcFn) {
+  return calcFn(num1, num2)
+}
+
+const add: CalcFn = (num1, num2) => {
+  return num1 + num2
+}
+
+calc(10, 20, add)
+```
+
+### 接口继承
+
+接口支持多继承，这是**结合多个接口**的一个方式；
+
+```tsx
+interface ISwim {
+  swimming: () => void
+}
+interface IFly {
+  flying: () => void
+}
+
+interface IAction extends ISwim, IFly {
+
+}
+
+const action: IAction = {
+  swimming() {
+
+  },
+  flying() {
+    
+  }
+}
+```
+
+### 交叉类型
+
+交叉类型和联合类型有所联系；
+
+**联合类型**只要**符合一个**即可；
+
+**交叉类型**需要**全符合**；
+
+这是**结合多个接口**的一个方式；
+
+```tsx
+interface ISwim {
+  swimming: () => void
+}
+interface IFly {
+  flying: () => void
+}
+type MyType1 = ISwim | IFly
+type MyType2 = ISwim & IFly
+
+const action1: MyType1 = {
+  swimming() {
+
+  }
+}
+const action2: MyType2 = {
+  swimming() {
+
+  },
+  flying() {
+
+  }
+}
+```
+
+### 接口的实现
+
+**类**可以实现**多个**接口；
+
+
+
+```tsx
+interface ISwim {
+  swimming: () => void
+}
+
+interface IFly {
+  flying: () => void
+}
+
+class Person implements ISwim {
+  swimming() {
+    console.log('swim')
+  }
+    
+  eating() {
+      console.log('eat')
+  }
+}
+```
+
+### interface和type的区别
+
+interface和type都可以定义**对象类型**，那开发中选哪一个呢？
+
+如果定义的是**非对象类型**，推荐使用**type**；
+
+如果定义对象类型，可以**interface**重复的定义某个接口来定义属性和方法，而**type**定义的是别名，**不能重复**；
+
+```tsx
+interface IFoo {
+  name: string
+}
+
+interface IFoo {
+  age: number
+}
+
+const p: IFoo = {
+    name: 'zsf',
+    age: 18
+}
+```
+
+## 3.16 ts中的枚举类型
+
+**枚举类型**其实是将一组可能出现的值，列举出来，定义在一个类型中；
+
+枚举运行定义一组**命名常量**，常量可以是**数字**、**字符串**；
+
+```tsx
+enum Direction {
+  LEFT,
+  RIGHT,
+  TOP,
+  BOTTOM
+}
+
+function turn(direction: Direction) {
+  
+}
+
+turn(Direction.LEFT)
+```
+
+## 3.17 ts中泛型的使用
+
+### 类型参数化
+
+定义函数时，**不决定**参数类型；
+
+调用函数时，让**调用者告知**参数类型；
+
+换句话说，**参数的类型也是参数**；
+
+```tsx
+function sum<Type>(num1: Type, num2: Type) {
+  
+}
+sum<number>(20, 30)
+```
+
+调用时要是不传参数类型，它也会进行**类型推导**，字面量类型；
+
+```tsx
+function sum<Type>(num1: Type, num2: Type) {
+  
+}
+sum(20, 30)
+```
+
+当然也可以接收多种类型；
+
+```
+function sum<T, E>(num1: T, num2: E) {
+  
+}
+sum<number, string>(20, 30)
+```
+
+平时开发中常用的名称：
+
+- T：Type的缩写，类型；
+- K、V：key和value的缩写，键值对；
+- E：Element的缩写，元素；
+- O：Object的缩写，对象；
+
+### 泛型接口
+
+函数调用才有类型推导，但是接口没有类型推导；
+
+```tsx
+interface IPerson<T1, T2> {
+  name: T1,
+  age: T2
+}
+
+const p: IPerson<string, number> = {
+  name: 'zsf',
+  age: 18
+}
+```
+
+要想接口也可以类型推导，需要给泛型默认值
+
+```tsx
+interface IPerson<T1 = string, T2 = number> {
+  name: T1,
+  age: T2
+}
+
+const p: IPerson = {
+  name: 'zsf',
+  age: 18
+}
+```
+
+### 泛型类
+
+```tsx
+class Point<T> {
+  x: T
+  y: T
+  z: T
+
+  constructor(x: T, y: T, z: T) {
+    this.x = x
+    this.y = y
+    this.z = z
+  }
+}
+
+const p = new Point('1', '2', '3')
+```
+
+`new Point()`也是函数调用，支持类型推导~
+
+### 泛型的类型约束
+
+```tsx
+interface ILength {
+  length: number
+}
+
+function getLength<T extends ILength>(arg: T) {
+  return arg.length
+}
+
+getLength('abc')
+```
+
+只是含有length属性的参数才能传进**getLength()**,
+
+## 3.18 ts的模块化开发
+
+ts的模块化开发有两种：
+
+- ES Module和CommonJS；
+- 命名空间；
+
+ES Module不再多说，就是js加上类型检测；
+
+### 命名空间
+
+**namespace**；
+
+早期时，TypeScript称命名空间为**内部模块**，解决命名冲突问题；
+
+```tsx
+namespace time {
+  export function format(time: string) {
+    return '2022-02-22'
+  }
+}
+
+namespace price {
+  export function format(price: number) {
+    return '99.99'
+  }
+}
+```
+
+一个模块中有**两个同名函数**，使用**命名空间**可以让他们有独立的作用域，防止命名冲突；
+
+## 3.19 类型查找
+
+ts对类型是有**管理**和**查找**规则的；
+
+ts文件除了以`.ts`结尾，还有以`.d.ts`结尾的，它是用来做**类型声明**（declare）的;
+
+它仅仅用来做类型检测，告知ts有哪些类型，**不需要具体实现或赋值**；
+
+**那ts会在哪里查找类型声明呢？**
+
+- **内置**类型声明；
+- **外部定义**的类型声明（第三方发库有的会声明）；
+- **自己定义**的类型声明；
+
+### 内置类型声明
+
+看这么一段代码
+
+```tsx
+const el = document.getElementById('hhh') as HTMLImageElement
+el.src = '...'
+```
+
+在tsc环境下，哪来的document、HTMLImageElement？为什么不会报错？
+
+原因是我们之前搭建ts环境时，也安装了一个**tslib库**，而tslib库有个**lib.dom.d.ts文件**，其中内置document、HTMLImageElement等等类型；
+
+内置类型除了DOM API，还包括Math、Date等内置类型；
+
+### 外部定义类型声明 
+
+第三方库一般有两种类型声明方式：
+
+- 1.在**自己库**中进行类型声明（编写.d.ts文件，比如axios）；
+- 2.通过**社区**的一个公有库DefinitelyTyped存放类型声明文件；
+
+DefinitelyTyped库的github地址:https://github.com/DefinitelyTyped/DefinitelyTyped/ ;
+
+该库查找声明安装方式的地址：https://www.typescriptlang.org/dt/search?search= ;
+
+比如安装react 的类型声明：`npm i @types/react --save-dev`
+
+### 自己定义类型声明
+
+项目下新建一个**xxx.d.ts文件**；
+
+```tsx
+declare module 'lodash' {
+  export function join(arr: any[]): void
+}
+```
+
+别的文件使用
+
+```tsx
+import lodash from 'lodash'
+console.log(lodash.join('abc', 'cba'))
+```
+
+文件模块是这样声明的
+
+```tsx
+declare module '*.jpg'
+```
+
+这样，所有以`.jpg`结尾的模块都可以在ts中使用啦~
+
+其它文件也是类似这个用法
+
+同时declare也可以声明**命名空间**、**变量**等等；
