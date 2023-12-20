@@ -307,12 +307,26 @@ Meta数据被修改；√
 管理员设置-通过栏消失；√
 最近改动同步ee；√
 
-
+12.18-12.22
 feat：
+jsonschema属性添加提交按钮开关；√
+jsonschema组件暴露提交事件，返回Promise；
+json组件同步；
 历史记录管理；
 
-bug：
-审计日志过滤功能；
+fix：
+菜单权限功能；√
+jsonSchema初始data数据可以为空；√
+jsonschema的样式细节；√
+企业微信、钉钉取消登录功能；
+部分信息屏蔽、调整；
+登录页、管理员设置页样式调整；
+Schema组件中的日期组件展示问题；
+审计日志；x
+菜单设计-部分页面未展示；
+导航设计时顶级页面丢失；
+
+审计日志过滤功能；x
 json表单、json schema组件提交按钮阴影、边框视图不更新；
 json表单、json schema组件无法拖动选中；
 日期选择器汉化；
@@ -336,6 +350,10 @@ at handleError (http://localhost:8160/static/js/bundle.js:549651:58)
 at http://localhost:8160/static/js/bundle.js:549670:7
 
 React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+
+react-dom.development.js:67 Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
+
+Missing pageId. If you are trying to set href inside a react component use the 'useHref' hook.
 
 待理解：
 连接git了解更多，体验模版商城链接的替换；

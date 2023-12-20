@@ -1,4 +1,4 @@
-# 1 初识css
+# 初识css
 
 css全称Cascading Style Sheets，**层叠样式表**
 
@@ -24,7 +24,7 @@ css属性变成**标准standard**需要经过**草稿drafts**、**备选推荐**
 
 所以有时css有些**属性**出现**兼容性**问题
 
-# 2 css引入
+# css引入
 
 html三种引入css：
 
@@ -53,9 +53,7 @@ link效率高一点
 @import url();
 ```
 
-
-
-## 2.1 css文件编码
+## css文件编码
 
 指定单个css文件编码
 
@@ -63,7 +61,7 @@ link效率高一点
 @charset "utf-8";
 ```
 
-# 3 选择器
+# 选择器
 
 - 通配选择器
 - 元素选择器
@@ -74,7 +72,7 @@ link效率高一点
 - 伪类
 - 伪元素
 
-## 3.1 通配选择器
+## 通配选择器
 
 通用属性的设置，比如
 
@@ -87,11 +85,11 @@ link效率高一点
 
 通配符 ***** ，但是**一般列出**需要使用这些通用属性的**元素**，因为*内部原理是在**网页元素**中做个**遍历**，给每个元素**加上这些样式**，这样可能**影响网页运行效率**，因为**有些元素**是**不需要**这些属性的
 
-## 3.2 id选择器
+## id选择器
 
 **id名**一个页面**只能有一个**（规范）
 
-## 3.3 类选择器
+## 类选择器
 
 - **一个元素**可以**多个类选择器**，**空格**分开
 
@@ -105,7 +103,7 @@ link效率高一点
 }
 ```
 
-## 3.4 伪类选择器
+## 伪类选择器
 
 ### 动态伪类
 
@@ -164,7 +162,7 @@ tabindex可以调整tab选中元素的顺序
 
 - :target 用于锚点链接
 
-## 3.5 属性选择器
+## 属性选择器
 
 ```css
 <style>
@@ -181,7 +179,7 @@ tabindex可以调整tab选中元素的顺序
 
 **div和p**都有**title属性**，其它属性同理
 
-## 3.6 元素选择器
+## 元素选择器
 
 ```html
 <h2>123</h2>
@@ -193,7 +191,7 @@ h2 {
 }
 ```
 
-## 3.7 伪元素选择器
+## 伪元素选择器
 
 常用伪元素
 
@@ -251,7 +249,7 @@ span::before {
 
 
 
-## 3.8 组合选择器
+## 组合选择器
 
 ### 后代选择器
 
@@ -309,7 +307,7 @@ div, .one {
 }
 ```
 
-# 4 常用的css属性
+# 常用的css属性
 
 - **color**，文字颜色，**前景色**更严谨
 - **font-size**，文字大小
@@ -340,7 +338,7 @@ alpha: 0-1 透明度，0完全透明
 
 两个一样写一个，缩小css体积
 
-## 4.1 div的outline属性
+## div的outline属性
 
 **调试技巧**
 
@@ -354,13 +352,13 @@ div {
 
 可以清晰地看出**网页的结构**，并且可以知道哪一块用的**div**
 
-## 4.2 line-height
+## line-height
 
 文本的最小行高
 
 行高：**两行文字**基线**baseline**之间的**间距**
 
-![image-20220227153104485](css.assets/image-20220227153104485.png)
+![image-20220227153104485](C:\Users\86131\Desktop\know_fragments\md-img\image-20220227153104485.png)
 
 行距会等分
 
@@ -368,7 +366,7 @@ div {
 
 **块级**元素**垂直居中**
 
-## 4.3 display
+## display
 
 **元素类型**是**浏览器**赋予的，并且**可以更改** 
 
@@ -384,7 +382,7 @@ display常见4个属性可以更改
 - 邮箱下拉菜单
 - 模拟百度分页列表
 
-## 4.4 visibility
+## visibility
 
 控制元素可见性，有2个常用值，
 
@@ -393,7 +391,7 @@ display常见4个属性可以更改
 
 区别`display: none;`，它**还占据空间**，**display不占据**
 
-## 4.5 overflow
+## overflow
 
 控制内容溢出的行为
 
@@ -401,7 +399,7 @@ display常见4个属性可以更改
 - hidden 
 - scroll
 
-## 4.6 cursor
+## cursor
 
 鼠标样式
 
@@ -413,7 +411,7 @@ pointer 小手
 
 text 竖线
 
-## 4.7 文字省略
+## 文字省略
 
 三条件：
 
@@ -445,9 +443,9 @@ text-overflow: ellipsis
 
 
 
-# 5 文本属性
+# 文本属性
 
-## 5.1 text-align
+## text-align
 
 **元素内容**在**元素中**的**水平对齐**方式
 
@@ -455,7 +453,7 @@ text-overflow: ellipsis
 - right
 - center
 
-## 5.2 text-decoration
+## text-decoration
 
 装饰文字的装饰线
 
@@ -464,15 +462,15 @@ text-overflow: ellipsis
 - overline 上划线
 - line-through 中划线（删除线）
 
-## 5.3 letter-spacing
+## letter-spacing
 
 字母间距
 
-## 5.4 word-spacing
+## word-spacing
 
 单词间距
 
-## 5.5 text-transform
+## text-transform
 
 大小写转化
 
@@ -480,21 +478,21 @@ text-overflow: ellipsis
 - uppercase 全部大写
 - lowercase 全部小写
 
-## 5.6 text-indent
+## text-indent
 
 缩进
 
-# 6 列表属性
+# 列表属性
 
 - **list-style-type** 设置**li元素**前面**标记的样式**（none值用的多）
 - list-style-image
 - list-style-position
 
-# 7 表格属性
+# 表格属性
 
 - **border-collapse**
 
-## 7.1 细线表格
+## 细线表格
 
 ```html
 <table>
@@ -539,9 +537,9 @@ td {
 
 `border-collapse: collapse;`这个属性**很重要**
 
-# 8 表单属性
+# 表单属性
 
-## 8.1 去除input的tab键选中效果
+## 去除input的tab键选中效果
 
 ```css
 input {
@@ -549,7 +547,7 @@ input {
 }
 ```
 
-## 8.2 textarea禁止缩放
+## textarea禁止缩放
 
 ```css
 textarea {
@@ -559,13 +557,13 @@ textarea {
 
 
 
-# 9 字体
+# 字体
 
-## 9.1 font-size
+## font-size
 
 字体大小
 
-## 9.2 font-family
+## font-family
 
 字体类型；
 
@@ -573,7 +571,7 @@ textarea {
 
 为了防止设置的字体操作系统**不存在**，一般**设置多个**，从左往右，找到为止；
 
-## 9.3 font-weight
+## font-weight
 
 字体粗细
 
@@ -581,7 +579,7 @@ normal：400
 
 bold：700
 
-## 9.4 font-style
+## font-style
 
 斜体
 
@@ -589,7 +587,7 @@ bold：700
 - italic 用**字体的斜体**显示（**前提**是这种字体**支持斜体**）
 - oblique 文本倾斜
 
-## 9.5 网络字体
+## 网络字体
 
 要想使用os没有字体，怎么做？
 
@@ -658,12 +656,12 @@ span {
 
 
 
-# 10 CSS特性
+# CSS特性
 
 - 继承
 - 层叠
 
-## 10.1 继承性
+##  继承性
 
 **何为继承？**
 
@@ -684,7 +682,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS
 
 **继承**过来的是**计算值**，而**不是字面值**，在使用**em为单位**就会区别出来了
 
-## 10.2 层叠性
+## 层叠性
 
 - css允许多个相同名字的css属性层叠在一个元素上
 
@@ -709,20 +707,20 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS
 
 比较的话也是从**权重大**的**开始**比较，有**一样权重**的就**比数量**
 
-# 11 元素类型
+# 元素类型
 
 根据元素能不能在**同一行**显示，html元素主要分2类
 
 - 块级元素
 - 行内级元素
 
-## 11.1 块级元素
+## 块级元素
 
 - **独占**父元素**一行**
 
 常见：div、p、h1-h6、table、form、列表等等
 
-## 11.2 行内级元素
+## 行内级元素
 
 - **多个**行内级元素可以在父元素的**同一行**中显示
 
@@ -736,7 +734,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS
 
 **给元素加float**
 
-## 11.3 **另一种分法**
+## **另一种分法**
 
 根据内容（是否浏览器会替换掉元素）类型，html元素可以主要分2大类元素
 
@@ -761,7 +759,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS
 
 比如常见的**img和input**，可以设置宽高
 
-![image-20220228162130204](css.assets/image-20220228162130204.png)
+![image-20220228162130204](C:\Users\86131\Desktop\know_fragments\md-img\image-20220228162130204.png)
 
 **行内级非替换元素不能生效的属性：**
 
@@ -776,19 +774,19 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS
 
 **border**的上下（**上下**多出区域，但**不占据空间**）
 
-# 12 盒子模型
+# 盒子模型
 
 每**一个元素**就是**一个盒子**
 
-## 12.1 内容content
+## 内容content
 
 min-width 最小宽度，确保内容能正常显示（尽管出现滚动条）
 
-## 12.2 内边距padding
+## 内边距padding
 
 内边距会撑开盒子
 
-## 12.3 外边距margin
+## 外边距margin
 
 ### margin上下传递
 
@@ -850,7 +848,7 @@ BFC：block format context，类似于结界
 
 **段落之间设置margin折叠有妙用**
 
-## 12.4 边框border
+## 边框border
 
 边框主要有三种属性：
 
@@ -862,11 +860,11 @@ BFC：block format context，类似于结界
 
 ### 圆角border-radius
 
-![image-20220228204324024](css.assets/image-20220228204324024.png)
+![image-20220228204324024](C:\Users\86131\Desktop\know_fragments\md-img\image-20220228204324024.png)
 
 值为**50%**（这里的**%**是**当前元素**的**（padding+border+width）**）时，就是**圆**
 
-## 12.5 盒子相关属性
+## 盒子相关属性
 
 ### box-shadow
 
@@ -906,9 +904,9 @@ shadow= inset?&&<length>{2,4}&&<color>?
 
 
 
-# 13 背景
+# 背景
 
-## 13.1 background-image
+## background-image
 
 设置元素背景图片
 
@@ -918,11 +916,11 @@ shadow= inset?&&<length>{2,4}&&<color>?
 
 **img和background-image都可满足需求，开发如何选择？**
 
-![image-20220301094353346](css.assets/image-20220301094353346.png)
+![image-20220301094353346](C:\Users\86131\Desktop\know_fragments\md-img\image-20220301094353346.png)
 
 **网页重要组成部分用img**
 
-## 13.2 background-repeat
+## background-repeat
 
 平铺
 
@@ -932,7 +930,7 @@ shadow= inset?&&<length>{2,4}&&<color>?
 
 - repeat
 
-## 13.3 background-size
+## background-size
 
 背景图片大小
 
@@ -940,7 +938,7 @@ shadow= inset?&&<length>{2,4}&&<color>?
 - **contain** 拉伸到较短一边为止，保持图片宽高比
 - **值** 1个%只是水平方向，2个%才有垂直
 
-## 13.4 background-position
+## background-position
 
 - 第1个值是水平方向
 - 第2个值是垂直方向
@@ -966,21 +964,21 @@ shadow= inset?&&<length>{2,4}&&<color>?
 
 背景居中（无论屏幕大小多少，都能看到中间的**主要内容**，并且**居中**显示）
 
-## 13.5 background-attachment
+## background-attachment
 
 - local **背景**会**随着box内容滚动**而滚动
 - scroll **滚动**浏览器时**全部内容**会随着浏览器滚动
 - fixed **背景**是**固定**的，**不会**随着box内容**滚动**而滚动
 
-## 13.6 background简写
+## background简写
 
 image position/size repeat attachment color
 
 
 
-# 14 定位
+# 定位
 
-## 14.1 标准流normal-flow
+## 标准流normal-flow
 
 在**标准流**中，可以使用**margin、padding**对元素**定位**
 
@@ -991,7 +989,7 @@ image position/size repeat attachment color
 
 可以使用**定位**实现元素间层叠
 
-## 14.2 position
+## position
 
 ### static 
 
@@ -1098,7 +1096,7 @@ inner {
 
 考拉侧栏
 
-## 14.3 元素之间的层叠关系
+## 元素之间的层叠关系
 
 - **父子**关系
 - **定位元素**在**非定位元素**上
@@ -1110,7 +1108,7 @@ inner {
 
 只对**定位元素**有效
 
-# 15 浮动
+# 浮动
 
 - 浮动也会让元素**脱标**
 - **浮动元素**与行内级元素重叠，**行内级元素**会被**浮动元素**推出、处于**块级的内容**也会被**浮动元素**推出（图文环绕）
@@ -1215,7 +1213,7 @@ inner {
 
 京东案例
 
-# 16 **脱标后元素的特点**
+# **脱标后元素的特点**
 
 - 可以设置**宽高**
 - 宽高默认由**内容决定**
@@ -1226,20 +1224,20 @@ inner {
 
 脱标后的元素不是**inline-block**，而是**block**，虽然脱标后**有时和块级元素在一行**，但这是因为脱标后，**很难知道父元素**是谁（没有父元素了），宽高都是auto，这时的现象是**包裹内容**（宽高由内容决定）
 
-# 17 形变
+# 形变
 
-## 17.1 **transform**
+## **transform**
 
 - 旋转rotate(deg)
 - 倾斜skew(deg,deg)
 - 平移tanslate(x,y)
 - 缩放scale(x,y)
 
-## 17.2 形变原点
+## 形变原点
 
 **transform-origin**
 
-## 17.3 过渡动画
+## 过渡动画
 
 **transition**
 
@@ -1250,7 +1248,7 @@ inner {
 - **timing-function**指定动画的变化曲线
 - **delay** 延迟动画时间
 
-## 17.4 关键帧动画
+## 关键帧动画
 
 **transition**可以进行**过渡动画**，但是过渡动画只能控制首尾两个值：**第一帧**和**最后一帧**
 
@@ -1300,7 +1298,7 @@ inner {
 
   值3：动画**速率**
 
-## 17.5 3D动画
+## 3D动画
 
 css实现3D有两个属性：
 
@@ -1315,11 +1313,11 @@ css实现3D有两个属性：
 
 稳定兼容
 
-# 18 flex布局
+# flex布局
 
 除了**图文环绕**，**flex完全可以替代float**
 
-## 18.1 **两个重要的概念**
+## **两个重要的概念**
 
 - **开启了flex**布局的**元素**叫 **flex container**
 - flex container里面的**直接子元素**叫**flex items**
@@ -1336,11 +1334,11 @@ outer {
 }
 ```
 
-## 18.2 布局模型
+## 布局模型
 
-![image-20220302092821742](C:/Users/平头哥/Desktop/notes/知识体系/CSS/css.assets/image-20220302092821742.png)
+![](C:\Users\86131\Desktop\know_fragments\md-img\image-20220302092821742.png)
 
-## 18.3 flex container上的css属性
+## flex container上的css属性
 
 **应用在flex container上的css属性**
 
@@ -1420,7 +1418,7 @@ outer {
 
 顺序任意
 
-## 18.4 flex items上的css属性
+## flex items上的css属性
 
 - flex
 - flex-grow
@@ -1476,9 +1474,9 @@ outer {
 
 **是flex-grow || flex-shrink || flex-basis的简写**
 
-# 19 移动端适配
+# 移动端适配
 
-## 19.1 视口
+## 视口
 
 **meta**
 
@@ -1489,7 +1487,7 @@ outer {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
-## 19.2 rem适配
+## rem适配
 
 root em，rem总是相对于**html的font-size**
 
@@ -1563,9 +1561,9 @@ root em，rem总是相对于**html的font-size**
 
 
 
-# 20 常见技巧
+# 常见技巧
 
-## 20.1 水平居中
+## 水平居中
 
 ```html
 <div class="box">
@@ -1642,7 +1640,7 @@ root em，rem总是相对于**html的font-size**
 
 **注意**：**margin-top**的**%**参照的**是宽度**而**不是高度**
 
-## 20.2 margin负值
+## margin负值
 
 进行布局时，**同一行多个元素**摆放后，设置**margin-right**让他们之间产生**间距**，那么**最后一个**元素设置的margin-right总是**多余**的
 
@@ -1652,9 +1650,9 @@ root em，rem总是相对于**html的font-size**
 - 伪类选择器（会有兼容性问题）
 - .outer固定宽度=.inner+负margin(**最优**)
 
-# 21 补充
+# 补充
 
-## 20.1 浏览器的私有前缀
+##  浏览器的私有前缀
 
 **为什么要加浏览器前缀？**
 
@@ -1666,7 +1664,7 @@ root em，rem总是相对于**html的font-size**
 
 
 
-# 22 css属性使用经验
+# css属性使用经验
 
 **设置的css属性不生效**
 
@@ -1681,7 +1679,7 @@ root em，rem总是相对于**html的font-size**
 
 https://flatuicolors.com/
 
-# 23 爬取数据技巧
+# 爬取数据技巧
 
 斗鱼 f12 切换成移动到 刷新 network
 
