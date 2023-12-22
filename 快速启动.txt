@@ -18,6 +18,11 @@ CD620E-4F2F75-F295B6-60D42F-A4160A-V3
 mysql实例（3.7.6）：
 6fd519b7d98d.c.methodot.com:31703
 
+环境：
+appsmith-ee：10.10.13.43:8088
+pp-ee-20: 10.10.13.43:8090
+pp-ee-35: 10.10.13.43:32773
+
 api/数据源测试账号：
 钉钉：
 agentId: 2757963463
@@ -28,6 +33,8 @@ LTAI5tJaZANAu8Mjevp7nrds
 uDwmNMBJwY5GcY5wDPOv6NvPQgSXFD
 
 第三方登录测试账号：
+oidc:
+
 Github：
 9042e992eeed6ef72897
 d52d66e3401237674c24eefdb0744479888603de
@@ -40,6 +47,7 @@ CROP ID: ww813200fb08c865de
 AGENT: 1000002
 Secret: nY4xW2DmtfJRgM1V8F_ocxz7WyOPyRzCSkQk1S72Bug
 http://localhost:8160/api/v1/wecomLogin/callback
+钉钉：
 
 构建镜像，登录，推
 docker build -t harbor.cloud2go.cn/pageplug/pageplug:时间戳 .
