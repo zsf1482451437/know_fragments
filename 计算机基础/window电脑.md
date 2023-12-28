@@ -1,3 +1,13 @@
+# 命令
+
+> 查看最近修改或新增文件
+
+```bash
+dir /O-D /T:W
+```
+
+
+
 # 疑难杂症
 
 ## window提示你需要xxx的权限才能删除？
@@ -11,3 +21,4 @@
 ## cmd.exe在哪
 
 **C:\Windows\System32\cmd.exe**
+
