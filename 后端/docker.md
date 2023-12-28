@@ -80,6 +80,21 @@ docker exec -it 容器id bash
 docker logs <container_id>
 ```
 
+# 容器
+
+> 如何操作运行容器？
+
+```bash
+# 进入容器
+docker exec -it 容器名或id bash
+
+# 启动mongo shell
+mongo 或 mongosh
+
+# 查看数据库
+show dbs
+```
+
 
 
 # dockfile
@@ -398,7 +413,7 @@ echo "Harbor12345" | docker login -u admin --password-stdin harbor.cloud2go.cn
 **格式**
 
 ```
-docker tag <image-name>:<tag> <repository-name>:<tag>
+docker tag 已有镜像 新镜像
 ```
 
 ```bash
@@ -472,6 +487,20 @@ docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
 复现：一个600M出的镜像，从主机a（私有网段）push到主机b（公有网段）将近
 
 # docker-compose
+
+>  镜像常规升级版本步骤
+
+```bash
+# 1.关停旧版本服务
+docker-compose down
+
+# 2.修改yml中镜像的版本
+
+# 3.拉取新镜像、创建容器、运行
+docker-compose up -d
+```
+
+
 
 `docker-compose up -d` 是使用 Docker Compose 启动容器的命令，其中的 `-d` 参数表示在后台运行（detached mode）。这个命令通常用于启动在 `docker-compose.yml` 文件中定义的服务；
 

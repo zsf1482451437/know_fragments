@@ -12907,6 +12907,26 @@ export default TaskList;
 
 如何给style-componet的组件添加事件？
 
+## 函数式组件中使用useState的最新状态
+
+```tsx
+const [xxx, setXxx] = useState(null);
+```
+
+某些情况下，由于React的异步更新机制，`xxx`并不是最新的状态，使用；
+
+可以使用`setXxx` 的函数形式：
+
+```tsx
+setGData((prev) => {
+    // 在这里，prev 是最新的 xxx，可以在这里处理prev，并返回新的xxx
+    // 处理prev
+    return 新的xxx;
+});
+```
+
+
+
 ## react中使用svg
 
 - import导入
@@ -12955,13 +12975,33 @@ export default MyComponent;
 
 **注意：svg当组件时记得将有连接符-的属性换成驼峰**
 
-## refs
-
 报错信息：
 
 ```
-Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+Warning: 
 ```
+
+## Warning
+
+**报错信息：**
+
+> Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+
+**报错信息：**
+
+> Encountered two children with the same key, `null`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+
+在 React 中，当你在渲染一个列表的时候，每个列表项都需要一个唯一的 `key` 属性。这个 `key` 属性帮助 React 识别哪些项有变化、被添加、或被移除。在你的代码中，有两个或以上列表项的 `key` 属性都是 `null`
+
+可以使用index作为备选key
+
+**报错信息：**
+
+> Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+
+这个错误通常是因为你在组件卸载后尝试更新其状态,可以在 `useEffect` 钩子的清理函数中取消任何可能导致状态更新的操作;
+
+另一种可能的解决方案是检查组件是否已经卸载，然后再更新状态。
 
 ## TypeError
 
@@ -12973,6 +13013,44 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 ```
 
 对非类数组对象进行展开运算；
+
+错误信息：
+
+> N is not a function located in the react-dom.production.min.js
+
+错误源：
+
+```tsx
+useEffect(() => {
+    fetchCaptcha();
+}, []);
+const fetchCaptcha = async () => {
+    const res: any = await UserApi.fetchCaptcha();
+    const codeImg = window.URL.createObjectURL(res);
+    setCaptchaBlob(codeImg);
+};
+```
+
+原因：
+
+>  const声明的变量、函数不会提升
+
+修改后：
+
+```tsx
+const fetchCaptcha = async () => {
+    const res: any = await UserApi.fetchCaptcha();
+    const codeImg = window.URL.createObjectURL(res);
+    setCaptchaBlob(codeImg);
+};
+useEffect(() => {
+    fetchCaptcha();
+}, []);
+```
+
+参考：
+
+> https://stackoverflow.com/questions/75646528/react-router-dom-typeerror-n-is-not-a-function-on-route-reloading-page-works
 
 ## React.jsx: type is invalid
 

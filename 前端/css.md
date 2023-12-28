@@ -1957,6 +1957,19 @@ html[data-theme='dark'] .hint {
 
 当选择背景图像格式时，考虑图像的内容、质量需求和性能要求。对于照片背景，JPEG通常是一个不错的选择。对于需要透明度的图像，PNG可能更合适。对于图标和图形，SVG或WebP可能是更好的选择，以提供较小的文件大小和高质量。根据您的具体需求，您还可以选择其他格式。
 
+## 超出内容省略号
+
+```css
+display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+word-wrap: break-word; /* 兼容性设置，用于处理长单词或URL的换行 */
+```
+
+
+
 # 动画
 
 ## 使用json渲染动画（react项目）

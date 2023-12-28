@@ -54,6 +54,18 @@ Yarn 包管理器会执行一系列步骤来确保顺利安装所需的包，并
 yarn config set npmRegistryServer https://registry.npm.taobao.org
 ```
 
+错误信息：
+
+> $ yarn add design-system@2.1.30
+> ➤ YN0000: ┌ Resolution step
+> ➤ YN0001: │ Error: design-system@npm:2.1.30: No candidates found
+>     at ge (D:\workspace\pp\pro\b_d\app\client\.yarn\releases\yarn-3.5.1.cjs:439:8124)
+>     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+>     at async Promise.allSettled (index 149)
+>     at async io (D:\workspace\pp\pro\b_d\app\client\.yarn\releases\yarn-3.5.1.cjs:390:10398)
+> ➤ YN0000: └ Completed in 1s 901ms
+> ➤ YN0000: Failed with errors in 1s 911ms
+
 
 
 # node

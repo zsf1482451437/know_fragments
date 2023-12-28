@@ -1,14 +1,15 @@
 # 职责&参与
 
-| 职责         | 参与     | 使用技术/工具 |
-| ------------ | -------- | ------------- |
-| 文档官网搭建 | 菜单导航 |               |
-| 版本更新     |          |               |
-| 打包、部署   |          |               |
-| OIDC单点登录 |          |               |
-| 微信登录     |          |               |
-| 树形组件     |          |               |
-| 注册登录改动 |          |               |
+| 职责                     | 参与     | 使用技术/工具 |
+| ------------------------ | -------- | ------------- |
+| 文档官网搭建             | 菜单导航 |               |
+| 版本更新                 |          |               |
+| 打包、部署               |          |               |
+| OIDC单点登录             |          |               |
+| 微信、企微、钉钉登录     |          |               |
+| 树形组件、JSONSchema组件 |          |               |
+| 注册登录改动             |          |               |
+| 登出全局事件             |          |               |
 
 
 
@@ -16,13 +17,13 @@
 
 ## 前端
 
-**组件库**：ant-design、design-system
-
-**框架**：React
-
-**状态管理**：Redux、Redux-Saga
-
-**可视化**：fusioncharts、
+| 框架&集成 |           选型            |      |
+| :-------: | :-----------------------: | :--: |
+|   框架    |           React           |      |
+|  组件库   | ant-design、design-system |      |
+| 状态管理  |     Redux、Redux-Saga     |      |
+|   打包    |          webpack          |      |
+|  可视化   |   Fusioncharts、Echart    |      |
 
 待归类：CodeMirror、blueprintjs、draft-js-plugins、formily、googlemaps、github/g-emoji-element、loadable、manaflair/redux-batch、
 
@@ -3143,6 +3144,8 @@ export const registerWidget = (
 
 ## 状态管理
 
+## 单元测试
+
 # 状态
 
 | 状态 | 说明 |      |
@@ -3557,9 +3560,9 @@ export const requiresUnauth = (Component: React.ComponentType) => {
   function Wrapped(props: any) {
     const user = useSelector(getCurrentUser);
     if (!user) return null;
-     if (user?.email && user?.email !== ANONYMOUS_USERNAME) {
-       return <Redirect to={APPLICATIONS_URL} />;
-     }
+    if (user?.email && user?.email !== ANONYMOUS_USERNAME) {
+      return <Redirect to={APPLICATIONS_URL} />;
+    }
     return <Component {...props} />;
   }
 
@@ -3650,15 +3653,7 @@ export const requiresUnauth = (Component: React.ComponentType) => {
 
 需要 `WIDGET_TYPE_VALIDATION_ERROR`、`getExpectedType`、`VALIDATORS.ARRAY`、`flat`、`get`、`uniq`
 
-# 改动区
 
-- 欢迎页-替换图片；
-
-- 登录页-UI、其他方式登录；
-
-- 首页-屏蔽部分入口；
-
-- 开发区-组件分类；
 
 
 
