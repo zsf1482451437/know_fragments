@@ -24,12 +24,13 @@
 | 状态管理  |     Redux、Redux-Saga     |      |
 |   打包    |          webpack          |      |
 |  可视化   |   Fusioncharts、Echart    |      |
+|   测试    |           Jest            |      |
 
 待归类：CodeMirror、blueprintjs、draft-js-plugins、formily、googlemaps、github/g-emoji-element、loadable、manaflair/redux-batch、
 
 
 
-| 技术        | 标签             | 说明 |
+| 选型        | 标签             | 说明 |
 | ----------- | ---------------- | ---- |
 | redux-sagas | *状态管理*       |      |
 | redux       | *状态管理*       |      |

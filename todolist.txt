@@ -333,6 +333,7 @@ docs：
 feat:
 合代码；
 优惠券管理系统模版；
+文章补充截图、添加进文档；
 xxx模版；
 历史记录管理；
 
@@ -387,8 +388,6 @@ Missing pageId. If you are trying to set href inside a react component use the '
 连接git了解更多；
 模版水印水印功能；
 开发者工具里请求中的type；
-Table组件发布后，组件数量多的话，过滤功能不支持使用；
-小程序组件可绑定属性；
 
 
 
