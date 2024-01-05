@@ -1,3 +1,27 @@
+# 快捷键
+
+> 打开命名面板
+
+```
+ctrl+shift+p
+```
+
+在`.eslintrc.js`:
+
+```js
+module.exports = {
+  // ...
+  parserOptions: {
+    ...
+    tsconfigRootDir: __dirname,
+    ...
+  },
+  // ...
+}
+```
+
+参考：https://stackoverflow.com/questions/69897000/parsing-error-cannot-read-file-tsconfig-json-eslint-after-following-firebase
+
 ## 不同系统换行符
 
 Visual Studio Code 编辑器中，你可以按 `Ctrl + Shift + H` 打开批量替换面板，然后启用正则表达式，并使用以下搜索和替换模式：

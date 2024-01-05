@@ -3145,6 +3145,329 @@ export const registerWidget = (
 
 ## 状态管理
 
+- 根组件
+- store.ts
+- rootSaga
+- 所有模块的saga
+
+> 根组件
+
+```jsx
+import { Provider } from "react-redux";
+import store, { runSagaMiddleware } from "./store";
+
+runSagaMiddleware();
+
+<Provider store={store}>
+    根组件
+</Provider>
+```
+
+> store.ts
+
+```ts
+import createSagaMiddleware from "redux-saga";
+import { createStore, applyMiddleware } from "redux";
+import appReducer from "@appsmith/reducers";
+import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
+import { reduxBatch } from "@manaflair/redux-batch";
+import routeParamsMiddleware from "RouteParamsMiddleware";
+import * as Sentry from "@sentry/react";
+import { ReduxActionTypes } from "@appsmith/constants/ReduxActionConstants";
+import { rootSaga } from "@appsmith/sagas";
+
+const sagaMiddleware = createSagaMiddleware();
+const ignoredSentryActionTypes = [
+  ReduxActionTypes.SET_EVALUATED_TREE,
+  ReduxActionTypes.EXECUTE_PLUGIN_ACTION_SUCCESS,
+  ReduxActionTypes.SET_LINT_ERRORS,
+];
+const sentryReduxEnhancer = Sentry.createReduxEnhancer({
+  actionTransformer: (action) => {
+    if (ignoredSentryActionTypes.includes(action.type)) {
+      // Return null to not log the action to Sentry
+      action.payload = null;
+    }
+    return action;
+  },
+});
+export default createStore(
+  appReducer,
+  composeWithDevTools(
+    reduxBatch,
+    applyMiddleware(sagaMiddleware, routeParamsMiddleware),
+    reduxBatch,
+    sentryReduxEnhancer,
+  ),
+);
+
+export const runSagaMiddleware = () => sagaMiddleware.run(rootSaga);
+```
+
+根store使用了：
+
+- reduxBatch（批量处理action,它允许你在一个同步流中派发（dispatch）多个 action，但**只触发一次 state 更新**，这可以优化性能。）
+- sagaMiddleware（saga中间件）
+- routeParamsMiddleware（自定义中间件）
+- sentryReduxEnhancer（action被派发时运行，追踪js错误和性能）
+
+作为**enhancer**
+
+同时导出**runSagaMiddleware**，在应用运行时调用，以启动所有的 saga。
+
+> :question: **为什么composeWithDevTools中reduxBatch传了两次**
+
+这样做的原因是希望确保在 middleware 处理 action 之前和之后，都能正确地批量处理 action
+
+> rootSaga
+
+```tsx
+export * from "ce/sagas";
+import { sagas as CE_Sagas } from "ce/sagas";
+import { ReduxActionTypes } from "@appsmith/constants/ReduxActionConstants";
+import { call, all, spawn, race, take } from "redux-saga/effects";
+import log from "loglevel";
+import * as sentry from "@sentry/react";
+
+const sagasArr = [...CE_Sagas];
+
+export function* rootSaga(sagasToRun = sagasArr): any {
+  // This race effect ensures that we fail as soon as the first safe crash is dispatched.
+  // Without this, all the subsequent safe crash failures would be shown in the toast messages as well.
+  const result = yield race({
+    running: all(
+      sagasToRun.map((saga) =>
+        spawn(function* () {
+          while (true) {
+            try {
+              yield call(saga);
+              break;
+            } catch (e) {
+              log.error(e);
+              sentry.captureException(e);
+            }
+          }
+        }),
+      ),
+    ),
+    crashed: take(ReduxActionTypes.SAFE_CRASH_APPSMITH),
+  });
+  if (result.crashed) yield call(rootSaga);
+}
+```
+
+会运行所有的 saga；
+
+每个 saga 都会被包装在一个无限循环中，这样如果 saga 抛出了一个错误，它就会被重新启动，同时这个错误会被记录，并被发送到 Sentry；
+
+如果 saga 成功地运行了，那么它就会退出循环；
+
+`race` effect 来同时运行所有的 saga 和一个 `take` effect；
+
+`take` effect 会等待一个 `ReduxActionTypes.SAFE_CRASH_APPSMITH` action 被派发。如果这个 action 被派发了，那么 `rootSaga` 就会被重新调用；
+
+这样做的目的是在应用发生了一个可安全处理的崩溃后，重新启动所有的 saga。
+
+> :question:为何要rootSaga是生成器函数，普通函数不可以吗
+
+生成器函数是 ES6 的一个新特性，它允许一个函数在其执行过程中被暂停和恢复；
+
+这种能力使得 Saga 可以在异步操作（例如 API 调用）完成之后再继续执行，而不是立即返回；
+
+这可以在Redux Saga 中实现复杂的异步流程控制；
+
+> 所有模块的saga
+
+```jsx
+import { watchActionExecutionSagas } from "@appsmith/sagas/ActionExecution/ActionExecutionSagas";
+import NavigationSagas from "@appsmith/sagas/NavigationSagas";
+import SuperUserSagas from "@appsmith/sagas/SuperUserSagas";
+import tenantSagas from "@appsmith/sagas/tenantSagas";
+import userSagas from "@appsmith/sagas/userSagas";
+import workspaceSagas from "@appsmith/sagas/WorkspaceSagas";
+import { watchPluginActionExecutionSagas } from "sagas/ActionExecution/PluginActionSaga";
+import { watchActionSagas } from "sagas/ActionSagas";
+import apiPaneSagas from "sagas/ApiPaneSagas";
+import applicationSagas from "@appsmith/sagas/ApplicationSagas";
+import appThemingSaga from "sagas/AppThemingSaga";
+import AutoHeightSagas from "sagas/autoHeightSagas";
+import autoLayoutUpdateSagas from "sagas/AutoLayoutUpdateSagas";
+import batchSagas from "sagas/BatchSagas";
+import autoLayoutDraggingSagas from "sagas/CanvasSagas/AutoLayoutDraggingSagas";
+import draggingCanvasSagas from "sagas/CanvasSagas/DraggingCanvasSagas";
+import selectionCanvasSagas from "sagas/CanvasSagas/SelectionCanvasSagas";
+import importedCollectionsSagas from "sagas/CollectionSagas";
+import curlImportSagas from "sagas/CurlImportSagas";
+import { watchDatasourcesSagas } from "sagas/DatasourcesSagas";
+import debuggerSagas from "sagas/DebuggerSagas";
+import editorContextSagas from "sagas/editorContextSagas";
+import errorSagas from "sagas/ErrorSagas";
+import evaluationsSaga from "sagas/EvaluationsSaga";
+import formEvaluationChangeListener from "sagas/FormEvaluationSaga";
+import gitSyncSagas from "sagas/GitSyncSagas";
+import globalSearchSagas from "sagas/GlobalSearchSagas";
+import initSagas from "sagas/InitSagas";
+import { watchJSActionSagas } from "sagas/JSActionSagas";
+import JSLibrarySaga from "sagas/JSLibrarySaga";
+import jsPaneSagas from "sagas/JSPaneSagas";
+import layoutConversionSagas from "sagas/layoutConversionSagas";
+import LintingSaga from "sagas/LintingSagas";
+import modalSagas from "sagas/ModalSagas";
+import onboardingSagas from "sagas/OnboardingSagas";
+import pageSagas from "sagas/PageSagas";
+import PageVisibilitySaga from "sagas/PageVisibilitySagas";
+import pluginSagas from "sagas/PluginSagas";
+import providersSagas from "sagas/ProvidersSaga";
+import queryPaneSagas from "sagas/QueryPaneSagas";
+import replaySaga from "sagas/ReplaySaga";
+import saaSPaneSagas from "sagas/SaaSPaneSagas";
+import snapshotSagas from "sagas/SnapshotSagas";
+import snipingModeSagas from "sagas/SnipingModeSagas";
+import templateSagas from "sagas/TemplatesSagas";
+import themeSagas from "sagas/ThemeSaga";
+import utilSagas from "sagas/UtilSagas";
+import websocketSagas from "sagas/WebsocketSagas/WebsocketSagas";
+import actionExecutionChangeListeners from "sagas/WidgetLoadingSaga";
+// import websocketSagas from "sagas/WebsocketSagas/WebsocketSagas";
+import widgetOperationSagas from "sagas/WidgetOperationSagas";
+import oneClickBindingSaga from "sagas/OneClickBindingSaga";
+import entityNavigationSaga from "sagas/NavigationSagas";
+
+export const sagas = [
+  initSagas,
+  pageSagas,
+  watchActionSagas,
+  watchJSActionSagas,
+  watchActionExecutionSagas,
+  watchPluginActionExecutionSagas,
+  widgetOperationSagas,
+  errorSagas,
+  watchDatasourcesSagas,
+  applicationSagas,
+  apiPaneSagas,
+  jsPaneSagas,
+  userSagas,
+  templateSagas,
+  pluginSagas,
+  workspaceSagas,
+  importedCollectionsSagas,
+  providersSagas,
+  curlImportSagas,
+  snipingModeSagas,
+  queryPaneSagas,
+  modalSagas,
+  batchSagas,
+  themeSagas,
+  evaluationsSaga,
+  onboardingSagas,
+  actionExecutionChangeListeners,
+  formEvaluationChangeListener,
+  utilSagas,
+  globalSearchSagas,
+  // websocketSagas,
+  debuggerSagas,
+  saaSPaneSagas,
+  selectionCanvasSagas,
+  replaySaga,
+  draggingCanvasSagas,
+  gitSyncSagas,
+  SuperUserSagas,
+  appThemingSaga,
+  NavigationSagas,
+  editorContextSagas,
+  PageVisibilitySaga,
+  AutoHeightSagas,
+  tenantSagas,
+  JSLibrarySaga,
+  LintingSaga,
+  autoLayoutUpdateSagas,
+  autoLayoutDraggingSagas,
+  layoutConversionSagas,
+  snapshotSagas,
+  oneClickBindingSaga,
+  entityNavigationSaga,
+];
+```
+
+
+
+### 单个模块
+
+解析某个模块的状态管理，以便理解saga的工作流程；
+
+> 用户模块
+
+这个模块组成部分如下：
+
+- 组件（通过selector获取全局用户状态，通过dispatch派发action修改该状态）
+- selector（针对函数式组件，类组件则通过connect和mapStateToProps获取全局状态）
+- action（）
+- saga（用户模块的saga）
+- reducer
+
+> 用户saga
+
+```tsx
+import PerformanceTracker, {
+  PerformanceTransactionName,
+} from "utils/PerformanceTracker";
+import UserApi from "@appsmith/api/UserApi";
+import type { ApiResponse } from "api/ApiResponses";
+import { validateResponse } from "sagas/ErrorSagas";
+import { ReduxActionTypes } from "@appsmith/constants/ReduxActionConstants";
+import { takeLatest, all, call, put } from "redux-saga/effects";
+
+
+export function* getCurrentUserSaga() {
+  try {
+    PerformanceTracker.startAsyncTracking(
+      PerformanceTransactionName.USER_ME_API,
+    );
+    const response: ApiResponse = yield call(UserApi.getCurrentUser);
+
+    const isValidResponse: boolean = yield validateResponse(response);
+
+    if (isValidResponse) {
+      if (
+        inCloudOS &&
+        !_get(response.data, "cloudOSLogged") &&
+        matchBuilderPath(window.location.pathname)
+      ) {
+        window.location.href = _get(window, "CLOUDOS_LOGIN_URL", "");
+        return;
+      }
+      yield put({
+        type: ReduxActionTypes.FETCH_USER_DETAILS_SUCCESS,
+        payload: response.data,
+      });
+    }
+  } catch (error) {
+    PerformanceTracker.stopAsyncTracking(
+      PerformanceTransactionName.USER_ME_API,
+      { failed: true },
+    );
+    yield put({
+      type: ReduxActionErrorTypes.FETCH_USER_DETAILS_ERROR,
+      payload: {
+        error,
+      },
+    });
+
+    yield put(safeCrashAppRequest());
+  }
+}
+
+export default function* userSagas() {
+  yield all([
+    takeLatest(ReduxActionTypes.FETCH_USER_INIT, getCurrentUserSaga),
+  ]);
+}
+```
+
+
+
+## 网络模块
+
 ## 单元测试
 
 # 状态

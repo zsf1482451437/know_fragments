@@ -33,6 +33,8 @@ Yarn 包管理器会执行一系列步骤来确保顺利安装所需的包，并
 
 ## 疑难杂症
 
+### ETIMEDOUT 
+
 > ➤ YN0000: ┌ Resolution step
 > ➤ YN0001: │ RequestError: connect ETIMEDOUT 104.16.3.35:443
 >     at ClientRequest.<anonymous> (D:\workspace\pp\pro\b_d\app\client\.yarn\releases\yarn-3.5.1.cjs:195:14340)
@@ -54,6 +56,8 @@ Yarn 包管理器会执行一系列步骤来确保顺利安装所需的包，并
 yarn config set npmRegistryServer https://registry.npm.taobao.org
 ```
 
+### No candidates found
+
 错误信息：
 
 > $ yarn add design-system@2.1.30
@@ -65,6 +69,39 @@ yarn config set npmRegistryServer https://registry.npm.taobao.org
 >     at async io (D:\workspace\pp\pro\b_d\app\client\.yarn\releases\yarn-3.5.1.cjs:390:10398)
 > ➤ YN0000: └ Completed in 1s 901ms
 > ➤ YN0000: Failed with errors in 1s 911ms
+
+### remote archive doesn't match
+
+执行yarn，控制台报错：
+
+> question:➤ YN0018: │ @babel/preset-env@npm:7.22.9: The remote archive doesn't match the expected checksum
+
+yarn.lock文件指定的版本和预期版本冲突，删掉yarn.lock重新yarn
+
+### @sentry/cli
+
+执行yarn，link步骤出现 `@sentry/cli@npm:1.75.2 couldn't be built successfully (exit code 1, logs can be found here: D:\temp\xfs-0d7a820d\build.log)`
+
+```
+[sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.75.2/sentry-cli-Windows-x86_64.exe
+Error: Unable to download sentry-cli binary from https://downloads.sentry-cdn.com/sentry-cli/1.75.2/sentry-cli-Windows-x86_64.exe.
+Error code: ECONNRESET
+```
+
+**解决**：
+
+发现是**@sentry/webpack-plugin**依赖了**@sentry/cli**
+
+单独安装@sentry/webpack-plugin
+
+```
+yarn add @sentry/webpack-plugin@1.18.9
+```
+
+### postcss.plugin was deprecated.
+
+执行yarn start，终端报错：`postcss-resolve-url: postcss.plugin was deprecated. Migration guide:
+https://evilmartians.com/chronicles/postcss-8-plugin-migration`
 
 
 
@@ -112,10 +149,10 @@ nvm use xxx
 ## 格式化脚本
 
 ```json
-"prettify": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\""
+"format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
 ```
 
-自动格式化 `src` 目录下的所有 `.ts`、`.tsx` 和 `.js` 文件
+
 
 ## 获取最新依赖
 
@@ -144,33 +181,6 @@ _.sortedUniqBy(ff, (i) => i.value)
 - 前端去重；
 
 # 疑难杂症
-
-## @sentry/cli
-
-执行yarn，link步骤出现 `@sentry/cli@npm:1.75.2 couldn't be built successfully (exit code 1, logs can be found here: D:\temp\xfs-0d7a820d\build.log)`
-
-```
-[sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.75.2/sentry-cli-Windows-x86_64.exe
-Error: Unable to download sentry-cli binary from https://downloads.sentry-cdn.com/sentry-cli/1.75.2/sentry-cli-Windows-x86_64.exe.
-Error code: ECONNRESET
-```
-
-**解决**：
-
-发现是**@sentry/webpack-plugin**依赖了**@sentry/cli**
-
-1.根目录下新建.yarnrc
-
-```
-npmRegistryServer: "http://registry.npm.taobao.org/"
-strict-ssl: false
-```
-
-单独安装@sentry/webpack-plugin
-
-```
-yarn add @sentry/webpack-plugin@1.18.9
-```
 
 ## playwright安装慢
 
