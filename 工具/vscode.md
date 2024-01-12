@@ -59,3 +59,23 @@ git ls-files -z | xargs -0 perl -i -pe 's/\r$//g'
 打开文件，在文件中打断点或添加debugger；
 
 导航-运行和调试-选择环境（Chrome或node）；
+
+# 疑难杂症
+
+## Parsing Error: Cannot read file 'tsconfig.json'
+
+去settings中找到workingDirectories，`path` 设置为前端项目根目录；`eslint.workingDirectories` 添加src
+
+```json
+{
+  "folders": [
+    {
+      "path": "D:/workspace/pp/ce-45/b_d/app/client"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": ["src"]
+  }
+}
+```
+

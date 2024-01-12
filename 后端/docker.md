@@ -82,7 +82,9 @@ docker logs <container_id>
 
 # 容器
 
-> 如何操作运行容器？
+> 进入运行容器进行操作
+
+比如mongodb容器
 
 ```bash
 # 进入容器
@@ -93,6 +95,12 @@ mongo 或 mongosh
 
 # 查看数据库
 show dbs
+```
+
+> 退出
+
+```bash
+exit
 ```
 
 
@@ -814,3 +822,9 @@ Error saving credentials: error storing credentials - err: exit status 1, out:
 
 - https://juejin.cn/post/7236372621000015933
 - https://stackoverflow.com/questions/42787779/docker-login-error-storing-credentials-write-permissions-error
+
+## 启动容器No such file or directory
+
+容器日志：
+
+> mkdir: cannot create directory ‘’: No such file or directory

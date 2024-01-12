@@ -3148,7 +3148,6 @@ export const registerWidget = (
 - 根组件
 - store.ts
 - rootSaga
-- 所有模块的saga
 
 > 根组件
 
@@ -3276,148 +3275,141 @@ export function* rootSaga(sagasToRun = sagasArr): any {
 
 这可以在Redux Saga 中实现复杂的异步流程控制；
 
-> 所有模块的saga
+> user模块的saga
 
 ```jsx
-import { watchActionExecutionSagas } from "@appsmith/sagas/ActionExecution/ActionExecutionSagas";
-import NavigationSagas from "@appsmith/sagas/NavigationSagas";
-import SuperUserSagas from "@appsmith/sagas/SuperUserSagas";
-import tenantSagas from "@appsmith/sagas/tenantSagas";
 import userSagas from "@appsmith/sagas/userSagas";
-import workspaceSagas from "@appsmith/sagas/WorkspaceSagas";
-import { watchPluginActionExecutionSagas } from "sagas/ActionExecution/PluginActionSaga";
-import { watchActionSagas } from "sagas/ActionSagas";
-import apiPaneSagas from "sagas/ApiPaneSagas";
-import applicationSagas from "@appsmith/sagas/ApplicationSagas";
-import appThemingSaga from "sagas/AppThemingSaga";
-import AutoHeightSagas from "sagas/autoHeightSagas";
-import autoLayoutUpdateSagas from "sagas/AutoLayoutUpdateSagas";
-import batchSagas from "sagas/BatchSagas";
-import autoLayoutDraggingSagas from "sagas/CanvasSagas/AutoLayoutDraggingSagas";
-import draggingCanvasSagas from "sagas/CanvasSagas/DraggingCanvasSagas";
-import selectionCanvasSagas from "sagas/CanvasSagas/SelectionCanvasSagas";
-import importedCollectionsSagas from "sagas/CollectionSagas";
-import curlImportSagas from "sagas/CurlImportSagas";
-import { watchDatasourcesSagas } from "sagas/DatasourcesSagas";
-import debuggerSagas from "sagas/DebuggerSagas";
-import editorContextSagas from "sagas/editorContextSagas";
-import errorSagas from "sagas/ErrorSagas";
-import evaluationsSaga from "sagas/EvaluationsSaga";
-import formEvaluationChangeListener from "sagas/FormEvaluationSaga";
-import gitSyncSagas from "sagas/GitSyncSagas";
-import globalSearchSagas from "sagas/GlobalSearchSagas";
-import initSagas from "sagas/InitSagas";
-import { watchJSActionSagas } from "sagas/JSActionSagas";
-import JSLibrarySaga from "sagas/JSLibrarySaga";
-import jsPaneSagas from "sagas/JSPaneSagas";
-import layoutConversionSagas from "sagas/layoutConversionSagas";
-import LintingSaga from "sagas/LintingSagas";
-import modalSagas from "sagas/ModalSagas";
-import onboardingSagas from "sagas/OnboardingSagas";
-import pageSagas from "sagas/PageSagas";
-import PageVisibilitySaga from "sagas/PageVisibilitySagas";
-import pluginSagas from "sagas/PluginSagas";
-import providersSagas from "sagas/ProvidersSaga";
-import queryPaneSagas from "sagas/QueryPaneSagas";
-import replaySaga from "sagas/ReplaySaga";
-import saaSPaneSagas from "sagas/SaaSPaneSagas";
-import snapshotSagas from "sagas/SnapshotSagas";
-import snipingModeSagas from "sagas/SnipingModeSagas";
-import templateSagas from "sagas/TemplatesSagas";
-import themeSagas from "sagas/ThemeSaga";
-import utilSagas from "sagas/UtilSagas";
-import websocketSagas from "sagas/WebsocketSagas/WebsocketSagas";
-import actionExecutionChangeListeners from "sagas/WidgetLoadingSaga";
-// import websocketSagas from "sagas/WebsocketSagas/WebsocketSagas";
-import widgetOperationSagas from "sagas/WidgetOperationSagas";
-import oneClickBindingSaga from "sagas/OneClickBindingSaga";
-import entityNavigationSaga from "sagas/NavigationSagas";
 
 export const sagas = [
-  initSagas,
-  pageSagas,
-  watchActionSagas,
-  watchJSActionSagas,
-  watchActionExecutionSagas,
-  watchPluginActionExecutionSagas,
-  widgetOperationSagas,
-  errorSagas,
-  watchDatasourcesSagas,
-  applicationSagas,
-  apiPaneSagas,
-  jsPaneSagas,
   userSagas,
-  templateSagas,
-  pluginSagas,
-  workspaceSagas,
-  importedCollectionsSagas,
-  providersSagas,
-  curlImportSagas,
-  snipingModeSagas,
-  queryPaneSagas,
-  modalSagas,
-  batchSagas,
-  themeSagas,
-  evaluationsSaga,
-  onboardingSagas,
-  actionExecutionChangeListeners,
-  formEvaluationChangeListener,
-  utilSagas,
-  globalSearchSagas,
-  // websocketSagas,
-  debuggerSagas,
-  saaSPaneSagas,
-  selectionCanvasSagas,
-  replaySaga,
-  draggingCanvasSagas,
-  gitSyncSagas,
-  SuperUserSagas,
-  appThemingSaga,
-  NavigationSagas,
-  editorContextSagas,
-  PageVisibilitySaga,
-  AutoHeightSagas,
-  tenantSagas,
-  JSLibrarySaga,
-  LintingSaga,
-  autoLayoutUpdateSagas,
-  autoLayoutDraggingSagas,
-  layoutConversionSagas,
-  snapshotSagas,
-  oneClickBindingSaga,
-  entityNavigationSaga,
+  ...
 ];
 ```
 
 
 
-### 单个模块
+### user模块
 
-解析某个模块的状态管理，以便理解saga的工作流程；
-
-> 用户模块
+解析user模块的状态管理，以便理解saga的工作流程；
 
 这个模块组成部分如下：
 
-- 组件（通过selector获取全局用户状态，通过dispatch派发action修改该状态）
+- 组件（通过selector获取user状态，通过dispatch派发action修改user状态）
 - selector（针对函数式组件，类组件则通过connect和mapStateToProps获取全局状态）
-- action（）
-- saga（用户模块的saga）
-- reducer
+- saga（包含请求以及请求结果的处理）
+- reducer（更新store中的user状态）
 
-> 用户saga
+> 组件-获取
 
 ```tsx
+import type { InjectedFormProps } from "redux-form";
+import { useSelector } from "react-redux";
+import type { LoginFormValues } from "pages/UserAuth/helpers";
+import { getCurrentUser } from "selectors/usersSelectors";
+
+type LoginFormProps = {
+  emailValue: string;
+  captcha: string;
+} & InjectedFormProps<LoginFormValues, { emailValue: string }>;
+
+export function Login(props: LoginFormProps) {
+  ...
+  const currentUser = useSelector(getCurrentUser);
+  return ...
+}
+```
+
+
+
+> 组件-修改
+
+```tsx
+import { ReduxActionTypes } from "@appsmith/constants/ReduxActionConstants";
+import { SubmissionError } from "redux-form";
+
+export type ForgotPasswordFormValues = {
+  email?: string;
+};
+
+export const forgotPasswordSubmitHandler = (
+  values: ForgotPasswordFormValues,
+  dispatch: any,
+): Promise<any> => {
+  const { email } = values;
+  return new Promise((resolve, reject) => {
+    dispatch({
+      type: ReduxActionTypes.FORGOT_PASSWORD_INIT,
+      payload: {
+        resolve,
+        reject,
+        email,
+      },
+    });
+  }).catch((error) => {
+    error.email = "";
+    throw new SubmissionError(error);
+  });
+};
+```
+
+
+
+```tsx
+import { forgotPasswordSubmitHandler } from "pages/UserAuth/helpers";
+import {  toast } from "design-system";
+import { createMessage } from "design-system-old/build/constants/messages";
+import { FORGOT_PASSWORD_SUCCESS_TEXT } from "@appsmith/constants/messages";
+import { logoutUser } from "actions/userActions";
+...
+const dispatch = useDispatch();
+const forgotPassword = async () => {
+    try {
+        await forgotPasswordSubmitHandler({ email: user?.email }, dispatch);
+        toast.show(createMessage(FORGOT_PASSWORD_SUCCESS_TEXT, user?.email), {
+            kind: "success",
+        });
+        dispatch(logoutUser());
+    } catch (error) {
+        toast.show((error as { _error: string })._error, {
+            kind: "success",
+        });
+    }
+};
+```
+
+
+
+> selector
+
+```jsx
+import type { AppState } from "@appsmith/reducers";
+import type { User } from "constants/userConstants";
+
+export const getCurrentUser = (state: AppState): User | undefined =>
+  state.ui?.users?.currentUser;
+...
+```
+
+
+
+> saga
+
+```tsx
+import { takeLatest, all, call, put } from "redux-saga/effects";
 import PerformanceTracker, {
   PerformanceTransactionName,
 } from "utils/PerformanceTracker";
 import UserApi from "@appsmith/api/UserApi";
+import type { ReduxActionWithPromise } from "@appsmith/constants/ReduxActionConstants";
 import type { ApiResponse } from "api/ApiResponses";
-import { validateResponse } from "sagas/ErrorSagas";
+import { validateResponse, callAPI, getResponseErrorMessage } from "sagas/ErrorSagas";
 import { ReduxActionTypes } from "@appsmith/constants/ReduxActionConstants";
-import { takeLatest, all, call, put } from "redux-saga/effects";
+import type { ForgotPasswordRequest } from "@appsmith/api/UserApi";
+import _get from "lodash/get";
+import { matchBuilderPath } from "constants/routes";
+import { safeCrashAppRequest } from "actions/errorActions";
 
-
+const { inCloudOS } = getAppsmithConfigs();
 export function* getCurrentUserSaga() {
   try {
     PerformanceTracker.startAsyncTracking(
@@ -3457,16 +3449,563 @@ export function* getCurrentUserSaga() {
   }
 }
 
+export function* forgotPasswordSaga(
+  action: ReduxActionWithPromise<ForgotPasswordRequest>,
+) {
+  const { email, reject, resolve } = action.payload;
+
+  try {
+    const request: ForgotPasswordRequest = { email };
+    const response: ApiResponse = yield callAPI(
+      UserApi.forgotPassword,
+      request,
+    );
+    const isValidResponse: boolean = yield validateResponse(response);
+    if (!isValidResponse) {
+      const errorMessage: string | undefined = yield getResponseErrorMessage(
+        response,
+      );
+      yield call(reject, { _error: errorMessage });
+    } else {
+      yield put({
+        type: ReduxActionTypes.FORGOT_PASSWORD_SUCCESS,
+      });
+      yield call(resolve);
+    }
+  } catch (error) {
+    log.error(error);
+    yield call(reject, { _error: (error as Error).message });
+    yield put({
+      type: ReduxActionErrorTypes.FORGOT_PASSWORD_ERROR,
+    });
+  }
+}
+
 export default function* userSagas() {
   yield all([
     takeLatest(ReduxActionTypes.FETCH_USER_INIT, getCurrentUserSaga),
+    takeLatest(ReduxActionTypes.FORGOT_PASSWORD_INIT, forgotPasswordSaga),
   ]);
 }
+...
 ```
 
 
 
-## 网络模块
+> reducer
+
+```ts
+import type { ReduxAction } from "@appsmith/constants/ReduxActionConstants";
+import { createReducer } from "utils/ReducerUtils";
+import type { User } from "constants/userConstants";
+
+export interface UsersReduxState {
+  current?: User;
+  list: User[];
+  loadingStates: {
+    fetchingUser: boolean;
+    fetchingUsers: boolean;
+  };
+  users: User[];
+  currentUser?: User;
+  error: string;
+  propPanePreferences?: PropertyPanePositionConfig;
+  featureFlag: {
+    isFetched: boolean;
+    data: FeatureFlags;
+  };
+  productAlert: ProductAlertState;
+};
+const initialState: UsersReduxState = {
+  loadingStates: {
+    fetchingUsers: false,
+    fetchingUser: true,
+  },
+  list: [],
+  users: [],
+  error: "",
+  current: undefined,
+  currentUser: undefined,
+  featureFlag: {
+    data: DEFAULT_FEATURE_FLAG_VALUE,
+    isFetched: false,
+  },
+  productAlert: {
+    config: {
+      dismissed: false,
+      snoozeTill: new Date(),
+    },
+  },
+};
+const usersReducer = createReducer(initialState, {
+  [ReduxActionTypes.FETCH_USER_DETAILS_SUCCESS]: (
+    state: UsersReduxState,
+    action: ReduxAction<User>,
+  ) => {
+    const users = [...state.users];
+    const userIndex = _.findIndex(users, { username: action.payload.username });
+    if (userIndex > -1) {
+      users[userIndex] = action.payload;
+    } else {
+      users.push(action.payload);
+    }
+    return {
+      ...state,
+      loadingStates: {
+        ...state.loadingStates,
+        fetchingUser: false,
+      },
+      users,
+      currentUser: action.payload,
+    };
+  },
+  ...
+ }
+```
+
+
+
+## 网络请求
+
+项目采用axios处理网络请求，组成如下：
+
+- axios实例
+- 请求方法封装
+- 请求/响应拦截
+
+> axios实例
+
+```ts
+import axios from "axios";
+import type { AxiosInstance } from "axios";
+
+const axiosInstance: AxiosInstance = axios.create();
+```
+
+使用axios提供的create方法创建axios实例；
+
+> 请求方法封装
+
+```ts
+import { REQUEST_TIMEOUT_MS } from "@appsmith/constants/ApiConstants";
+import { convertObjectToQueryParams } from "utils/URLUtils";
+
+export const apiRequestConfig = {
+  baseURL: "/api/",
+  timeout: REQUEST_TIMEOUT_MS,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  withCredentials: true,
+};
+
+class Api {
+  static get(url: string, queryParams?: any, config: AxiosRequestConfig = {}) {
+    return axiosInstance.get(url + convertObjectToQueryParams(queryParams), {
+      ...apiRequestConfig,
+      ...config,
+    });
+  }
+
+  static post(
+    url: string,
+    body?: any,
+    queryParams?: any,
+    config: AxiosRequestConfig = {},
+  ) {
+    return axiosInstance.post(
+      url + convertObjectToQueryParams(queryParams),
+      body,
+      {
+        ...apiRequestConfig,
+        ...config,
+      },
+    );
+  }
+}
+```
+
+对axios实例进行封装，创建常用方法；
+
+其中convertObjectToQueryParams方法是将**js对象**转化成**URL查询参数格式**的字符串
+
+```tsx
+import _ from "lodash";
+
+export function convertObjectToQueryParams(object: any): string {
+  if (!_.isNil(object)) {
+    const paramArray: string[] = _.map(_.keys(object), (key) => {
+      return encodeURIComponent(key) + "=" + encodeURIComponent(object[key]);
+    });
+    return "?" + _.join(paramArray, "&");
+  } else {
+    return "";
+  }
+}
+```
+
+函数接收一个对象作为参数，然后检查这个对象是否为 `null` 或 `undefined`;
+
+如果不是，它将对象的每个键值对转换为查询参数的形式（即 `key=value`），并使用 `encodeURIComponent` 函数对键和值进行编码，以确保它们在 URL 中可以安全使用;
+
+然后，这些键值对被连接成一个字符串，每对之间用 `&` 分隔。最后，这个字符串前面加上一个 `?`，然后返回;
+
+如果传入的对象是 `null` 或 `undefined`，函数将返回空字符串 `""`;
+
+例如，如果你有一个对象 `{a: 1, b: 2}`，这个函数将返回字符串 `"?a=1&b=2"`;
+
+
+
+> 请求/响应拦截
+
+```ts
+import {
+  apiFailureResponseInterceptor,
+  apiRequestInterceptor,
+  apiSuccessResponseInterceptor,
+  blockedApiRoutesForAirgapInterceptor,
+} from "@appsmith/api/ApiUtils";
+
+const requestInterceptors = [
+  blockedApiRoutesForAirgapInterceptor,
+  apiRequestInterceptor,
+];
+requestInterceptors.forEach((interceptor) => {
+  axiosInstance.interceptors.request.use(interceptor as any);
+});
+
+axiosInstance.interceptors.response.use(
+  apiSuccessResponseInterceptor,
+  apiFailureResponseInterceptor,
+);
+```
+
+**blockedApiRoutesForAirgapInterceptor**拦截器的用途是模拟断网下的成功响应，但是没返回任何数据(用户体验、容错处理，便于测试和开发)；
+
+```ts
+import { isAirgapped } from "@appsmith/utils/airgapHelpers";
+
+export const BLOCKED_ROUTES = [
+  "v1/app-templates",
+  "v1/marketplace",
+  "v1/datasources/mocks",
+  "v1/usage-pulse",
+  "v1/applications/releaseItems",
+  "v1/saas",
+];
+export const BLOCKED_ROUTES_REGEX = new RegExp(
+  `^(${BLOCKED_ROUTES.join("|")})($|/)`,
+);
+export const blockedApiRoutesForAirgapInterceptor = (
+  config: AxiosRequestConfig,
+) => {
+  const { url } = config;
+  const isAirgappedInstance = isAirgapped();
+  if (isAirgappedInstance && url && BLOCKED_ROUTES_REGEX.test(url)) {
+    return Promise.resolve({ data: null, status: 200 });
+  }
+  return config;
+};
+```
+
+调用 `isAirgapped` 函数来检查当前的实例是否与外部网络隔离；
+
+如果当前实例的isAirgappedInstance为true，并且 URL 存在，并且 URL 符合 `BLOCKED_ROUTES_REGEX` 正则表达式的规则，那么函数将返回一个解析为具有 `data: null` 和 `status: 200` 的对象的 Promise；
+
+如果当前实例的isAirgappedInstance为false，或者 URL 不存在，或者 URL 不符合 `BLOCKED_ROUTES_REGEX` 的规则，那么函数将直接返回原始的配置对象。
+
+**请求拦截**
+
+**apiRequestInterceptor**拦截器
+
+```ts
+import type { AxiosRequestConfig } from "axios";
+import { getCurrentGitBranch } from "selectors/gitSyncSelectors";
+import getQueryParamsObject from "utils/getQueryParamsObject";
+import {
+  getCurrentEnvironment,
+  getCurrentEditingEnvID,
+} from "@appsmith/utils/Environments";
+import AnalyticsUtil from "utils/AnalyticsUtil";
+import { getAppsmithConfigs } from "@appsmith/configs";
+
+const appsmithConfig = getAppsmithConfigs();
+export const apiRequestInterceptor = (config: AxiosRequestConfig) => {
+  config.headers = config.headers ?? {};
+
+  // Add header for CSRF protection.
+  const methodUpper = config.method?.toUpperCase();
+  if (methodUpper && methodUpper !== "GET" && methodUpper !== "HEAD") {
+    config.headers["X-Requested-By"] = "Appsmith";
+  }
+
+  const branch =
+    getCurrentGitBranch(store.getState()) || getQueryParamsObject().branch;
+  if (branch && config.headers) {
+    config.headers.branchName = branch;
+  }
+  if (config.url?.indexOf("/git/") !== -1) {
+    config.timeout = 1000 * 120; // increase timeout for git specific APIs
+  }
+
+  // Add header for environment name
+  const activeEnv = getCurrentEnvironment();
+
+  if (activeEnv && config.headers) {
+    if (config.url?.indexOf("/code") !== -1) {
+      config.headers.environmentId = getCurrentEditingEnvID();
+    } else {
+      config.headers.environmentId = activeEnv;
+    }
+  }
+
+  const anonymousId = AnalyticsUtil.getAnonymousId();
+  appsmithConfig.segment.enabled &&
+    anonymousId &&
+    (config.headers["x-anonymous-user-id"] = anonymousId);
+
+  return { ...config, timer: performance.now() };
+};
+```
+
+函数首先确保 `config.headers` 存在，如果不存在，就将其设置为一个空对象 `{}`;
+
+然后，函数检查**请求的方法**是否是 "GET" 或 "HEAD"。如果不是，它将在请求头中添加一个 "**X-Requested-By**" 字段，值为 "Appsmith"。这通常用于 CSRF 保护;
+
+接着，函数获取当前的 **Git 分支名**，如果存在，就将其添加到请求头的 "branchName" 字段;
+
+如果请求的 **URL** 包含 "/git/"，函数将请求的**超时时间**设置为 120 秒。这是因为 Git 相关的 API 可能需要更长的时间来处理;
+
+然后，函数获取当前的**环境名**，如果存在，就将其添加到请求头的 "environmentId" 字段。如果请求的 URL 包含 "/code"，则 "environmentId" 的值会被设置为当前正在编辑的环境 ID。
+
+最后，如果启用了 Segment 分析，并且存在匿名用户 ID，函数将在请求头中添加一个 "**x-anonymous-user-id**" 字段，值为匿名用户 ID。
+
+在所有这些修改之后，函数返回一个**新的配置对象**，其中包含原始的配置和一个新的 "timer" 字段，值为当前的性能时间。
+
+**响应拦截**
+
+**apiSuccessResponseInterceptor**拦截器
+
+```ts
+import type { ActionExecutionResponse } from "api/ActionAPI";
+
+const executeActionRegex = /actions\/execute/;
+const makeExecuteActionResponse = (response: any): ActionExecutionResponse => ({
+  ...response.data,
+  clientMeta: {
+    size: response.headers["content-length"],
+    duration: Number(performance.now() - response.config.timer).toFixed(),
+  },
+});
+export const apiSuccessResponseInterceptor = (
+  response: AxiosResponse,
+): AxiosResponse["data"] => {
+  if (response.config.url) {
+    if (response.config.url.match(executeActionRegex)) {
+      return makeExecuteActionResponse(response);
+    }
+  }
+  if (
+    response.headers[CONTENT_TYPE_HEADER_KEY] === "application/json" &&
+    !response.data.responseMeta
+  ) {
+    Sentry.captureException(new Error("Api responded without response meta"), {
+      contexts: { response: response.data },
+    });
+  }
+  return response.data;
+};
+```
+
+函数首先检查响应的 URL 是否匹配 `executeActionRegex` 正则表达式。如果匹配，它将调用 `makeExecuteActionResponse` 函数处理响应，并返回处理后的结果。
+
+函数检查响应的 `Content-Type` 是否为 "application/json"，并且响应的数据中是否没有 `responseMeta` 字段。如果这两个条件都满足，它将使用 Sentry 捕获一个新的错误，错误信息为 "Api responded without response meta"，并将响应的数据作为错误的上下文。
+
+最后，如果以上的条件都不满足，函数将直接返回响应的数据。
+
+**apiFailureResponseInterceptor**拦截器
+
+```ts
+import {
+  createMessage,
+  ERROR_0,
+  ERROR_413,
+  ERROR_500,
+  GENERIC_API_EXECUTION_ERROR,
+  SERVER_API_TIMEOUT_ERROR,
+} from "@appsmith/constants/messages";
+import store from "store";
+import {
+  API_STATUS_CODES,
+  ERROR_CODES,
+  SERVER_ERROR_CODES,
+} from "@appsmith/constants/ApiConstants";
+import { logoutUser } from "actions/userActions";
+
+const executeActionRegex = /actions\/execute/;
+const timeoutErrorRegex = /timeout of (\d+)ms exceeded/;
+export const axiosConnectionAbortedCode = "ECONNABORTED";
+const makeExecuteActionResponse = (response: any): ActionExecutionResponse => ({
+  ...response.data,
+  clientMeta: {
+    size: response.headers["content-length"],
+    duration: Number(performance.now() - response.config.timer).toFixed(),
+  },
+});
+const is404orAuthPath = () => {
+  const pathName = window.location.pathname;
+  return /^\/404/.test(pathName) || /^\/user\/\w+/.test(pathName);
+};
+export const apiFailureResponseInterceptor = (error: any) => {
+  // this can be extended to other errors we want to catch.
+  // in this case it is 413.
+  if (error && error?.response && error?.response.status === 413) {
+    return Promise.reject({
+      ...error,
+      clientDefinedError: true,
+      statusCode: "AE-APP-4013",
+      message: createMessage(ERROR_413, 100),
+      pluginErrorDetails: {
+        appsmithErrorCode: "AE-APP-4013",
+        appsmithErrorMessage: createMessage(ERROR_413, 100),
+        errorType: "INTERNAL_ERROR", // this value is from the server, hence cannot construct enum type.
+        title: createMessage(GENERIC_API_EXECUTION_ERROR),
+      },
+    });
+  }
+
+  // Return error when there is no internet
+  if (!window.navigator.onLine) {
+    return Promise.reject({
+      ...error,
+      message: createMessage(ERROR_0),
+    });
+  }
+
+  // Return if the call was cancelled via cancel token
+  if (axios.isCancel(error)) {
+    throw new UserCancelledActionExecutionError();
+  }
+
+  // Return modified response if action execution failed
+  if (error.config && error.config.url.match(executeActionRegex)) {
+    return makeExecuteActionResponse(error.response);
+  }
+  // Return error if any timeout happened in other api calls
+  if (
+    error.code === axiosConnectionAbortedCode &&
+    error.message &&
+    error.message.match(timeoutErrorRegex)
+  ) {
+    return Promise.reject({
+      ...error,
+      message: createMessage(SERVER_API_TIMEOUT_ERROR),
+      code: ERROR_CODES.REQUEST_TIMEOUT,
+    });
+  }
+
+  if (error.response) {
+    if (error.response.status === API_STATUS_CODES.SERVER_ERROR) {
+      return Promise.reject({
+        ...error,
+        code: ERROR_CODES.SERVER_ERROR,
+        message: createMessage(ERROR_500),
+      });
+    }
+
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx
+    if (!is404orAuthPath()) {
+      const currentUrl = `${window.location.href}`;
+      if (error.response.status === API_STATUS_CODES.REQUEST_NOT_AUTHORISED) {
+        // Redirect to login and set a redirect url.
+        store.dispatch(
+          logoutUser({
+            redirectURL: `${AUTH_LOGIN_URL}?redirectUrl=${encodeURIComponent(
+              currentUrl,
+            )}`,
+          }),
+        );
+        Sentry.captureException(error);
+        return Promise.reject({
+          ...error,
+          code: ERROR_CODES.REQUEST_NOT_AUTHORISED,
+          message: "未授权，重定向回登录页...",
+          show: false,
+        });
+      }
+      const errorData = error.response.data.responseMeta ?? {};
+      if (
+        errorData.status === API_STATUS_CODES.RESOURCE_NOT_FOUND &&
+        (SERVER_ERROR_CODES.RESOURCE_NOT_FOUND.includes(errorData.error.code) ||
+          SERVER_ERROR_CODES.UNABLE_TO_FIND_PAGE.includes(errorData.error.code))
+      ) {
+        Sentry.captureException(error);
+        return Promise.reject({
+          ...error,
+          code: ERROR_CODES.PAGE_NOT_FOUND,
+          message: "Resource Not Found",
+          show: false,
+        });
+      }
+    }
+    if (error.response.data.responseMeta) {
+      return Promise.resolve(error.response.data);
+    }
+    Sentry.captureException(new Error("Api responded without response meta"), {
+      contexts: { response: error.response.data },
+    });
+    return Promise.reject(error.response.data);
+  } else if (error.request) {
+    // The request was made but no response was received
+    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    // http.ClientRequest in node.js
+    log.error(error.request);
+  } else {
+    // Something happened in setting up the request that triggered an Error
+    log.error("Error", error.message);
+  }
+  log.debug(error.config);
+  return Promise.resolve(error);
+};
+
+```
+
+这个拦截器进行不同错误类型处理：
+
+- 错误存在且响应状态码为413
+- 断网
+- 请求取消
+- action执行失败
+- api调用超时
+- 服务器500、未授权后重定向、资源未找到、没有responseMeta
+
+最后，如果错误的响应对象不存在，但错误的请求对象存在，函数将记录错误的请求对象。如果错误的请求对象也不存在，函数将记录错误的消息。
+
+### user模块
+
+```tsx
+import Api from "api/Api";
+import type { ApiResponse } from "api/ApiResponses";
+import type { AxiosPromise } from "axios";
+
+export interface ForgotPasswordRequest {
+  email: string;
+}
+export class UserApi extends Api {
+    static currentUserURL = "v1/users/me";
+    static forgotPasswordURL = `${UserApi.usersURL}/forgotPassword`;
+    
+    static getCurrentUser(): AxiosPromise<ApiResponse> {
+        return Api.get(UserApi.currentUserURL);
+    }
+    static forgotPassword( request: ForgotPasswordRequest ): AxiosPromise<ApiResponse> {
+        return Api.post(UserApi.forgotPasswordURL, request);
+    }
+}
+```
+
+
 
 ## 单元测试
 

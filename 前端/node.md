@@ -1,18 +1,34 @@
 # yarn
 
-## 查看当前的镜像源：
+## 常见命令
+
+### 查看哪些模块依赖了xxx
+
+```bash
+yarn why xxx
+```
+
+npm：
+
+```bash
+npm ls xxx
+```
+
+
+
+### 查看当前的镜像源：
 
 ```
 yarn config get npmRegistryServer
 ```
 
-## 修改为淘宝镜像源：
+### 修改为淘宝镜像源：
 
 ```
 yarn config set npmRegistryServer https://registry.npm.taobao.org
 ```
 
-## 查看有效配置：
+### 查看有效配置：
 
 ```
 yarn config -v
@@ -100,10 +116,47 @@ yarn add @sentry/webpack-plugin@1.18.9
 
 ### postcss.plugin was deprecated.
 
-执行yarn start，终端报错：`postcss-resolve-url: postcss.plugin was deprecated. Migration guide:
+执行yarn start，终端提示：`postcss-resolve-url: postcss.plugin was deprecated. Migration guide:
 https://evilmartians.com/chronicles/postcss-8-plugin-migration`
 
+项目中并没有用到postcss-resolve-url模块或插件；
 
+postcss 8.4.31存在这个问题，跟换版本，建议最新版。
+
+### Nested CSS was detected
+
+执行yarn start，终端提示：`Nested CSS was detected, but CSS nesting has not been configured correctly`
+
+这是因为项目中的某个模块使用了css嵌套，但是配置不正确
+
+> postcss.config.js
+
+```js
+/* eslint-disable @typescript-eslint/no-var-requires */
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss/nesting"),
+    require("tailwindcss"),
+    require("autoprefixer"),
+  ],
+};
+
+module.exports = config;
+```
+
+> tailwind.config.js
+
+```js
+export const plugins = [require("tailwindcss/nesting")];
+```
+
+重启。
+
+参考
+
+https://github.com/tailwindlabs/tailwindcss/discussions/7035
 
 # node
 

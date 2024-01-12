@@ -1,110 +1,45 @@
-# nginx操作
+# 基础命令
 
-## 重载配置文件
+包括：
 
-linux
+- 文件和目录操作（如 `cd`, `ls`, `cp`, `mv`, `rm` 等）；
+- 文本查看和编辑（如 `cat`, `more`, `less`, `vi`, `nano` 等）；
+- 其他基础命令（如 `echo`, `exit`, `man` 等）。
 
-```bash
-nginx -s reload
-```
+# 文件系统
 
- -s 参数用于向 Nginx 进程发送信号，告诉它如何处理这个命令。
+理解 Linux 的文件系统结构，包括：
 
-- -s 参数后面可以跟以下几个参数：
-  stop：停止 Nginx 进程。这个命令将会优雅地关闭 Nginx，并在关闭前完成正在处理的请求。使用该命令将会中断 Nginx 的服务，直到再次手动启动它;
-- quit：优雅地退出 Nginx 进程。这个命令将会让 Nginx 完成正在处理的请求，并优雅地关闭连接。使用该命令将不会中断 Nginx 的服务，直到再次手动启动它;
-- reload：重新加载 Nginx 的配置文件，并在不中断现有连接的情况下重启 Nginx。该命令通常用于在修改 Nginx 配置文件后，重新加载配置文件并使修改生效，而无需停止 Nginx 并重新启动它。使用该命令将会重启 Nginx，但不会中断现有连接;
-- reopen：重新打开 Nginx 的日志文件。这个命令通常用于在 Nginx 运行期间，切换日志文件。使用该命令将会让 Nginx 关闭当前日志文件，并重新打开一个新的日志文件。)
+- 目录结构
+- 文件权限
+- 链接（硬链接和软链接）
+- 特殊的文件类型（如设备文件，套接字文件等）
 
-**window**
-
-```bash
-nginx.exe -s reload
-```
-
-需要注意的是，如果新的配置选项涉及到 Nginx 监听的端口或者其他需要重新启动 Nginx 才能生效的配置选项，那么执行 `nginx.exe -s reload` 命令可能无法使新的配置选项生效。在这种情况下，你需要停止 Nginx 进程并重新启动它，才能使新的配置选项生效。可以使用 `nginx.exe -s stop` 命令停止 Nginx 进程，然后使用 nginx.exe 命令重新启动 Nginx。
-
-## 启动
-
-linux
+## 查看文件或目录路径
 
 ```bash
-nginx
+find / -name <文件或目录名称>
 ```
 
-window
+## 删除文件
 
 ```bash
-nginx.exe
+rm
+
+rm --help
 ```
 
-## 测试配置文件
-
-重新加载配置文件之前需要进行语法检查
-
-linux
+## 删除目录
 
 ```bash
-nginx -t
-```
-
-window
-
-```bash
-nginx.exe -t
-```
-
-# 角色管理
-
-
-
-# 网络
-
-## 查看主机ip
-
-Windows 系统：
-
-1. 打开命令提示符（Command Prompt）或 PowerShell。
-
-2. 运行以下命令：
-
-   ```
-   ipconfig
-   ```
-
-   这将显示主机的网络配置信息，包括 IP 地址、子网掩码、默认网关等。在输出中找到 "IPv4 地址"，即可查看主机的 IP 地址。
-
-Linux 系统：
-
-1. 打开终端。
-
-2. 运行以下命令之一：
-
-   - 对于使用 ifconfig 命令的旧版 Linux 发行版：
-
-     ```
-     ifconfig
-     ```
-
-   - 对于使用 ip 命令的较新 Linux 发行版：
-
-     ```
-     ip addr show
-     ```
-
-   这将显示主机的网络接口信息，包括 IP 地址、子网掩码、广播地址等。在输出中找到与你的网络接口相关的部分，即可查看主机的 IP 地址。
-
-请注意，在 Linux 中，你可能需要以管理员权限（使用 sudo 命令）运行上述命令才能查看完整的网络信息。
-
-## 查看ip地址
-
-```
-ipconfig | findstr "IPv4"
+rmdir
 ```
 
 
 
-# 进程
+# 进程管理
+
+如何查看和控制进程（`ps`, `top`, `kill` 等），理解进程状态，以及后台和前台运行。
 
 ## 查看端口进程
 
@@ -192,41 +127,78 @@ sudo kill -s TERM 进程号
 
 以[超级用户]权限向进程ID为14391的进程发送[终止信号]，请求该进程正常退出。
 
-# 文件
+# 包管理
 
-## 查看文件或目录路径
+如何使用包管理器（如 `apt`, `yum`, `dnf` 等）来安装，更新，和删除软件包。
 
-```bash
-find / -name <文件或目录名称>
+
+
+# 网络
+
+如何配置和管理网络（如 `ifconfig`, `netstat`, `ping`, `ssh` 等），以及理解网络协议（如 TCP/IP，HTTP 等）。
+
+## curl
+
+`curl` 命令是一个强大的网络工具，可以用来发送和接收数据。
+
+## 查看主机ip
+
+Windows 系统：
+
+1. 打开命令提示符（Command Prompt）或 PowerShell。
+
+2. 运行以下命令：
+
+   ```
+   ipconfig
+   ```
+
+   这将显示主机的网络配置信息，包括 IP 地址、子网掩码、默认网关等。在输出中找到 "IPv4 地址"，即可查看主机的 IP 地址。
+
+Linux 系统：
+
+1. 打开终端。
+
+2. 运行以下命令之一：
+
+   - 对于使用 ifconfig 命令的旧版 Linux 发行版：
+
+     ```
+     ifconfig
+     ```
+
+   - 对于使用 ip 命令的较新 Linux 发行版：
+
+     ```
+     ip addr show
+     ```
+
+   这将显示主机的网络接口信息，包括 IP 地址、子网掩码、广播地址等。在输出中找到与你的网络接口相关的部分，即可查看主机的 IP 地址。
+
+请注意，在 Linux 中，你可能需要以管理员权限（使用 sudo 命令）运行上述命令才能查看完整的网络信息。
+
+## 查看ip地址
+
+```
+ipconfig | findstr "IPv4"
 ```
 
-## 删除文件
-
-```bash
-rm
-
-rm --help
-```
-
-## 删除目录
-
-```bash
-rmdir
-```
 
 
 
-# 日志
-
-## 查看命令日志
-
-```bash
-history | grep 关键词
-```
 
 
 
-# bash
+# shell编程
+
+如何编写 Shell 脚本，包括：
+
+- 变量
+- 控制结构（如 `if`, `for`, `while` 等）
+- 函数
+- 命令行参数
+
+## 命令行参数
 
 ## 案例
 
@@ -284,352 +256,91 @@ push_image "$registry" "$repository" "$password"
 
 ```
 
-# 部署
 
-## 自动化部署
 
-### 传统开发模式
+# 系统管理
 
-1. code
-2. build
-3. test
-4. release
-5. operate
+如何管理系统服务（如 `systemd` 或 `init`），用户和组管理，以及系统日志。
 
-线上bug隐患，当线上出现bug时，所有环节都需要加班；
+## nginx操作
 
-### DevOps开发模式
+### 重载配置文件
 
-某个模块写完就可以build，**持续集成**和**持续交付**；
+linux
 
-开发完**代码**会放进**代码仓库**，然后一个**服务器**会**自动构建并部署**代码，当**测试**出现问题后，会**反馈**回开发；
-
-### 自动化部署流程
-
-1. 本地开发
-2. 代码仓库
-3. Jenkins服务器（安装java环境，node环境等等）
-4. 创建任务（隔段时间**拉下代码并构建后发布**）
-5. 测试就可以在测试服务器上访问项目，用户在线上服务器上访问项目
-
-### 服务器环境安装
-
-#### **远程连接服务器**
-
-在云服务器打开终端，执行命令
-
-```
-ssh 用户名@公网ip
+```bash
+nginx -s reload
 ```
 
-接着输入密码即可
+ -s 参数用于向 Nginx 进程发送信号，告诉它如何处理这个命令。
 
-#### **安装Jenkins环境**
+- -s 参数后面可以跟以下几个参数：
+  stop：停止 Nginx 进程。这个命令将会优雅地关闭 Nginx，并在关闭前完成正在处理的请求。使用该命令将会中断 Nginx 的服务，直到再次手动启动它;
+- quit：优雅地退出 Nginx 进程。这个命令将会让 Nginx 完成正在处理的请求，并优雅地关闭连接。使用该命令将不会中断 Nginx 的服务，直到再次手动启动它;
+- reload：重新加载 Nginx 的配置文件，并在不中断现有连接的情况下重启 Nginx。该命令通常用于在修改 Nginx 配置文件后，重新加载配置文件并使修改生效，而无需停止 Nginx 并重新启动它。使用该命令将会重启 Nginx，但不会中断现有连接;
+- reopen：重新打开 Nginx 的日志文件。这个命令通常用于在 Nginx 运行期间，切换日志文件。使用该命令将会让 Nginx 关闭当前日志文件，并重新打开一个新的日志文件。)
 
-由于Jenkins是依赖java的，所以先安装java环境；
+**window**
 
-先做一个搜索
-
-```
-dnf search java-1.8
-```
-
-##### **安装**java环境
-
-```
-dnf install java-1.8.0-openjdk.x86_64
+```bash
+nginx.exe -s reload
 ```
 
-安装完成后执行命令，检验安装是否成功
+需要注意的是，如果新的配置选项涉及到 Nginx 监听的端口或者其他需要重新启动 Nginx 才能生效的配置选项，那么执行 `nginx.exe -s reload` 命令可能无法使新的配置选项生效。在这种情况下，你需要停止 Nginx 进程并重新启动它，才能使新的配置选项生效。可以使用 `nginx.exe -s stop` 命令停止 Nginx 进程，然后使用 nginx.exe 命令重新启动 Nginx。
 
-```
-java
-```
+### 启动
 
-##### **安装Jenkins**
+linux
 
-搜索发现是python的，不是这个；
-
-需要先下载，执行命令（参数-O是大写）
-
-```
-wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+```bash
+nginx
 ```
 
-如果没有下载到**/etc/yum.repos.d/**下，需要移动到那里，在**jenkin.repo文件**目录下执行命令
+window
 
-```
-mv jenkins.repo /etc/yum.repos.d/
-```
-
-可以使用 `cd /etc/yum.repos.d/` 命令移动工作目录
-
-然后使用 `ls` 命令列出该目录下所有文件，查看是否有**jenkins.repo**
-
-###### **导入密钥**
-
-有了jenkins.repo文件，使用dnf命令就可以安装了；
-
-不过linux操作系统会进行一些验证，确保软件合法；
-
-先导入密钥以确保需下载的软件合法，在**jenkin.repo文件**目录下执行命令
-
-```
-rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+```bash
+nginx.exe
 ```
 
-###### **编辑jenkins.repo**
+### 测试配置文件
 
-如果不能安装，那下载的jenkins.repo可能有点问题，需要编辑，在**jenkin.repo文件**目录下执行命令
+重新加载配置文件之前需要进行语法检查
 
-```
-vi jenkins.repo
-```
+linux
 
-然后点击 **i** 进入编辑模式；
-
-删除baseurl的值后面的 **-stable**；
-
-然后按esc退出编辑模式；
-
-接着同时按 **shift 和 :** ，左下角出现冒号，输入 **wq** 保存；
-
-###### 安装
-
-在**jenkin.repo文件**目录下执行命令
-
-```
-dnf install jenkins
+```bash
+nginx -t
 ```
 
-#### 启动jenkins
+window
 
-需要启动jenkins，在**jenkin.repo文件**目录下执行命令
-
-```
-systemctl start jenkins
-```
-
-执行 **systemctl status jenkins** 查看状态
-
-#### 设置jenkins自启动
-
-如果不想手动启动jenkins，可以在**jenkin.repo文件**目录下执行命令
-
-```
-systemctl enable jenkins
-```
-
-#### jenkins图形化界面
-
-jenkins启动后开启一个服务，默认在服务器的8080端口；
-
-但是在防火墙（安全组）并没有允许访问**8080**端口，需要手动添加；
-
-浏览器输入网址 **服务器的公网ip:8080** 进入；
-
-执行 `cat /var/lib/jenkins/secrets/initialAdminPassword` 获取管理员密码；
-
-图形化界面需要这段**密码**；
-
-然后安装**推荐的插件**；
-
-创建一个jenkins**管理员用户**；
-
-#### 安装Nginx
-
-Nginx是一个高性能的web服务器，可以配置负载均衡和高并发等等；
-
-执行命令 `dnf install nginx`
-
-#### 启动nginx
-
-执行命令 `systemctl start nginx` 启动;
-
-执行命令 `systemctl status nginx` 查看**启动状态**;
-
-执行命令 `systemctl enable nginx` 设置nginx随着操作系统启动而启动;
-
-
-
-#### 配置nginx
-
-执行 `cd ~` 回到**根目录**；
-
-执行 `mkdir mail_cms` 创建mail_cms**目录**;
-
-执行 `cd mail_cms` 移动到该目录下；
-
-执行 `touch index.html` 创建**index.html**文件;
-
-这样，访问nginx的默认页面替换成index.html；
-
-同理，访问nginx的默认页面可以替换成打包后项目的index.html，需要进行一些配置;
-
-可以执行 `vi /etc/nginx/nginx.conf` 编辑nginx的配置文件；
-
-修改完nginx配置后，执行以下两条命令（第三条尽量不要，如果配置错误可能更长时间等待，严重会宕机）
-
-```
-nginx -t # 检验配置是否正确
-nginx -s reload # 重新加载配置
-service nginx restart # 
-```
-
-nginx其它常用命令
-
-```
-启动nignx：$ service nginx start
-停止nignx：$ service nginx stop
-```
-
-服务器端口常用命令
-
-```
-查看端口是否可访问：telnet ip 端口号
-开放的端口位于/etc/sysconfig/iptables中
-查看时通过 cat  /etc/sysconfig/iptables 命令查看
-
-使用netstat列出当前开放的所有端口，不限协议（可以是TCP和UDP）
-netstat -lntu
-```
-
-防止终端修改文件出错，可以使用vscode修改远程文件；
-
-打包压缩后，nginx的配置注意处理匹配资源文件
-
-```
-server
-    {
-        listen 888;
-        server_name 120.25.154.83;
-        #index index.html index.htm index.php;
-        # root  /www/server/phpmyadmin;
-            location ~ /tmp/ {
-                return 403;
-            }
-
-        #error_page   404   /404.html;
-        include enable-php.conf;
-
-        location / {
-               root project/admin;
-               index index.html;
-        }
-
-        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|ico)$
-        {
-            root project/admin;
-            expires      30d;
-        }
-
-        location ~ .*\.(js|css)?$
-        {
-            root project/admin;
-            expires      12h;
-        }
-
-        location ~ /\.
-        {
-            deny all;
-        }
-        access_log  /www/wwwlogs/access.log;
-}
+```bash
+nginx.exe -t
 ```
 
 
 
-##### vscode连接远程服务器
+## 日志
 
-安装vscode插件 **Remote-SSH**；
+### 查看日志
 
-然后在vscode左侧有对应的图标，点击，+号，输入 `root@公网ip`；
-
-接着输入**密码**，连接成功后vscode左下角有公网ip，点击，然后打开文件夹，剩下的操作就是找你要修改的文件；
-
-找到/etc/nginx/下的**nginx.conf**文件，修改内容；
-
-用户要改变，使用root用户
-
-```
-user root;
+```bash
+history | grep 关键词
 ```
 
-修改代理访问的默认路径，server内容里注释掉它的默认访问路径
-
-```
-## root /usr/share/nginx/html;
-```
-
-location那部分修改为(这个路径就是你放项目的路径)
-
-```
-location / {
-	root /root/mall_cms;
-	index index.html;
-}
-```
-
-##### 重启nginx
-
-修改完配置重启，执行 `systemctl restart nginx`
-
-### 创建jenkins任务
-
-新建freestyle project类型的任务；
-
-还需要在服务器上安装git，执行 `dnf install git`；
-
-填写远程仓库地址、认证；
-
-github个人信息那里生成token（新规密码认证已经不行了）；
-
-选择分支；
-
-构建触发器，选定时构建，日程表五位分表代：分 时 天  月 周；
-
-```
-H/30****
-表示每30分钟构建一次
-```
-
-构建环境，在此之前，Jenkins添加nodeJS插件，添加全局配置，保存后即可安装nodejs；
-
-接着配置jenkins任务，构建环境那一项多出node那一栏，选上；
-
-构建那一栏，选shell脚本，内容如下
-
-```
-npm install
-npm run build
-echo '构建完成'
-rm -rf /root/mail_cms/* # 清一下
-mv -rf ./dist/* /root/mail_cms/ # 递归移动dist目录下的文件到/root/mail_cms/
-```
-
-保存，以上操作一个任务已经创建了，点击立即构建就可以立即构建；
 
 
+# 安全
 
-移动文件操作时，jenkins可能没有权限，需要配置一下；
+如何设置和管理文件和目录权限，用户和组权限，以及理解基本的系统安全概念（如防火墙，SELinux 等）。
 
-在/etc/sysconfig/下找到**jenkins文件**，编辑，修改成这样，保存；
+# 硬件
 
-```
-JENKINS_USER="root"
-```
+如何查看和管理硬件资源，包括 CPU，内存，硬盘，网络接口等。
 
-执行 `systemctl restart jenkins` 重启jenkins
+# 虚拟化和容器
 
-
-
-
-
-生成文件树的命令，需要用到tree工具，没有自行百度下载
-
-```
-tree -I "node_modules" # 忽略文件夹
-```
+理解和使用虚拟化技术（如 KVM，Xen 等）和容器技术（如 Docker，Kubernetes 等）。
 
 
 

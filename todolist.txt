@@ -350,35 +350,55 @@ JSONSchema数字组件的失去焦点；√
 
 1.1-1.5
 feat:
-更新文档搜索；
 合代码；√
 35屏蔽部分信息，打包部署；√
 处理合并错误；√
-appsmith1.9.45镜像运行在本地；
-优惠券管理系统模版；
-历史记录管理；
-xxx模版；
 
 fix:
 文档-部分md标题缺失；√
 角色权限-删除；x
-postcss-resolve-url: postcss.plugin was deprecated.；
-导航选中样式逻辑；
-邮箱登录-不存在账户或密码不正确报验证码错误；
-日期选择器汉化；
-json表单、json schema组件提交按钮阴影、边框视图不更新；
-json表单、json schema组件无法拖动选中；
-public下index.html的问题；
+导航选中样式逻辑；x
 
 docs:
 汉化：身份验证复制地址成功提示；
 帮助弹窗的教程链接替换；
 
+【1.8-1.12】
+week todo：
+理解redux saga的常用effect；
+梳理pp的状态管理设计；√
+梳理pp网络请求设计；√
+掌握Github的自动化部署；
+
+feat: 
+pp连接本地mongo，redis；√
+10.10.13.43连接；√
+appsmith1.9.45镜像运行在本地；
+优惠券管理系统模版；
+更新官网文章；
+补全文章；√
+更新文档搜索；
+历史记录管理；
+xxx模版；
+
+fix:
+postcss-resolve-url: postcss.plugin was deprecated.；√
+Class constructor GlobalSearchHotKeys cannot be invoked without 'new'；√
+Class constructor GlobalHotKeys cannot be invoked without 'new'；√
+身份认证数量；√
+小程序入口；
+组件渲染和使用；
+登录页、管理员设置内容文案调整；
+下拉系列组件的默认值；
+汉化：
+错误页面；
+响应拦截；
+index；
+
+test：
 身份认证-Github登录测试；
 每个接口影响的state；
-自动化测试；
 gitlab自动化部署；
-
 
 bug：
 ResizeObserver loop completed with undelivered notifications.
@@ -390,11 +410,16 @@ React does not recognize the `data-widgetId` prop on a DOM element. If you inten
 react-dom.development.js:67 Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
 
 Missing pageId. If you are trying to set href inside a react component use the 'useHref' hook.
+邮箱登录-不存在账户或密码不正确报验证码错误；
+日期选择器汉化；
+json表单、json schema组件提交按钮阴影、边框视图不更新；
+json表单、json schema组件无法拖动选中；
+public下index.html的问题；
 
 待理解：
+状态管理；√
 单元测试；
 前端日志功能，错误处理；
-状态管理；
 组件工厂；
 可视化拖拽；
 用户角色权限管理；
@@ -402,29 +427,7 @@ Missing pageId. If you are trying to set href inside a react component use the '
 连接git了解更多；
 模版水印水印功能；
 开发者工具里请求中的type；
-
-
-
-待理解：
-如何获取其他组件的属性的？
-组件如何显示在画布上？
-导入应用？
-导航的设计、配置过程、发布后如何生效？
-一个应用的数据结构、各个部分如何被渲染出来的？
-路由是如何控制的？
-重置密码?
-开发区编辑器如何渲染、是如何运行sql语句的？
-git连接Pageplug原理?
-工作区-侧边栏-所有组件渲染处理的逻辑?
-isAirgapped()含义？
-如何集成pageplug？
-工作流理解？
-理解梯子的原理？
-何为集群？
-ts-函数-参数数量不一致；
-put请求理解；
 微信扫码、钉钉扫码、oidc登录
-
 
 待办：
 封装一个自增表格；

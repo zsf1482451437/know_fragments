@@ -4507,7 +4507,7 @@ store.dispatch(changeNameAction('jjj'))
 
 将**reducer**和默认值(initialState)放到**reducer.js**文件中，而不是在index.js;
 
-## 在项目中使用
+## 项目中使用
 
 在**类组件**中的**componentDidMoun**t生命周期中**订阅state**中的数据；
 
@@ -4743,178 +4743,9 @@ function combineReducers(state = {}, action) {
 }
 ```
 
+#### 
 
 
-## 组件中的异步操作
-
-上述使用的状态是本地的数据，但在真实开发往往是下进行**异步的网络请求**，然后再保存到**redux**中；
-
-比如在Home组件请求了一些数据，如果Home想使用，只需要将这些数据保存到自己**state**中，使用render进行展示即可；
-
-而About组件也想使用那些数据的话，怎么办呢？
-
-- 首先可以想办法一步步传递过去，比如放到**Context**里面去，然后做一个**共享**，但是这个步骤有点**繁琐**，排除；
-- 可以使用**eventBus**，拿到Home数据之后发射出去一个**全局事件**，因为eventBus是可以传参数的，可以把请求到数据传递过来，但是在整个项目中**过多使用eventBus**，**监听的事件来自哪里**是很难把控的，当出现bug是时不好调试，并且eventBus不建议传递这么大的数据，排除；
-- 最合适的方法是**redux**，全局共享一个store，里面的state保存网络请求到数据；
-
-**那如何保存在redux中呢？**
-
-假如在**actionCreators.js文件**中
-
-```js
-export const getHomeAction = () => {
-    axios.get('地址').then((res) => {
-        const banners = res.data.banners.list
-    })
-    return {
-        type: 'change_banners',
-        banners: banners
-    }
-}
-```
-
-这样的话，不确定then什么时候被回调，banners也就不确定有没有值；
-
-你可能会说，可以拿到结果之后再return，比如这样
-
-```js
-export const getHomeAction = () => {
-    axios.get('地址').then((res) => {
-        const banners = res.data.banners.list
-        return {
-            type: 'change_banners',
-            banners: banners
-        }
-    })
-    
-}
-```
-
-这样的话，return的内容已经不是**getHomeAction**所return的了；
-
-应该这样做
-
-**组件中**
-
-```jsx
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { getHomeAction } from './store/index'
-
-export class About extends PureComponent {
-
- getHomeData() {
-    this.props.getHome()
-  }
-  render () {
-    const { counter } = this.props
-    return (
-      <div>
-        <h2>About----{counter}</h2>
-      </div>
-    )
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    counter: state.counter
-  }
-}
-
-function mapDispatchToProps(disptch) {
-  return {
-    getHome() {
-      disptch(getHomeAction())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(About)
-```
-
-在**actionCreators.js文件**中
-
-```js
-export const getHomeAction = () => {
-    return {}
-}
-```
-
-如果是一个普通的action，那需要返回action对象；
-
-而问题是，对象中不能直接拿到从服务器请求到的异步数据，所以不能直接返回对象；
-
-应该返回一个**函数**，然后函数里进行网络请求；
-
-而redux要求派发的是action对象，要想派发函数，可以使用一个中间件----**redux-thunk**对store进行增强，使其可以派发函数；
-
-### redux-thunk
-
-安装
-
-```
-npm install redux-thunk
-```
-
-然后使用redux中的**applyMiddleware**，在store创建的时候，传递第二个参数
-
-```js
-import { createStore, applyMiddleware } from 'redux'
-improt thunk from 'redux-thunk'
-import reducer from './reducer'
-
-const store = createStore(reducer, applyMiddleware(thunk))
-export default store
-```
-
-**thunk内部做了什么？**
-
-检测到派发的是函数，就**自动执行**，且可以接收两个参数：
-
-- 第一个是store的**dispatch**（用于之后再次派发action）；
-- 第二个是store的**getState**（考虑到之后的操作依赖原来的状态）；
-
-在**actionCreators.js文件**中
-
-```js
-export const getHomeAction = () => {
-    function foo(dispatch) {
-       axios.get('地址').then((res) => {
-           const banners = res.data.banners.list
-           dispatch({ type: 'change_num', banners })
-       })
-    }
-    return foo
-}
-```
-
-
-
-## 两个工具
-
-- redux devtool
-- react devtool
-
-谷歌商店或github下载（版本有点低）
-
-官方建议redux devtool在**生产环境是看不到state**的，所以默认情况直接使用redux devtool是查看不到状态的，开发环境才开启（有的网站生产环境时开启的，这不好）；
-
-在redux的**index.js**
-
-```js
-import { compose } from "redux"
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace: true}) || compose;
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
-```
-
-生产环境的话，改成
-
-```js
-import { compose } from "redux"
-const composeEnhancers = compose;
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
-```
 
 ## ReduxToolKit
 
@@ -5241,20 +5072,280 @@ function mapDispatchToProps(dispatch) {
 export default connect(null, mapDispatchToProps)(Home)
 ```
 
-## 数据不可变性
+## 中间件
 
-无论是类组件的state还是redux中管理的state，都强调**数据的不可变性**；
+> 组件中的异步操作
 
-整个js编码中，数据的不可变性非常重要；
+上述使用的状态是本地的数据，但在真实开发往往是下进行**异步的网络请求**，然后再保存到**redux**中；
 
-所以前面进常进行浅拷贝来完成某些操作，但浅拷贝事实上也是存在问题的；
+比如在Home组件请求了一些数据，如果Home想使用，只需要将这些数据保存到自己**state**中，使用render进行展示即可；
 
-- 比如过大的对象，浅拷贝也会造成性能的浪费；
-- 浅拷贝后的对象，在深层改变时，依然会对之前的对象产生影响；
+而About组件也想使用那些数据的话，怎么办呢？
 
-**redux toolkit使用了immerjs这个库保证了数据的不可变性**
+- 首先可以想办法一步步传递过去，比如放到**Context**里面去，然后做一个**共享**，但是这个步骤有点**繁琐**，排除；
+- 可以使用**eventBus**，拿到Home数据之后发射出去一个**全局事件**，因为eventBus是可以传参数的，可以把请求到数据传递过来，但是在整个项目中**过多使用eventBus**，**监听的事件来自哪里**是很难把控的，当出现bug是时不好调试，并且eventBus不建议传递这么大的数据，排除；
+- 最合适的方法是**redux**，全局共享一个store，里面的state保存网络请求到数据；
 
-为了节省内存，当数据被修改时，会返回一个对象，但新的对象会**尽可能利用之前的数据结构**而不会对内存造成浪费；
+**那如何保存在redux中呢？**
+
+假如在**actionCreators.js文件**中
+
+```js
+export const getHomeAction = () => {
+    axios.get('地址').then((res) => {
+        const banners = res.data.banners.list
+    })
+    return {
+        type: 'change_banners',
+        banners: banners
+    }
+}
+```
+
+这样的话，不确定then什么时候被回调，banners也就不确定有没有值；
+
+你可能会说，可以拿到结果之后再return，比如这样
+
+```js
+export const getHomeAction = () => {
+    axios.get('地址').then((res) => {
+        const banners = res.data.banners.list
+        return {
+            type: 'change_banners',
+            banners: banners
+        }
+    })
+    
+}
+```
+
+这样的话，return的内容已经不是**getHomeAction**所return的了；
+
+应该这样做
+
+**组件中**
+
+```jsx
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { getHomeAction } from './store/index'
+
+export class About extends PureComponent {
+
+ getHomeData() {
+    this.props.getHome()
+  }
+  render () {
+    const { counter } = this.props
+    return (
+      <div>
+        <h2>About----{counter}</h2>
+      </div>
+    )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    counter: state.counter
+  }
+}
+
+function mapDispatchToProps(disptch) {
+  return {
+    getHome() {
+      disptch(getHomeAction())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(About)
+```
+
+在**actionCreators.js文件**中
+
+```js
+export const getHomeAction = () => {
+    return {}
+}
+```
+
+如果是一个普通的action，那需要返回action对象；
+
+而问题是，对象中不能直接拿到从服务器请求到的异步数据，所以不能直接返回对象；
+
+应该返回一个**函数**，然后函数里进行网络请求；
+
+而redux要求派发的是action对象，要想派发函数，可以使用一个中间件----**redux-thunk**对store进行增强，使其可以派发函数；
+
+### redux-thunk
+
+安装
+
+```
+npm install redux-thunk
+```
+
+然后使用redux中的**applyMiddleware**，在store创建的时候，传递第二个参数
+
+```js
+import { createStore, applyMiddleware } from 'redux'
+improt thunk from 'redux-thunk'
+import reducer from './reducer'
+
+const store = createStore(reducer, applyMiddleware(thunk))
+export default store
+```
+
+**thunk内部做了什么？**
+
+检测到派发的是函数，就**自动执行**，且可以接收两个参数：
+
+- 第一个是store的**dispatch**（用于之后再次派发action）；
+- 第二个是store的**getState**（考虑到之后的操作依赖原来的状态）；
+
+在**actionCreators.js文件**中
+
+```js
+export const getHomeAction = () => {
+    function foo(dispatch) {
+       axios.get('地址').then((res) => {
+           const banners = res.data.banners.list
+           dispatch({ type: 'change_num', banners })
+       })
+    }
+    return foo
+}
+```
+
+
+
+**两个工具**
+
+- redux devtool
+- react devtool
+
+谷歌商店或github下载（版本有点低）
+
+官方建议redux devtool在**生产环境是看不到state**的，所以默认情况直接使用redux devtool是查看不到状态的，开发环境才开启（有的网站生产环境时开启的，这不好）；
+
+在redux的**index.js**
+
+```js
+import { compose } from "redux"
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace: true}) || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+```
+
+生产环境的话，改成
+
+```js
+import { compose } from "redux"
+const composeEnhancers = compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+```
+
+### redux-saga
+
+ :question: 为何选择redux-saga
+
+1. **处理异步逻辑**：redux-saga 使用 ES6 的 Generator 功能，使得异步流程易于读取、编写和测试。这使得异步代码看起来像标准的同步 JavaScript 代码。
+2. **管理副作用**：redux-saga 的目标是使应用程序的副作用（如数据获取和访问浏览器缓存等异步操作）更易于管理，执行效率更高，并且在处理失败时更优秀。
+3. **集成 Redux**：redux-saga 是一个 Redux 中间件，这意味着可以使用普通的 Redux 动作从主应用程序启动、暂停和取消这个线程。它可以访问完整的 Redux 应用程序状态，并且可以分派 Redux 动作。
+4. **避免回调地狱**：与 redux-thunk 相比，redux-saga 不会导致回调地狱，你可以轻松地测试你的异步流程，而且你的动作保持纯净。
+5. **易于测试**：由于 redux-saga 使用了 Generator，你可以在不执行实际副作用的情况下进行测试，这使得异步流程的测试变得非常简单。
+
+#### effect
+
+
+
+#### quick start
+
+### 原理
+
+#### 打印日志
+
+先看一个需求：打印dispatch日志
+
+- dispatch之前，打印action
+- dispatch结束之后，打印state的结果
+
+直接的思路是这样的
+
+```js
+const action = addNumberAction()
+console.log('派发一个action', action)
+dispatch(action)
+console.log(store.getState())
+```
+
+这样有个问题：**每次派发**都需要这样写，重复代码太多
+
+**可以编写一个中间件，让中间件完成这个过程**
+
+派发action之前和之后，可以让**中间件**做一个**拦截**（正常情况是一派发就交给reducer）
+
+上述redux-thunk中间件所做的事情是：
+
+检测dispatch传入的是否为对象，若是函数则立即执行，并传入dispatch和state
+
+```js
+function log(store) {
+    // 修改之前先记录原来的dispatch
+    const next = store.dispacth
+    function logAndDispatch(action) {
+      console.log('当前派发的action', action)
+      // 真正派发的代码：使用之前的dispatch派发
+      next(action)
+      console.log('派发之后的结果', store.getState())
+    }
+    
+    store.dispatch = logAndDispatch
+}
+log(store)
+store.dispatch({ type: 'addNumber', num: 100 })
+```
+
+将原来store.dispatch改成了logAndDispatch；
+
+这种技术叫monkey patch（猴补丁，篡改现有代码，对整体的执行逻辑进行修改）
+
+这便是中间件的原理
+
+#### 实现thunk核心代码
+
+```js
+function thunk(store) {
+    // 修改之前先记录原来的dispatch
+    const next = store.dispacth
+    function dispatchThunk(action) {
+      // 如果派发的是函数
+      if (typeof action === 'funcion') {
+          // 如果派发函数里面又派发了一个函数，使用原来的dispatch会报错，所以应该使用新的dispatch
+          action(store.diapatch, store.getState)
+      } else {
+          next(action)
+      }      
+    }
+    store.dispatch = dispatchThunk
+}
+thunk(store)
+store.dispatch(function(dispatch, getState) {
+    dispatch({})
+})
+```
+
+#### 实现applyMiddleware核心代码
+
+```js
+function applyMiddleware(store, ...fns) {
+  fns.forEach(fn => {
+    fn(store)
+  })
+}
+```
+
+
 
 ## 实现connect
 
@@ -5495,89 +5586,22 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 }
 ```
 
-## 中间件原理
 
-### 打印日志
 
-先看一个需求：打印dispatch日志
+## 数据不可变性
 
-- dispatch之前，打印action
-- dispatch结束之后，打印state的结果
+无论是类组件的state还是redux中管理的state，都强调**数据的不可变性**；
 
-直接的思路是这样的
+整个js编码中，数据的不可变性非常重要；
 
-```js
-const action = addNumberAction()
-console.log('派发一个action', action)
-dispatch(action)
-console.log(store.getState())
-```
+所以前面进常进行浅拷贝来完成某些操作，但浅拷贝事实上也是存在问题的；
 
-这样有个问题：**每次派发**都需要这样写，重复代码太多
+- 比如过大的对象，浅拷贝也会造成性能的浪费；
+- 浅拷贝后的对象，在深层改变时，依然会对之前的对象产生影响；
 
-**可以编写一个中间件，让中间件完成这个过程**
+**redux toolkit使用了immerjs这个库保证了数据的不可变性**
 
-派发action之前和之后，可以让**中间件**做一个**拦截**（正常情况是一派发就交给reducer）
-
-上述redux-thunk中间件所做的事情是：
-
-检测dispatch传入的是否为对象，若是函数则立即执行，并传入dispatch和state
-
-```js
-function log(store) {
-    // 修改之前先记录原来的dispatch
-    const next = store.dispacth
-    function logAndDispatch(action) {
-      console.log('当前派发的action', action)
-      // 真正派发的代码：使用之前的dispatch派发
-      next(action)
-      console.log('派发之后的结果', store.getState())
-    }
-    
-    store.dispatch = logAndDispatch
-}
-log(store)
-store.dispatch({ type: 'addNumber', num: 100 })
-```
-
-将原来store.dispatch改成了logAndDispatch；
-
-这种技术叫monkey patch（猴补丁，篡改现有代码，对整体的执行逻辑进行修改）
-
-这便是中间件的原理
-
-### 实现thunk核心代码
-
-```js
-function thunk(store) {
-    // 修改之前先记录原来的dispatch
-    const next = store.dispacth
-    function dispatchThunk(action) {
-      // 如果派发的是函数
-      if (typeof action === 'funcion') {
-          // 如果派发函数里面又派发了一个函数，使用原来的dispatch会报错，所以应该使用新的dispatch
-          action(store.diapatch, store.getState)
-      } else {
-          next(action)
-      }      
-    }
-    store.dispatch = dispatchThunk
-}
-thunk(store)
-store.dispatch(function(dispatch, getState) {
-    dispatch({})
-})
-```
-
-### 实现applyMiddleware核心代码
-
-```js
-function applyMiddleware(store, ...fns) {
-  fns.forEach(fn => {
-    fn(store)
-  })
-}
-```
+为了节省内存，当数据被修改时，会返回一个对象，但新的对象会**尽可能利用之前的数据结构**而不会对内存造成浪费；
 
 ## 状态管理选择
 
@@ -12485,417 +12509,6 @@ const MyComponent = () => {
 
 export default MyComponent;
 ```
-
-
-
-# Redux-saga
-
-## 轻度练习
-
-项目预期结构
-
-```
-redux-saga-todo/
-├── src/
-│   ├── actions/
-│   │   ├── taskActions.js
-│   │   └── ...
-│   ├── components/
-│   │   ├── TaskList.js
-│   │   ├── TaskInput.js
-│   │   └── ...
-│   ├── reducers/
-│   │   ├── taskReducer.js
-│   │   └── ...
-│   ├── sagas/
-│   │   ├── taskSaga.js
-│   │   └── ...
-│   ├── store/
-│   │   ├── configureStore.js
-│   │   └── ...
-│   ├── App.js
-│   └── index.js
-├── package.json
-└── ...
-
-```
-
-
-
-### 创建项目
-
-1.使用create-react-app创建react项目
-
-```bash
-npx create-react-app redux-saga-todo
-```
-
-2.安装 Redux 和 Redux Saga。
-
-```
-npm install redux react-redux redux-saga
-```
-
-### redux配置
-
-创建一个 reducer 来处理任务的状态。这个 reducer 应该定义了应用的初始状态和如何处理不同的 action 类型。
-
-```js
-// taskReducer.js
-import { createSlice } from '@reduxjs/toolkit';
-
-const taskSlice = createSlice({
-  name: 'tasks',
-  initialState: { tasks: [] },
-  reducers: {
-    addTask: (state, action) => {
-      state.tasks.push(action.payload);
-    },
-    completeTask: (state, action) => {
-      // 处理完成任务的逻辑
-      // ...
-    },
-    deleteTask: (state, action) => {
-      // 在 action.payload 中假设有一个任务的唯一标识符，例如任务的 ID
-      const taskIdToDelete = action.payload;
-
-      // 使用 Array.prototype.filter 来过滤出不包括要删除任务的新任务数组
-      state.tasks = state.tasks.filter((task) => task.id !== taskIdToDelete);
-    },
-  },
-});
-
-export const { addTask, completeTask, deleteTask } = taskSlice.actions;
-export default taskSlice.reducer;
-```
-
-使用 Redux 提供的 `configureStore` 函数来创建 Redux store。将 reducer 和 需要使用的中间件 传递给 `configureStore` 函数以初始化 store。
-
-```js
-// configureStore.js
-import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
-import taskReducer from '../reducers/taskReducer';
-import taskSaga from '../sagas/taskSaga';
-
-const sagaMiddleware = createSagaMiddleware();
-
-const store = configureStore({
-  reducer: taskReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
-});
-
-sagaMiddleware.run(taskSaga);
-
-export default store;
-```
-
-安装@reduxjs/toolkit
-
-```bash
-npm install @reduxjs/toolkit
-```
-
-### saga配置
-
-```js
-// taskSaga.js
-
-import { takeLatest, put, call } from 'redux-saga/effects';
-import TaskService from '../services/taskService';
-import { addTaskSuccess, addTaskFailure, deleteTaskSuccess, deleteTaskFailure, ReduxActionTypes } from '../actions/taskActions';
-
-// 添加任务的 Saga
-function* addTaskSaga(action) {
-  try {
-    // 调用任务服务以添加任务
-    const newTask = yield call(TaskService.addTask, action.payload);
-
-    // 分发成功操作
-    yield put(addTaskSuccess(newTask));
-  } catch (error) {
-    // 分发失败操作
-    yield put(addTaskFailure(error));
-  }
-}
-
-// 删除任务的 Saga
-function* deleteTaskSaga(action) {
-  try {
-    // 调用任务服务以删除任务
-    yield call(TaskService.deleteTask, action.payload);
-
-    // 分发成功操作
-    yield put(deleteTaskSuccess(action.payload));
-  } catch (error) {
-    // 分发失败操作
-    yield put(deleteTaskFailure(error));
-  }
-}
-
-// 监听添加任务和删除任务的动作
-function* taskSaga() {
-  yield takeLatest(ReduxActionTypes.ADD_TASK_REQUEST, addTaskSaga);
-  yield takeLatest(ReduxActionTypes.DELETE_TASK_REQUEST, deleteTaskSaga);
-}
-
-export default taskSaga;
-```
-
-
-
-```js
-// taskActions.js
-
-// 定义动作类型
-export const ReduxActionTypes = {
-  ADD_TASK_REQUEST: 'ADD_TASK_REQUEST',
-  DELETE_TASK_REQUEST: 'DELETE_TASK_REQUEST',
-  ADD_TASK_SUCCESS: 'ADD_TASK_SUCCESS',
-  ADD_TASK_FAILURE: 'ADD_TASK_FAILURE',
-  DELETE_TASK_SUCCESS: 'DELETE_TASK_SUCCESS',
-  DELETE_TASK_FAILURE: 'DELETE_TASK_FAILURE',
-};
-
-// 创建动作生成器函数
-export const addTaskRequest = (task) => ({
-  type: ReduxActionTypes.ADD_TASK_REQUEST,
-  payload: task,
-});
-
-export const deleteTaskRequest = (taskId) => ({
-  type: ReduxActionTypes.DELETE_TASK_REQUEST,
-  payload: taskId,
-});
-
-export const addTaskSuccess = (task) => ({
-  type: ReduxActionTypes.ADD_TASK_SUCCESS,
-  payload: task,
-});
-
-export const addTaskFailure = (error) => ({
-  type: ReduxActionTypes.ADD_TASK_FAILURE,
-  payload: error,
-});
-
-export const deleteTaskSuccess = (taskId) => ({
-  type: ReduxActionTypes.DELETE_TASK_SUCCESS,
-  payload: taskId,
-});
-
-export const deleteTaskFailure = (error) => ({
-  type: ReduxActionTypes.DELETE_TASK_FAILURE,
-  payload: error,
-});
-```
-
-### services（待补充）
-
-```js
-// taskService.js
-
-const tasks = []; // 用于存储任务的模拟数据库
-
-class TaskService {
-  // 添加任务
-  static addTask(task) {
-    return new Promise((resolve, reject) => {
-      // 模拟异步操作，例如向服务器发送请求
-      setTimeout(() => {
-        try {
-          const newTask = {
-            id: tasks.length + 1,
-            text: task.text,
-          };
-          tasks.push(newTask);
-          resolve(newTask);
-        } catch (error) {
-          reject(error);
-        }
-      }, 1000); // 模拟1秒的延迟
-    });
-  }
-
-  // 删除任务
-  static deleteTask(taskId) {
-    return new Promise((resolve, reject) => {
-      // 模拟异步操作，例如向服务器发送请求
-      setTimeout(() => {
-        try {
-          const index = tasks.findIndex((task) => task.id === taskId);
-          if (index !== -1) {
-            tasks.splice(index, 1);
-            resolve(taskId);
-          } else {
-            reject(new Error('Task not found'));
-          }
-        } catch (error) {
-          reject(error);
-        }
-      }, 1000); // 模拟1秒的延迟
-    });
-  }
-}
-
-export default TaskService;
-
-```
-
-### 启动saga
-
-使用saga中间件，在创建store时添加进去；
-
-```js
-// configureStore.js
-import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
-import taskReducer from '../reducers/taskReducer';
-import taskSaga from '../sagas/taskSaga';
-
-const sagaMiddleware = createSagaMiddleware();
-
-const store = configureStore({
-  reducer: taskReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
-});
-
-sagaMiddleware.run(taskSaga);
-
-export default store;
-
-```
-
-
-
-### **连接应用**
-
-使用 `react-redux` 库中的 `Provider` 组件将 Redux store 与应用连接起来。
-
-```js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
-import store from './store/configureStore';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
-```
-
-```js
-// App.js
-
-import React from 'react';
-import TaskList from './components/TaskList';
-
-const App = () => {
-  return (
-    <div>
-      <h1>Task Management App</h1>
-      <TaskList />
-    </div>
-  );
-};
-
-export default App;
-```
-
-### 组件行为
-
-1.在组件中使用 `connect` 函数从 Redux store 获取任务状态并触发任务相关的 actions。
-
-```js
-// TaskList.js
-
-import React from 'react';
-import { connect } from 'react-redux';
-
-const TaskList = ({ tasks }) => {
-  // 渲染任务列表
-  return (
-    <ul>
-      {tasks.map((task, index) => (
-        <li key={index}>{task}</li>
-      ))}
-    </ul>
-  );
-};
-
-// 从 Redux store 获取任务状态
-const mapStateToProps = (state) => {
-  return {
-    tasks: state.tasks,
-  };
-};
-
-export default connect(mapStateToProps)(TaskList);
-```
-
-其中，**connect**函数的作用是将 **组件** 和 **全局状态** 连接在一起，使组件能够使用全局状态；
-
-要是使用redux/tookit写法的话，使用 **useSelector**去获取全局状态中的某一项；
-
-在组件中触发任务相关的 actions，以更新任务状态；
-
-```js
-// TaskList.js
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTask, deleteTask } from '../reducers/taskReducer'; // 导入相应的 actions
-
-const TaskList = () => {
-  const [taskText, setTaskText] = useState('');
-  const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks); // 使用 selector 获取任务列表
-
-  const handleAddTask = () => {
-    if (taskText) {
-      dispatch(addTask(taskText)); // 调用 addTask action
-      setTaskText('');
-    }
-  };
-
-  const handleDeleteTask = (task) => {
-    dispatch(deleteTask(task)); // 调用 deleteTask action
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        value={taskText}
-        onChange={(e) => setTaskText(e.target.value)}
-      />
-      <button onClick={handleAddTask}>Add Task</button>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            {task}
-            <button onClick={() => handleDeleteTask(task)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default TaskList;
-```
-
-
 
 
 
