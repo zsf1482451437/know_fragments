@@ -8494,7 +8494,7 @@ console.log(pickedObject);
 
 # 疑难杂症
 
-## Module not found
+> Module not found
 
 报错信息：
 
@@ -8525,3 +8525,6 @@ Module not found: Error: Can't resolve 'xxx' in 'D:\workspace\pp\ce\b_d\app\clie
 }
 ```
 
+> Refused to set unsafe header "Expect"
+
+这个错误是因为浏览器不允许通过 JavaScript 设置某些 HTTP 头部，"Expect" 就是其中之一。这是由于安全原因，防止某些类型的网络攻击。

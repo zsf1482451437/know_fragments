@@ -80,6 +80,16 @@ docker exec -it 容器id bash
 docker logs <container_id>
 ```
 
+## 复制文件到容器
+
+> 复制宿主机某个文件到容器内
+
+```bash
+docker cp 宿主机文件路径 容器id:容器目录
+```
+
+
+
 # 容器
 
 > 进入运行容器进行操作

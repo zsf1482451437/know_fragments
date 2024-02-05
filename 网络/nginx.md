@@ -227,3 +227,7 @@ See system logs and 'systemctl status nginx.service' for details.
 
 可并不是是用systemctl管理nginx的，可以试试
 `nginx -s reload`
+
+> 301
+
+想访问某个站点时，页面提示301永久重定向（之前可以的）

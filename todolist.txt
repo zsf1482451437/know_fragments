@@ -391,14 +391,85 @@ Class constructor GlobalHotKeys cannot be invoked without 'new'；√
 登录页、管理员设置内容文案调整；
 下拉系列组件的默认值；
 汉化：
-错误页面；
+错误页面；√
 响应拦截；
 index；
 
-test：
-身份认证-Github登录测试；
-每个接口影响的state；
-gitlab自动化部署；
+【1.15-1.19】
+
+feat: 
+appsmith1.9.45镜像运行在本地；√
+
+
+fix:
+空应用时创建应用入口；√
+创建小程序后组件列表；√
+创建小程序后的画布尺寸tab栏；x
+登录页逻辑重构；√
+小程序组件刷新会一直加载；x
+组件渲染和使用；x
+登录页、管理员设置内容文案调整；√
+补充新增组件；√
+组件英文搜索；√
+下拉系列组件的默认值；x
+echartCallFunc is not defined；√
+汉化：
+错误页面；√
+index；√
+
+【1.22-1.26】
+
+feat: 
+ee35支持企微，钉钉jsAPI导入；√
+
+
+fix:
+组件的键盘操作；√
+模板数据库users的查询运行；√
+触发Q3：x
+api的删除；x
+api请求头输入内容消失；x
+api增/删一条key-value；x
+api请求头输入时报错；x
+使用预处理开关；x
+Cannot read properties of undefined (reading 'applicationId')【eagerPageInitSaga】；√
+Each child in a list should have a unique "key" prop；
+`value` in Select options should not be `null`. 【renderDropdown】;
+`children` should be `Select.Option` or `Select.OptGroup` instead of `div`. 【renderDropdown】;
+Q3[Immer] An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.;x
+表单名称修改；x
+号码输入框必填检测；x
+删除应用组提示；√
+
+【1.29-2.2】
+
+week todo：
+理解redux saga的常用effect；
+掌握Github的自动化部署；
+理解导入第三方库；
+
+feat：
+OIDC登出配置；√
+优惠券管理系统模版；
+更新官网文章；
+更新文档搜索；
+历史记录管理；
+
+fix：
+登录密码和验证码错误判断；√
+画布尺寸和组件列表逻辑；
+屏蔽google sheet；√
+企微钉钉jsapi 对象刷新页面丢失；
+api接入案例；x
+小程序3个组件；
+global智能提示；
+jsobjhotkey；
+组件编写失焦；
+
+
+【2.4-2.6】
+重置密码；
+
 
 bug：
 ResizeObserver loop completed with undelivered notifications.
@@ -414,7 +485,9 @@ Missing pageId. If you are trying to set href inside a react component use the '
 日期选择器汉化；
 json表单、json schema组件提交按钮阴影、边框视图不更新；
 json表单、json schema组件无法拖动选中；
-public下index.html的问题；
+
+待修：
+数据源google sheet鉴权接口超时
 
 待理解：
 状态管理；√

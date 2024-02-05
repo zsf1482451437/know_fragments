@@ -32,8 +32,35 @@ edas：
 LTAI5tJaZANAu8Mjevp7nrds
 uDwmNMBJwY5GcY5wDPOv6NvPQgSXFD
 
+QNxbXsadCBCP3QRI
+
 第三方登录测试账号：
 oidc:
+APPSMITH_OAUTH2_OIDC_CLIENT_ID=testclient
+APPSMITH_OAUTH2_OIDC_USER_INFO_URL=http://192.168.110.123:8090/realms/test/protocol/openid-connect/userinfo
+APPSMITH_OAUTH2_OIDC_AUTHORIZATION_URL=http://192.168.110.123:8090/realms/test/protocol/openid-connect/auth
+APPSMITH_OAUTH2_OIDC_REDIRECT_URI=http://localhost:8090/login/oauth2/code/oidc
+APPSMITH_OAUTH2_OIDC_SCOPE=openid
+APPSMITH_OAUTH2_OIDC_LOGOUT_URL=http://192.168.110.123:8090/realms/test/protocol/openid-connect/logout
+APPSMITH_OAUTH2_OIDC_CLIENT_SECRET=H1w5M57WXxezemBYSM0ByO6ZiYQ88uBf
+APPSMITH_OAUTH2_OIDC_USER_NAME_ATTRIBUTE=email
+APPSMITH_OAUTH2_OIDC_TOKEN_URL=http://192.168.110.123:8090/realms/test/protocol/openid-connect/token
+APPSMITH_OAUTH2_OIDC_JWK_SET_URL=http://192.168.110.123:8090/realms/test/protocol/openid-connect/certs
+APPSMITH_OAUTH2_OIDC_LOGOUT_REDIRECT_URL=http://localhost:8090/user/login
+
+APPSMITH_OAUTH2_OIDC_CLIENT_ID=client1
+APPSMITH_OAUTH2_OIDC_USER_INFO_URL=http://localhost:8081/realms/pageplug1/protocol/openid-connect/userinfo
+APPSMITH_OAUTH2_OIDC_AUTHORIZATION_URL=http://localhost:8081/realms/pageplug1/protocol/openid-connect/auth
+APPSMITH_OAUTH2_OIDC_REDIRECT_URI=http://localhost:8090/login/oauth2/code/oidc
+APPSMITH_OAUTH2_OIDC_SCOPE=openid
+APPSMITH_OAUTH2_OIDC_LOGOUT_URL=http://localhost:8081/realms/pageplug1/protocol/openid-connect/logout
+APPSMITH_OAUTH2_OIDC_CLIENT_SECRET=123456
+APPSMITH_OAUTH2_OIDC_USER_NAME_ATTRIBUTE=email
+APPSMITH_OAUTH2_OIDC_TOKEN_URL=http://localhost:8081/realms/pageplug1/protocol/openid-connect/token
+APPSMITH_OAUTH2_OIDC_JWK_SET_URL=http://localhost:8081/realms/pageplug1/protocol/openid-connect/certs
+APPSMITH_OAUTH2_OIDC_LOGOUT_REDIRECT_URL=http://localhost:8090/user/login
+
+
 
 Github：
 9042e992eeed6ef72897
@@ -47,7 +74,11 @@ CROP ID: ww813200fb08c865de
 AGENT: 1000002
 Secret: nY4xW2DmtfJRgM1V8F_ocxz7WyOPyRzCSkQk1S72Bug
 http://localhost:8160/api/v1/wecomLogin/callback
+获取access_token接口：https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ww813200fb08c865de&corpsecret=nY4xW2DmtfJRgM1V8F_ocxz7WyOPyRzCSkQk1S72Bug
+获取企业的jsapi_ticket接口：https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=4_O9EhFc6VVmbTaVrYTMDDbMQLp-GGDmx1aOq_5A-htTjZazSrgxXPyqmE9vMlQkqjGQ8TZ69KeG0kNvQkRC_u6m9jaD8JFhRW_enIFK-MLqnfJ7G4QErTEkt91UZzkvVH-62G0TpAPi60sCcGsXowSQ4VaABOBlROeq17w95Q3-8dxFpmBaMEpOSd6UmBkgLBbJzhXd7zhE0QPX8o3Qxw
+获取应用的jsapi_ticket接口：https://qyapi.weixin.qq.com/cgi-bin/ticket/get?access_token=tQgRg914RpuPV3lyxMxGP8DMXHnNplBzEgwgFNQW5zIp1AotsRF5Ft_jnwaPf8RdTYGV1Kx2MapzDotAbHmwuuc57HQFwM1VSn6BNnQjhqmgZzawMwEAAXHS4SA3QuyJdihrtKo5J-oWT9VyqHQmut5HWJ7qZopzFpBUH2Tw83HVdbPMxa3qe6UL2FJgdM2WeuFWN_OW0_7KWHs-YLD_PQ&type=agent_config
 钉钉：
+
 
 构建镜像，登录，推
 docker build -t harbor.cloud2go.cn/pageplug/pageplug:时间戳 .

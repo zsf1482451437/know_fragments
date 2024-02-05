@@ -12518,6 +12518,12 @@ export default MyComponent;
 
 # 疑难杂症
 
+## immer
+
+> :question:Error: [Immer] An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.
+
+immer库报出的警告，不能在同一个 producer 函数中既修改 draft 又返回新的值
+
 如何给style-componet的组件添加事件？
 
 ## 函数式组件中使用useState的最新状态
@@ -12539,6 +12545,8 @@ setGData((prev) => {
 ```
 
 
+
+## 在函数式组件外部怎么获取某个模块的state
 
 ## react中使用svg
 
@@ -12599,6 +12607,10 @@ Warning:
 **报错信息：**
 
 > Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+
+这个警告是因为你试图给一个函数组件（在这个例子中是 `StyledLink`）传递一个 `ref`，但是函数组件默认是不能接收 `ref` 的。
+
+需要使用React.forwardRef()进行ref转发
 
 **报错信息：**
 

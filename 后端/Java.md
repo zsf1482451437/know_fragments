@@ -3624,9 +3624,9 @@ module hello.world {
 
 如何打包模块和JRE。
 
-## 核心类
+## 核心类库
 
-### String
+### 字符串处理
 
 在Java中，`String`是一个**引用类型**，它本身也是一个`class`；
 
@@ -4142,6 +4142,8 @@ public class Main {
 }
 ```
 
+
+
 ### StringJoiner
 
 要高效拼接字符串，应该使用`StringBuilder`；
@@ -4236,9 +4238,13 @@ public class Main {
 }
 ```
 
-# 异常
 
-## 背景
+
+### 集合框架
+
+### 异常处理
+
+**:information_source:背景**
 
 在计算机程序运行的过程中，总是会出现各种各样的错误。
 
@@ -4294,7 +4300,10 @@ if (code == 0) {
 
 方法二：在语言层面上提供一个**异常处理机制**。
 
-## 异常处理机制
+:information_source: 异常处理机制
+
+- try catch
+- try catch finally
 
 Java内置了一套异常处理机制，总是使用异常来表示错误。
 
@@ -4377,7 +4386,25 @@ Java规定：
 - 必须捕获的异常，包括`Exception`及其子类，但不包括`RuntimeException`及其子类，（这种类型的异常称为Checked Exception。）
 - 不需要捕获的异常，包括`Error`及其子类，`RuntimeException`及其子类。
 
-## 捕获异常
+#### 捕获异常
+
+- 异常类型
+
+- 捕获
+- 小结
+
+##### 异常类型
+
+java中的异常分为两大类：
+
+- 检查型异常（Checked Exceptions）
+- 运行时异常（Runtime Exceptions）
+
+**检查型异常**是那些在**编译**时必须处理的异常，例如 `IOException`;
+
+**运行时异常**是那些在**运行**时可能会出现的异常，例如 `NullPointerException`。
+
+##### 捕获
 
 捕获异常使用`try...catch`语句，把可能发生异常的代码放到`try {...}`中，然后使用`catch`捕获对应的`Exception`及其子类：
 
@@ -4523,13 +4550,282 @@ static byte[] toGBK(String s) {
 
 所有异常都可以调用`printStackTrace()`方法**打印异常栈**，这是一个简单有用的快速打印异常的方法。
 
-## 小结
+##### 小结
 
 - Java使用异常来表示错误，并通过`try ... catch`捕获异常；
 - Java的异常是`class`，并且从`Throwable`继承；
 - `Error`是无需捕获的严重错误，`Exception`是应该捕获的可处理的错误；
 - `RuntimeException`无需强制捕获，非`RuntimeException`（Checked Exception）需强制捕获，或者用`throws`声明；
 - 不推荐捕获了异常但不进行任何处理。
+
+#### 抛出异常
+
+##### 异常的传播
+
+当某个方法抛出了异常时，如果当前方法没有捕获异常，异常就会被抛到上层调用方法，直到遇到某个`try ... catch`被捕获为止：
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            process1();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void process1() {
+        process2();
+    }
+
+    static void process2() {
+        Integer.parseInt(null); // 会抛出NumberFormatException
+    }
+}
+
+```
+
+通过`printStackTrace()`可以打印出方法的调用栈，类似：
+
+```java
+java.lang.NumberFormatException: null
+    at java.base/java.lang.Integer.parseInt(Integer.java:614)
+    at java.base/java.lang.Integer.parseInt(Integer.java:770)
+    at Main.process2(Main.java:16)
+    at Main.process1(Main.java:12)
+    at Main.main(Main.java:5)
+```
+
+`printStackTrace()`对于调试错误非常有用，上述信息表示：`NumberFormatException`是在`java.lang.Integer.parseInt`方法中被抛出的，从下往上看，调用层次依次是：
+
+1. `main()`调用`process1()`；
+2. `process1()`调用`process2()`；
+3. `process2()`调用`Integer.parseInt(String)`；
+4. `Integer.parseInt(String)`调用`Integer.parseInt(String, int)`。
+
+查看`Integer.java`源码可知，抛出异常的方法代码如下(?方法定义为何还要抛出`NumberFormatException`)：
+
+```java
+public static int parseInt(String s, int radix) throws NumberFormatException {
+    if (s == null) {
+        throw new NumberFormatException("null");
+    }
+    ...
+}
+```
+
+并且，每层调用均给出了源代码的行号，可直接定位。
+
+##### 抛出
+
+当发生错误时，例如，用户输入了非法的字符，我们就可以抛出异常。
+
+如何抛出异常？参考`Integer.parseInt()`方法，抛出异常分两步：
+
+1. 创建某个`Exception`的实例；
+2. 用`throw`语句抛出。
+
+```java
+void process2(String s) {
+    if (s==null) {
+        throw new NullPointerException();
+    }
+}
+```
+
+如果一个方法捕获了某个异常后，又在`catch`子句中抛出新的异常，就相当于把抛出的异常类型“转换”了：
+
+```java
+void process1(String s) {
+    try {
+        process2();
+    } catch (NullPointerException e) {
+        throw new IllegalArgumentException();
+    }
+}
+
+void process2(String s) {
+    if (s==null) {
+        throw new NullPointerException();
+    }
+}
+```
+
+当`process2()`抛出`NullPointerException`后，被`process1()`捕获，然后抛出`IllegalArgumentException()`。
+
+如果在`main()`中捕获`IllegalArgumentException`，我们看看打印的异常栈：
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            process1();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void process1() {
+        try {
+            process2();
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    static void process2() {
+        throw new NullPointerException();
+    }
+}
+```
+
+打印出的异常栈类似：
+
+```java
+java.lang.IllegalArgumentException
+    at Main.process1(Main.java:15)
+    at Main.main(Main.java:5)
+```
+
+这说明新的异常丢失了**原始异常**信息，我们已经看不到原始异常`NullPointerException`的信息了。
+
+为了能追踪到完整的异常栈，在构造异常的时候，把原始的`Exception`实例传进去，新的`Exception`就可以持有原始`Exception`信息。对上述代码改进如下：
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            process1();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void process1() {
+        try {
+            process2();
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
+    static void process2() {
+        throw new NullPointerException();
+    }
+}
+
+```
+
+运行上述代码，打印出的异常栈类似：
+
+```java
+java.lang.IllegalArgumentException: java.lang.NullPointerException
+    at Main.process1(Main.java:15)
+    at Main.main(Main.java:5)
+Caused by: java.lang.NullPointerException
+    at Main.process2(Main.java:20)
+    at Main.process1(Main.java:13)
+```
+
+注意到`Caused by: Xxx`，说明捕获的`IllegalArgumentException`并不是造成问题的根源，根源在于`NullPointerException`，是在`Main.process2()`方法抛出的。
+
+在代码中获取原始异常可以使用`Throwable.getCause()`方法。如果返回`null`，说明已经是“根异常”了。
+
+有了完整的异常栈的信息，我们才能快速定位并修复代码的问题。
+
+#### try-catch-finally
+
+:question:如果我们在`try`或者`catch`语句块中抛出异常，`finally`语句是否会执行？例如：
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Integer.parseInt("abc");
+        } catch (Exception e) {
+            System.out.println("catched");
+            throw new RuntimeException(e);
+        } finally {
+            System.out.println("finally");
+        }
+    }
+}
+```
+
+上述代码执行结果如下：
+
+```java
+catched
+finally
+Exception in thread "main" java.lang.RuntimeException: java.lang.NumberFormatException: For input string: "abc"
+    at Main.main(Main.java:8)
+Caused by: java.lang.NumberFormatException: For input string: "abc"
+    at ...
+```
+
+
+
+### 输入/输出流
+
+### 多线程编程
+
+# 高级特性
+
+## 泛型
+
+## 注解
+
+## 反射
+
+## lambda表达式和Stream API
+
+# 网络编程
+
+## Socket编程
+
+## HTTP和HTTPS
+
+## 网络库
+
+# 数据库编程
+
+## JDBC
+
+## JPA和Hibernate
+
+# web开发
+
+## Servlet
+
+## JSP
+
+## Spring框架
+
+## Spring Boot
+
+# 测试
+
+## 单元测试
+
+## 集成测试
+
+## Mock测试
+
+# 性能优化
+
+## JVM调优
+
+## GC优化
+
+## 代码优化
+
+# 部署和维护
+
+## 打包和部署
+
+## 日志管理
+
+## 监控和诊断
 
 # 疑难杂症
 

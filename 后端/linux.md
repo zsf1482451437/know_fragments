@@ -348,5 +348,10 @@ history | grep 关键词
 
 # 疑难杂症
 
+## Could not establish connection to "xxxx"
 
+the vs code sever failed to start
 
+The remote host may not meet VS Code Server's prerequisites for glibc and libstdc++
+
+vscode版本问题，切回1.85；并且remote-ssh也会退一个版本；

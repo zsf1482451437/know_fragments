@@ -58,3 +58,9 @@ win+x
 
 **C:\Windows\System32\cmd.exe**
 
+## 找到nvm的安装路径
+
+```bash
+echo %NVM_HOME%
+```
+

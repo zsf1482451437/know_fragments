@@ -191,9 +191,13 @@ nvm install xxx
 nvm use xxx
 ```
 
-### 疑难杂症
+## 疑难杂症
 
-**nvm use xxx, node -v不生效**
+1.**nvm use xxx, node -v不生效**
+
+2.执行 nvm install v16.13.0
+
+> Could not retrieve https://npm.taobao.org/mirrors/node/latest/SHASUMS256.txt.
 
 
 
