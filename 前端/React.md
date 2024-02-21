@@ -12518,6 +12518,10 @@ export default MyComponent;
 
 # 疑难杂症
 
+## 某个组件被高阶组件包裹，无法访问静态属性
+
+使用hoist-non-react-statics库
+
 ## immer
 
 > :question:Error: [Immer] An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.

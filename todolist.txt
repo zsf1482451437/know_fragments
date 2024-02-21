@@ -474,7 +474,8 @@ fix:
 jsobjhotkey；√
 按钮hover样式；√
 global属性消失；√
-细节优化；
+细节优化；√
+运行api出错；√
 小程序3个组件；
 企微钉钉jsapi 对象刷新页面丢失；
 

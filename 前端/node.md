@@ -160,6 +160,239 @@ https://github.com/tailwindlabs/tailwindcss/discussions/7035
 
 # node
 
+>  知识体系一览
+
+```bash
+Node.js
+├── 基础知识
+│   ├── JavaScript 基础
+│   ├── Node.js 模块系统
+│   ├── 全局对象和变量
+│   └── 事件驱动编程
+├── 核心模块
+│   ├── 文件系统（fs）
+│   ├── HTTP
+│   ├── 路径（path）
+│   ├── 操作系统（os）
+│   ├── 命令行参数（process）
+│   ├── 缓冲区（Buffer）
+│   └── 更多...
+├── 异步编程
+│   ├── 回调函数
+│   ├── Promise
+│   ├── async/await
+│   └── 事件与事件触发器
+├── Web 开发
+│   ├── Express 框架
+│   ├── Koa 框架
+│   ├── RESTful API
+│   ├── WebSocket
+│   ├── 模板引擎
+│   ├── 身份验证和授权
+│   └── 更多...
+├── 数据库集成
+│   ├── MySQL
+│   ├── MongoDB
+│   ├── PostgreSQL
+│   ├── Redis
+│   ├── SQLite
+│   └── ORM（对象关系映射）
+├── 包管理工具（npm）
+│   ├── 安装和使用包
+│   ├── 创建和发布包
+│   ├── 包的版本管理
+│   ├── 包的依赖管理
+│   └── 更多...
+├── 调试和测试
+│   ├── Node.js 调试器
+│   ├── 单元测试
+│   ├── 集成测试
+│   ├── 基准测试
+│   └── 更多...
+├── 安全性和认证
+│   ├── 常见安全问题
+│   ├── 加密和哈希
+│   ├── 认证和授权
+│   ├── CSRF 防御
+│   └── 更多...
+├── 性能优化
+│   ├── 代码优化
+│   ├── 内存管理
+│   ├── 并发和并行
+│   ├── 缓存和CDN
+│   └── 更多...
+├── 部署和容器化
+│   ├── 部署到服务器
+│   ├── Docker 容器化
+│   ├── 使用 Kubernetes
+│   ├── 自动化部署
+│   └── 更多...
+├── Serverless 架构
+│   ├── 什么是 Serverless
+│   ├── AWS Lambda
+│   ├── Azure Functions
+│   ├── Google Cloud Functions
+│   └── 更多...
+├── RESTful API
+│   ├── 设计原则
+│   ├── 路由和控制器
+│   ├── 数据验证
+│   ├── 错误处理
+│   └── 更多...
+├── GraphQL
+│   ├── GraphQL 查询语言
+│   ├── 构建 GraphQL API
+│   ├── 数据解析和验证
+│   ├── 客户端集成
+│   └── 更多...
+├── 开发工具和工作流
+│   ├── ESLint
+│   ├── Prettier
+│   ├── Webpack
+│   ├── Babel
+│   ├── Nodemon
+│   └── 更多...
+└── 社区和资源
+    ├── 官方文档和教程
+    ├── 博客和论坛
+    ├── 开源项目
+    ├── 示例代码
+    └── 更多...
+```
+
+
+
+## 基础知识
+
+```bash
+基础知识
+├── JavaScript 基础
+│   ├── 数据类型
+│   ├── 变量和作用域
+│   ├── 运算符
+│   ├── 控制流程
+│   ├── 函数
+│   ├── 对象和原型
+│   ├── 数组
+│   ├── 异常处理
+│   └── ES6+ 新特性
+├── Node.js 模块系统
+│   ├── CommonJS 规范
+│   ├── 内置模块和第三方模块
+│   ├── 模块路径解析
+│   └── 模块的循环依赖
+├── 全局对象和变量
+│   ├── global 对象
+│   ├── process 对象
+│   ├── __dirname 和 __filename
+│   ├── module 和 exports
+│   └── 其他常用全局变量
+└── 事件驱动编程
+    ├── EventEmmitter 类
+    ├── 事件监听器和触发器
+    ├── 自定义事件
+    └── EventEmitter 的继承和使用
+```
+
+### Node.js 模块系统
+
+```bash
+├── Node.js 模块系统
+│   ├── CommonJS 规范
+│   ├── 内置模块和第三方模块
+│   ├── 模块路径解析
+│   └── 模块的循环依赖
+```
+
+#### CommonJS 规范
+
+> 导出
+
+可以使用exports或module.exports导出模块成员（对象，函数，其他值）
+
+> 导入
+
+可以使用require()导入模块
+
+> 综合案例
+
+math.js
+
+```js
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+
+module.exports = {
+  add,
+  subtract,
+};
+
+module.exports.default = multiply;  // 设置默认导出
+```
+
+app.js
+
+```js
+const { default: multiply, add, subtract } = require('./math');
+
+console.log(add(5, 3));             // 输出：8
+console.log(subtract(10, 7));       // 输出：3
+console.log(multiply(4, 6));        // 输出：24
+```
+
+> exports和module.exports区别
+
+
+
+#### 内置模块和第三方模块
+
+#### 模块路径解析
+
+#### 模块循环依赖
+
+
+
+
+
+## 核心模块
+
+> fs、http、path、buffer等
+
+## 异步编程
+
+> 
+
+## 数据库集成
+
+> node与SQL和NoSQL数据库交互，如MySQL、postgresql、MongoDB、redis等
+
+## web开发
+
+## 测试
+
+> 单元测试、集成测试、端到端测试
+
+## 错误处理和调试
+
+> 处理和调试应用中的错误
+
+## 性能优化
+
+> 内存管理、并发和异步处理等
+
+## 安全
+
+> 常见安全威胁、https
+
+## 部署&运维
+
+> PM2、docker等工具，持续集成和持续部署（CI/CD）
+
+## 框架
+
+> NestJS、Koa
+
 ## nrm
 
 - `nrm ls`：列出当前可用的注册表。
