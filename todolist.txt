@@ -462,9 +462,10 @@ api接入案例；x
 
 【2.18-2.23】
 week todo：
-理解redux saga的常用effect；
-掌握Github的自动化部署；
-理解导入第三方库；
+迁移vscode配置，插件；
+安装bash环境；
+安装node环境
+安装docker
 
 feat：
 更新文档搜索；
@@ -476,6 +477,7 @@ jsobjhotkey；√
 global属性消失；√
 细节优化；√
 运行api出错；√
+切换布局报错；√
 小程序3个组件；
 企微钉钉jsapi 对象刷新页面丢失；
 

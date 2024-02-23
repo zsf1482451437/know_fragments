@@ -306,9 +306,44 @@ Node.js
 
 #### CommonJS 规范
 
+- 导出
+- 导入
+- exports和module.exports
+
 > 导出
 
 可以使用exports或module.exports导出模块成员（对象，函数，其他值）
+
+模拟下模块的**导出行为**
+
+```js
+function require(/* ... */) {
+  const module = { exports: {} };
+  ((module, exports) => {
+    // Module code here. In this example, define a function.
+    function someFunc() {}
+    exports = someFunc;
+    // At this point, exports is no longer a shortcut to module.exports, and
+    // this module will still export an empty default object.
+    module.exports = someFunc;
+    // At this point, the module will now export someFunc, instead of the
+    // default object.
+  })(module, module.exports);
+  return module.exports;
+}
+```
+
+rquire()接收一个参数（通常是路径），创建一个名为**module**的对象，并初始化其export属性为空对象；
+
+使用立即执行函数 `(module, exports) => (...)` 将**module** 和 **module.exports**作为参数传进去。在这立即执行函数中，可以编写**模块的实际代码**;
+
+这个例子中，定义了一个函数someFunc()，然后将exports 赋值为 someFunc。需要注意的是，这里的exports只是一个形参，它与外部的exports对象没有任何关联；
+
+接着，将module.exports 赋值为 someFunc。这样，module.exports现在指向了someFunc，而**不再是空对象**；
+
+最后，返回module.exports，实际上是返回了经过修改后的module.exports对象。
+
+也就是说，当exports被重新分配时，它不再是module.epxports的一个引用，而是一个独立的变量。因此，重新分配exports并不会影响到module.exports
 
 > 导入
 
@@ -343,15 +378,128 @@ console.log(multiply(4, 6));        // 输出：24
 
 > exports和module.exports区别
 
+可以说exports是module.exports的**快捷方式**，`module.exports.f = ...`  可以写成 `exports.f` ,但是注意，和任何变量一样，**如果将新值分配给export，则它不再是module.exports的引用;**
 
+看个案例
+
+```js
+module.exports.hello = true; // 这模块导出了一个对象 { hello: true }
+console.log(exports); // { hello: true }
+
+exports = { hello: false }; // exports分配新值，不再绑定module.exports
+exports.hello = 1;
+console.log(exports); // { hello: 1 }
+console.log(module.exports); // 所以还是{ hello: true }
+```
+
+当 `module.exports` 属性被一个新对象完全替换时，`exports` 对象会失去与 `module.exports` 的引用关系，并被重新分配为一个空对象 `{}`。这意味着对 `exports` 对象的修改不会再影响到 `module.exports`，因为它们不再指向同一个对象。
+
+```js
+// moduleA.js
+module.exports = {
+  greet: 'Hello'
+}; // 被一个新对象完全替换
+exports.foo = 'World'; // exports对象失去与 module.exports 的引用关系
+console.log(module.exports); // 输出: { greet: 'Hello' }
+console.log(exports); // 输出: { foo: 'World' }
+```
+
+反向认证
+
+```js
+// moduleB.js
+const moduleA = require('./moduleA');
+
+console.log(moduleA); // 输出: { greet: 'Hello' }
+console.log(moduleA.foo); // 输出: undefined
+```
+
+参考链接：https://nodejs.org/docs/latest/api/modules.html#exports-shortcut
 
 #### 内置模块和第三方模块
+
+- 内置模块的使用
+- package.json
+- npm
+
+```bash
+├── 内置模块和第三方模块
+│   ├── 内置模块的使用
+│   ├── 安装和使用第三方模块（省略）
+│   ├── package.json 文件
+│   └── npm 命令
+```
+
+> 内置模块的使用（todo：补充）
+
+常用内置模块有：
+
+- fs（文件模块）
+- http（http模块）
+- path（路径模块）
+
+【fs】案例
+
+```js
+const fs = require('fs');
+
+fs.readFile('file.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+使用`readFile`方法异步地读取文件`file.txt`的内容，并在回调函数中打印出来。
+
+【http】案例
+
+```js
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello, World!');
+});
+
+server.listen(3000, () => {
+  console.log('Server is listening on port 3000');
+});
+```
+
+使用`createServer`方法创建一个 HTTP 服务器。服务器监听端口 3000，并在访问时返回 "Hello, World!"。
+
+【path】案例
+
+```js
+const path = require('path');
+
+const fullPath = path.join(__dirname, 'files', 'file.txt');
+console.log(fullPath); // 当前目录\files\file.txt
+```
+
+使用`join`方法将目录名、子目录名和文件名拼接成完整的文件路径。`__dirname`变量表示当前脚本所在的目录。
+
+> package.json
+
+以下是 package.json 文件的一些重要字段和功能：
+
+- `name`：项目的名称。
+- `version`：项目的版本号。
+- `description`：项目的描述信息。
+- `main`：指定项目的主入口文件。
+- `scripts`：定义了一些脚本命令，用于项目的构建、测试、运行等操作。
+- `dependencies`：列出了项目所依赖的第三方模块及其版本号。
+- `devDependencies`：列出了仅在开发过程中使用的第三方模块及其版本号。
+- `author`：项目的作者信息。
+- `license`：项目的许可证信息。
+
+package.json 文件可以手动编写，也可以通过运行 `npm init` 命令自动创建和配置。
+
+使用 `npm install` 安装第三方模块时，它们的信息会自动添加到 package.json 文件的 `dependencies` 或 `devDependencies` 字段中。
 
 #### 模块路径解析
 
 #### 模块循环依赖
-
-
 
 
 
