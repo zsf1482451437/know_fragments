@@ -2007,6 +2007,10 @@ export default MyLottieAnimation;
 
 # 疑难杂症
 
+## 如何覆盖掉第三方模块中样式里的变量值？
+
+在index.css中使用:root伪类选择器（匹配html元素），重新设置该变量的值。
+
 ## img不受盒子高度拉伸？
 
 ```css

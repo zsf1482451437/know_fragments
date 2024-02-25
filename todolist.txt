@@ -443,32 +443,43 @@ Q3[Immer] An immer producer returned a new value *and* modified its draft. Eithe
 
 【1.29-2.2】
 
-week todo：
-理解redux saga的常用effect；
-掌握Github的自动化部署；
-理解导入第三方库；
-
 feat：
 OIDC登出配置；√
 优惠券管理系统模版；
-更新官网文章；
-更新文档搜索；
-历史记录管理；
+更新官网文章；√
 
 fix：
 登录密码和验证码错误判断；√
-画布尺寸和组件列表逻辑；
+画布尺寸和组件列表逻辑；√
 屏蔽google sheet；√
-企微钉钉jsapi 对象刷新页面丢失；
 api接入案例；x
-小程序3个组件；
-global智能提示；
-jsobjhotkey；
 组件编写失焦；
 
 
 【2.4-2.6】
-重置密码；
+重置密码；√
+
+
+【2.18-2.23】
+week todo：
+迁移vscode配置，插件；
+安装bash环境；
+安装node环境
+安装docker
+
+feat：
+更新文档搜索；
+历史记录管理；
+
+fix:
+jsobjhotkey；√
+按钮hover样式；√
+global属性消失；√
+细节优化；√
+运行api出错；√
+切换布局报错；√
+小程序3个组件；
+企微钉钉jsapi 对象刷新页面丢失；
 
 
 bug：

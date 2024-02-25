@@ -7029,40 +7029,6 @@ function require(id) {
 
 这样，**不同文件指向同一对象**，也就可以共享该对象啦~
 
-#### **module.exports**内部逻辑
-
-敲重点！
-
-```js
-const module.exports = {}
-const exports = module.exports
-```
-
-所以这两段代码等效
-
-```js
-exports.name = name
-exports.age = age
-```
-
-```js
-module.exports = {
-    name,
-    age
-}
-```
-
-但是，要是换成这段代码
-
-```js
-exports = {
-    name,
-    age
-}
-```
-
-导出的**module.exports就是空对象**了~因为**exports已经改掉了指向**（之前指向module.exports），现在**指向{name, age}**，因为最终**导出的是module.exports指向的对象**
-
 #### **require查找规则**
 
 **require(X)**

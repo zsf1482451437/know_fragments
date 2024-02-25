@@ -79,3 +79,7 @@ git ls-files -z | xargs -0 perl -i -pe 's/\r$//g'
 }
 ```
 
+## Could not establish connection to "xxxx": The VS Code Sever failed to Start 
+
+重启vscode~
+
