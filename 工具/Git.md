@@ -137,7 +137,7 @@ git remote set-url origin <new-url>
 
 # 其他操作
 
-## 查看配置
+## 配置相关
 
 ```bash
 查看全局配置信息：
@@ -153,6 +153,9 @@ git config <key>
 将 <key> 替换为要查看的特定配置项的名称，例如：
 git config user.name
 git config core.editor
+
+设置全局邮箱：
+git config --global user.name "xxx"
 查看 Git 的所有配置信息：
 
 git config --list --show-origin
