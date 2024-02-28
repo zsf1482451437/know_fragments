@@ -462,8 +462,8 @@ api接入案例；x
 
 【2.18-2.23】
 week todo：
-迁移vscode配置，插件；
-安装bash环境；
+迁移vscode配置，插件；√
+安装bash环境；√
 安装node环境
 安装docker
 
