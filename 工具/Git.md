@@ -159,6 +159,18 @@ git config --list --show-origin
 此命令将显示所有 Git 配置项及其来源（配置文件和命令行选项等）。
 ```
 
+## rebase
+
+```bash
+查看两个分支的共同祖先
+git merge-base branchA branchB
+输出是commit的hash
+修改分支的基
+git rebase branchB
+```
+
+
+
 # 团队协作
 
 私仓+公仓+merge request模式

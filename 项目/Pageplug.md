@@ -78,7 +78,7 @@ export default function* rootSaga() {
 
 # 理解&设计
 
-## 配置面板的属性如何传递给画布中的组件？
+## 组件配置的管理
 
 1. 在组件类中,会定义一些静态方法来生成配置面板的配置,比如 `getPropertyPaneConfig`。
 2. 这些配置会定义出配置面板中的各个属性,每个属性都会有一个 `propertyName` 来指定属性名。
@@ -3140,6 +3140,72 @@ export const registerWidget = (
 ## 日志功能
 
 ## 组件工厂
+
+## 拖拽式设计
+
+- 拖动组件原理？
+- 如何放置完成？
+- 
+
+待观察：WidgetCard.tsx
+
+> 拖动组件原理？
+
+使用**style-component**的组件，设置**draggable**属性和监听**onDragStart**事件。其本质，是使用HTML5的拖拽API；
+
+mdn中提到，要让HTML 元素可拖拽，必须做三件事：
+
+- 将想要拖拽的元素的 `draggable`属性设置成 `"true"`。
+- 为 `dragstart` 事件添加一个监听程序（事件处理函数）。
+- 在上一步定义的监听程序中`设置拖拽数据`。
+
+而`onDragStart`是`dragstart`事件的事件处理函数。当用户开始拖动元素时，这个函数会被调用。
+
+其中，在onDragStart中要阻止事件的默认行为`e.preventDefault()`和事件冒泡`e.stopPropagation()`；
+
+在拖放操作中，浏览器的默认行为可能会与自定义的拖放行为冲突，例如，浏览器可能会尝试打开正在拖动的对象（如果它是一个链接或者图片）；
+
+同时，不希望拖动操作影响到其他元素，或者触发其他元素的`dragstart`事件处理函数，所以调用了`e.stopPropagation()`.
+
+**代码片段**
+
+```jsx
+const onDragStart = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    AnalyticsUtil.logEvent("WIDGET_CARD_DRAG", {
+      widgetType: props.details.type,
+      widgetName: props.details.displayName,
+    });
+    setDraggingNewWidget &&
+      setDraggingNewWidget(true, {
+        ...props.details,
+        widgetId: generateReactKey(),
+      });
+    deselectAll();
+    closeWalkthrough();
+  };
+```
+
+首先阻止了事件的默认行为和冒泡;
+
+然后记录了一些与拖动相关的数据，如被拖动的组件的类型和名称;
+
+然后，它调用了`setDraggingNewWidget`函数，这个函数是从`useWidgetDragResize` Hook中获取的，它的作用是设置当前正在拖动的新组件;
+
+最后，它调用了`deselectAll`函数和`closeWalkthrough`函数，前者用于取消选择所有其他组件，后者用于关闭功能演示。
+
+
+
+待观察：CanvasSelectionArena.tsx、DropTargetComponent.tsx
+
+> 何时拖拽完成？
+
+
+
+如何修改组件大小？
+
+组件位置、大小状态如何管理？
 
 ## 用户角色
 

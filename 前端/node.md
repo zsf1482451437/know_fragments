@@ -49,6 +49,12 @@ Yarn 包管理器会执行一系列步骤来确保顺利安装所需的包，并
 
 ## 疑难杂症
 
+yarn执行 `eslint ./src/**`
+
+### spawn ENAMETOOLONG
+
+通常发生在文件路径超过操作系统允许的最大长度时。在这种情况下，它可能是由于 `eslint ./src/**` 命令尝试匹配的文件数量太多
+
 ### ETIMEDOUT 
 
 > ➤ YN0000: ┌ Resolution step

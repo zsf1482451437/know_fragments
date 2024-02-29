@@ -462,16 +462,8 @@ api接入案例；x
 
 【2.18-2.23】
 week todo：
-迁移vscode配置，插件；
-安装bash环境；
-安装node环境
-安装docker
-
-feat：
-更新文档搜索；
-历史记录管理；
-
-fix:
+迁移vscode配置，插件；√
+安装bash环境；√
 jsobjhotkey；√
 按钮hover样式；√
 global属性消失；√
@@ -481,37 +473,45 @@ global属性消失；√
 小程序3个组件；
 企微钉钉jsapi 对象刷新页面丢失；
 
+【2.26-2.30】
+week todo：
+安装node环境；√
+搭建拖拽demo；
+本地运行Pageplug；
+安装docker；
 
-bug：
-ResizeObserver loop completed with undelivered notifications.
-at handleError (http://localhost:8160/static/js/bundle.js:549651:58)
-at http://localhost:8160/static/js/bundle.js:549670:7
-
-React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
-
-react-dom.development.js:67 Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
-
-Missing pageId. If you are trying to set href inside a react component use the 'useHref' hook.
-邮箱登录-不存在账户或密码不正确报验证码错误；
-日期选择器汉化；
-json表单、json schema组件提交按钮阴影、边框视图不更新；
-json表单、json schema组件无法拖动选中；
-
+feat：
+37商业版合并；√
+新建应用报错；√
+小程序组件消失；√
+商业版管理员设置；
+商业版分享；
 待修：
 数据源google sheet鉴权接口超时
 
 待理解：
 状态管理；√
+可视化拖拽；
 单元测试；
 前端日志功能，错误处理；
 组件工厂；
-可视化拖拽；
 用户角色权限管理；
 做了哪些性能优化；
 连接git了解更多；
 模版水印水印功能；
 开发者工具里请求中的type；
 微信扫码、钉钉扫码、oidc登录
+理解全局对象global和storeValue；
+将二进制或可执行文件添加到环境变量中；
+nginx配置理解；
+部署个人网站到github；
+验证码登录流程；
+上传文件案例；
+pp注册流程；
+使用本地nginx教程；
+官方文档有部分图片需要使用汉化图片；
+iframe嵌入pp应用的跨域问题；
+
 
 待办：
 封装一个自增表格；
@@ -521,15 +521,24 @@ json表单、json schema组件无法拖动选中；
 拓展-java；
 拓展-flutter/uni-app;
 开发一个vscode插件：
+gitlab搭建ci/cd;
 点击请求，跳转到对于文件位置；
 工具-提取视频文案（字幕）；
 文字+配音--》mp3；
 折叠效果；
 工具盒；
+拖拽式俄罗斯方块；
 
 
-
-错误页无图像；
+首次进入pp页面提示错误，手动刷新才能进入注册页（路由：/welcome）；√
+WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；√
+ResizeObserver loop completed with undelivered notifications.
+at handleError (http://localhost:8160/static/js/bundle.js:549651:58)
+at http://localhost:8160/static/js/bundle.js:549670:7
+React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+react-dom.development.js:67 Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
+Missing pageId. If you are trying to set href inside a react component use the 'useHref' hook.
+[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted；
 ast/src/peekOverlay/index.ts 32:0 处报错
 1-react-dom.development.js:67 Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?警告
 2-react-dom.development.js:67 Warning: styled.input contains an input of type text with both value and defaultValue props. Input elements must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props.（input）
@@ -538,36 +547,3 @@ ast/src/peekOverlay/index.ts 32:0 处报错
 5-开发区-点击应用设置：Warning: Received `true` for a non-boolean attribute `fill`.
 If you want to write it to the DOM, pass a string instead: fill="true" or fill={value.toString()}.（GeneralSettings ）
 6-开发区-删除input组件：Warning: React does not recognize the `isMultiLine` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `ismultiline` instead. If you accidentally passed it from a parent component, remove it from the DOM element.（ControlGroup ）
-
-
-
-
-理解全局对象global和storeValue；
-理解echart组件配置修改后，界面刷新的原理；
-pp权限管理理解流程；
-体验自定义组件；
-set与cross-env工具区别；
-警告过多；
-单元测试；
-bug：
-1.WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；√
-4.[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted；
-5.首次进入pp页面提示错误，手动刷新才能进入注册页（路由：/welcome）；√
-
-
-
-
-gitlab搭建ci/cd;
-将二进制或可执行文件添加到环境变量中；
-nginx配置理解；
-部署个人网站到github；
-验证码登录流程；
-上传文件案例；
-pp注册流程；
-使用内置mongoDB；
-使用本地nginx教程；
-官方文档有部分图片需要使用汉化图片；
-iframe嵌入pp应用的跨域问题；
-安装本地Redis；
-
-
