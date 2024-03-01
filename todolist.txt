@@ -484,8 +484,13 @@ feat：
 37商业版合并；√
 新建应用报错；√
 小程序组件消失；√
-商业版管理员设置；
-商业版分享；
+商业版管理员设置；√
+商业版分享；√
+内容屏蔽；√
+text组件；√
+api、数据源报错；√
+角色-显示默认角色开关-ResizeObserver loop completed with undelivered notifications；
+大屏组件重构；
 待修：
 数据源google sheet鉴权接口超时
 
