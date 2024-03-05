@@ -1345,6 +1345,22 @@ SelectProps,
 
 ## 疑难杂症
 
+### This comparison appears to be unintentional because the types 'TypeOptions' and '"loading"' have no overlap.
+
+错误来源：
+
+```ts
+if (payload.style === "loading") {
+      iconStr = "loading";
+    }
+```
+
+style的类型：TypeOptions；
+
+这个错误表明 `"loading"` 类型和 `TypeOptions` 类型没有交集，也就是说 `"loading"` 不是 `TypeOptions` 类型的一部分。
+
+如果要修改，则需要扩大TypeOptions的类型范围，包含 `loading`;
+
 ### Function components cannot be given refs
 
 ```tsx

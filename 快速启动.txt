@@ -2,7 +2,7 @@
 mvn clean compile
 bash ./build.sh -DskipTests
 bash ./scripts/start-dev-server.sh
-前端服务：
+前端服务
 yarn start-proxy
 yarn start-win
 
