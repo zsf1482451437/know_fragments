@@ -3137,7 +3137,7 @@ export const registerWidget = (
 };
 ```
 
-## 日志&错误追踪
+## 日志&错误追踪&性能监控
 
 ### 日志
 
@@ -3265,6 +3265,7 @@ export default AppErrorBoundary;
 
 - 为什么要使用错误追踪
 - 方案选择
+- 项目中使用
 
 > 为什么要使用错误追踪
 
@@ -3275,7 +3276,52 @@ export default AppErrorBoundary;
 
 > 方案选择
 
-Sentry开源，实时，也提供页面性能监控；
+Sentry开源，实时，提供页面性能监控；
+
+Bugsnag，收费；
+
+> 在项目中使用
+
+前置条件：搭建Sentry客户端（推荐镜像部署）；
+
+1. 安装 `@sentry/react @sentry/tracing`两个库；
+2. 初始化，提供Sentry项目的DSN（Data Source Name）;
+3. 使用Sentry的`<Sentry.ErrorBoundary>`组件来捕获组件树中的错误;
+
+初始化
+
+```jsx
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
+
+Sentry.init({
+  dsn: "https://examplePublicKey@o0.ingest.sentry.io/0",
+  integrations: [
+    new Integrations.BrowserTracing(),
+  ],
+  tracesSampleRate: 1.0,
+});
+```
+
+捕获
+
+```jsx
+import * as Sentry from "@sentry/react";
+
+function MyApp() {
+  return (
+    <Sentry.ErrorBoundary fallback={"An error has occurred"}>
+      <MyComponent />
+    </Sentry.ErrorBoundary>
+  );
+}
+```
+
+当`<MyComponent />`或其任何子组件抛出一个错误，这个错误会被`<Sentry.ErrorBoundary>`捕获，并被发送到Sentry项目；
+
+其中，项目的dsn可以在sentry设置页面查看（在Sentry创建一个新的项目时，Sentry会生成一个DSN）；
+
+> `Sentry.init()` 中，`new Integrations.BrowserTracing()` 的功能是将浏览器页面加载和导航检测作为事物，并捕获请求，指标和错误。
 
 ## 组件工厂
 
