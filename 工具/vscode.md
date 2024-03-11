@@ -54,6 +54,10 @@ git ls-files -z | xargs -0 perl -i -pe 's/\r$//g'
 
 修改所有文件！
 
+## 在vscode的tab中打开多个文件？
+
+shift选中拖到右边
+
 ## 调试单个文件
 
 打开文件，在文件中打断点或添加debugger；

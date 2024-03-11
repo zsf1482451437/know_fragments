@@ -355,3 +355,11 @@ the vs code sever failed to start
 The remote host may not meet VS Code Server's prerequisites for glibc and libstdc++
 
 vscode版本问题，切回1.85；并且remote-ssh也会退一个版本；
+
+## vscode连接远程一直要求输入密码
+
+Ctrl + shift + p，唤出命令面板；
+
+输入 Kill VS Code Setver on Host，选择需要结束的主机；
+
+> 每次断开连接需要这样操作一下，而不是关掉vscode就行

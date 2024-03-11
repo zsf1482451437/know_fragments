@@ -1,15 +1,15 @@
 # 职责&参与
 
-| 职责                     | 参与     | 使用技术/工具 |
-| ------------------------ | -------- | ------------- |
-| 文档官网搭建             | 菜单导航 |               |
-| 版本更新                 |          |               |
-| 打包、部署               |          |               |
-| OIDC单点登录             |          |               |
-| 微信、企微、钉钉登录     |          |               |
-| 树形组件、JSONSchema组件 |          |               |
-| 注册登录改动             |          |               |
-| 登出全局事件             |          |               |
+| 职责                     | 参与 | 使用技术/工具 |
+| ------------------------ | ---- | ------------- |
+| 文档官网搭建             |      |               |
+| 版本更新                 |      |               |
+| 打包、部署               |      |               |
+| OIDC单点登录             |      |               |
+| 微信、企微、钉钉登录     |      |               |
+| 树形组件、JSONSchema组件 |      |               |
+| 注册登录改动             |      |               |
+| 登出全局事件封装         |      |               |
 
 
 
@@ -78,7 +78,7 @@ export default function* rootSaga() {
 
 # 理解&设计
 
-## 配置面板的属性如何传递给画布中的组件？
+## 组件配置的管理
 
 1. 在组件类中,会定义一些静态方法来生成配置面板的配置,比如 `getPropertyPaneConfig`。
 2. 这些配置会定义出配置面板中的各个属性,每个属性都会有一个 `propertyName` 来指定属性名。
@@ -3137,9 +3137,259 @@ export const registerWidget = (
 };
 ```
 
-## 日志功能
+## 日志&错误追踪&性能监控
+
+### 日志
+
+- 为什么要使用日志
+- 日志使用场景
+- 如何实现日志
+- 项目中如何使用
+
+> 为什么要使用日志
+
+日志系统可以帮助开发者追踪和理解用户的行为，以及在出现问题时进行调试;
+
+例如，如果一个用户报告了一个错误，但是没有提供足够的信息来复现这个问题，那么日志就可以提供更多的上下文信息来帮助开发者找到问题的原因;
+
+此外，日志还可以用于性能分析，帮助开发者找到可能的性能瓶颈;
+
+> 使用场景
+
+1. **错误和异常**：当应用中发生错误或异常时，应该记录日志。这包括**系统错误**、**业务逻辑错误**、**API调用错误**等。这些日志可以帮助开发者找到问题的原因。
+2. **重要的业务逻辑**：对于一些重要的业务逻辑，如**用户登录、支付、订单处理**等，应该记录日志。这些日志可以帮助开发者理解业务的运行情况，以及在出现问题时进行调试。
+3. **用户行为**：记录用户的行为，如**点击、浏览、搜索**等，可以帮助开发者理解用户的**需求和习惯**，以便优化产品。
+4. **性能问题**：如果应用的某个部分**可能存在性能**问题，可以通过记录日志来监控其性能。
+
+> 如何实现日志
+
+1. 选择一个日志库（loglevel、winston）
+2. 初始化日志库（项目入口）
+3. 使用（需要记录的地方）
+4. 处理日志（传服务器或存本地）
+
+> 方案选择
+
+loglevel：轻量级（约1kb）、使用简单（api使用简单）、无依赖、跨平台、社区支持；
+
+winston：功能相对丰富，更适合node后端项目；
+
+> 项目中怎么使用的
+
+在项目入口使用自定义组件AppErrorBoundary包裹根组件；
+
+AppErrorBoundary的componentDidCatch生命周期中使用日志（componentDidCatch会在子组件树任何地方发生错误被调用）；
+
+这样，当项目中的组件发生错误，会在componentDidCatch中获取到错误信息和位置；
+
+注意，`componentDidCatch`只能捕获在渲染过程中、生命周期方法中、以及构造函数中发生的错误。对于事件处理器中的错误，你需要使用try/catch语句来捕获。
+
+AppErrorBoundary组件：
+
+```jsx
+import React, { Component } from "react";
+import styled from "styled-components";
+import AppCrashImage from "assets/images/404-image.png";
+import * as Sentry from "@sentry/react";
+import log from "loglevel";
+import AnalyticsUtil from "utils/AnalyticsUtil";
+import { Button } from "design-system";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100vh - ${(props) => props.theme.headerHeight});
+  .bold-text {
+    font-weight: ${(props) => props.theme.fontWeights[3]};
+    font-size: 24px;
+  }
+  .page-unavailable-img {
+    width: 35%;
+  }
+  .button-position {
+    margin: auto;
+  }
+`;
+class AppErrorBoundary extends Component {
+  state = {
+    hasError: false,
+  };
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    log.error({ error, errorInfo });
+    Sentry.captureException(error);
+    AnalyticsUtil.logEvent("APP_CRASH", { error, errorInfo });
+    this.setState({
+      hasError: true,
+    });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <Wrapper>
+          <img alt="App crashed" src={AppCrashImage} />
+          <div>
+            <p className="bold-text">噢!发生了点意外!</p>
+            <p>
+              请点击下方的按钮重试 <br />
+              如果问题还存在，请联系我们
+            </p>
+            <br />
+            <Button onClick={() => window.location.reload()} size="md">
+              重试
+            </Button>
+          </div>
+        </Wrapper>
+      );
+    }
+    // eslint-disable-next-line react/prop-types
+    return this.props.children;
+  }
+}
+
+export default AppErrorBoundary;
+```
+
+`componentDidCatch`方法做了以下几件事：
+
+1. 使用`log.error`记录错误和错误信息;
+2. 使用`Sentry.captureException`将错误发送到Sentry，Sentry是一个错误追踪系统，可以帮助开发者追踪和修复在生产环境中发生的错误;
+3. 使用`AnalyticsUtil.logEvent`记录一个名为"APP_CRASH"的事件，事件数据包括错误和错误信息。这可以帮助开发者理解应用崩溃的情况;
+4. 将组件的状态`hasError`设置为`true`。这可能会导致组件重新渲染，并显示一个错误消息或者错误页面;
+
+### 错误追踪
+
+- 为什么要使用错误追踪
+- 方案选择
+- 项目中使用
+
+> 为什么要使用错误追踪
+
+1. **发现错误**：用户可能会在使用应用时遇到错误，但他们可能不会报告这些错误。错误追踪可以帮助你发现这些未报告的错误。
+2. **定位错误**：错误追踪通常可以提供错误的堆栈跟踪，这可以帮助你快速定位错误发生的位置。
+3. **修复错误**：通过分析错误追踪中的信息，你可以更好地理解错误的原因，并找到修复错误的方法。
+4. **提高用户体验**：通过快速发现和修复错误，你可以减少用户遇到错误的可能性，从而提高用户体验。
+
+> 方案选择
+
+Sentry开源，实时，提供页面性能监控；
+
+Bugsnag，收费；
+
+> 在项目中使用
+
+前置条件：搭建Sentry客户端（推荐镜像部署）；
+
+1. 安装 `@sentry/react @sentry/tracing`两个库；
+2. 初始化，提供Sentry项目的DSN（Data Source Name）;
+3. 使用Sentry的`<Sentry.ErrorBoundary>`组件来捕获组件树中的错误;
+
+初始化
+
+```jsx
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
+
+Sentry.init({
+  dsn: "https://examplePublicKey@o0.ingest.sentry.io/0",
+  integrations: [
+    new Integrations.BrowserTracing(),
+  ],
+  tracesSampleRate: 1.0,
+});
+```
+
+捕获
+
+```jsx
+import * as Sentry from "@sentry/react";
+
+function MyApp() {
+  return (
+    <Sentry.ErrorBoundary fallback={"An error has occurred"}>
+      <MyComponent />
+    </Sentry.ErrorBoundary>
+  );
+}
+```
+
+当`<MyComponent />`或其任何子组件抛出一个错误，这个错误会被`<Sentry.ErrorBoundary>`捕获，并被发送到Sentry项目；
+
+其中，项目的dsn可以在sentry设置页面查看（在Sentry创建一个新的项目时，Sentry会生成一个DSN）；
+
+> `Sentry.init()` 中，`new Integrations.BrowserTracing()` 的功能是将浏览器页面加载和导航检测作为事物，并捕获请求，指标和错误。
 
 ## 组件工厂
+
+## 拖拽式设计
+
+- 拖动组件原理？
+- 如何放置完成？
+- 
+
+待观察：WidgetCard.tsx
+
+> 拖动组件原理？
+
+使用**style-component**的组件，设置**draggable**属性和监听**onDragStart**事件。其本质，是使用HTML5的拖拽API；
+
+mdn中提到，要让HTML 元素可拖拽，必须做三件事：
+
+- 将想要拖拽的元素的 `draggable`属性设置成 `"true"`。
+- 为 `dragstart` 事件添加一个监听程序（事件处理函数）。
+- 在上一步定义的监听程序中`设置拖拽数据`。
+
+而`onDragStart`是`dragstart`事件的事件处理函数。当用户开始拖动元素时，这个函数会被调用。
+
+其中，在onDragStart中要阻止事件的默认行为`e.preventDefault()`和事件冒泡`e.stopPropagation()`；
+
+在拖放操作中，浏览器的默认行为可能会与自定义的拖放行为冲突，例如，浏览器可能会尝试打开正在拖动的对象（如果它是一个链接或者图片）；
+
+同时，不希望拖动操作影响到其他元素，或者触发其他元素的`dragstart`事件处理函数，所以调用了`e.stopPropagation()`.
+
+**代码片段**
+
+```jsx
+const onDragStart = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    AnalyticsUtil.logEvent("WIDGET_CARD_DRAG", {
+      widgetType: props.details.type,
+      widgetName: props.details.displayName,
+    });
+    setDraggingNewWidget &&
+      setDraggingNewWidget(true, {
+        ...props.details,
+        widgetId: generateReactKey(),
+      });
+    deselectAll();
+    closeWalkthrough();
+  };
+```
+
+首先阻止了事件的默认行为和冒泡;
+
+然后记录了一些与拖动相关的数据，如被拖动的组件的类型和名称;
+
+然后，它调用了`setDraggingNewWidget`函数，这个函数是从`useWidgetDragResize` Hook中获取的，它的作用是设置当前正在拖动的新组件;
+
+最后，它调用了`deselectAll`函数和`closeWalkthrough`函数，前者用于取消选择所有其他组件，后者用于关闭功能演示。
+
+
+
+待观察：CanvasSelectionArena.tsx、DropTargetComponent.tsx
+
+> 何时拖拽完成？
+
+
+
+如何修改组件大小？
+
+组件位置、大小状态如何管理？
 
 ## 用户角色
 

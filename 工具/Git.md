@@ -162,6 +162,18 @@ git config --list --show-origin
 此命令将显示所有 Git 配置项及其来源（配置文件和命令行选项等）。
 ```
 
+## rebase
+
+```bash
+查看两个分支的共同祖先
+git merge-base branchA branchB
+输出是commit的hash
+修改分支的基
+git rebase branchB
+```
+
+
+
 # 团队协作
 
 私仓+公仓+merge request模式
@@ -197,6 +209,24 @@ git push origin 分支名
 
 
 # 疑难杂症
+
+## cherry-pick
+
+`Merge branch 'feature/pro/merge-35' of git.cloud2go.cn:cloud/b_d into feature/pro/merge-35`
+
+cherry-pick这种类型的提交报错：
+
+> error: commit fe3c6a5023c56403aeeff3e7b93f60b71c45b9ab is a merge but no -m option was given.
+
+在Git中，合并提交有两个父提交，所以试图cherry-pick一个合并提交时，需要使用`-m`选项来指定想要的父提交。
+
+例如，如果你想要cherry-pick合并提交`fe3c6a5023c56403aeeff3e7b93f60b71c45b9ab`，并且想要的是第一个父提交，可以这样做：
+
+```bash
+git cherry-pick -m 1 fe3c6a5023c56403aeeff3e7b93f60b71c45b9ab
+```
+
+
 
 **本地仓库已经新建了很多文件，怎么和新建的Github远程仓库建立关联？**
 
