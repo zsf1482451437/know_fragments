@@ -1,11 +1,24 @@
-专业技能：
-	熟悉HTML，CSS，能熟练还原设计稿；
-	熟悉 React相关生态（路由React-Router、状态管理Redux、组件库Ant-design）;
-工作经历：
--项目描述
-
--技术栈
-
--工作职责（场景、解决方案、量化）
+【专业技能】：
+- 熟悉 HTML，CSS，能熟练还原设计稿；
+- 熟悉 JavaScript，TypeScript，理解函数式编程和面向对象编程等概念；
+- 熟悉 React相关生态（React Hooks、路由React-Router、状态管理Redux、组件库Ant-design等）;
+- 熟悉 前端工程化相关生态（npm/yarn依赖管理，Git版本管理，webpack构建，Jest测试，docker部署等）；
+- 有使用Vue的开发经验，对其相关生态（Vue-Router、Vuex、ElementUI-plus等）有一定了解；
+- 有静态站点搭建经验，对GitHub Page网站托管有一定了解；
+- 了解http，node，前端性能优化等等；
+【工作经历】：
+- 项目描述 旧版地址：https://lowcode.methodot.com  新版地址：  （账号123@qq.com 密码123456）
+Pageplug是一个中大型、面向企业、社区版开源、前端低代码平台。通过平台内置的80+个小组件（同时也支持用户自定义小组件），拖拽式操作，集成丰富的后端数据源和API，Docker容器化部署方式，可以帮助企业快速搭建内部系统，减少开发时间成本。其中，部分设计借鉴国外的同类产品Appsmith；目前，有京东、顺丰、华润等企业进行社区版的购买，订单交易总额70+w。
+- 技术选型
+前端：React、React-Router、Redux、Ant-design、webpack、Jest、Sentry等
+后端：Spring Boot、MongoDB、Redis、Spring WebFlux、Spring Reactive等
+集成数据源&API：MySql、企业微信、钉钉、Postgresql等
+部署：Docker、K8s、AWS AMI等
+- 工作职责（场景、解决方案、量化）
+  拖拽式设计：
+  权限管理：
+  减少重复：当批量组件场景需要鉴权时，封装负责鉴权的高阶组件；同时，采用redux-form，配置化定制表单字段。将为团队减少重复代码，提高团队10%的开发效率；
+  企业定制：当已有组件不满足待采购企业的需求时，通过与企业客户沟通，确定企业的需求，为企业定制组件（树形组件、JsonSchema表单、头像组件等等），添加功能（OIDC单点登录、微信，企业微信，钉钉扫码登录）满足待采购客户需求，提高50%企业采购率；
+  颗粒化分支管理：企业定制需求各不相同，提出功能分支方案，将不同定制需求拆分成不同分支，后续需要组合时cherry-pick即可，减少团队代码合并工作量；
 
 自我评价：
