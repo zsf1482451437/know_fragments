@@ -370,7 +370,7 @@ week todo：
 梳理pp网络请求设计；√
 掌握Github的自动化部署；
 
-feat: 
+feat:
 pp连接本地mongo，redis；√
 10.10.13.43连接；√
 appsmith1.9.45镜像运行在本地；
@@ -397,7 +397,7 @@ index；
 
 【1.15-1.19】
 
-feat: 
+feat:
 appsmith1.9.45镜像运行在本地；√
 
 
@@ -419,7 +419,7 @@ index；√
 
 【1.22-1.26】
 
-feat: 
+feat:
 ee35支持企微，钉钉jsAPI导入；√
 
 

@@ -560,6 +560,8 @@ nrm 是一个用于管理 Node.js 包管理器（如 npm 和 Yarn）的注册表
 
 **node version manger**
 
+前往 https://github.com/coreybutler/nvm-windows/releases 下载nvm
+
 查询当前已安装
 
 ```
@@ -570,6 +572,9 @@ nvm list
 
 ```
 nvm install xxx
+安装常见两个版本
+nvm install latest
+nvm install lts
 ```
 
 使用指定版本
@@ -577,6 +582,14 @@ nvm install xxx
 ```
 nvm use xxx
 ```
+
+指定node版本之后，使用`node -v`验证；
+
+如果显示node版本，说明自动配置环境变量了；
+
+如果失败，则需要手动配置环境变量；
+
+找到当前版本node的安装路径，在系统变量的path之后添加，保存，重启电脑，再次执行`node -v`；
 
 ## 疑难杂症
 
