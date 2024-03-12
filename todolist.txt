@@ -507,9 +507,17 @@ saas集成缺失；√
 钉钉api创建；√
 showAlert延时关闭参数；√
 提示框距离；√
-大屏组件重构；
+
+
+【3.11-3.15】
+feat：
+头像组件；
+
+fix：
+大屏组件重构；√
 合并剩余提交；
 角色-显示默认角色开关-ResizeObserver loop completed with undelivered notifications；
+
 
 
 待理解：
