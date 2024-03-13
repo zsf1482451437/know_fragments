@@ -492,3 +492,9 @@ x-oss-process=image%2Fresize%2Cw_750%2Climit_0 有什么作用呢
 `async` 及 `defer` 是 `<script>` 专属的属性；
 
 对于网页中的**其他资源**，可以通过 `<link>` 的`preload`、`prefetch` 属性，来帮我们 **延迟加载** 未来才需要用到的资源。
+
+# 疑难杂症
+
+## The script has an unsupported MIME type ('text/html').
+
+通常发生在尝试加载JavaScript文件时，但服务器实际上返回了HTML内容，而不是预期的JavaScript内容。
