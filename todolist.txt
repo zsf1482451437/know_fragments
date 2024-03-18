@@ -510,15 +510,17 @@ showAlert延时关闭参数；√
 
 
 【3.11-3.15】
-feat：
-头像组件；https://api.dicebear.com/7.x/miniavs/svg?seed=2
-
 fix：
 大屏组件重构；√
 合并剩余提交；√
 角色-显示默认角色开关-ResizeObserver loop completed with undelivered notifications；
 
+【3.18-3.22】
+feat：
+头像组件；
 
+fix: 
+消息提示，首次不传延迟时间留存时间过短；
 
 待理解：
 状态管理；√
