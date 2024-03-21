@@ -2007,6 +2007,12 @@ export default MyLottieAnimation;
 
 # 疑难杂症
 
+## 修改某个库的动画效果
+
+比如修改antd消息弹出框的动画细节（入场时间、退场时间等等）
+
+
+
 ## 固定宽度文本换行
 
 max-width属性

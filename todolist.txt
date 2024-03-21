@@ -518,11 +518,13 @@ fix：
 【3.18-3.22】
 feat：
 头像组件；√
-头像组件新增功能；
+头像组件新增功能；√
+注册入口动态屏蔽；√
 
 fix: 
 消息提示，首次不传延迟时间留存时间过短；
-tree JsonSchema custom调整；
+tree JsonSchema custom调整；√
+全局消息提示UI调整；
 
 
 待理解：
