@@ -1,0 +1,4090 @@
+[
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "25KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-155：输入框组件优化",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-155关闭输入框组件优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/03/03 21:34进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  J...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz2$---.WeMYWCz",
+        "mailId": "2_0:DzzzzyO4rz2$---.WeMYWCz",
+        "markedSubject": "[JIRA] 更新 PP-155：输入框组件优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5c4u---.WcqLviG",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-155：输入框组件优化",
+        "tagList": [],
+        "timestamp": 1709473851000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "24KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-162：点击导航功能时，页面崩溃报错",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-162开放点击导航功能时，页面崩溃报错&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/03 21:33进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jir...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz3$---.WeMB6Pe",
+        "mailId": "2_0:DzzzzyO4rz3$---.WeMB6Pe",
+        "markedSubject": "[JIRA] 更新 PP-162：点击导航功能时，页面崩溃报错",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO4rz3---.We6Nlv8",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-162：点击导航功能时，页面崩溃报错",
+        "tagList": [],
+        "timestamp": 1709473850000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "24KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-161：功能缺失",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-161开放功能缺失&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/03 21:33进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了电子邮件通...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz4$---.WeMD.GD",
+        "mailId": "2_0:DzzzzyO4rz4$---.WeMD.GD",
+        "markedSubject": "[JIRA] 更新 PP-161：功能缺失",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO4rz4---.We7UhyJ",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-161：功能缺失",
+        "tagList": [],
+        "timestamp": 1709473849000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "25KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-154：数据源、api点击崩溃报错",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-154关闭数据源、api点击崩溃报错&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/03/03 21:34进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e370...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz5$---.WeM6BwF",
+        "mailId": "2_0:DzzzzyO4rz5$---.WeM6BwF",
+        "markedSubject": "[JIRA] 更新 PP-154：数据源、api点击崩溃报错",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5rhK---.WcHaOEp",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-154：数据源、api点击崩溃报错",
+        "tagList": [],
+        "timestamp": 1709473848000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "25KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-153关闭Text组件属性栏优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/03/03 21:35进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz6$---.WeMAkP2",
+        "mailId": "2_0:DzzzzyO4rz6$---.WeMAkP2",
+        "markedSubject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5rhL---.WcL80zm",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "tagList": [],
+        "timestamp": 1709473847000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "24KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-159：登录页样式优化",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-159开放登录页样式优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/03 21:33进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了电子...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz7$---.WeMb93b",
+        "mailId": "2_0:DzzzzyO4rz7$---.WeMb93b",
+        "markedSubject": "[JIRA] 更新 PP-159：登录页样式优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO4rz7---.We3rI-X",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-159：登录页样式优化",
+        "tagList": [],
+        "timestamp": 1709473846000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "24KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-158：注册功能显示优化",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-158开放注册功能显示优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/03 21:33进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了电...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz8$---.WeMAM6e",
+        "mailId": "2_0:DzzzzyO4rz8$---.WeMAM6e",
+        "markedSubject": "[JIRA] 更新 PP-158：注册功能显示优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO4rz8---.WeBKIm6",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-158：注册功能显示优化",
+        "tagList": [],
+        "timestamp": 1709473845000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月3日(星期日) 21:50",
+            "displaySize": "24KB",
+            "encDisplayTime": "3月3日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-157：所有数据库和api样式优化",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-157开放所有数据库和api样式优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/03 21:34进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO4rz9$---.WeMD.Bl",
+        "mailId": "2_0:DzzzzyO4rz9$---.WeMD.Bl",
+        "markedSubject": "[JIRA] 更新 PP-157：所有数据库和api样式优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO4rz9---.We5XDTk",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-157：所有数据库和api样式优化",
+        "tagList": [],
+        "timestamp": 1709473844000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月1日(星期五) 16:40",
+            "displaySize": "25KB",
+            "encDisplayTime": "3月1日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "encSummary": "有是  1更新 &nbsp;&nbsp;PagePlug / PP-153开放Text组件属性栏优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/01 16:23进行更改 &nbsp;描述:h2. 问题描述：\n\n1、属性栏多了两块的内容\n\n&nbsp;\nh2. 贴图：\n\n1、好多组件都有这个的提示，看下是不是哪块代码的全局功能，删掉吧&nbsp;\n\n!image-202...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO5ahn$---.Wd3Yru8",
+        "mailId": "2_0:DzzzzyO5ahn$---.Wd3Yru8",
+        "markedSubject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5rhL---.WcL80zm",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "tagList": [],
+        "timestamp": 1709282444000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年3月1日(星期五) 15:05",
+            "displaySize": "24KB",
+            "encDisplayTime": "3月1日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-155：输入框组件优化",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-155开放输入框组件优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/03/01 14:49进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了电子...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO5c4u$---.WczN5Wn",
+        "mailId": "2_0:DzzzzyO5c4u$---.WczN5Wn",
+        "markedSubject": "[JIRA] 更新 PP-155：输入框组件优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5c4u---.WcqLviG",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-155：输入框组件优化",
+        "tagList": [],
+        "timestamp": 1709276741000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月29日(星期四) 21:20",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月29日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-154：数据源、api点击崩溃报错",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-154开放数据源、api点击崩溃报错&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/29 21:02进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO5rhK$---.WcQgi1l",
+        "mailId": "2_0:DzzzzyO5rhK$---.WcQgi1l",
+        "markedSubject": "[JIRA] 更新 PP-154：数据源、api点击崩溃报错",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5rhK---.WcHaOEp",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-154：数据源、api点击崩溃报错",
+        "tagList": [],
+        "timestamp": 1709212841000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月29日(星期四) 21:20",
+            "displaySize": "26KB",
+            "encDisplayTime": "2月29日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "encSummary": "有是  2更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-153开放Text组件属性栏优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/29 21:02进行更改 &nbsp;描述:h2. 问题描述：\n\n1、属性栏多了两块的内容\n\n&nbsp;\nh2. 贴图：\n\n1、好多组件都有这个的提示，看下是不是哪块代码的全局功能，删掉吧...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO5rhL$---.WcQaEuM",
+        "mailId": "2_0:DzzzzyO5rhL$---.WcQaEuM",
+        "markedSubject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5rhL---.WcL80zm",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-153：Text组件属性栏优化",
+        "tagList": [],
+        "timestamp": 1709212840000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月29日(星期四) 15:20",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月29日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-145：导航功能bug",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-145开放导航功能bug&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/29 15:03进行更改 &nbsp;经办人:邓靓璐翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO5wyo$---.WcB3I37",
+        "mailId": "2_0:DzzzzyO5wyo$---.WcB3I37",
+        "markedSubject": "[JIRA] 更新 PP-145：导航功能bug",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO5wyo---.WbzTMt5",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-145：导航功能bug",
+        "tagList": [],
+        "timestamp": 1709191243000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#996d56",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.Lv5GG2",
+                "displayEmail": "shasha@cloudtogo.cn",
+                "displayName": "罗沙沙",
+                "email": "shasha@cloudtogo.cn",
+                "encDisplayEmail": "shasha@cloudtogo.cn",
+                "encDisplayName": "罗沙沙",
+                "name": "罗沙沙",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月29日(星期四) 11:40",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月29日",
+            "encRcpLineContent": "罗沙沙"
+        },
+        "encSubject": "2024年1月工资条",
+        "encSummary": "Dear：&nbsp;&nbsp;&nbsp;&nbsp; 翟思丰&nbsp;&nbsp;&nbsp;&nbsp; \n&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 感谢您对公司做出的贡献和努力，现向您发送2024年1月工资条，公司已代缴个人所得税、社保及住房公积金。\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说明：如对工资有异议，请于工资条发出后两个工作日内联系财务部，未收到反馈表示确认无误。...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#996d56",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.Lv5GG2",
+            "displayEmail": "shasha@cloudtogo.cn",
+            "displayName": "罗沙沙",
+            "email": "shasha@cloudtogo.cn",
+            "encDisplayEmail": "shasha@cloudtogo.cn",
+            "encDisplayName": "罗沙沙",
+            "name": "罗沙沙",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyO6-BC$---.Wc.tSUx",
+        "mailId": "2_0:DzzzzyO6-BC$---.Wc.tSUx",
+        "markedSubject": "2024年1月工资条",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO6-BC---.WbqHrxF",
+        "status": 4,
+        "subject": "2024年1月工资条",
+        "tagList": [],
+        "timestamp": 1709178033000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月28日(星期三) 18:52",
+            "displaySize": "61KB",
+            "encDisplayTime": "2月28日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Welcome to Appsmith\n          \n            时间\n          \n            2024年02月28日 18:52:...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyO6CyR$---.WbYLnii",
+        "mailId": "2_0:DzzzzyO6CyR$---.WbYLnii",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1709117538000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月28日(星期三) 18:03",
+            "displaySize": "61KB",
+            "encDisplayTime": "2月28日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Welcome to Appsmith\n          \n            时间\n          \n            2024年02月28日 18:03:...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyO6DgF$---.WbWTFDa",
+        "mailId": "2_0:DzzzzyO6DgF$---.WbWTFDa",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1709114606000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月26日(星期一) 10:30",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月26日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-144：登录页细节优化",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-144开放登录页细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/26 10:13进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了电子...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7-Uk$---.WZ9Cf-F",
+        "mailId": "2_0:DzzzzyO7-Uk$---.WZ9Cf-F",
+        "markedSubject": "[JIRA] 更新 PP-144：登录页细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO7-Uk---.WZ9aAPk",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-144：登录页细节优化",
+        "tagList": [],
+        "timestamp": 1708914639000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月25日(星期日) 21:15",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月25日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-147：优化关闭注册选项功能",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-147开放优化关闭注册选项功能&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/25 21:01进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7A87$---.WYrVtEs",
+        "mailId": "2_0:DzzzzyO7A87$---.WYrVtEs",
+        "markedSubject": "[JIRA] 更新 PP-147：优化关闭注册选项功能",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO7A87---.WYlnEcx",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-147：优化关闭注册选项功能",
+        "tagList": [],
+        "timestamp": 1708866934000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:45",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-123：细节优化",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-123关闭细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 21:28进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7Uo1$---.WYNiJfT",
+        "mailId": "2_0:DzzzzyO7Uo1$---.WYNiJfT",
+        "markedSubject": "[JIRA] 更新 PP-123：细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJQa7---.WA182ln",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-123：细节优化",
+        "tagList": [],
+        "timestamp": 1708782332000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:15",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-138：切换响应式布局时，页面崩溃报错",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-138关闭切换响应式布局时，页面崩溃报错&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 20:58进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7VE8$---.WYNaTUW",
+        "mailId": "2_0:DzzzzyO7VE8$---.WYNaTUW",
+        "markedSubject": "[JIRA] 更新 PP-138：切换响应式布局时，页面崩溃报错",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO8TnL---.WWAAcoo",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-138：切换响应式布局时，页面崩溃报错",
+        "tagList": [],
+        "timestamp": 1708780533000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:15",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-137：Jsobject的代码样式框问题",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-137关闭Jsobject的代码样式框问题&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 20:57进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7VE9$---.WYNHynH",
+        "mailId": "2_0:DzzzzyO7VE9$---.WYNHynH",
+        "markedSubject": "[JIRA] 更新 PP-137：Jsobject的代码样式框问题",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO8au.---.WVyeWsf",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-137：Jsobject的代码样式框问题",
+        "tagList": [],
+        "timestamp": 1708780532000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:05",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-129关闭table组件编写失焦&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 20:47进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7VNU$---.WYNMLrA",
+        "mailId": "2_0:DzzzzyO7VNU$---.WYNMLrA",
+        "markedSubject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOIW-2---.WBmPNsv",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "tagList": [],
+        "timestamp": 1708779935000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:05",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-116关闭新建api，在选项中输入内容后，标签页无法切换&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 20:50进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -s...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7VNV$---.WYMo.wM",
+        "mailId": "2_0:DzzzzyO7VNV$---.WYMo.wM",
+        "markedSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlkr---.W96l9xL",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "tagList": [],
+        "timestamp": 1708779934000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:05",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-119关闭global属性消失不能使用&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 20:51进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e37...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7VNW$---.WYNFw23",
+        "mailId": "2_0:DzzzzyO7VNW$---.WYNFw23",
+        "markedSubject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlS3---.W9BIvy4",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "tagList": [],
+        "timestamp": 1708779933000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月24日(星期六) 21:05",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月24日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-118：新建JS对象的时候，页面直接崩溃",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-118关闭新建JS对象的时候，页面直接崩溃&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/24 20:49进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO7VNX$---.WYMzNC-",
+        "mailId": "2_0:DzzzzyO7VNX$---.WYMzNC-",
+        "markedSubject": "[JIRA] 更新 PP-118：新建JS对象的时候，页面直接崩溃",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlS5---.W9BTD.O",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-118：新建JS对象的时候，页面直接崩溃",
+        "tagList": [],
+        "timestamp": 1708779932000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "email@murphyinsec.com",
+                "displayName": "MurphySec",
+                "email": "email@murphyinsec.com",
+                "encDisplayEmail": "email@murphyinsec.com",
+                "encDisplayName": "MurphySec",
+                "name": "MurphySec"
+            },
+            "encFullDisplayTime": "2024年2月23日(星期五) 18:49",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月23日",
+            "encRcpLineContent": "MurphySec"
+        },
+        "encMailFrom": "475b3b30-d239-11ee-a699-525400432308@murphyinsec.com",
+        "encSubject": "检测您正在开发的项目，是否受史上最严重的十个漏洞影响",
+        "encSummary": "大佬，你好：根据权威机构的统计，多达 97% 的代码库存在着开源安全漏洞，墨菲安全从40万+漏洞库中统计出了史上影响最严重的十个安全漏洞，花3分钟检测您的代码项目是否受影响。漏洞编号影响组件漏洞等级MPS-2021-38241log4j严重MPS-2022-6820springframework严重MPS-2021-3129xstream严重MPS-2014...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "email@murphyinsec.com",
+            "displayName": "MurphySec",
+            "email": "email@murphyinsec.com",
+            "encDisplayEmail": "email@murphyinsec.com",
+            "encDisplayName": "MurphySec",
+            "name": "MurphySec"
+        },
+        "id": "DzzzzyO7sSg$---.WXm87QQ",
+        "mailId": "2_0:DzzzzyO7sSg$---.WXm87QQ",
+        "markedSubject": "检测您正在开发的项目，是否受史上最严重的十个漏洞影响",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOwchj---.UloDZ17",
+        "status": 4,
+        "subject": "检测您正在开发的项目，是否受史上最严重的十个漏洞影响",
+        "tagList": [],
+        "timestamp": 1708685395000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "zhaisifeng",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "zhaisifeng",
+                "name": "zhaisifeng"
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "邓靓璐 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "邓靓璐 (Confluence)",
+                "name": "邓靓璐 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月22日(星期四) 18:53",
+            "displaySize": "205KB",
+            "encDisplayTime": "2月22日",
+            "encRcpLineContent": "邓靓璐 (Confluence)"
+        },
+        "encSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "encSummary": "这个页面上有 1 新 编辑 &nbsp;ee-v1.9.35 提测记录邓靓璐 编辑了这个页面这里是变化：...\n代码块修改yml配置的image\n\ndocker-compose down\n\ndocker-compose up -d镜像更新说明镜像备注日期分支【最后提交】环境地址harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.3...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "邓靓璐 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "邓靓璐 (Confluence)",
+            "name": "邓靓璐 (Confluence)"
+        },
+        "id": "DzzzzyO8BVG$---.WX1tuc7",
+        "mailId": "2_0:DzzzzyO8BVG$---.WX1tuc7",
+        "markedSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOWJct---.Vh61hQQ",
+        "status": 4,
+        "subject": "[行云知识库] PagePlug > ee-v1.9.35 提测记录",
+        "tagList": [],
+        "timestamp": 1708599213000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 22:35",
+            "displaySize": "28KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-123：细节优化",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-123处理中细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/21 22:18进行更改 &nbsp;描述:1、把导航功能补回来\n\n!image-2024-01-18-17-13-58-620.png|width=305,height=153!\n\n2、OpenAI的图标丢失\n\n!...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8TLD$---.WWOHKHY",
+        "mailId": "2_0:DzzzzyO8TLD$---.WWOHKHY",
+        "markedSubject": "[JIRA] 更新 PP-123：细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJQa7---.WA182ln",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-123：细节优化",
+        "tagList": [],
+        "timestamp": 1708526128000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 22:20",
+            "displaySize": "31KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-123：细节优化",
+        "encSummary": "有是  5更新 &nbsp;&nbsp;PagePlug / PP-123处理中细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 5 updates &nbsp;黄江浩 对 2024/02/21 22:03进行更改 &nbsp;描述:1、把导航功能补回来\n\n!image-2024-01-18-17-13-58-620.png|width=305,height=153!\n\n2、OpenAI的图标丢失\n\n!...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8TZH$---.WWNJp-H",
+        "mailId": "2_0:DzzzzyO8TZH$---.WWNJp-H",
+        "markedSubject": "[JIRA] 更新 PP-123：细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJQa7---.WA182ln",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-123：细节优化",
+        "tagList": [],
+        "timestamp": 1708525228000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 22:05",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-138：切换响应式布局时，页面崩溃报错",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-138开放切换响应式布局时，页面崩溃报错&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/21 21:49进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Ji...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8TnL$---.WWNaFdE",
+        "mailId": "2_0:DzzzzyO8TnL$---.WWNaFdE",
+        "markedSubject": "[JIRA] 更新 PP-138：切换响应式布局时，页面崩溃报错",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO8TnL---.WWAAcoo",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-138：切换响应式布局时，页面崩溃报错",
+        "tagList": [],
+        "timestamp": 1708524328000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 19:05",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "encSummary": "有是  1更新 &nbsp;&nbsp;PagePlug / PP-116再次打开新建api，在选项中输入内容后，标签页无法切换&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/21 18:50进行更改 &nbsp;状态:Wait For Review再次打开&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8WQ6$---.WWIcrKO",
+        "mailId": "2_0:DzzzzyO8WQ6$---.WWIcrKO",
+        "markedSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlkr---.W96l9xL",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "tagList": [],
+        "timestamp": 1708513527000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 18:55",
+            "displaySize": "29KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-123：细节优化",
+        "encSummary": "有是  3更新 &nbsp;&nbsp;PagePlug / PP-123处理中细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 3 updates &nbsp;黄江浩 对 2024/02/21 18:39进行更改 &nbsp;描述:1、把导航功能补回来\n\n!image-2024-01-18-17-13-58-620.png|width=305,height=153!\n\n2、OpenAI的图标丢失\n\n!...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8WZT$---.WWHdogW",
+        "mailId": "2_0:DzzzzyO8WZT$---.WWHdogW",
+        "markedSubject": "[JIRA] 更新 PP-123：细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJQa7---.WA182ln",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-123：细节优化",
+        "tagList": [],
+        "timestamp": 1708512928000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 18:44",
+            "displaySize": "23KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-123：细节优化",
+        "encSummary": "此事务中提到了您。&nbsp;&nbsp;PagePlug / PP-123处理中细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 评论 &nbsp;黄江浩在2024/02/21 18:40提到了您 &nbsp;翟思丰\n1、第5个问题没处理\n2、新增第9个、第10个问题\n&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8Wjo$---.WWHBYka",
+        "mailId": "2_0:DzzzzyO8Wjo$---.WWHBYka",
+        "markedSubject": "[JIRA] 更新 PP-123：细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJQa7---.WA182ln",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-123：细节优化",
+        "tagList": [],
+        "timestamp": 1708512267000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 15:10",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "encSummary": "有是  1更新 &nbsp;&nbsp;PagePlug / PP-129开放table组件编写失焦&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/21 15:01进行更改 &nbsp;Attachment:image-2024-02-21-15-05-23-876.png&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃80700...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8ZsP$---.WW6KQUw",
+        "mailId": "2_0:DzzzzyO8ZsP$---.WW6KQUw",
+        "markedSubject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOIW-2---.WBmPNsv",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "tagList": [],
+        "timestamp": 1708499428000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 15:10",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-122：sql查询不可用",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-122关闭sql查询不可用&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/21 14:55进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  ...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8ZsQ$---.WW5y7Kf",
+        "mailId": "2_0:DzzzzyO8ZsQ$---.WW5y7Kf",
+        "markedSubject": "[JIRA] 更新 PP-122：sql查询不可用",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJl4c---.W9.clQU",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-122：sql查询不可用",
+        "tagList": [],
+        "timestamp": 1708499427000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 15:06",
+            "displaySize": "23KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "encSummary": "此事务中提到了您。&nbsp;&nbsp;PagePlug / PP-129开放table组件编写失焦&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 评论 &nbsp;黄江浩在2024/02/21 15:02提到了您 &nbsp;1、光标失焦 翟思丰\n\n&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改善了电子邮件通知，分享您的反...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8ZwA$---.WW5a7J.",
+        "mailId": "2_0:DzzzzyO8ZwA$---.WW5a7J.",
+        "markedSubject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOIW-2---.WBmPNsv",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-129：table组件编写失焦",
+        "tagList": [],
+        "timestamp": 1708499187000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:15",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-117：删除应用组时，消息提示不见了",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-117关闭删除应用组时，消息提示不见了&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/21 14:02进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e37...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8afw$---.WW43iJk",
+        "mailId": "2_0:DzzzzyO8afw$---.WW43iJk",
+        "markedSubject": "[JIRA] 更新 PP-117：删除应用组时，消息提示不见了",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlkq---.W9CAxup",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-117：删除应用组时，消息提示不见了",
+        "tagList": [],
+        "timestamp": 1708496131000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:15",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-128：list组件重复了一个事件",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-128关闭list组件重复了一个事件&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/21 14:00进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e370...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8afx$---.WW3Rrwl",
+        "mailId": "2_0:DzzzzyO8afx$---.WW3Rrwl",
+        "markedSubject": "[JIRA] 更新 PP-128：list组件重复了一个事件",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOIWsJ---.WBK2zE6",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-128：list组件重复了一个事件",
+        "tagList": [],
+        "timestamp": 1708496130000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:15",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-120：全选页面的时候，全选了页面文案",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-120关闭全选页面的时候，全选了页面文案&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/21 14:05进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8afy$---.WW3dF66",
+        "mailId": "2_0:DzzzzyO8afy$---.WW3dF66",
+        "markedSubject": "[JIRA] 更新 PP-120：全选页面的时候，全选了页面文案",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlIj---.W9BTcQ5",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-120：全选页面的时候，全选了页面文案",
+        "tagList": [],
+        "timestamp": 1708496129000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:15",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-119再次打开global属性消失不能使用&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/21 14:04进行更改 &nbsp;Attachment:image-2024-02-21-14-08-40-221.png状态:Wait For Review再次打开&nbsp;&nbsp; 这条信息是由Atl...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8afz$---.WW3vrhT",
+        "mailId": "2_0:DzzzzyO8afz$---.WW3vrhT",
+        "markedSubject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlS3---.W9BIvy4",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "tagList": [],
+        "timestamp": 1708496128000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:09",
+            "displaySize": "23KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "encSummary": "此事务中提到了您。&nbsp;&nbsp;PagePlug / PP-119再次打开global属性消失不能使用&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 评论 &nbsp;黄江浩在2024/02/21 14:05提到了您 &nbsp;为什么提示会显示roles、groups的内容。。 翟思丰\n\n&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8alc$---.WW2j20C",
+        "mailId": "2_0:DzzzzyO8alc$---.WW2j20C",
+        "markedSubject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlS3---.W9BIvy4",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-119：global属性消失不能使用",
+        "tagList": [],
+        "timestamp": 1708495767000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:00",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "encSummary": "有是  1更新 &nbsp;&nbsp;PagePlug / PP-116再次打开新建api，在选项中输入内容后，标签页无法切换&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/21 13:53进行更改 &nbsp;状态:Wait For Review再次打开&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8au-$---.WW3Slbg",
+        "mailId": "2_0:DzzzzyO8au-$---.WW3Slbg",
+        "markedSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlkr---.W96l9xL",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "tagList": [],
+        "timestamp": 1708495231000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 14:00",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-137：Jsobject的代码样式框问题",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-137开放Jsobject的代码样式框问题&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/21 13:46进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  J...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8au.$---.WW2VGUP",
+        "mailId": "2_0:DzzzzyO8au.$---.WW2VGUP",
+        "markedSubject": "[JIRA] 更新 PP-137：Jsobject的代码样式框问题",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyO8au.---.WVyeWsf",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-137：Jsobject的代码样式框问题",
+        "tagList": [],
+        "timestamp": 1708495230000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月21日(星期三) 13:59",
+            "displaySize": "23KB",
+            "encDisplayTime": "2月21日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "encSummary": "此事务中提到了您。&nbsp;&nbsp;PagePlug / PP-116再次打开新建api，在选项中输入内容后，标签页无法切换&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 评论 &nbsp;黄江浩在2024/02/21 13:55提到了您 &nbsp;1、api点击运行的时候，页面崩溃报错 [~zhaisifeng]\n\n!image-2024-02-21-13-58-22-645.png|width=5...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyO8av-$---.WW2Eule",
+        "mailId": "2_0:DzzzzyO8av-$---.WW2Eule",
+        "markedSubject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJlkr---.W96l9xL",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-116：新建api，在选项中输入内容后，标签页无法切换",
+        "tagList": [],
+        "timestamp": 1708495167000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月20日(星期二) 16:51",
+            "displaySize": "61KB",
+            "encDisplayTime": "2月20日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Welcome to Appsmith\n          \n            时间\n          \n            2024年02月20日 16:51:...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyO8tTl$---.WVQp2sk",
+        "mailId": "2_0:DzzzzyO8tTl$---.WVQp2sk",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1708419086000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "邓靓璐 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "邓靓璐 (Confluence)",
+                "name": "邓靓璐 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月20日(星期二) 16:43",
+            "displaySize": "201KB",
+            "encDisplayTime": "2月20日",
+            "encRcpLineContent": "邓靓璐 (Confluence)"
+        },
+        "encSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "encSummary": "这个页面上有 2 新 编辑 &nbsp;ee-v1.9.35 提测记录邓靓璐 编辑了这个页面这里是变化：...\n代码块修改yml配置的image\n\ndocker-compose down\n\ndocker-compose up -d镜像更新说明镜像备注日期分支【最后提交】环境地址harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.3...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "邓靓璐 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "邓靓璐 (Confluence)",
+            "name": "邓靓璐 (Confluence)"
+        },
+        "id": "DzzzzyO8tbD$---.WVPTbQE",
+        "mailId": "2_0:DzzzzyO8tbD$---.WVPTbQE",
+        "markedSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOWJct---.Vh61hQQ",
+        "status": 4,
+        "subject": "[行云知识库] PagePlug > ee-v1.9.35 提测记录",
+        "tagList": [],
+        "timestamp": 1708418608000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "邓靓璐 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "邓靓璐 (Confluence)",
+                "name": "邓靓璐 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月20日(星期二) 16:33",
+            "displaySize": "174KB",
+            "encDisplayTime": "2月20日",
+            "encRcpLineContent": "邓靓璐 (Confluence)"
+        },
+        "encSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "encSummary": "这个页面上有 1 新 编辑 &nbsp;ee-v1.9.35 提测记录邓靓璐 编辑了这个页面这里是变化：...\n镜像备注日期分支【最后提交】环境地址harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.35_20231128150207\n\nJiraserverJiracolumnskey,summary,type,created,u...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "邓靓璐 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "邓靓璐 (Confluence)",
+            "name": "邓靓璐 (Confluence)"
+        },
+        "id": "DzzzzyO8tkb$---.WVPoif6",
+        "mailId": "2_0:DzzzzyO8tkb$---.WVPoif6",
+        "markedSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOWJct---.Vh61hQQ",
+        "status": 4,
+        "subject": "[行云知识库] PagePlug > ee-v1.9.35 提测记录",
+        "tagList": [],
+        "timestamp": 1708418008000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "邓靓璐 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "邓靓璐 (Confluence)",
+                "name": "邓靓璐 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月20日(星期二) 16:23",
+            "displaySize": "174KB",
+            "encDisplayTime": "2月20日",
+            "encRcpLineContent": "邓靓璐 (Confluence)"
+        },
+        "encSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "encSummary": "这个页面上有 2 新 编辑 &nbsp;ee-v1.9.35 提测记录邓靓璐 编辑了这个页面这里是变化：...\n镜像备注日期分支【最后提交】环境地址harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.35_20231128150207\n\nJiraserverJiracolumnskey,summary,type,created,u...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "邓靓璐 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "邓靓璐 (Confluence)",
+            "name": "邓靓璐 (Confluence)"
+        },
+        "id": "DzzzzyO8tty$---.WVPSYXb",
+        "mailId": "2_0:DzzzzyO8tty$---.WVPSYXb",
+        "markedSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOWJct---.Vh61hQQ",
+        "status": 4,
+        "subject": "[行云知识库] PagePlug > ee-v1.9.35 提测记录",
+        "tagList": [],
+        "timestamp": 1708417409000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "邓靓璐 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "邓靓璐 (Confluence)",
+                "name": "邓靓璐 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月20日(星期二) 16:13",
+            "displaySize": "177KB",
+            "encDisplayTime": "2月20日",
+            "encRcpLineContent": "邓靓璐 (Confluence)"
+        },
+        "encSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "encSummary": "这个页面上有 4 新 编辑 &nbsp;ee-v1.9.35 提测记录邓靓璐 编辑了这个页面这里是变化：开发注意不要一直创建新的测试环境。\n没有特殊情况，测试环境地址是稳定的\n...\n代码块修改yml配置的image\n\ndocker-compose down\n\ndocker-compose up -d镜像更新说明镜像备注日期分支【最后提交】环境地址harbor.clo...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "邓靓璐 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "邓靓璐 (Confluence)",
+            "name": "邓靓璐 (Confluence)"
+        },
+        "id": "DzzzzyO8u1L$---.WVNm7tq",
+        "mailId": "2_0:DzzzzyO8u1L$---.WVNm7tq",
+        "markedSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35 提测记录",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOWJct---.Vh61hQQ",
+        "status": 4,
+        "subject": "[行云知识库] PagePlug > ee-v1.9.35 提测记录",
+        "tagList": [],
+        "timestamp": 1708416808000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Confluence)",
+                "name": "黄江浩 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月6日(星期二) 10:59",
+            "displaySize": "66KB",
+            "encDisplayTime": "2月6日",
+            "encRcpLineContent": "黄江浩 (Confluence)"
+        },
+        "encSubject": "[行云知识库] 黄江浩在&quot;2月份工作计划&quot;提到了你",
+        "encSummary": "黄江浩 在一个页面中提到了您&nbsp;2月份工作计划&middot;&middot;&middot;\n历史记录管理功能开发&nbsp;@翟思丰社区版代码1.9.45合并&nbsp;@翟思丰&nbsp;@吴培彬全局消息提示功能及样式优化：需求描述（或者备注栏的【右侧的全局提示功能优化】）&nbsp;@邓靓璐&nbsp;@翟思丰打印事件封装&nbsp;@翟思丰&nbsp;@邓靓璐 ；需求描述待补充&nbsp;@黄江浩Jsobject对调用企业微信、钉钉的优化调整&nbsp;@翟思丰部分js库安装适配...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Confluence)",
+            "name": "黄江浩 (Confluence)"
+        },
+        "id": "DzzzzyODZxl$---.WOElzpe",
+        "mailId": "2_0:DzzzzyODZxl$---.WOElzpe",
+        "markedSubject": "[行云知识库] 黄江浩在&quot;2月份工作计划&quot;提到了你",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyODZxl---.WO56q-O",
+        "status": 4,
+        "subject": "[行云知识库] 黄江浩在\"2月份工作计划\"提到了你",
+        "tagList": [],
+        "timestamp": 1707188366000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 15:25",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-124：屏蔽掉谷歌google sheet服务",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-124关闭屏蔽掉谷歌google sheet服务&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/05 15:06进行更改 &nbsp;解决结果:完成状态:开放关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Ji...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyODr8j$---.WNhutvt",
+        "mailId": "2_0:DzzzzyODr8j$---.WNhutvt",
+        "markedSubject": "[JIRA] 更新 PP-124：屏蔽掉谷歌google sheet服务",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOJiWT---.W9KHngv",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-124：屏蔽掉谷歌google sheet服务",
+        "tagList": [],
+        "timestamp": 1707117904000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 14:25",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-110：屏蔽掉企业版的显示，临时打个镜像包",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-110关闭屏蔽掉企业版的显示，临时打个镜像包&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/05 14:07进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyODs0x$---.WNfuVcv",
+        "mailId": "2_0:DzzzzyODs0x$---.WNfuVcv",
+        "markedSubject": "[JIRA] 更新 PP-110：屏蔽掉企业版的显示，临时打个镜像包",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOOiWd---.Vyxo5nY",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-110：屏蔽掉企业版的显示，临时打个镜像包",
+        "tagList": [],
+        "timestamp": 1707114306000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 14:25",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-133：在响应式布局下，事件设置为打开弹窗失效",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-133关闭在响应式布局下，事件设置为打开弹窗失效&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/05 14:07进行更改 &nbsp;解决结果:完成状态:开放关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Ji...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyODs0y$---.WNfEjpc",
+        "mailId": "2_0:DzzzzyODs0y$---.WNfEjpc",
+        "markedSubject": "[JIRA] 更新 PP-133：在响应式布局下，事件设置为打开弹窗失效",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFU1L---.WJyeXP0",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-133：在响应式布局下，事件设置为打开弹窗失效",
+        "tagList": [],
+        "timestamp": 1707114305000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 12:20",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-136：配置了邮箱服务，却提示系统未配置",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-136关闭配置了邮箱服务，却提示系统未配置&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/05 12:02进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyODts9$---.WNbKh47",
+        "mailId": "2_0:DzzzzyODts9$---.WNbKh47",
+        "markedSubject": "[JIRA] 更新 PP-136：配置了邮箱服务，却提示系统未配置",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOEkQQ---.WLrWiA8",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-136：配置了邮箱服务，却提示系统未配置",
+        "tagList": [],
+        "timestamp": 1707106804000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 12:20",
+            "displaySize": "25KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-135：重置密码页面的细节优化",
+        "encSummary": "有是  2更新 &nbsp;&nbsp;PagePlug / PP-135关闭重置密码页面的细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/05 12:02进行更改 &nbsp;解决结果:完成状态:Wait For Review关闭&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyODtsA$---.WNbPd.7",
+        "mailId": "2_0:DzzzzyODtsA$---.WNbPd.7",
+        "markedSubject": "[JIRA] 更新 PP-135：重置密码页面的细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOEkZo---.WLqUjum",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-135：重置密码页面的细节优化",
+        "tagList": [],
+        "timestamp": 1707106803000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 11:17",
+            "displaySize": "36KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Appsmith Password Reset\n          \n            时间\n          \n            2024年02月05日 11...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyODumY$---.WNYkRbR",
+        "mailId": "2_0:DzzzzyODumY$---.WNYkRbR",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1707103067000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月5日(星期一) 11:17",
+            "displaySize": "36KB",
+            "encDisplayTime": "2月5日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Appsmith Password Reset\n          \n            时间\n          \n            2024年02月05日 11...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyODumd$---.WNYdlvd",
+        "mailId": "2_0:DzzzzyODumd$---.WNYdlvd",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1707103062000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月4日(星期日) 16:43",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月4日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOE95D$---.WN4DG-u",
+        "mailId": "2_0:DzzzzyOE95D$---.WN4DG-u",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOE95D---.WN-N1ik",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1707036208000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月4日(星期日) 16:37",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月4日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOE9Ap$---.WN3xM3p",
+        "mailId": "2_0:DzzzzyOE9Ap$---.WN3xM3p",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOE9Ap---.WN-qObJ",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1707035850000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月4日(星期日) 16:32",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月4日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOE9F9$---.WN3ran3",
+        "mailId": "2_0:DzzzzyOE9F9$---.WN3ran3",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOE9F9---.WN2MvdC",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1707035572000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月4日(星期日) 15:36",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月4日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOEA42$---.WN1U46p",
+        "mailId": "2_0:DzzzzyOEA42$---.WN1U46p",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOEA42---.WN-.iAJ",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1707032187000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月4日(星期日) 14:06",
+            "displaySize": "1KB",
+            "encDisplayTime": "2月4日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Test email from Appsmith",
+        "encSummary": "This is a test email from Appsmith, initiated from Admin Settings page. If you are seeing this, your email configuration is working!",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOEBNy$---.WMxsfqc",
+        "mailId": "2_0:DzzzzyOEBNy$---.WMxsfqc",
+        "markedSubject": "Test email from Appsmith",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOEBNy---.WMwUEHV",
+        "status": 4,
+        "subject": "Test email from Appsmith",
+        "tagList": [],
+        "timestamp": 1707026817000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月4日(星期日) 14:04",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月4日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Test email from Appsmith\n          \n            时间\n          \n            2024年02月04日 1...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyOEBQW$---.WMyu-7e",
+        "mailId": "2_0:DzzzzyOEBQW$---.WMyu-7e",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1707026653000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Confluence)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Confluence)",
+                "name": "黄江浩 (Confluence)"
+            },
+            "encFullDisplayTime": "2024年2月2日(星期五) 22:23",
+            "displaySize": "145KB",
+            "encDisplayTime": "2月2日",
+            "encRcpLineContent": "黄江浩 (Confluence)"
+        },
+        "encSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35.1 提测记录",
+        "encSummary": "这个页面上有 2 新 编辑 &nbsp;ee-v1.9.35.1 提测记录黄江浩 编辑了这个页面这里是变化：...\n镜像备注日期分支【最后提交】环境地址harbor.cloud2go.cn/pageplug/pageplug-ee:v1.9.35_20231128150207\n\nJiraserverJiracolumnskey,summary,type,created...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Confluence)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Confluence)",
+            "name": "黄江浩 (Confluence)"
+        },
+        "id": "DzzzzyOEkIu$---.WLzb52U",
+        "mailId": "2_0:DzzzzyOEkIu$---.WLzb52U",
+        "markedSubject": "[行云知识库] PagePlug &gt; ee-v1.9.35.1 提测记录",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOWJct---.Vh61hQQ",
+        "status": 4,
+        "subject": "[行云知识库] PagePlug > ee-v1.9.35.1 提测记录",
+        "tagList": [],
+        "timestamp": 1706883781000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月2日(星期五) 22:14",
+            "displaySize": "30KB",
+            "encDisplayTime": "2月2日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-136：配置了邮箱服务，却提示系统未配置",
+        "encSummary": "有是  2更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-136开放配置了邮箱服务，却提示系统未配置&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 2 updates &nbsp;黄江浩 对 2024/02/02 21:59进行更改 &nbsp;描述:h2. 问题描述：\n\n1、退出账号后，点击忘记密码功能，提示未配置邮箱服务，如贴图的图1所示：\n\n2、需要进入【管理员设置】-...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyOEkQQ$---.WLyqU0-",
+        "mailId": "2_0:DzzzzyOEkQQ$---.WLyqU0-",
+        "markedSubject": "[JIRA] 更新 PP-136：配置了邮箱服务，却提示系统未配置",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOEkQQ---.WLrWiA8",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-136：配置了邮箱服务，却提示系统未配置",
+        "tagList": [],
+        "timestamp": 1706883299000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "noreply@cloudtogo.cn",
+                "displayName": "黄江浩 (Jira)",
+                "email": "noreply@cloudtogo.cn",
+                "encDisplayEmail": "noreply@cloudtogo.cn",
+                "encDisplayName": "黄江浩 (Jira)",
+                "name": "黄江浩 (Jira)"
+            },
+            "encFullDisplayTime": "2024年2月2日(星期五) 22:04",
+            "displaySize": "24KB",
+            "encDisplayTime": "2月2日",
+            "encRcpLineContent": "黄江浩 (Jira)"
+        },
+        "encSubject": "[JIRA] 更新 PP-135：重置密码页面的细节优化",
+        "encSummary": "有是  1更新 现在此事务 已分配给您。&nbsp;&nbsp;PagePlug / PP-135开放重置密码页面的细节优化&nbsp;查看事务 &nbsp;&nbsp;&middot;&nbsp;&nbsp; 添加评论&nbsp; 1 update &nbsp;黄江浩 对 2024/02/02 21:48进行更改 &nbsp;经办人:翟思丰&nbsp;&nbsp; 这条信息是由Atlassian Jira发送的（v 8.7.1＃807001 -sha1：03e3702 ）  Jira 改...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "noreply@cloudtogo.cn",
+            "displayName": "黄江浩 (Jira)",
+            "email": "noreply@cloudtogo.cn",
+            "encDisplayEmail": "noreply@cloudtogo.cn",
+            "encDisplayName": "黄江浩 (Jira)",
+            "name": "黄江浩 (Jira)"
+        },
+        "id": "DzzzzyOEkZo$---.WLySsw4",
+        "mailId": "2_0:DzzzzyOEkZo$---.WLySsw4",
+        "markedSubject": "[JIRA] 更新 PP-135：重置密码页面的细节优化",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOEkZo---.WLqUjum",
+        "status": 4,
+        "subject": "[JIRA] 更新 PP-135：重置密码页面的细节优化",
+        "tagList": [],
+        "timestamp": 1706882699000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 14:47",
+            "displaySize": "61KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Welcome to Appsmith\n          \n            时间\n          \n            2024年02月01日 14:47:...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyOFA3f$---.WKvdal7",
+        "mailId": "2_0:DzzzzyOFA3f$---.WKvdal7",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1706770068000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 14:41",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFA9D$---.WKv44ql",
+        "mailId": "2_0:DzzzzyOFA9D$---.WKv44ql",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFA9D---.WKllanq",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1706769712000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 14:08",
+            "displaySize": "1KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Test email from Appsmith",
+        "encSummary": "This is a test email from Appsmith, initiated from Admin Settings page. If you are seeing this, your email configuration is working!",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFAel$---.WKsxcKf",
+        "mailId": "2_0:DzzzzyOFAel$---.WKsxcKf",
+        "markedSubject": "Test email from Appsmith",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFAel---.WKh4D2j",
+        "status": 4,
+        "subject": "Test email from Appsmith",
+        "tagList": [],
+        "timestamp": 1706767694000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 11:53",
+            "displaySize": "1KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Test email from Appsmith",
+        "encSummary": "This is a test email from Appsmith, initiated from Admin Settings page. If you are seeing this, your email configuration is working!",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFCd6$---.WKmwiV1",
+        "mailId": "2_0:DzzzzyOFCd6$---.WKmwiV1",
+        "markedSubject": "Test email from Appsmith",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCd6---.WKZWwJZ",
+        "status": 4,
+        "subject": "Test email from Appsmith",
+        "tagList": [],
+        "timestamp": 1706759607000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 11:51",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFCem$---.WKnFAQ6",
+        "mailId": "2_0:DzzzzyOFCem$---.WKnFAQ6",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCem---.WKmHLz7",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1706759501000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 11:40",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFCpC$---.WKmE1uc",
+        "mailId": "2_0:DzzzzyOFCpC$---.WKmE1uc",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCpC---.WKZYQwM",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1706758833000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "no-reply@mailsupport.aliyun.com",
+                "displayName": "阿里邮箱",
+                "email": "no-reply@mailsupport.aliyun.com",
+                "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+                "encDisplayName": "阿里邮箱",
+                "name": "阿里邮箱"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 11:39",
+            "displaySize": "36KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "阿里邮箱"
+        },
+        "encSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "encSummary": "退信通知\n      \n        很抱歉，你发送的邮件被外系统退回，相关信息如下：\n      \n\n            邮件主题\n          \n            Appsmith Password Reset\n          \n            时间\n          \n            2024年02月01日 11...",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "no-reply@mailsupport.aliyun.com",
+            "displayName": "阿里邮箱",
+            "email": "no-reply@mailsupport.aliyun.com",
+            "encDisplayEmail": "no-reply@mailsupport.aliyun.com",
+            "encDisplayName": "阿里邮箱",
+            "name": "阿里邮箱"
+        },
+        "hasAttach": true,
+        "id": "DzzzzyOFCqH$---.WKmWya7",
+        "mailId": "2_0:DzzzzyOFCqH$---.WKmWya7",
+        "markedSubject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFCqH---.WKm.oGf",
+        "status": 4,
+        "subject": "来自no-reply@mailsupport.aliyun.com的退信",
+        "tagList": [],
+        "timestamp": 1706758764000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 11:13",
+            "displaySize": "16KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Appsmith Password Reset",
+        "encSummary": " Password reset link for Appsmith apps\nForgotten your password? No worries, we&rsquo;ve got you covered. This link will expire in 48 hours.\n Reset Password\nAppsmith is an open source fra...",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFDCr$---.WKkOAi2",
+        "mailId": "2_0:DzzzzyOFDCr$---.WKkOAi2",
+        "markedSubject": "Appsmith Password Reset",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFDCr---.WKSaXu9",
+        "status": 4,
+        "subject": "Appsmith Password Reset",
+        "tagList": [],
+        "timestamp": 1706757192000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "avatarAddr": "#2cad4d",
+                "clientExtraInfo": {},
+                "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "翟思丰",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "翟思丰",
+                "name": "翟思丰",
+                "nickName": "",
+                "type": "1"
+            },
+            "encFullDisplayTime": "2024年2月1日(星期四) 10:50",
+            "displaySize": "1KB",
+            "encDisplayTime": "2月1日",
+            "encRcpLineContent": "翟思丰"
+        },
+        "encSubject": "Test email from Appsmith",
+        "encSummary": "This is a test email from Appsmith, initiated from Admin Settings page. If you are seeing this, your email configuration is working!",
+        "folderId": "2",
+        "from": {
+            "avatarAddr": "#2cad4d",
+            "clientExtraInfo": {},
+            "departmentId": "-----3----.LSqik3:2:----.M3rqH7",
+            "displayEmail": "zhaisifeng@cloudtogo.cn",
+            "displayName": "翟思丰",
+            "email": "zhaisifeng@cloudtogo.cn",
+            "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+            "encDisplayName": "翟思丰",
+            "name": "翟思丰",
+            "nickName": "",
+            "type": "1"
+        },
+        "id": "DzzzzyOFDY4$---.WKit.7.",
+        "mailId": "2_0:DzzzzyOFDY4$---.WKit.7.",
+        "markedSubject": "Test email from Appsmith",
+        "owner": "zhaisifeng_cloudtogo_cn@cloudtogo.cn",
+        "read": true,
+        "sameCluster": true,
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyOFDY4---.WKSbGDx",
+        "status": 4,
+        "subject": "Test email from Appsmith",
+        "tagList": [],
+        "timestamp": 1706755833000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "zhaisifeng@cloudtogo.cn",
+                "displayName": "",
+                "email": "zhaisifeng@cloudtogo.cn",
+                "encDisplayEmail": "zhaisifeng@cloudtogo.cn",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    }
+]
