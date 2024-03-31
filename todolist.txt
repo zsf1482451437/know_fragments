@@ -570,21 +570,13 @@ gitlab搭建ci/cd;
 工具盒；
 拖拽式俄罗斯方块；
 
+【周末】
+改简历、投那个；√
+复盘+面经；
+离职理由+针对自我介绍；
+下周计划；√
+梳理下自研中小型厂；√
 
-首次进入pp页面提示错误，手动刷新才能进入注册页（路由：/welcome）；√
-WidgetFactory.tsx:391 Widget stylesheet properties not defined:  TREE_WIDGET；√
-ResizeObserver loop completed with undelivered notifications.
-at handleError (http://localhost:8160/static/js/bundle.js:549651:58)
-at http://localhost:8160/static/js/bundle.js:549670:7
-React does not recognize the `data-widgetId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-widgetid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
-react-dom.development.js:67 Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
-Missing pageId. If you are trying to set href inside a react component use the 'useHref' hook.
-[Blueprint] <Dialog> isCloseButtonShown prop is ignored if title is omitted；
-ast/src/peekOverlay/index.ts 32:0 处报错
-1-react-dom.development.js:67 Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?警告
-2-react-dom.development.js:67 Warning: styled.input contains an input of type text with both value and defaultValue props. Input elements must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props.（input）
-3-react-dom.development.js:67 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.（Canvas）
-4-首页-点击分享：Warning: `value` in Select options should not be `null`. （WorkspaceInviteUsersForm ）
-5-开发区-点击应用设置：Warning: Received `true` for a non-boolean attribute `fill`.
-If you want to write it to the DOM, pass a string instead: fill="true" or fill={value.toString()}.（GeneralSettings ）
-6-开发区-删除input组件：Warning: React does not recognize the `isMultiLine` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `ismultiline` instead. If you accidentally passed it from a parent component, remove it from the DOM element.（ControlGroup ）
+【4.1~4.5】
+
+
