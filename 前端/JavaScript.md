@@ -1205,6 +1205,8 @@ console.log(elements.join("-"));
 - 函数作用域
 - with语句形成的
 
+es6之后，引进**块级作用域**（let const声明所在的块，如if语句，for循环等，块外无法访问）
+
 **为什么会出现变量\函数提升？**
 
 这与全局代码执行过程有关
@@ -2524,37 +2526,91 @@ console.log("后续代码");
 
 ## 闭包
 
-在 JavaScript 中，闭包会随着**函数的创建**而被同时创建；
+一个**函数**能够记住并访问其**词法作用域**，即使该函数在词法作用域之外执行。
 
-*闭包*是由**函数**以及声明该函数的**词法环境**组合而成的；
-
-该环境包含了这个**闭包创建时**作用域内的**任何局部变量**。
-
-**js 中的闭包**
+**案例**
 
 ```js
-function foo() {
-  var name = "zsf";
-  function bar() {
-    console.log("bar", name);
-  }
-  return bar;
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    return count;
+  };
 }
-var fn = foo();
-fn(); //bar
+
+let counter = outer();
+console.log(counter()); // 输出：1
+console.log(counter()); // 输出：2
 ```
 
-**闭包=bar()+name**
+在这个例子中，`outer` 函数返回了 `inner` 函数。`inner` 函数引用了 `outer` 函数的 `count` 变量，即使 `outer` 函数已经执行完毕，`inner` 函数仍然能够访问 `count` 变量。这就是闭包。
 
-闭包可以理解为**函数**+**可以访问的自由变量**
+### 用途
 
-**执行完 foo()**后，**理应销毁 foo()的作用域**，但是 foo()**内部的的 bar()**还需要访问 foo()作用域中的**name**（阻止了 foo()的回收）
+- 模块化（创建私有成员）
+- 函数柯里化
+- 事件处理
 
-**广义上**，**js 中所有函数都是闭包**（**可以访问**外层作用域的自由变量）
+> 模块化
 
-**狭义上**，js 中的**函数**如果**访问了**外层作用域的变量（访问了），那这函数就是一个闭包
+每个模块都有自己的私有作用域，只暴露出需要公开的接口。这可以防止全局作用域被污染，避免命名冲突。
 
-**模块模式**是闭包的应用~
+```js
+var myModule = (function () {
+  var privateVar = 'I am private...';
+  return {
+    publicMethod: function () {
+      console.log(privateVar);
+    }
+  };
+})();
+
+myModule.publicMethod(); // 输出："I am private..."
+```
+
+> 函数柯里化
+
+柯里化是一种将使用多个参数的函数转换成一系列使用一个参数的函数的技术。闭包在这里的作用是保存每一步的参数。
+
+```js
+function curryAdd(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
+    }
+  }
+}
+
+var add = curryAdd(1)(2)(3); // 输出：6
+```
+
+> 事件处理
+
+在 JavaScript 的事件处理中，闭包常常被用来绑定或者保存事件触发时需要使用的信息。
+
+```js
+for (var i = 0; i < 5; i++) {
+  (function(i) {
+    setTimeout(function() {
+      console.log(i);
+    }, i * 1000);
+  })(i);
+}
+```
+
+在这个例子中，闭包被用来保存循环中的当前值 `i`。如果没有闭包，所有的 `setTimeout` 回调函数都会共享同一个 `i`，结果会不如预期。
+
+这段代码通过使用闭包，使得异步函数能够访问到它们被**创建时**的环境，而不是它们**执行时**的环境。
+
+### 问题
+
+- 内存泄漏
+- 代码可读性
+
+> 内存泄漏
+
+闭包对于保存状态非常有用，但是，如果再需要这些状态而忘记（或无法）解除引用，那这些数据将一直存在于内存之中，导致内存泄漏。
 
 ### 闭包陷阱
 
@@ -2896,173 +2952,19 @@ console.log(obj)
 
 ## 原型
 
-JavaScript 常被描述为一种**基于原型的语言 (prototype-based language)**——每个对象拥有一个**原型对象**，对象以其原型为模板、从原型继承**方法**和**属性**。
+每个对象都有一个**原型**，原型本身也是一个对象；
 
-### 对象原型（隐式原型）
+可以通过**Object.getPrototypeOf(obj)**获取或已经被弃用的`__proto__`获取；
 
-对象的**原型**可以通过**Object.getPrototypeOf(obj)**获取或已经被弃用的__proto__获取；
+### 原型链
 
-js中每个**对象**都有一个`__proto__`属性(是个对象)，这个对象叫对象的**原型**（**隐式原型**），这个对象还会**指向另一个对象**（对应的**原型对象**）
+访问一个对象的属性时，js首先会在对象自身的属性中查找；
 
-```js
-var obj = {
-  name: 'zsf',
-  __proro__: {}
-}
-```
+如果找不到，会在对象的原型中查找；
 
-**隐式原型有什么用呢？**
+然后是原型的原型，以此类推，直到找到属性或到达原型链的末端（null）；
 
-1. 在**当前对象**中去**查找**对应的**属性**，如果**找到就直接使用**
-2. 如果**没有找到**，那么会**沿着他的原型**去查找
-3. 为什么要把有些属性放进原型，而不放在对象里？**为了继承**，这样就**不用每个对象都放**，而是**需要**就去**原型里面找**，这也就解决了**构造函数**可能**重复创建**某些可能不需要的属性了
-
-```js
-var obj = {
-  name: 'zsf'
-}
-console.log(obj.age)// undefined
-```
-
-```js
-var obj = {
-  name: 'zsf'
-}
-obj.__proto__.age = 10
-console.log(obj.age)// 10
-```
-
-在传统的 OOP 中，首先定义“类”，此后创建**对象实例**时，类中定义的所有**属性和方法**都被复制到实例中;
-
-在 JavaScript 中并不如此复制——而是在**对象实例**和它的**构造器**之间建立一个**链接**（它是__proto__属性，是从构造函数的`prototype`属性派生的）;
-
-之后通过上溯**原型链**，在构造器中找到这些**属性和方法**;
-
-### 函数原型（显式原型)
-
-**函数原型有什么用呢？**
-
-new调用函数时，发生了什么？
-
-1. 在内存中**创建一个新对象**（空）
-2. 将**构造函数**的**显式原型prototype**赋值给前面创建出来的**对象**的**隐式原型**__proto__
-3. **构造函数**内部的**this**，会**指向**创建出来的**新对象**
-4. **执行**函数代码
-5. 如果构造函数没有**返回非空对象**，这**返回**创建出来的**新对象**
-
-第2步
-
-```js
-function foo() {
-  // 下面三行代码是内部自动操作的，不用写
-  var moni = {}
-  this = {}
-  this.__proto__ = foo.prototype
-}
-
-console.log(foo.prototype)
-
-new foo()
-```
-
-构造函数的**prototype**属性与**对象的原型**的区别：
-
-对象的原型是**每个实例**上都有的属性；
-
-构造函数的**prototype**属性是**构造函数**的属性；
-
-`Object.getPrototypeOf(new Foobar())`和`Foobar.prototype`指向着同一个对象；
-
-### 构造函数的prototype
-
-希望被**原型链下游**的对象继承的**属性和方法**，都被储存在其中；
-
-**构造函数**的**prototype**属性**指向**了他的**原型对象**，该原型对象里面有**constructor**属性；
-
-每个**实例对象**都从**原型**中继承了一个 **constructor** 属性，该属性**指向**了用于构造此实例的**构造函数**；
-
-![image-20220305193122666](C:\Users\86131\Desktop\know_fragments\前端\JavaScript.assets\image-20220305193122666.png)
-
-prototype.**constructor**指向构造函数本身
-
-**可以往prototype里添加的属性吗？**
-
-可以的
-
-而且还可以添加多个
-
-```js
-function foo() {
-  
-}
-
-foo.prototype = {
-  name: 'zsf',
-  age: 18
-}
-
-var f1 = new foo()
-console.log(f1.name, f1.age);
-```
-
-但是一定要加constructor，原来prototype有，不添加会影响原型链
-
-```js
-function foo() {
-  
-}
-
-foo.prototype = {
-  constructor: foo,
-  name: 'zsf',
-  age: 18
-}
-
-var f1 = new foo()
-console.log(f1.name, f1.age);
-```
-
-这样添加的constructor，可枚举为true，应该设置为false
-
-开发中应该这样添加constructor（用对象的defineProperty）
-
-```js
-function foo() {
-  
-}
-
-foo.prototype = {
-  name: 'zsf',
-  age: 18
-}
-Object.defineProperty(foo.prototype, 'constructor', {
-  enumerable: false,
-  configurable: true,
-  writable: true,
-  value: foo
-})
-
-var f1 = new foo()
-console.log(f1.name, f1.age);
-```
-
-### 对象的其它方法、操作符
-
-| hasOwnProperty()     | 对象是否有某一个**属于自己**的属性（而不是原型上的属性）     |
-| -------------------- | ------------------------------------------------------------ |
-| **in/for in** 操作符 | 判断某个属性是否在**对象上或对象的原型上**                   |
-| instanceof           | 检测**构造函数的prototype**，是否**出现在某个实例对象的原型链**上（stu instanceof Student） |
-| isPrototypeOf()      | 检测**某个对象**，是否**出现**在**某个实例对象的原型链**上   |
-
-
-
-## 原型链
-
-解释了为何一个对象会拥有定义在**其他对象中**的属性和方法；
-
-从一个**对象上获取属性**，如果在当前**对象中没有**获取到就会**去它的原型上**面获取
-
-可观察到原型链的例子
+这个查找的过程就叫做**原型链**。
 
 ```js
 var obj = {
@@ -3083,55 +2985,67 @@ obj.__proto__.__proto__ = {
 console.log(obj.address)// 广州
 ```
 
-![image-20220305202808053](C:\Users\86131\Desktop\know_fragments\前端\JavaScript.assets\image-20220305202808053.png)
+### 构造函数
 
-### Object的原型对象
+每个**构造函数**都有一个`prototype`属性，指向一个**对象**；
 
-**原型链最顶层的**原型对象--Object原型对象
+这个对象就是通过该构造函数创建的**所有实例**的**原型**；
 
- ![image-20220305212629232](C:\Users\86131\Desktop\know_fragments\前端\JavaScript.assets\image-20220305212629232.png)
+同时，这个对象也有一个`constructor`属性，指回构造函数本身；
 
-原型链是有尽头的(Object.prototype)
+### 原型继承
+
+js的继承是通过**原型链**实现的；
+
+当创建一个新的**对象实例**时，可以选择一个对象作为它的**原型**；
+
+新对象回继承原型的所有属性。
+
+> 案例
 
 ```js
-var obj = {
-  name: 'zsf',
-  age: 18
+function Person(name) {
+  this.name = name;
 }
 
-console.log(obj.__proto__)// 尽头
-console.log(obj.__proto__.__proto__)// null 因为没了
+Person.prototype.sayHello = function() {
+  console.log('Hello, my name is ' + this.name);
+};
+
+let alice = new Person('Alice');
+alice.sayHello(); // 输出：Hello, my name is Alice
+
+console.log(alice instanceof Person); // 输出：true
 ```
 
-new Object() 发生了什么，类似于new调用构造函数
+在这个例子中，`Person` 是一个构造函数;
+
+`Person.prototype` 是构造函数的原型对象；
+
+在 `Person.prototype` 上定义了一个 `sayHello` 方法，所以通过 `Person` 构造函数创建的所有实例（如 `alice`）都可以访问这个方法
+
+### new的过程
+
+1. **创建新对象**：js会创建一个新对象；
+2. **设置原型**：新对象的`__proto__`被设置为构造函数的`prototype`对象。这样**新对象**就可以访问**构造函数原型**中的属性和方法；
+3. **绑定this**：在构造函数内部，this关键字会被绑定到刚**创建的新对象**。这意味着在构造函数中使用this时，你实际上是在引用新创建的对象。
+4. **执行构造函数的代码**：**构造函数**内部的代码会被执行，通常这些代码会初始化**新对象**的属性；
+5. **返回新对象**：如果**构造函数**没有显式返回一个对象，那么**新创建的对象**会被隐式地返回（大部分）。如果构造函数返回的是一个**非对象类型**，那么这个返回值会被忽略，仍然会返回新创建的对象。如果构造函数有返回的是一个对象，那这个对象会被返回。
 
 ```js
-var obj1 = new Object()
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function() {
+  console.log('Hello, my name is ' + this.name);
+};
+
+let alice = new Person('Alice');
+alice.sayHello(); // 输出：Hello, my name is Alice
 ```
 
-Object()内部
-
-```js
-var moni = {}
-this = moni
-this.__proto__ = Object.prototype
-执行代码
-return moni
-```
-
-**moni对象变成了 `{ __proto__: Object.prototype }`**
-
-**返回的moni对象**会被**obj1接收**
-
-也就是
-
-```js
-obj1.__proto__ = Object.prototype
-```
-
-### Object本质也是构造函数
-
-既然是构造函数，那就有**显式原型**prototype
+在这个例子中，`new Person('Alice')` 创建了一个新的 `Person` 对象，并将 `name` 属性初始化为 `'Alice'`。新对象的 `__proto__` 属性被设置为 `Person.prototype`，所以它可以访问 `sayHello` 方法。
 
 ## 继承
 

@@ -1,9 +1,10 @@
-function decimalToBase(num, hex = 7) {
-  let res = "";
-  while (num > 0) {
-    res = (num % hex) + res;
-    num = Math.floor(num / hex);
-  }
-  return res || "0";
-}
-console.log(decimalToBase(100)); // '202'
+const _ = require("lodash");
+
+let original = { a: 1, b: { c: 2 } };
+
+// 使用 lodash 的 _.cloneDeep 方法创建 original 的深拷贝
+let copy = _.cloneDeep(original);
+
+original.b.c = 3;
+
+console.log(copy.b.c); // 输出：2，因为 copy.b 和 original.b 引用的是不同的对象
