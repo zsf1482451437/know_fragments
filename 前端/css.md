@@ -1510,7 +1510,7 @@ root em，rem总是相对于**html的font-size**
 如何**直接**根据**html的font-size**大小**动态**的计算出对应的**rem**值？
 
 - vscode插件px to rem（快捷键Alt+Z）（不推荐）
-- postcss-pxtorem插件
+- postcss-pxtorem插件（响应式项目，移动端用了px包转rem，pc端样式用 `/*no*/` 声明该样式不转rem）
 - 利用less的计算能力（可以**定义变量**和**计算**）
 
 **less**需要**转化成css**才能生效，而转化成less有2种方案：
