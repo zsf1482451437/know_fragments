@@ -3,3 +3,4 @@
  * [0] -> [0]
  * 实现这种效果的排序
  */
+console.log(JSON.parse('"joy"'));

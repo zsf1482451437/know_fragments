@@ -12632,12 +12632,36 @@ Warning:
 
 另一种可能的解决方案是检查组件是否已经卸载，然后再更新状态。
 
+> type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+>
+> Check your code at index.tsx:122.
+
+
+
+> Prop `style` did not match. Server: "null" Client: "display:"
+
+
+
+
+
+> An error occurred during hydration. The server HTML was replaced with client content in <div>. 
+
+
+
+> Cannot update a component (`GNavigationBarH5`) while rendering a different component (`CommonLayout`). To locate the bad setState() call inside `CommonLayout`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
+
+
+
+> Expected server HTML to contain a matching <div> in <div>.
+
+
+
 ## TypeError
 
 报错信息：
 
 ```
-TypeError: Invalid attempt to spread non-iterable instance.
+Invalid attempt to spread non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
 ```
 
@@ -12681,15 +12705,28 @@ useEffect(() => {
 
 > https://stackoverflow.com/questions/75646528/react-router-dom-typeerror-n-is-not-a-function-on-route-reloading-page-works
 
-## React.jsx: type is invalid
+## Uncaught Error
 
-```
-Warning: React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
-
-Check your code at index.tsx:122.
-```
+> There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
 
 
+
+> Hydration failed because the initial UI does not match what was rendered on the server
+
+出现这个问题是因为在浏览器中第一次渲染期间呈现的React树(称为水合作用)与从服务器预渲染的React树之间存在不匹配
+
+水合化是React通过附加**事件处理程序**将预渲染的HTML转换为**交互式应用**程序的过程。水合作用问题可能由几种原因引起:
+
+- 使用了**仅浏览器**支持的API（如 `typeof window !== 'undefined` 、`localStorage`）
+- 不正确的**元素嵌套**（如a元素包裹a元素等）
+- 使用了**浏览器插件**，修改了html内容
+- 等
+
+参考：https://nextjs.org/docs/messages/react-hydration-error
+
+## Uncaught SyntaxError
+
+> Unexpected token ':' 
 
 ## 修改create-react-app默认启动端口3000
 
@@ -12825,9 +12862,22 @@ function App() {
 </div>
 ```
 
-## Warning: validateDOMNesting(...): <button> cannot appear as a descendant of <button>.
+## 警告
 
-button不能嵌套，想方法让button不嵌套
+> Image with src "http://120.78.165.27:8087/upload/ttmall/img/20240305/0a078df03c6ea35519add1a0a1335cfc.png=z-250,147_f-png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+
+
+
+> Do not add <script> tags using next/head (see inline <script>). Use next/script instead. 
+> See more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-component
+
+
+
+> Third-party cookie will be blocked. Learn more in the Issues tab.
+
+
+
+> The domain LOCALHOST is not authorized to show the cookie banner for domain group ID f9c46b56-5a60-4907-b929-105ac2e24049. Please add it to the domain group in the Cookiebot Manager to authorize the domain.
 
 
 

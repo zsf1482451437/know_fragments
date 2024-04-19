@@ -8,12 +8,17 @@
 购物车&商品详情字体样式调整√
 邀请好友页面图片替换√
 
-【4.15-4.20】
-网站icon;√
-尝试屏蔽客户端和服务端错误提示
+【4.15-4.19】
+BJU网站icon（nuxt）;√
+BB首页注册登录弹窗（nuxt）；√
+BK移动端商品详情页-轮播样式（nuxt）；√
 商品详情-主客场切换；
-BB首页注册登录弹窗；√
-球队页箭头；√
+球队页箭头（&）；√
+轮播组件翻页箭头显隐逻辑（next）；√
+PJ替换首页背景图片（nuxt）；√
+ES个人中心添加引荐入口（nest）；√
+BB登录弹窗布局样式修改（nuxt）；√
+
 
 可优化：
 列表渲染key
@@ -21,6 +26,21 @@ next-商品详情-秒杀倒计时生成条件判断去掉
 部分按钮监听键盘回车事件（如登录注册）
 GJ生产环境商品详情滑动效果有问题；
 商品详情页下滑滚动有缺陷；
+图片格式优化；
+生产控制台：ture is not defined
+部分请求失败；
+控制台报错：
+1.Hydration failed because the initial UI does not match what was rendered on the server
+2.There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+3.An error occurred during hydration. The server HTML was replaced with client content in <div>. 
+4.Prop `style` did not match. Server: "null" Client: "display:"
+5.Cannot update a component (`GNavigationBarH5`) while rendering a different component (`CommonLayout`). To locate the bad setState() call inside `CommonLayout`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
+6.validateDOMNesting(...): <a> cannot appear as a descendant of <a>.
+7.Image with src "http://120.78.165.27:8087/upload/ttmall/img/20240305/0a078df03c6ea35519add1a0a1335cfc.png=z-250,147_f-png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+8.The domain LOCALHOST is not authorized to show the cookie banner for domain group ID f9c46b56-5a60-4907-b929-105ac2e24049. Please add it to the domain group in the Cookiebot Manager to authorize the domain.
+9.Third-party cookie will be blocked. Learn more in the Issues tab.
+10.Do not add <script> tags using next/head (see inline <script>). Use next/script instead. 
+See more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-component
 
 状态管理
 
@@ -41,7 +61,8 @@ aaa1234
 非秒杀商品：87471
 
 工作流程：
-0.以master分支为依据，签出xxx分支（xxx）
+-1.先fetch一下，查看远程有哪些分支更新
+0.以远程master分支为依据，签出xxx分支（xxx）
 1.开发完后，push到远程xxx分支（xxx）
 2.切到develop分支， 同步远程develop分支（develop）
 3.git merge xxx分支（develop）
