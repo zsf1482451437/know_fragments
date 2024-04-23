@@ -838,6 +838,37 @@ function App() {
 }
 ```
 
+### 注意
+
+> 不要在函数组件内定义子组件！
+
+```jsx
+export default function Gallery() {
+  // 🔴 Never define a component inside another component!
+  function Profile() {
+    // ...
+  }
+  // ...
+}
+```
+
+类似这样，**会非常慢和导致bug！**
+
+可以将子组件在文件顶层定义：
+
+```jsx
+export default function Gallery() {
+  // ...
+}
+
+// ✅ Declare components at the top level
+function Profile() {
+  // ...
+}
+```
+
+
+
 ## 生命周期
 
 从**创建到销毁**的过程，叫生命周期；

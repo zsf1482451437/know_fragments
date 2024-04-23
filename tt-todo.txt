@@ -19,6 +19,15 @@ PJ替换首页背景图片（nuxt）；√
 ES个人中心添加引荐入口（nest）；√
 BB登录弹窗布局样式修改（nuxt）；√
 
+【4.22-4.28】
+
+nest：
+SD、ES商品详情页秒杀跳转；√
+SD首页、商品详情页文案修改；√
+优化轮播组件的服务端渲染效果；
+SD首页新增轮播文案模块；√
+轮播组件自动轮播问题；
+
 
 可优化：
 列表渲染key
@@ -59,6 +68,7 @@ See more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-comp
 aaa1234
 
 非秒杀商品：87471
+代码vue BK网站是master分支
 
 工作流程：
 -1.先fetch一下，查看远程有哪些分支更新
