@@ -643,4 +643,48 @@ _.sortedUniqBy(ff, (i) => i.value)
 
 执行yarn，link 步骤第三方库playwright安装慢
 
-### 
+## Could not find any Visual Studio installation to use
+
+执行 `npm install`
+
+出现 
+
+```bash
+npm ERR! gyp ERR! find VS msvs_version was set from command line or npm config
+npm ERR! gyp ERR! find VS - looking for Visual Studio version 2022
+npm ERR! gyp ERR! find VS VCINSTALLDIR not set, not running in VS Command Prompt
+npm ERR! gyp ERR! find VS unknown version "undefined" found at "D:\devTools\visualStudio\IDE"
+npm ERR! gyp ERR! find VS could not find a version of Visual Studio 2017 or newer to use
+npm ERR! gyp ERR! find VS looking for Visual Studio 2015
+npm ERR! gyp ERR! find VS - not found
+npm ERR! gyp ERR! find VS not looking for VS2013 as it is only supported up to Node.js 8
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! find VS valid versions for msvs_version:
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! find VS **************************************************************
+npm ERR! gyp ERR! find VS You need to install the latest version of Visual Studio
+npm ERR! gyp ERR! find VS including the "Desktop development with C++" workload.
+npm ERR! gyp ERR! find VS For more information consult the documentation at:
+npm ERR! gyp ERR! find VS https://github.com/nodejs/node-gyp#on-windows
+npm ERR! gyp ERR! find VS **************************************************************
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! configure error
+npm ERR! gyp ERR! stack Error: Could not find any Visual Studio installation to use
+npm ERR! gyp ERR! stack     at VisualStudioFinder.fail (D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\find-visualstudio.js:121:47)
+npm ERR! gyp ERR! stack     at D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\find-visualstudio.js:74:16
+npm ERR! gyp ERR! stack     at VisualStudioFinder.findVisualStudio2013 (D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\find-visualstudio.js:351:14)
+npm ERR! gyp ERR! stack     at D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\find-visualstudio.js:70:14
+npm ERR! gyp ERR! stack     at D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\find-visualstudio.js:372:16
+npm ERR! gyp ERR! stack     at D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\util.js:54:7
+npm ERR! gyp ERR! stack     at D:\workspace\TTMall_Nuxt\node_modules\node-gyp\lib\util.js:33:16
+npm ERR! gyp ERR! stack     at ChildProcess.exithandler (node:child_process:430:5)
+npm ERR! gyp ERR! stack     at ChildProcess.emit (node:events:517:28)
+npm ERR! gyp ERR! stack     at maybeClose (node:internal/child_process:1098:16)
+npm ERR! gyp ERR! System Windows_NT 10.0.22631
+npm ERR! gyp ERR! command "D:\\devTools\\node\\node.exe" "D:\\workspace\\TTMall_Nuxt\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild"
+npm ERR! gyp ERR! cwd D:\workspace\TTMall_Nuxt\node_modules\node-zopfli-es
+npm ERR! gyp ERR! node -v v18.20.2
+npm ERR! gyp ERR! node-gyp -v v7.1.0
+npm ERR! gyp ERR! not ok
+```
+

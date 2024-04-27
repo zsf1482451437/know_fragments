@@ -19,14 +19,19 @@ PJ替换首页背景图片（nuxt）；√
 ES个人中心添加引荐入口（nest）；√
 BB登录弹窗布局样式修改（nuxt）；√
 
-【4.22-4.28】
+【4.22-4.29】
+nuxt: 
+修复checkout页面优惠劵登录后不显示；√
+修改BK秒杀楼层文案；√
+修改TJ首页链接；√
+新增BB登录弹窗延迟出现；√
 
 nest：
-SD、ES商品详情页秒杀跳转；√
-SD首页、商品详情页文案修改；√
+修复SD、ES商品详情页秒杀跳转；√
+修改SD首页、商品详情页文案；√
 优化轮播组件的服务端渲染效果；
-SD首页新增轮播文案模块；√
-轮播组件自动轮播问题；
+新增SD首页新增轮播文案模块；√
+新增ES&SD页脚星级评分；√
 
 
 可优化：
@@ -67,17 +72,26 @@ See more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-comp
 2323@qq.com
 aaa1234
 
+项目相关：
 非秒杀商品：87471
-代码vue BK网站是master分支
+能买：
+/productdetail/Authentic-Adidas-Boca-Juniors-Home-Soccer-Jersey-2021-22/160952
+
+如果vuex不能改全局，来src\Basic\store\index.js 的 getWebsiteInfo改
+
+代码vue master分支：BK、TJ
+查看修改后生产效果：package.json改启动参数development为production
+next next/
+mobile flex/
+Nuxt hotfix/
 
 工作流程：
--1.先fetch一下，查看远程有哪些分支更新
 0.以远程master分支为依据，签出xxx分支（xxx）
 1.开发完后，push到远程xxx分支（xxx）
-2.切到develop分支， 同步远程develop分支（develop）
-3.git merge xxx分支（develop）
-4.push到远程develop分支（develop）
-5.修改看板状态（拖拽）
+2.切到develop分支，git fetch origin获取远程更新，有就合并远程develop分支（develop）
+3.git merge xxx分支， push到远程develop分支（develop）
+4.修改看板状态（拖拽）
 
+当xxx分支需要修改时，重复1-4
 
  
