@@ -24,15 +24,21 @@ nuxt:
 修复checkout页面优惠劵登录后不显示；√
 修改BK秒杀楼层文案；√
 修改TJ首页链接；√
-新增BB登录弹窗延迟出现；√
+新增BB登录弹窗延迟10s出现；√
+修改GJ页头和导航吸顶效果；√
+新增GJ首页、球队页、博客详情页分享按钮；√
 
 nest：
 修复SD、ES商品详情页秒杀跳转；√
 修改SD首页、商品详情页文案；√
-优化轮播组件的服务端渲染效果；
 新增SD首页新增轮播文案模块；√
-新增ES&SD页脚星级评分；√
+新增ES&SD首页页脚星级评分；√
+修改SD商品详情页尺码为全部展示；√
 
+优化轮播组件的服务端渲染效果；
+
+隐患：
+/productdetail/elric-test-table-001/189751 商品报错
 
 可优化：
 列表渲染key
@@ -79,11 +85,21 @@ aaa1234
 
 如果vuex不能改全局，来src\Basic\store\index.js 的 getWebsiteInfo改
 
+import showToast from '~basic/utils/showToast';
+Vue.prototype.$showToast = showToast;
+
+export default context => {
+  context.$showToast = showToast;
+};
+
+
 代码vue master分支：BK、TJ
 查看修改后生产效果：package.json改启动参数development为production
-next next/
-mobile flex/
-Nuxt hotfix/
+【next】 响应式 next/
+【mobile】
+FlexMaster 响应式 flex/
+master  Nuxt的移动端 hotfix/
+【Nuxt】 PC hotfix/
 
 工作流程：
 0.以远程master分支为依据，签出xxx分支（xxx）

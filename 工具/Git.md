@@ -226,6 +226,10 @@ cherry-pick这种类型的提交报错：
 git cherry-pick -m 1 fe3c6a5023c56403aeeff3e7b93f60b71c45b9ab
 ```
 
+## please clean your repository working tree before checkout
+
+暂时到stash中
+
 
 
 **本地仓库已经新建了很多文件，怎么和新建的Github远程仓库建立关联？**
