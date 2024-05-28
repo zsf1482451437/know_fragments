@@ -12755,6 +12755,12 @@ useEffect(() => {
 
 参考：https://nextjs.org/docs/messages/react-hydration-error
 
+## Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
+
+这个错误通常是由于在 React 组件中条件性地调用 Hooks 导致的。在 React 中，你不能在循环、条件或嵌套函数中调用 Hooks，必须确保在每次渲染时都以相同的顺序调用所有的 Hooks。
+
+
+
 ## Uncaught SyntaxError
 
 > Unexpected token ':' 

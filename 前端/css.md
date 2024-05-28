@@ -1672,12 +1672,15 @@ root em，rem总是相对于**html的font-size**
 - 选择器**没选中**
 - 使用**形式不对**
 - **浏览器不支持**该属性
+- 开发环境要是出现**选择器层级相同**，尽量让**期望的样式**选择器优先级提升，因为发布到线上之后，样式文件里的这两段相同层级的样式，有可能出现顺序问题，导致被覆盖
 
 **多使用开发者工具调试**
 
 好看的颜色网站：
 
 https://flatuicolors.com/
+
+检查弹窗样式：叫出弹窗，右键检查，控制台的元素栏就可以看到
 
 # 爬取数据技巧
 
@@ -2060,4 +2063,22 @@ position: relative;
 这是为何？
 
 ## 原图片很小，盒子宽高很大导致图片很模糊
+
+
+
+## classnames库
+
+```js
+import style from './index.module.scss';
+import classNames from 'classnames/bind';
+
+const cn = classNames.bind(style);
+cn(`${hasTags ? 'hasTags' : ''}share-content pc-show test1`) // 不生效
+```
+
+改写成这样：
+
+```js
+cn('share-content', 'pc-show', `${hasTags ? 'hasTags' : ''}`)
+```
 

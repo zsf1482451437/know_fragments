@@ -35,20 +35,106 @@ nest：
 新增ES&SD首页页脚星级评分；√
 修改SD商品详情页尺码为全部展示；√
 
+【5.6-5.11】
+next:
+新增SD&ES首页、球队页、商品详情页、博客详情页分享功能；√
+修改SD&ES商品详情页移动端轮播图片样式；√
+修改ES shipping页面文案和图片；√
+修改个人中心-修改密码为跳转到改密码页面；√
+
+
+nuxt：
+新增TJ楼层五展示更多按钮；√
+修改GG商品详情页移动端轮播图片样式；√
+修改GG&GJ shipping页面文案和图片；√
+取消BB首页登录注册弹窗；√
+
+
+【5.13-5.18】
+next：
+迁移BJ商品详情页新人优惠券；√
+修复下单页级联选择器丢失问题；√
+
+nuxt：
+新增GJ联盟营销页；√
+修改GG问答页聊天窗口打开方式；√
+修改GG联盟营销页图片；√
+新增GG首页底部电话号码；√
+PC端隐藏右侧悬浮图标；√
+更新修改密码页文案；√
+隐藏GG的PC端商品卡片原价；√
+隐藏GG的shipping页部分物流国家；√
+新增GG 的shipping页文案；√
+
+【5.20-5.25】
+next：
+新增SD、ES站点地图；√
+修改SD、ES、BK商品卡片标签样式；√
+修改GTJ页脚文案；√
+同步GG、PJ商品详情页样式；√
+修复PJ页头样式；√
+新增加入购物车异常处理，接口挂掉不影响加入购物车；√
+新增BK底部注册楼层；√
+
+
+nuxt：
+新增GG个人中心部分入口；√
+修改GG、GJ商品卡片的标签样式；√
+
+【5.27-5.31】
+next:
+替换尺码表图片；√
+
+GG迁移：
+修改页脚底部电话号码的字段名;√
+修改shipping页文案和图片、隐藏部分物流国家；√
+替换邀请好友页图片；√
+隐藏商品卡片和商品详情页原价; √
+隐藏pc端所有页面右侧悬浮图标；√
+个人中心页新增入口；(图标待补充)
+
+其他网站迁移：
+GJ：
+TJ：
+BB：
+BK：移动端商品详情页封面图改为左右滑动；√
+BB、BJ、BJU：
+
+待同步：
+GJ：
+页头改为上滑不出现；https://ow6br3uczyg.feishu.cn/record/SeD9rltzJeb3OHcD2rZcH7C6nid
+联盟营销页；https://ow6br3uczyg.feishu.cn/record/EOIUrKIN9eoe5Oc3YtmcdCP1nfb
+
+TJ：
+首页楼层五新增Show more按钮；https://ow6br3uczyg.feishu.cn/record/EFkprn9TVeADMzcTg0GcStjPnGe
+BB:
+登录弹框样式修改; https://ow6br3uczyg.feishu.cn/record/KxnyrRUYCeTjTtcjUloch66on9e
+BB、BJ、BJU：
+商品详情页、购物车页字体样式；https://ow6br3uczyg.feishu.cn/record/BkzPrWgrAeh3pZcbTHYcNS8wnmg
+
 优化轮播组件的服务端渲染效果；
+
+style['xxx'] -> cn('xxx) 正则快速替换：
+搜索：style\['(.*?)'\]
+替换：cn('$1')
 
 隐患：
 /productdetail/elric-test-table-001/189751 商品报错
 
 可优化：
-列表渲染key
+个人中心页HeaderNav组件列表key值警告；
+首页底部样式异常；
+shipping页水合报错；
+NSwiper组件水合过程中的警告；
+页头菜单tab切换时，重复渲染过多；
+列表渲染key;
 next-商品详情-秒杀倒计时生成条件判断去掉
 部分按钮监听键盘回车事件（如登录注册）
-GJ生产环境商品详情滑动效果有问题；
-商品详情页下滑滚动有缺陷；
+商品详情页定制区patch list下拉菜单为空；
+商品详情页部分商品没有总价计算，比如测试环境/productdetail/brithday-card/189689这件；
 图片格式优化；
-生产控制台：ture is not defined
 部分请求失败；
+商品快速弹窗打开时的控制台警告；
 控制台报错：
 1.Hydration failed because the initial UI does not match what was rendered on the server
 2.There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
@@ -67,13 +153,6 @@ See more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-comp
 学习next-serverSideTranslations
 理解多语言方案设计
 
-剩下的5个页面：
-- 自身命名空间
-- defaultLayout、mineLayout都要
-- 有详细页就common，productDetail
-- $t()两个参数的，需要{{}}
-- 用到Trans组件，i18nKey内容去掉{{}}，添加ns=目录+文件名
-
 测试账号
 2323@qq.com
 aaa1234
@@ -83,23 +162,19 @@ aaa1234
 能买：
 /productdetail/Authentic-Adidas-Boca-Juniors-Home-Soccer-Jersey-2021-22/160952
 
-如果vuex不能改全局，来src\Basic\store\index.js 的 getWebsiteInfo改
-
-import showToast from '~basic/utils/showToast';
-Vue.prototype.$showToast = showToast;
-
-export default context => {
-  context.$showToast = showToast;
-};
-
-
 代码vue master分支：BK、TJ
 查看修改后生产效果：package.json改启动参数development为production
 【next】 响应式 next/
 【mobile】
 FlexMaster 响应式 flex/
 master  Nuxt的移动端 hotfix/
-【Nuxt】 PC hotfix/
+【Nuxt】 PC hotfix/ 
+
+设计稿转化：
+375 移动端尺寸
+1920 pc端尺寸
+
+跳转用useLink的hook
 
 工作流程：
 0.以远程master分支为依据，签出xxx分支（xxx）

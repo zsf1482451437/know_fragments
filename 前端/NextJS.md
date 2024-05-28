@@ -1,3 +1,31 @@
+## 服务端渲染
+
+### React Server Components
+
+这是一种可以在服务器上渲染并可选缓存的UI。它有助于：
+
+- 数据获取
+- 安全性
+- 缓存
+- 性能优化
+- 初始页面加载
+- 首次内容绘制（FCP）
+- 搜索引擎优化
+- 社交网络分享能力
+- 流式传输
+
+### Next.js中使用
+
+默认情况下，Next.js使用服务端组件，无需额外配置即可实现服务端渲染。可以在需要时选择使用客户端组件。
+
+### 渲染策略
+
+- **静态渲染**：在构建时或在数据重新验证后在后台渲染路由。结果被缓存并可以推送到CDN。这种优化允许你在用户和服务器请求之间共享渲染工作的结果。
+- **动态渲染**：在每个用户的请求时渲染路由。当路由有用户个性化的数据或只能在请求时知道的信息时，动态渲染很有用。
+- **流式渲染**：允许你将渲染工作分割成块，并在它们准备好时将它们流式传输到客户端。这允许用户在服务器上渲染整个页面之前看到页面的部分内容。
+
+
+
 ## 开始
 
 1. 安装脚手架
@@ -87,3 +115,11 @@ export default function InvoiceStatus({ status }: { status: string }) {
 
 - scss
 - css-in-js（style-jsx、style-component、emotion）
+
+## 疑难杂症
+
+```js
+Warning: Expected server HTML to contain a matching <div> in <div>.
+```
+
+参考链接：https://stackoverflow.com/questions/46865880/react-16-warning-expected-server-html-to-contain-a-matching-div-in-div-due?answertab=scoredesc#tab-top
