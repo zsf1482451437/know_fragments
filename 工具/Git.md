@@ -172,7 +172,39 @@ git merge-base branchA branchB
 git rebase branchB
 ```
 
+## 查找某个文件的删除，在哪一次提交
 
+```bash
+git log --diff-filter=D --summary > log.txt
+```
+
+将包含文件删除的提交记录，写入`log.txt`文件，然后在文件中搜索文件名，就可以看到相关commit的hash
+
+比如
+
+```bash
+commit da76ba676629367b1a067bfb17964b9009969581
+Author: xxx
+Date:   Tue May 7 16:37:43 2024 +0800
+
+    【EDIT】添加Reddit社媒分享，整合分享组件
+
+ delete mode 100644 src/GG/components/gg/GMobileShareButton.vue
+ delete mode 100644 src/GG/components/gg/GPcShareButton.vue
+```
+
+> 拓展
+
+- `--summary`显示提交摘要
+- `--diff-filter`提交类型，包含
+  - `A`：只显示**添加**的文件。
+  - `C`：只显示**复制**的文件。
+  - `D`：只显示**删除**的文件。
+  - `M`：只显示**修改**的文件。
+  - `R`：只显示**重命名**的文件。
+  - `T`：只显示**更改了文件类型**的文件。
+
+此外，还可以在选项前加上小写字母 `d` 来排除选择。例如，`--diff-filter=dM` 会显示除了修改的文件以外的所有文件。
 
 # 团队协作
 

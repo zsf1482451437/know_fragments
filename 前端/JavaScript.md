@@ -8407,4 +8407,15 @@ Module not found: Error: Can't resolve 'xxx' in 'D:\workspace\pp\ce\b_d\app\clie
 
 > Refused to set unsafe header "Expect"
 
-这个错误是因为浏览器不允许通过 JavaScript 设置某些 HTTP 头部，"Expect" 就是其中之一。这是由于安全原因，防止某些类型的网络攻击。
+这个错误是因为浏览器不允许通过 JavaScript 设置某些 HTTP 头部，"Expect" 就是其中之一。这是由于安全原因，防止某些类型的网络攻击。****
+
+>  SyntaxError
+
+报错信息：
+
+```
+Unexpected non-whitespace character after JSON at position 3 (line 1 column 4)
+```
+
+这个错误提示意味着你试图解析的JSON字符串格式不正确。在JSON字符串中，所有的属性名和字符串值都必须用双引号包围，而且在属性名和值之间必须使用冒号。如果JSON字符串不符合这些规则，`JSON.parse()`方法就会抛出一个`SyntaxError`。
+
