@@ -1,10 +1,9 @@
 # 快捷键
 
-> 打开命名面板
+- 打开命名面板 `ctrl+shift+p`
+- 指定行跳转`ctrl+G`
 
-```
-ctrl+shift+p
-```
+
 
 在`.eslintrc.js`:
 
