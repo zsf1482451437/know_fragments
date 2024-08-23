@@ -1,21 +1,33 @@
 点子：
 菜品制作教程
 
+
+【交互】
+hover图片转圈：掘金个人头像
+
+【window工具收集】
+音轨分离：SpleeterGui
+修复老照片：Bringing-Old-Photos-Back-to-Life、upscayl
+性能优化器：optimizer
+视频下载：4K Video Downloader
 待办：
 【项目】
 业务：埋点、支付
 效果：瀑布流[砖石布局]（其他布局）
 
 【blog】
-本地代理生效，vercel部署后，代理不生效啦？
+统计页面浏览次数；
+本地代理生效，vercel部署后，代理不生效啦？√
+开发便利：起别名后，如何快速进入到模块？
+css module中global的用法
 项目中集成tailwindcss？
 在本地运行，/component路由是有内容，但是用vercel部署上去，就404了，所有路由都这样，怎么回事
 
 【仓库-演练场】
-调整UI
+调整UI;√
 分类：组件、网络模块封装、状态管理模块、工具函数、
 响应式
-页头
+页头;√
 
 【功能】
 复现项目模块设计；
@@ -28,15 +40,12 @@ cypress测试下单功能；
 奥运相关的产业链；
 
 【生活-面】
-
-【github-仓库简介】
-playground
-blog_server
-zsfBlog
-what i know
-
+鸡蛋酱面√
+葱油面√
 
 【产品】
+照片+发型=预览；
+在线翻译输入法；
 待办助手
 一键操作：
 视频----》不同平台；
