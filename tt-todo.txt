@@ -191,6 +191,7 @@ BB、BJ、BJU：修改商品详情页、购物车页字体样式；√
 修改GJ的shipping页及shipping弹窗符号；√
 
 【9.2-9.6】
+修改球队页过滤逻辑；next/z-updateFilterTeamId
 GGs站群结账页优惠券数量>=1标红；√
 
 项目改进：

@@ -25,6 +25,7 @@ hover图片转圈：掘金个人头像
 css module中global的用法
 项目中集成tailwindcss？
 在本地运行，/component路由是有内容，但是用vercel部署上去，就404了，所有路由都这样，怎么回事
+如何查看运行时next.config.js的配置
 
 【仓库-演练场】
 调整UI;√
