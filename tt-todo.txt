@@ -250,6 +250,10 @@ GJ详情页导航悬浮效果同步首页；√
 新增ES首页creatorsClub入口；√
 处理测试环境商品详情页的报错；√
 
+【11.11-11.15】
+对接BS免邮楼层，重构部分结构和逻辑；√
+新增ES Influencer Program页面；
+
 
 项目改进：
 静态资源变多，构建产物变大，时间变长----》；
@@ -263,6 +267,7 @@ GJ详情页导航悬浮效果同步首页；√
 /mine/orders/shippingdetail?order_number=5CD4291BFFC016F2
 
 可优化：
+测试环境 首页部分接口请求多次：wishlist、floor
 下单页的重复刷新问题；
 详情页desc部分图片请求两次；
 获取邮箱验证码没提示；
