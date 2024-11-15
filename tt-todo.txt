@@ -252,7 +252,8 @@ GJ详情页导航悬浮效果同步首页；√
 
 【11.11-11.15】
 对接BS免邮楼层，重构部分结构和逻辑；√
-新增ES Influencer Program页面；
+新增ES Influencer Program页面；√
+请求头转发字段添加条件；√
 
 
 项目改进：
