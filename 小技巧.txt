@@ -33,6 +33,68 @@ copilot常用指令：
 
 我想熟悉fetch，你扮演一位高级工程师，教会我它有哪些功能，并封装成项目中的网络模块，开箱即用，并提供一些参考文档或者优质的博客
 
+【生成代码】
+I need to implement [specific functionality] in [programming language]. 
+Key requirements: 
+1. [Requirement 1]  
+2. [Requirement 2] 
+3. [Requirement 3]  
+   Please consider: 
+- Error handling  
+- Edge cases  
+- Performance optimization 
+- Best practices for [language/framework]  
+  Please do not unnecessarily remove any comments or code. 
+  Generate the code with clear comments explaining the logic. 
+
+我需要在[编程语言]中实现[特定功能]。
+主要要求：
+1. [要求1]
+2. [要求2]
+3. [要求3]
+   请考虑：
+- 错误处理
+- 边缘情况
+- 性能优化
+- [语言/框架]的最佳实践
+  请不要不必要地删除任何注释或代码。
+  生成带有清晰注释解释逻辑的代码。
+
+【优化代码】
+Please review the following code:
+[paste your code]
+Consider:
+
+1. Code quality and adherence to best practices
+2. Potential bugs or edge cases
+3. Performance optimizations
+4. Readability and maintainability
+5. Any security concerns
+   Suggest improvements and explain your reasoning for each suggestion.
+
+请审查选中代码：
+考虑：
+1. 代码质量和遵循最佳实践
+2. 潜在的错误或边缘情况
+3. 性能优化
+4. 可读性和可维护性
+5. 任何安全问题
+   提出改进建议并解释每个建议的理由。
+
+【审核代码】
+Can you explain the following part of the code in detail:
+[paste code section]
+Specifically:
+1. What is the purpose of this section?
+2. How does it work step-by-step?
+3. Are there any potential issues or limitations with this approach?
+
+你能详细解释选中代码部分吗：
+具体来说：
+1. 这一部分的目的是什么？
+2. 它是如何一步一步工作的？
+3. 这种方法是否存在潜在问题或限制？
+
 【设备】
 市面上移动设备宽度：
 手机 <430px
