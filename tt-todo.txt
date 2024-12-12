@@ -278,12 +278,20 @@ GJ详情页导航悬浮效果同步首页；√
 整理需要表单校验的页面；√
 新增BS公告楼层链接，点击可跳转；√
 
+【12.9-12.13】
+修复SD影响力计划页提问模块无法点击的问题；√
+同步BS公告楼层新增链接；√
+修改秒杀页即将开始的时间展示；√
+兼容CF导航栏二级分类为空情况；√
+兼容无影响力页的网站；√
+
 mine/wishlist 未登录状态按钮文案样式异常
 测试环境-排查俄语需要cc才生效
 排查下单页游客使用优惠券的局部刷新问题；
 
+
 【年度汇算】
-应税所得：总收入-6w-三险一金-专项扣除（养老&医疗&失业&公积金）
+应税所得：总收入-6w-三险一金（养老&医疗&失业&公积金）-专项扣除
 应纳税：应税所得x档位-速算扣（3%|10%|20%---0|2520|16920）
 应退税：预缴税-应纳税（若为负数，需补交）
 
@@ -363,7 +371,3 @@ GJ联盟营销页页头；√
 9.Third-party cookie will be blocked. Learn more in the Issues tab.
 10.Do not add <script> tags using next/head (see inline <script>). Use next/script instead. 
 See more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-component
-
-4.7 - 5.0   5.15发（357.8、400） 23.75
-
-7.11 -  8.0  8.15发 （294.7、336.8）
