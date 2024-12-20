@@ -285,6 +285,15 @@ GJ详情页导航悬浮效果同步首页；√
 兼容CF导航栏二级分类为空情况；√
 兼容无影响力页的网站；√
 
+【12.16-12.20】
+新增BJ注册浮窗，同BS；√
+尝试修复欧盟和非欧盟国家税率；√ next/z-fixTaxAndVat
+调整SD影响力计划页；√
+调整GG/GJ页脚WHATSAPP展示；
+
+isShowVAT = (type === 'payment' && selectAddressIsEU) || (type === 'paymentOrder' && payVat);
+结果为什么是0.00
+
 mine/wishlist 未登录状态按钮文案样式异常
 测试环境-排查俄语需要cc才生效
 排查下单页游客使用优惠券的局部刷新问题；
@@ -299,8 +308,9 @@ mine/wishlist 未登录状态按钮文案样式异常
 【今日】
 fetch用法及模块封装；√
 样式方案总结；
-时光盒子项目启动；
+时光盒子项目启动；√
 webpack功能
+移动端适配原理，常用设备尺寸
 
 项目改进：
 静态资源变多，构建产物变大，时间变长----》；
@@ -358,12 +368,6 @@ next-商品详情-秒杀倒计时生成条件判断去掉
 图片格式优化；
 商品快速弹窗打开时的控制台警告；
 
-shipping页水合报错；√
-生成创建组件脚本；√
-公共请求记录请求发起源头；√
-wallet页移动端首次加载不显示列表，减少wallet页请求；√
-个人中心页各个菜单请求排查、优化；√
-GJ联盟营销页页头；√
 控制台报错：
 5.Cannot update a component (`GNavigationBarH5`) while rendering a different component (`CommonLayout`). To locate the bad setState() call inside `CommonLayout`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
 7.Image with src "http://120.78.165.27:8087/upload/ttmall/img/20240305/0a078df03c6ea35519add1a0a1335cfc.png=z-250,147_f-png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
