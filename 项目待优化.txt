@@ -1,0 +1,44 @@
+【服务端渲染策略】
+以下页面适合使用 getStaticProps：
+静态内容页面：
+/faq/ - 常见问题页面
+/blog/ - 博客文章页面（不含动态内容）
+/sitemap/ - 网站地图
+/affiliateprogram/ - 联盟营销介绍页面
+/shipping/ - 物流政策页面
+/dropshipping-program/ - 代发货计划介绍
+/referral-program/ - 推荐计划介绍
+营销/介绍类页面：
+/creatorsclub/ - 创作者俱乐部介绍
+/influencerprogram/ - 网红计划介绍
+/refer-a-friend/ - 邀请朋友页面
+SEO重要的目录页：
+/team/ - 球队页面（如果数据不常变）
+/category/ - 分类页面（如果分类结构稳定）
+/club&nation/ - 俱乐部与国家队页面（如果结构固定）
+错误页面：
+404.jsx - 404页面
+500.js - 500错误页面
+不适合使用 getStaticProps 的页面：
+需要个性化内容的页面：
+/mine/ - 个人中心页面
+/cart/ - 购物车
+/user/ - 用户相关页面
+需要实时数据的页面：
+/payment/ - 支付页面
+/checkout/ - 结账页面
+/search/ - 搜索结果页面
+/searchnav/ - 搜索导航
+包含动态请求参数的页面：
+/productdetail/ - 商品详情页（除非使用 getStaticPaths）
+/invoice/ - 支付链接页面
+/videocommentdetail/ - 视频评论详情
+一些页面可以结合 getStaticProps 和 ISR（增量静态再生成）使用，如 /pointShop/（积分商城）和 /flashdeals/（秒杀），通过设置合适的 revalidate 时间来定期更新数据。
+
+【迁移next15待办】
+TODO部分切换成ts
+首页
+网络请求 √
+状态管理
+不同页面 √
+any类型补充
