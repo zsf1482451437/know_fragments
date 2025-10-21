@@ -4,3 +4,10 @@
 5.场景：超过多少s请求终止，有哪些方案
 6.比对两个对象，如果发现不一致，就终止比对，你会怎么比对
 不同数据类型该怎么比对
+7.条件断点
+8.next/image ,next/font 性能优化的原理
+9.webpack import动态加载的原理
+10.vue teleport组件
+11.cookie和localstorage区别，如何选型
+12.SSE协议
+13.聊天记录p图方法
