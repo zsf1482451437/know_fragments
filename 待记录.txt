@@ -1,0 +1,8 @@
+win+shift+s截屏 
+调试：https://www.cnblogs.com/X15512549546/p/19140367
+flex控制展示数量
+需要等比缩放的，高定（水平布局），或宽定（垂直布局），aspect-ratio: 1;
+flex手风琴动画
+图片高度固定，裁剪左右方案object-position
+列表无限循环 效果,模运算
+给元素断点，查看属性是否被js修改

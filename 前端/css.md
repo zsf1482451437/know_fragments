@@ -99,7 +99,7 @@ link效率高一点
 
 ```css
 .title {
-    
+
 }
 ```
 
@@ -187,7 +187,7 @@ tabindex可以调整tab选中元素的顺序
 
 ```css
 h2 {
-    
+
 }
 ```
 
@@ -247,15 +247,13 @@ span::before {
 - **伪元素**可以看成是**行内元素**
 - **content**属性不能少
 
-
-
 ## 组合选择器
 
 ### 后代选择器
 
 ```css
 div sapn {
-    
+
 }
 ```
 
@@ -267,7 +265,7 @@ div sapn {
 
 ```css
 div>span {
-    
+
 }
 ```
 
@@ -275,7 +273,7 @@ div>span {
 
 ```css
 div+span {
-    
+
 }
 ```
 
@@ -285,7 +283,7 @@ div+span {
 
 ```css
 div.one {
-    
+
 }
 ```
 
@@ -293,7 +291,7 @@ div.one {
 
 ```css
 div.one[title="test"] {
-    
+
 }
 ```
 
@@ -303,7 +301,7 @@ div.one[title="test"] {
 
 ```css
 div, .one {
-    
+
 }
 ```
 
@@ -441,8 +439,6 @@ overflow: hidden;
 text-overflow: ellipsis
 ```
 
-
-
 # 文本属性
 
 ## text-align
@@ -555,8 +551,6 @@ textarea {
 }
 ```
 
-
-
 # 字体
 
 ## font-size
@@ -649,19 +643,17 @@ span {
 
 **使用图片方式比较**
 
-| img元素          | 网站重要组成部分                               |
-| ---------------- | ---------------------------------------------- |
+| img元素            | 网站重要组成部分                   |
+| ---------------- | -------------------------- |
 | background-image | 先加载css再解析url；可以使用精灵图减少请求次数 |
-| iconfont字体图标 | 字体图标放大时不会失真；也可以减少请求次数     |
-
-
+| iconfont字体图标     | 字体图标放大时不会失真；也可以减少请求次数      |
 
 # CSS特性
 
 - 继承
 - 层叠
 
-##  继承性
+## 继承性
 
 **何为继承？**
 
@@ -818,8 +810,6 @@ min-width 最小宽度，确保内容能正常显示（尽管出现滚动条）
 }
 ```
 
-
-
 ### 防止margin上下出现传递
 
 - 给**父元素**设置**padding-top/padding-bottom**
@@ -902,8 +892,6 @@ shadow= inset?&&<length>{2,4}&&<color>?
 - **content-box**内容盒子（设置**宽高**时只是指定**内容的宽高**）
 - **border-box**（设置**宽高**时是**内容+内边距+边框**的高度）
 
-
-
 # 背景
 
 ## background-image
@@ -925,7 +913,9 @@ shadow= inset?&&<length>{2,4}&&<color>?
 平铺
 
 - repeat-x
+
 - repeat-y
+
 - no-repeat
 
 - repeat
@@ -974,8 +964,6 @@ shadow= inset?&&<length>{2,4}&&<color>?
 
 image position/size repeat attachment color
 
-
-
 # 定位
 
 ## 标准流normal-flow
@@ -991,15 +979,15 @@ image position/size repeat attachment color
 
 ## position
 
-### static 
+### static
 
 标准流（设置4方位的值没意义 ）
 
-### relative 
+### relative
 
 相对（相对**原来**的位置，也就是**标准流**时的定位）
 
-### absolute 
+### absolute
 
 绝对
 
@@ -1092,9 +1080,9 @@ inner {
 
 固定（相对**浏览器视口**，当**画布滚动**时，**固定**不动）
 
-**固定定位练习**
+### sticky
 
-考拉侧栏
+要在顶层容器
 
 ## 元素之间的层叠关系
 
@@ -1183,8 +1171,6 @@ inner {
 然而，因为浮动元素（`.floatDiv`）**位置已经确定**，浏览器在计算`.blankDiv`的位置时，将`.blankDiv`渲染在浮动元素**下方**，保证了`.blankDiv`左右没有浮动元素；
 
 同时可以看出，父元素的高度也被撑起来了，其**兄弟元素**的渲染也不再受到浮动的影响，这是因为`.blankDiv`仍然在文档流中，它必须在父元素的边界内，父元素只有**增加其高度**才能达到此目的；
-
-
 
 ### **伪元素加入空白块**
 
@@ -1291,11 +1277,11 @@ inner {
 - **百分比**设置**各阶段**动画（形变）**from**相当于**0%**，**to**相当于**100%**
 
 - 通过**animation**将动画添加到属性上一般只用三个值（值1，值2，值3）：
-
+  
   值1：动画**名字**（@keyframes创建的**规则**）
-
+  
   值2：执行**时间**
-
+  
   值3：动画**速率**
 
 ## 3D动画
@@ -1366,51 +1352,47 @@ outer {
 
 决定了**flex items**在**main axis**上的**对齐方式**
 
-| flex-start        | 默认，与**main start**对齐                                   |
-| ----------------- | ------------------------------------------------------------ |
-| **flex-end**      |                                                              |
-| **center**        | 居中对齐                                                     |
-| **space-between** | flex **items间距离相等**，与main start和main end**两端对齐** |
-| **space-evenly**  | flex **items间距离相等**，且该距离**等于**flex items**到两端**距离 |
+| flex-start        | 默认，与**main start**对齐                                    |
+| ----------------- | ------------------------------------------------------- |
+| **flex-end**      |                                                         |
+| **center**        | 居中对齐                                                    |
+| **space-between** | flex **items间距离相等**，与main start和main end**两端对齐**        |
+| **space-evenly**  | flex **items间距离相等**，且该距离**等于**flex items**到两端**距离       |
 | **space-around**  | flex **items间距离相等**，且该距离**等于**flex items**到两端**距离**2倍** |
 
 ### align-content
 
 决定了**多行flex items** 在**cross axis**上的**对齐方式**，用法与**justify-content**类似
 
-| stretch           | 与align-items的stretch类似                                   |
-| ----------------- | ------------------------------------------------------------ |
-| **flex-start**    | 与cross start对齐                                            |
-| **flex-end**      |                                                              |
-| **center**        | 居中                                                         |
-| **space-between** | flex **items间距离相等**，与cross start和cross end**两端对齐** |
-| **space-evenly**  | flex **items间距离相等**，且该距离**等于**flex items**到两端**距离 |
+| stretch           | 与align-items的stretch类似                                  |
+| ----------------- | ------------------------------------------------------- |
+| **flex-start**    | 与cross start对齐                                          |
+| **flex-end**      |                                                         |
+| **center**        | 居中                                                      |
+| **space-between** | flex **items间距离相等**，与cross start和cross end**两端对齐**      |
+| **space-evenly**  | flex **items间距离相等**，且该距离**等于**flex items**到两端**距离       |
 | **space-around**  | flex **items间距离相等**，且该距离**等于**flex items**到两端**距离**2倍** |
-
-
 
 ### align-items
 
 决定了**flex items**在**cross axis**上的**对齐方式**
 
-| normal         | 默认，效果和stretch一样                                      |
-| -------------- | ------------------------------------------------------------ |
+| normal         | 默认，效果和stretch一样                                                                   |
+| -------------- | --------------------------------------------------------------------------------- |
 | **stretch**    | 当**flex items**在**cross axis**方向的**size** 为**auto**时，会**自动拉伸**至**填充flex contain** |
-| **flex-start** | 与**cross start**对齐                                        |
-| **flex-end**   | 与**cross end**对齐                                          |
-| **center**     | 居中                                                         |
-| **baseline**   | 基线对齐（**第一行**作为基线）                               |
+| **flex-start** | 与**cross start**对齐                                                                |
+| **flex-end**   | 与**cross end**对齐                                                                  |
+| **center**     | 居中                                                                                |
+| **baseline**   | 基线对齐（**第一行**作为基线）                                                                 |
 
 ### **flex-wrap**
 
 默认情况，所有**flex items**都会放在**一行显示**
 
-| no-wrap          | 默认         |
-| ---------------- | ------------ |
-| **wrap**         | 换行         |
+| no-wrap          | 默认     |
+| ---------------- | ------ |
+| **wrap**         | 换行     |
 | **wrap-reverse** | 在交叉轴反转 |
-
-
 
 ### flex-flow
 
@@ -1547,19 +1529,17 @@ root em，rem总是相对于**html的font-size**
 
 **文字大小单位**
 
-| px   | 像素                                                 |
-| ---- | ---------------------------------------------------- |
-| em   | 相对于父元素字体的大小，2em就是**2倍**父元素字体大小 |
-| %    | 相对于父元素的字体                                   |
+| px  | 像素                             |
+| --- | ------------------------------ |
+| em  | 相对于父元素字体的大小，2em就是**2倍**父元素字体大小 |
+| %   | 相对于父元素的字体                      |
 
 **宽度**
 
-| px   | 像素                                                         |
-| ---- | ------------------------------------------------------------ |
-| em   | 自己**有**设置font-size，那就**相对于自己**的font-size；**没有**则**相对父元素**的font-size |
-| %    | 父元素宽度                                                   |
-
-
+| px  | 像素                                                                  |
+| --- | ------------------------------------------------------------------- |
+| em  | 自己**有**设置font-size，那就**相对于自己**的font-size；**没有**则**相对父元素**的font-size |
+| %   | 父元素宽度                                                               |
 
 # 常见技巧
 
@@ -1652,7 +1632,7 @@ root em，rem总是相对于**html的font-size**
 
 # 补充
 
-##  浏览器的私有前缀
+## 浏览器的私有前缀
 
 **为什么要加浏览器前缀？**
 
@@ -1661,8 +1641,6 @@ root em，rem总是相对于**html的font-size**
 **如何加上浏览器前缀？**
 
 打包工具会帮我们添加上去，无需手动
-
-
 
 # css属性使用经验
 
@@ -1695,6 +1673,48 @@ fetch/xhr 复制链接地址在别的窗口打开，会有json格式的数据
 > &&
 
 类似于&，父选择器
+
+## 响应式方案
+
+```less
+// 项目移动端断点
+@breakpoint-mobile: 1000px;
+
+// 响应式媒体查询 Mixins
+.mobile(@rules) {
+    @media screen and (max-width: (@breakpoint-mobile - 1px)) {
+        @rules();
+    }
+}
+
+.desktop(@rules) {
+    @media screen and (min-width: @breakpoint-mobile) {
+        @rules();
+    }
+}
+// 个别页面要求
+// 最小宽度（大于等于指定宽度）
+.min-width(@min, @rules) {
+    @media screen and (min-width: @min) {
+        @rules();
+    }
+}
+
+// 最大宽度（小于等于指定宽度）
+.max-width(@max, @rules) {
+    @media screen and (max-width: @max) {
+        @rules();
+    }
+}
+
+// 范围宽度（大于等于 min 且小于等于 max）
+.between(@min, @max, @rules) {
+    @media screen and (min-width: @min) and (max-width: @max) {
+        @rules();
+    }
+}
+
+```
 
 # 属性
 
@@ -1730,8 +1750,6 @@ element {
 }
 ```
 
-
-
 # 样式积累
 
 ## 子元素写>与不写的区别
@@ -1761,8 +1779,6 @@ li a
 </div>
 ```
 
-
-
 ```css
 /* 初始时，遮罩层不可见 */
 .overlay {
@@ -1789,8 +1805,6 @@ li a
 }
 ```
 
-
-
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -1798,7 +1812,7 @@ li a
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    
+
   </style>
 </head>
 <body>
@@ -1807,10 +1821,7 @@ li a
 
 </body>
 </html>
-
 ```
-
-
 
 ## hint效果
 
@@ -1971,8 +1982,6 @@ text-overflow: ellipsis;
 word-wrap: break-word; /* 兼容性设置，用于处理长单词或URL的换行 */
 ```
 
-
-
 # 动画
 
 ## 使用json渲染动画（react项目）
@@ -2006,8 +2015,6 @@ function MyLottieAnimation() {
 export default MyLottieAnimation;
 ```
 
-
-
 # 疑难杂症
 
 ## 背景图片展示部分区域
@@ -2015,8 +2022,6 @@ export default MyLottieAnimation;
 ## 修改某个库的动画效果
 
 比如修改antd消息弹出框的动画细节（入场时间、退场时间等等）
-
-
 
 ## 固定宽度文本换行
 
@@ -2047,6 +2052,7 @@ max-width属性
 > https://rjsf-team.github.io/react-jsonschema-form/docs/api-reference/form-props#children
 
 当有这样的样式：
+
 ```css
 position: relative;
 &:after {
@@ -2064,8 +2070,6 @@ position: relative;
 
 ## 原图片很小，盒子宽高很大导致图片很模糊
 
-
-
 ## classnames库
 
 ```js
@@ -2081,4 +2085,3 @@ cn(`${hasTags ? 'hasTags' : ''}share-content pc-show test1`) // 不生效
 ```js
 cn('share-content', 'pc-show', `${hasTags ? 'hasTags' : ''}`)
 ```
-
