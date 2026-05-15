@@ -68,10 +68,7 @@ class EventDetailPage extends StatelessWidget {
             ],
             if (resolvedEvent.alerts.isNotEmpty) ...[
               const SizedBox(height: 12),
-              _DetailSection(
-                title: '提醒',
-                value: eventAlertsSummary(resolvedEvent.alerts),
-              ),
+              _AlertGroupsSection(alerts: resolvedEvent.alerts),
             ],
             if (resolvedEvent.invitees.isNotEmpty) ...[
               const SizedBox(height: 12),
@@ -249,6 +246,123 @@ class _DetailSection extends StatelessWidget {
             value,
             style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AlertGroupsSection extends StatelessWidget {
+  const _AlertGroupsSection({required this.alerts});
+
+  final List<EventAlertSetting> alerts;
+
+  @override
+  Widget build(BuildContext context) {
+    final eventAlerts = alerts
+        .where((item) => item.trigger == EventAlertTrigger.beforeEvent)
+        .toList(growable: false);
+    final contextualAlerts = alerts
+        .where((item) => item.trigger != EventAlertTrigger.beforeEvent)
+        .toList(growable: false);
+
+    return Container(
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+      decoration: BoxDecoration(
+        color: CupertinoColors.secondarySystemGroupedBackground.resolveFrom(
+          context,
+        ),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '提醒',
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: CupertinoColors.secondaryLabel.resolveFrom(context),
+            ),
+          ),
+          if (eventAlerts.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            _AlertGroupCard(
+              title: '事件提醒',
+              values: eventAlerts
+                  .map(eventAlertSettingLabel)
+                  .toList(growable: false),
+            ),
+          ],
+          if (contextualAlerts.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            _AlertGroupCard(
+              title: '地点与出发',
+              values: contextualAlerts
+                  .map(eventAlertSettingLabel)
+                  .toList(growable: false),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _AlertGroupCard extends StatelessWidget {
+  const _AlertGroupCard({required this.title, required this.values});
+
+  final String title;
+  final List<String> values;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      decoration: BoxDecoration(
+        color: CupertinoColors.systemBackground.resolveFrom(context),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: CupertinoColors.secondaryLabel.resolveFrom(context),
+            ),
+          ),
+          const SizedBox(height: 8),
+          for (var index = 0; index < values.length; index++) ...[
+            if (index > 0) const SizedBox(height: 6),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 6,
+                  height: 6,
+                  margin: const EdgeInsets.only(top: 7),
+                  decoration: BoxDecoration(
+                    color: CupertinoColors.systemGrey.resolveFrom(context),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    values[index],
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ],
       ),
     );

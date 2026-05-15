@@ -115,7 +115,11 @@ void main() {
       find.byKey(const ValueKey('alerts-option-fifteenMinutesBefore')),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('alerts-option-oneDayBefore')));
+    await tester.tap(find.byKey(const ValueKey('alerts-advanced-timeToLeave')));
+    await tester.pumpAndSettle();
+    await tester.tap(
+      find.byKey(const ValueKey('alerts-advanced-arriveAtLocation')),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('alerts-done-button')));
     await tester.pumpAndSettle();

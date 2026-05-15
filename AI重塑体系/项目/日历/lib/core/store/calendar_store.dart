@@ -68,7 +68,7 @@ class CalendarStore extends ChangeNotifier {
     String? location,
     String? notes,
     EventRepeatRule repeat = const EventRepeatRule.none(),
-    List<EventAlert> alerts = const <EventAlert>[],
+    List<EventAlertSetting> alerts = const <EventAlertSetting>[],
     List<String> invitees = const <String>[],
     String? url,
     bool allDay = false,
@@ -111,7 +111,7 @@ class CalendarStore extends ChangeNotifier {
     String? location,
     String? notes,
     EventRepeatRule? repeat,
-    List<EventAlert>? alerts,
+    List<EventAlertSetting>? alerts,
     List<String>? invitees,
     String? url,
     bool? allDay,
@@ -229,7 +229,7 @@ class CalendarStore extends ChangeNotifier {
         .toList(growable: false);
   }
 
-  List<EventAlert> _normalizedAlerts(List<EventAlert> value) {
+  List<EventAlertSetting> _normalizedAlerts(List<EventAlertSetting> value) {
     return value.toSet().toList(growable: false);
   }
 

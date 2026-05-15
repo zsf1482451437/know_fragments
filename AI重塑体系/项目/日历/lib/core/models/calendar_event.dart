@@ -5,12 +5,49 @@ enum EventRepeatKind { none, interval, weekdays }
 
 enum EventRepeatUnit { day, week, month, year }
 
-enum EventAlert {
+enum EventAlertLeadTime {
   atTimeOfEvent,
   fiveMinutesBefore,
   fifteenMinutesBefore,
   oneHourBefore,
   oneDayBefore,
+}
+
+enum EventAlertTrigger {
+  beforeEvent,
+  timeToLeave,
+  arriveAtLocation,
+  leaveLocation,
+}
+
+class EventAlertSetting {
+  const EventAlertSetting.beforeEvent(this.leadTime)
+    : trigger = EventAlertTrigger.beforeEvent;
+
+  const EventAlertSetting.timeToLeave()
+    : trigger = EventAlertTrigger.timeToLeave,
+      leadTime = null;
+
+  const EventAlertSetting.arriveAtLocation()
+    : trigger = EventAlertTrigger.arriveAtLocation,
+      leadTime = null;
+
+  const EventAlertSetting.leaveLocation()
+    : trigger = EventAlertTrigger.leaveLocation,
+      leadTime = null;
+
+  final EventAlertTrigger trigger;
+  final EventAlertLeadTime? leadTime;
+
+  @override
+  bool operator ==(Object other) {
+    return other is EventAlertSetting &&
+        other.trigger == trigger &&
+        other.leadTime == leadTime;
+  }
+
+  @override
+  int get hashCode => Object.hash(trigger, leadTime);
 }
 
 class EventRepeatRule {
@@ -24,10 +61,8 @@ class EventRepeatRule {
       unit = EventRepeatUnit.week,
       interval = 1;
 
-  const EventRepeatRule.interval({
-    required this.unit,
-    this.interval = 1,
-  }) : kind = EventRepeatKind.interval;
+  const EventRepeatRule.interval({required this.unit, this.interval = 1})
+    : kind = EventRepeatKind.interval;
 
   final EventRepeatKind kind;
   final EventRepeatUnit unit;
@@ -67,26 +102,39 @@ String eventRepeatLabel(EventRepeatRule rule) {
   }
 }
 
-String eventAlertLabel(EventAlert alert) {
+String eventAlertLeadTimeLabel(EventAlertLeadTime alert) {
   switch (alert) {
-    case EventAlert.atTimeOfEvent:
+    case EventAlertLeadTime.atTimeOfEvent:
       return '事件发生时';
-    case EventAlert.fiveMinutesBefore:
+    case EventAlertLeadTime.fiveMinutesBefore:
       return '提前 5 分钟';
-    case EventAlert.fifteenMinutesBefore:
+    case EventAlertLeadTime.fifteenMinutesBefore:
       return '提前 15 分钟';
-    case EventAlert.oneHourBefore:
+    case EventAlertLeadTime.oneHourBefore:
       return '提前 1 小时';
-    case EventAlert.oneDayBefore:
+    case EventAlertLeadTime.oneDayBefore:
       return '提前 1 天';
   }
 }
 
-String eventAlertsSummary(List<EventAlert> alerts) {
+String eventAlertSettingLabel(EventAlertSetting setting) {
+  switch (setting.trigger) {
+    case EventAlertTrigger.beforeEvent:
+      return eventAlertLeadTimeLabel(setting.leadTime!);
+    case EventAlertTrigger.timeToLeave:
+      return '出发时间';
+    case EventAlertTrigger.arriveAtLocation:
+      return '到达地点时';
+    case EventAlertTrigger.leaveLocation:
+      return '离开地点时';
+  }
+}
+
+String eventAlertsSummary(List<EventAlertSetting> alerts) {
   if (alerts.isEmpty) {
     return '无';
   }
-  return alerts.map(eventAlertLabel).join('、');
+  return alerts.map(eventAlertSettingLabel).join('、');
 }
 
 class CalendarEvent {
@@ -105,7 +153,7 @@ class CalendarEvent {
     this.notes,
     this.allDay = false,
     this.repeat = const EventRepeatRule.none(),
-    this.alerts = const <EventAlert>[],
+    this.alerts = const <EventAlertSetting>[],
     this.invitees = const <String>[],
     this.url,
   });
@@ -140,7 +188,7 @@ class CalendarEvent {
   final String? notes;
   final bool allDay;
   final EventRepeatRule repeat;
-  final List<EventAlert> alerts;
+  final List<EventAlertSetting> alerts;
   final List<String> invitees;
   final String? url;
 
@@ -156,7 +204,7 @@ class CalendarEvent {
     Object? location = _sentinel,
     Object? notes = _sentinel,
     EventRepeatRule? repeat,
-    List<EventAlert>? alerts,
+    List<EventAlertSetting>? alerts,
     List<String>? invitees,
     Object? url = _sentinel,
     bool? allDay,

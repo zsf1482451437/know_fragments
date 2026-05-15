@@ -28,7 +28,10 @@ void main() {
       location: '1A',
       notes: '补充备注',
       repeat: const EventRepeatRule.interval(unit: EventRepeatUnit.week),
-      alerts: const [EventAlert.fifteenMinutesBefore],
+      alerts: const [
+        EventAlertSetting.beforeEvent(EventAlertLeadTime.fifteenMinutesBefore),
+        EventAlertSetting.timeToLeave(),
+      ],
       invitees: const ['foo@bytedance.com'],
       url: 'https://calendar.local/arch',
     );
@@ -62,7 +65,10 @@ void main() {
           unit: EventRepeatUnit.week,
           interval: 2,
         ),
-        alerts: const [EventAlert.oneHourBefore, EventAlert.oneDayBefore],
+        alerts: const [
+          EventAlertSetting.beforeEvent(EventAlertLeadTime.oneHourBefore),
+          EventAlertSetting.arriveAtLocation(),
+        ],
         invitees: const ['a@bytedance.com', 'b@bytedance.com'],
         url: 'https://calendar.local/review',
         allDay: true,
@@ -91,8 +97,8 @@ void main() {
         ),
       );
       expect(updatedEvent.alerts, [
-        EventAlert.oneHourBefore,
-        EventAlert.oneDayBefore,
+        const EventAlertSetting.beforeEvent(EventAlertLeadTime.oneHourBefore),
+        const EventAlertSetting.arriveAtLocation(),
       ]);
       expect(updatedEvent.invitees, ['a@bytedance.com', 'b@bytedance.com']);
       expect(updatedEvent.url, 'https://calendar.local/review');

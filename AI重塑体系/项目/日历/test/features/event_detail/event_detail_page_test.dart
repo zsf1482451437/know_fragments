@@ -196,7 +196,13 @@ void main() {
         find.byKey(const ValueKey('alerts-option-oneHourBefore')),
       );
       await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const ValueKey('alerts-option-oneDayBefore')));
+      await tester.tap(
+        find.byKey(const ValueKey('alerts-advanced-timeToLeave')),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(
+        find.byKey(const ValueKey('alerts-advanced-arriveAtLocation')),
+      );
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey('alerts-done-button')));
       await tester.pumpAndSettle();
@@ -220,8 +226,23 @@ void main() {
       expect(find.text('N5 Focus Room'), findsOneWidget);
       expect(find.text('5月14日 - 5月15日 · 全天'), findsOneWidget);
       expect(find.text('工作日'), findsOneWidget);
-      expect(find.text('提前 1 小时、提前 1 天'), findsOneWidget);
+      expect(find.text('提醒'), findsOneWidget);
+      expect(find.text('事件提醒'), findsOneWidget);
+      expect(find.text('提前 1 小时'), findsOneWidget);
+      expect(find.text('地点与出发'), findsOneWidget);
+      expect(find.text('出发时间'), findsOneWidget);
+      expect(find.text('到达地点时'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text('ava@bytedance.com、zoe@bytedance.com'),
+        120,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(find.text('ava@bytedance.com、zoe@bytedance.com'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text('https://calendar.local/design-review'),
+        120,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(find.text('https://calendar.local/design-review'), findsOneWidget);
       await tester.scrollUntilVisible(
         find.text('已切到全天并更换到个人日历'),

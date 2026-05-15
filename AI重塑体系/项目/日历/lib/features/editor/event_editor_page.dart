@@ -34,7 +34,7 @@ class _EventEditorPageState extends State<EventEditorPage> {
   late DateTime _endDateTime;
   late String _selectedCalendarId;
   late EventRepeatRule _selectedRepeat;
-  late List<EventAlert> _selectedAlerts;
+  late List<EventAlertSetting> _selectedAlerts;
   late List<String> _selectedInvitees;
 
   @override
@@ -60,7 +60,9 @@ class _EventEditorPageState extends State<EventEditorPage> {
     _locationController.text = initialEvent?.location ?? '';
     _notesController.text = initialEvent?.notes ?? '';
     _urlController.text = initialEvent?.url ?? '';
-    _selectedInvitees = List<String>.from(initialEvent?.invitees ?? const <String>[]);
+    _selectedInvitees = List<String>.from(
+      initialEvent?.invitees ?? const <String>[],
+    );
     _isAllDay = initialEvent?.allDay ?? false;
     _startDateTime = DateTime(
       startDate.year,
@@ -78,7 +80,9 @@ class _EventEditorPageState extends State<EventEditorPage> {
     );
     _selectedCalendarId = initialEvent?.calendarId ?? _defaultCalendarId(store);
     _selectedRepeat = initialEvent?.repeat ?? const EventRepeatRule.none();
-    _selectedAlerts = List<EventAlert>.from(initialEvent?.alerts ?? const <EventAlert>[]);
+    _selectedAlerts = List<EventAlertSetting>.from(
+      initialEvent?.alerts ?? const <EventAlertSetting>[],
+    );
     _didInitialize = true;
   }
 
@@ -86,9 +90,8 @@ class _EventEditorPageState extends State<EventEditorPage> {
   Widget build(BuildContext context) {
     final store = CalendarScope.of(context);
     final isEditing = widget.initialEvent != null;
-    final groupedBackground = CupertinoColors.systemGroupedBackground.resolveFrom(
-      context,
-    );
+    final groupedBackground = CupertinoColors.systemGroupedBackground
+        .resolveFrom(context);
     final currentCalendar = _calendarSourceFor(store, _selectedCalendarId);
 
     return CupertinoPageScaffold(
@@ -140,8 +143,11 @@ class _EventEditorPageState extends State<EventEditorPage> {
                           if (_endDateTime.isBefore(_startDateTime)) {
                             _endDateTime = _startDateTime;
                           }
-                          if (!_isAllDay && !_normalizedTimedEnd().isAfter(_startDateTime)) {
-                            _endDateTime = _startDateTime.add(const Duration(hours: 1));
+                          if (!_isAllDay &&
+                              !_normalizedTimedEnd().isAfter(_startDateTime)) {
+                            _endDateTime = _startDateTime.add(
+                              const Duration(hours: 1),
+                            );
                           }
                         });
                       },
@@ -201,8 +207,12 @@ class _EventEditorPageState extends State<EventEditorPage> {
                               value.hour,
                               value.minute,
                             );
-                            if (!_normalizedTimedEnd().isAfter(_startDateTime)) {
-                              _endDateTime = _startDateTime.add(const Duration(hours: 1));
+                            if (!_normalizedTimedEnd().isAfter(
+                              _startDateTime,
+                            )) {
+                              _endDateTime = _startDateTime.add(
+                                const Duration(hours: 1),
+                              );
                             }
                           });
                         },
@@ -236,7 +246,9 @@ class _EventEditorPageState extends State<EventEditorPage> {
                                         _endDateTime.hour,
                                         _endDateTime.minute,
                                       )
-                                    : _startDateTime.add(const Duration(hours: 1)))
+                                    : _startDateTime.add(
+                                        const Duration(hours: 1),
+                                      ))
                               : candidate;
                         });
                       },
@@ -273,7 +285,9 @@ class _EventEditorPageState extends State<EventEditorPage> {
                     rowKey: const ValueKey('event-calendar-row'),
                     label: '日历',
                     value: currentCalendar?.name ?? _selectedCalendarId,
-                    leadingDotColor: currentCalendar?.color.resolveFrom(context),
+                    leadingDotColor: currentCalendar?.color.resolveFrom(
+                      context,
+                    ),
                     onTap: () => _showCalendarPicker(context, store),
                   ),
                   _EditorValueRow(
@@ -300,12 +314,17 @@ class _EventEditorPageState extends State<EventEditorPage> {
                 header: const Text('备注'),
                 children: [
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 8,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
                     decoration: BoxDecoration(
-                      color: CupertinoColors.tertiarySystemGroupedBackground.resolveFrom(
-                        context,
-                      ),
+                      color: CupertinoColors.tertiarySystemGroupedBackground
+                          .resolveFrom(context),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: CupertinoTextField(
@@ -357,8 +376,8 @@ class _EventEditorPageState extends State<EventEditorPage> {
   }
 
   Future<void> _openAlertsPage(BuildContext context) async {
-    final result = await Navigator.of(context).push<List<EventAlert>>(
-      CupertinoPageRoute<List<EventAlert>>(
+    final result = await Navigator.of(context).push<List<EventAlertSetting>>(
+      CupertinoPageRoute<List<EventAlertSetting>>(
         builder: (_) => MultiAlertsPage(initialAlerts: _selectedAlerts),
       ),
     );
@@ -515,21 +534,23 @@ class _EventEditorPageState extends State<EventEditorPage> {
       builder: (sheetContext) {
         return _EditorSelectionSheet(
           title: '选择日历',
-          children: store.calendarSources.map<Widget>((source) {
-            return _EditorSelectionTile(
-              key: ValueKey('event-calendar-option-${source.id}'),
-              title: source.name,
-              subtitle: source.id,
-              dotColor: source.color.resolveFrom(sheetContext),
-              selected: _selectedCalendarId == source.id,
-              onTap: () {
-                setState(() {
-                  _selectedCalendarId = source.id;
-                });
-                Navigator.of(sheetContext).pop();
-              },
-            );
-          }).toList(growable: false),
+          children: store.calendarSources
+              .map<Widget>((source) {
+                return _EditorSelectionTile(
+                  key: ValueKey('event-calendar-option-${source.id}'),
+                  title: source.name,
+                  subtitle: source.id,
+                  dotColor: source.color.resolveFrom(sheetContext),
+                  selected: _selectedCalendarId == source.id,
+                  onTap: () {
+                    setState(() {
+                      _selectedCalendarId = source.id;
+                    });
+                    Navigator.of(sheetContext).pop();
+                  },
+                );
+              })
+              .toList(growable: false),
         );
       },
     );
@@ -591,13 +612,14 @@ class _InviteesPickerPageState extends State<InviteesPickerPage> {
             Container(
               padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
               decoration: BoxDecoration(
-                color: CupertinoColors.secondarySystemGroupedBackground.resolveFrom(
-                  context,
-                ),
+                color: CupertinoColors.secondarySystemGroupedBackground
+                    .resolveFrom(context),
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
-                _selectedEmails.isEmpty ? '未选择联系人' : '已选择 ${_selectedEmails.length} 位联系人',
+                _selectedEmails.isEmpty
+                    ? '未选择联系人'
+                    : '已选择 ${_selectedEmails.length} 位联系人',
                 style: TextStyle(
                   fontSize: 15,
                   color: CupertinoColors.secondaryLabel.resolveFrom(context),
@@ -624,7 +646,9 @@ class _InviteesPickerPageState extends State<InviteesPickerPage> {
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
                     decoration: BoxDecoration(
-                      color: CupertinoColors.systemBackground.resolveFrom(context),
+                      color: CupertinoColors.systemBackground.resolveFrom(
+                        context,
+                      ),
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Row(
@@ -633,13 +657,17 @@ class _InviteesPickerPageState extends State<InviteesPickerPage> {
                           width: 44,
                           height: 44,
                           decoration: BoxDecoration(
-                            color: CupertinoColors.activeBlue.resolveFrom(context),
+                            color: CupertinoColors.activeBlue.resolveFrom(
+                              context,
+                            ),
                             shape: BoxShape.circle,
                           ),
                           alignment: Alignment.center,
                           child: Text(
                             contact.name.substring(0, 1),
-                            style: const TextStyle(color: CupertinoColors.white),
+                            style: const TextStyle(
+                              color: CupertinoColors.white,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -660,9 +688,8 @@ class _InviteesPickerPageState extends State<InviteesPickerPage> {
                                 contact.email,
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: CupertinoColors.secondaryLabel.resolveFrom(
-                                    context,
-                                  ),
+                                  color: CupertinoColors.secondaryLabel
+                                      .resolveFrom(context),
                                 ),
                               ),
                             ],
@@ -828,7 +855,9 @@ class _RepeatRulePageState extends State<RepeatRulePage> {
                         key: const ValueKey('repeat-custom-summary'),
                         style: TextStyle(
                           fontSize: 15,
-                          color: CupertinoColors.secondaryLabel.resolveFrom(context),
+                          color: CupertinoColors.secondaryLabel.resolveFrom(
+                            context,
+                          ),
                         ),
                       ),
                     ),
@@ -886,7 +915,9 @@ class _RepeatRulePageState extends State<RepeatRulePage> {
                         subtitle,
                         style: TextStyle(
                           fontSize: 13,
-                          color: CupertinoColors.secondaryLabel.resolveFrom(context),
+                          color: CupertinoColors.secondaryLabel.resolveFrom(
+                            context,
+                          ),
                         ),
                       ),
                     ],
@@ -935,7 +966,10 @@ class _RepeatRulePageState extends State<RepeatRulePage> {
       case _RepeatMode.weekdays:
         return const EventRepeatRule.weekdays();
       case _RepeatMode.custom:
-        return EventRepeatRule.interval(unit: _customUnit, interval: _customInterval);
+        return EventRepeatRule.interval(
+          unit: _customUnit,
+          interval: _customInterval,
+        );
     }
   }
 
@@ -945,19 +979,21 @@ class _RepeatRulePageState extends State<RepeatRulePage> {
       builder: (sheetContext) {
         return _EditorSelectionSheet(
           title: '重复单位',
-          children: EventRepeatUnit.values.map((unit) {
-            return _EditorSelectionTile(
-              key: ValueKey('repeat-custom-unit-option-${unit.name}'),
-              title: _unitLabel(unit),
-              selected: _customUnit == unit,
-              onTap: () {
-                setState(() {
-                  _customUnit = unit;
-                });
-                Navigator.of(sheetContext).pop();
-              },
-            );
-          }).toList(growable: false),
+          children: EventRepeatUnit.values
+              .map((unit) {
+                return _EditorSelectionTile(
+                  key: ValueKey('repeat-custom-unit-option-${unit.name}'),
+                  title: _unitLabel(unit),
+                  selected: _customUnit == unit,
+                  onTap: () {
+                    setState(() {
+                      _customUnit = unit;
+                    });
+                    Navigator.of(sheetContext).pop();
+                  },
+                );
+              })
+              .toList(growable: false),
         );
       },
     );
@@ -976,14 +1012,14 @@ class _RepeatRulePageState extends State<RepeatRulePage> {
 class MultiAlertsPage extends StatefulWidget {
   const MultiAlertsPage({super.key, required this.initialAlerts});
 
-  final List<EventAlert> initialAlerts;
+  final List<EventAlertSetting> initialAlerts;
 
   @override
   State<MultiAlertsPage> createState() => _MultiAlertsPageState();
 }
 
 class _MultiAlertsPageState extends State<MultiAlertsPage> {
-  late Set<EventAlert> _selectedAlerts;
+  late Set<EventAlertSetting> _selectedAlerts;
 
   @override
   void initState() {
@@ -1026,8 +1062,9 @@ class _MultiAlertsPageState extends State<MultiAlertsPage> {
               ),
             ),
             const SizedBox(height: 10),
-            ...EventAlert.values.map((alert) {
-              final selected = _selectedAlerts.contains(alert);
+            ...EventAlertLeadTime.values.map((alert) {
+              final setting = EventAlertSetting.beforeEvent(alert);
+              final selected = _selectedAlerts.contains(setting);
               return Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: CupertinoButton(
@@ -1036,20 +1073,34 @@ class _MultiAlertsPageState extends State<MultiAlertsPage> {
                   onPressed: () {
                     setState(() {
                       if (selected) {
-                        _selectedAlerts.remove(alert);
+                        _selectedAlerts.remove(setting);
                       } else {
-                        _selectedAlerts.add(alert);
+                        _selectedAlerts.add(setting);
                       }
                     });
                   },
                   child: _selectionCard(
                     context,
-                    title: eventAlertLabel(alert),
+                    title: eventAlertLeadTimeLabel(alert),
                     selected: selected,
                   ),
                 ),
               );
             }),
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.fromLTRB(4, 0, 4, 8),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '高级提醒',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: CupertinoColors.secondaryLabel.resolveFrom(context),
+                ),
+              ),
+            ),
+            ..._advancedAlertRows(context),
           ],
         ),
       ),
@@ -1060,6 +1111,7 @@ class _MultiAlertsPageState extends State<MultiAlertsPage> {
     BuildContext context, {
     required String title,
     required bool selected,
+    String? subtitle,
   }) {
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
@@ -1070,13 +1122,30 @@ class _MultiAlertsPageState extends State<MultiAlertsPage> {
       child: Row(
         children: [
           Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-                color: CupertinoColors.label,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                    color: CupertinoColors.label,
+                  ),
+                ),
+                if (subtitle != null) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: CupertinoColors.secondaryLabel.resolveFrom(
+                        context,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
             ),
           ),
           Icon(
@@ -1092,10 +1161,75 @@ class _MultiAlertsPageState extends State<MultiAlertsPage> {
     );
   }
 
-  List<EventAlert> _orderedAlerts() {
-    return EventAlert.values
-        .where(_selectedAlerts.contains)
+  List<Widget> _advancedAlertRows(BuildContext context) {
+    final configs = <_AdvancedAlertOption>[
+      const _AdvancedAlertOption(
+        setting: EventAlertSetting.timeToLeave(),
+        key: 'alerts-advanced-timeToLeave',
+        title: '出发时间提醒',
+        subtitle: '根据事件时间和路程提前提醒你出发',
+      ),
+      const _AdvancedAlertOption(
+        setting: EventAlertSetting.arriveAtLocation(),
+        key: 'alerts-advanced-arriveAtLocation',
+        title: '到达地点提醒',
+        subtitle: '到达事件位置时提醒',
+      ),
+      const _AdvancedAlertOption(
+        setting: EventAlertSetting.leaveLocation(),
+        key: 'alerts-advanced-leaveLocation',
+        title: '离开地点提醒',
+        subtitle: '离开事件位置时提醒',
+      ),
+    ];
+    return configs
+        .map((config) {
+          final selected = _selectedAlerts.contains(config.setting);
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: CupertinoButton(
+              key: ValueKey(config.key),
+              padding: EdgeInsets.zero,
+              onPressed: () {
+                setState(() {
+                  if (selected) {
+                    _selectedAlerts.remove(config.setting);
+                  } else {
+                    _selectedAlerts.add(config.setting);
+                  }
+                });
+              },
+              child: _selectionCard(
+                context,
+                title: config.title,
+                subtitle: config.subtitle,
+                selected: selected,
+              ),
+            ),
+          );
+        })
         .toList(growable: false);
+  }
+
+  List<EventAlertSetting> _orderedAlerts() {
+    final ordered = <EventAlertSetting>[];
+    for (final alert in EventAlertLeadTime.values) {
+      final setting = EventAlertSetting.beforeEvent(alert);
+      if (_selectedAlerts.contains(setting)) {
+        ordered.add(setting);
+      }
+    }
+    const advanced = <EventAlertSetting>[
+      EventAlertSetting.timeToLeave(),
+      EventAlertSetting.arriveAtLocation(),
+      EventAlertSetting.leaveLocation(),
+    ];
+    for (final setting in advanced) {
+      if (_selectedAlerts.contains(setting)) {
+        ordered.add(setting);
+      }
+    }
+    return ordered;
   }
 }
 
@@ -1145,7 +1279,10 @@ class _PickerSheet extends StatelessWidget {
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
                 CupertinoButton(
@@ -1202,7 +1339,10 @@ class _EditorSelectionSheet extends StatelessWidget {
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
                 CupertinoButton(
@@ -1225,7 +1365,9 @@ class _EditorSelectionSheet extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: CupertinoColors.systemBackground.resolveFrom(context),
+                    color: CupertinoColors.systemBackground.resolveFrom(
+                      context,
+                    ),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Column(children: children),
@@ -1266,7 +1408,10 @@ class _EditorSelectionTile extends StatelessWidget {
             Container(
               width: 10,
               height: 10,
-              decoration: BoxDecoration(color: dotColor, shape: BoxShape.circle),
+              decoration: BoxDecoration(
+                color: dotColor,
+                shape: BoxShape.circle,
+              ),
             ),
             const SizedBox(width: 10),
           ],
@@ -1286,7 +1431,9 @@ class _EditorSelectionTile extends StatelessWidget {
                   Text(
                     subtitle!,
                     style: TextStyle(
-                      color: CupertinoColors.secondaryLabel.resolveFrom(context),
+                      color: CupertinoColors.secondaryLabel.resolveFrom(
+                        context,
+                      ),
                       fontSize: 13,
                     ),
                   ),
@@ -1295,8 +1442,12 @@ class _EditorSelectionTile extends StatelessWidget {
             ),
           ),
           Icon(
-            selected ? CupertinoIcons.check_mark_circled_solid : CupertinoIcons.circle,
-            color: selected ? CupertinoColors.activeBlue : CupertinoColors.systemGrey3,
+            selected
+                ? CupertinoIcons.check_mark_circled_solid
+                : CupertinoIcons.circle,
+            color: selected
+                ? CupertinoColors.activeBlue
+                : CupertinoColors.systemGrey3,
             size: 20,
           ),
         ],
@@ -1362,7 +1513,10 @@ class _EditorValueRow extends StatelessWidget {
             Container(
               width: 10,
               height: 10,
-              decoration: BoxDecoration(color: leadingDotColor, shape: BoxShape.circle),
+              decoration: BoxDecoration(
+                color: leadingDotColor,
+                shape: BoxShape.circle,
+              ),
             ),
             const SizedBox(width: 8),
           ],
@@ -1399,4 +1553,18 @@ class _InviteeOption {
   final String id;
   final String name;
   final String email;
+}
+
+class _AdvancedAlertOption {
+  const _AdvancedAlertOption({
+    required this.setting,
+    required this.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final EventAlertSetting setting;
+  final String key;
+  final String title;
+  final String subtitle;
 }
