@@ -1,0 +1,231 @@
+{
+  "updatedAt": "2026-05-21T09:30:00.000Z",
+  "principles": [
+    "每天只维护一个核心目标，最多 3 个今日任务。",
+    "今日计划必须来自近期计划，不能凭空新增临时任务。",
+    "每日固定投入 4 小时，优先完成可交付、可验证的子任务。",
+    "未完成的今日任务必须在复盘中决定：顺延、拆小、取消或归档。"
+  ],
+  "activeDate": "2026-05-21",
+  "entries": [
+    {
+      "date": "2026-05-21",
+      "coreGoal": "完成日历项目首轮测试并沉淀问题清单",
+      "totalHours": 4,
+      "status": "未开始",
+      "tasks": [
+        {
+          "id": "D-001",
+          "timebox": "1 小时",
+          "title": "梳理日历项目功能入口和测试范围",
+          "planId": "RP-001",
+          "deliverable": "测试范围清单",
+          "doneCriteria": "列出核心页面、核心流程和测试优先级",
+          "status": "未开始"
+        },
+        {
+          "id": "D-002",
+          "timebox": "1 小时",
+          "title": "运行并完成首轮核心流程测试",
+          "planId": "RP-001",
+          "deliverable": "测试记录",
+          "doneCriteria": "至少覆盖月视图、日视图、事件新增编辑三个流程",
+          "status": "未开始"
+        },
+        {
+          "id": "D-003",
+          "timebox": "1 小时",
+          "title": "整理测试问题和修复建议",
+          "planId": "RP-001",
+          "deliverable": "问题清单",
+          "doneCriteria": "记录问题现象、复现步骤、影响范围和建议优先级",
+          "status": "未开始"
+        },
+        {
+          "id": "D-004",
+          "timebox": "1 小时",
+          "title": "复盘与整理",
+          "planId": "MAINTAIN",
+          "deliverable": "更新计划表和明日候选任务",
+          "doneCriteria": "文档已更新，阻塞已记录",
+          "status": "未开始"
+        }
+      ],
+      "recentPlans": [
+        {
+          "id": "RP-001",
+          "title": "测试日历项目",
+          "target": "完成一轮可复用的测试清单和问题记录",
+          "priority": "P0",
+          "deadline": "本周内",
+          "progress": 0,
+          "nextTask": "梳理测试范围并执行首轮测试"
+        },
+        {
+          "id": "RP-002",
+          "title": "学习 Web3D 技术",
+          "target": "建立 Web3D 技术地图并完成一个入门 Demo",
+          "priority": "P1",
+          "deadline": "近期",
+          "progress": 0,
+          "nextTask": "选定学习路线，明确 Three.js 或 Babylon.js 起步方案"
+        },
+        {
+          "id": "RP-003",
+          "title": "学习 agent 相关原理和应用",
+          "target": "形成 agent 原理笔记和一个可实践的小案例",
+          "priority": "P1",
+          "deadline": "近期",
+          "progress": 0,
+          "nextTask": "梳理 agent 基础概念、工作流和常见应用场景"
+        }
+      ],
+      "subTasks": [
+        {
+          "id": "T-001",
+          "planId": "RP-001",
+          "title": "梳理日历项目测试范围和测试顺序",
+          "estimate": "1 小时",
+          "dependency": "无",
+          "output": "测试范围清单",
+          "status": "今日"
+        },
+        {
+          "id": "T-002",
+          "planId": "RP-001",
+          "title": "执行首轮核心流程测试",
+          "estimate": "1 小时",
+          "dependency": "T-001",
+          "output": "测试记录",
+          "status": "今日"
+        },
+        {
+          "id": "T-003",
+          "planId": "RP-001",
+          "title": "整理问题清单和修复建议",
+          "estimate": "1 小时",
+          "dependency": "T-002",
+          "output": "缺陷列表",
+          "status": "今日"
+        },
+        {
+          "id": "T-004",
+          "planId": "RP-002",
+          "title": "对比 Web3D 主流技术路线",
+          "estimate": "1 小时",
+          "dependency": "无",
+          "output": "技术选型笔记",
+          "status": "待办"
+        },
+        {
+          "id": "T-005",
+          "planId": "RP-002",
+          "title": "搭建一个基础 3D 场景 Demo",
+          "estimate": "2 小时",
+          "dependency": "T-004",
+          "output": "入门 Demo",
+          "status": "待办"
+        }
+      ],
+      "tomorrowCandidates": [
+        {
+          "id": "N-001",
+          "title": "补充日历项目边界场景测试",
+          "planId": "RP-001",
+          "reason": "首轮核心流程后自然延续",
+          "estimate": "1 小时",
+          "selected": false
+        },
+        {
+          "id": "N-002",
+          "title": "输出 Web3D 学习路线图",
+          "planId": "RP-002",
+          "reason": "可作为第二优先级推进",
+          "estimate": "1 小时",
+          "selected": false
+        }
+      ],
+      "review": {
+        "completed": "待填写",
+        "unfinished": "待填写",
+        "blockers": "待填写",
+        "tomorrowFocus": "待填写",
+        "postponedOrDropped": "待填写"
+      }
+    },
+    {
+      "date": "2026-05-20",
+      "coreGoal": "完成个人计划系统基础版本与首轮测试",
+      "totalHours": 4,
+      "status": "已完成",
+      "tasks": [
+        {
+          "id": "D-101",
+          "timebox": "2 小时",
+          "title": "搭建个人计划系统基础页面",
+          "planId": "RP-010",
+          "deliverable": "首版仪表盘界面",
+          "doneCriteria": "页面可展示计划内容并支持基本状态切换",
+          "status": "已完成"
+        },
+        {
+          "id": "D-102",
+          "timebox": "2 小时",
+          "title": "补充测试与构建验证",
+          "planId": "RP-010",
+          "deliverable": "测试结果与构建产物",
+          "doneCriteria": "测试通过，构建成功",
+          "status": "已完成"
+        }
+      ],
+      "recentPlans": [
+        {
+          "id": "RP-010",
+          "title": "完成个人计划系统 V1",
+          "target": "交付一个可用的本地计划看板",
+          "priority": "P0",
+          "deadline": "已完成",
+          "progress": 100,
+          "nextTask": "归档并准备 V2 重构"
+        }
+      ],
+      "subTasks": [
+        {
+          "id": "T-101",
+          "planId": "RP-010",
+          "title": "完成界面布局与数据绑定",
+          "estimate": "2 小时",
+          "dependency": "无",
+          "output": "可运行界面",
+          "status": "已完成"
+        },
+        {
+          "id": "T-102",
+          "planId": "RP-010",
+          "title": "跑通测试与构建",
+          "estimate": "2 小时",
+          "dependency": "T-101",
+          "output": "构建结果",
+          "status": "已完成"
+        }
+      ],
+      "tomorrowCandidates": [
+        {
+          "id": "N-101",
+          "title": "重构成更成熟的任务仪表盘",
+          "planId": "RP-010",
+          "reason": "下一步提升产品化体验",
+          "estimate": "2 小时",
+          "selected": true
+        }
+      ],
+      "review": {
+        "completed": "完成 V1 仪表盘搭建与测试闭环",
+        "unfinished": "视觉风格和任务操作能力仍较基础",
+        "blockers": "暂无",
+        "tomorrowFocus": "重构成更成熟的任务仪表盘",
+        "postponedOrDropped": "暂未处理多日期归档与拖拽"
+      }
+    }
+  ]
+}
