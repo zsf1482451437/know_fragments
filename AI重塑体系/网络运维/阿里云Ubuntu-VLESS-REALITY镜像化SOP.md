@@ -661,6 +661,142 @@ sudo docker compose -f $XRAY_DIR/docker-compose.yml ps
 
 ---
 
+## 一键轮换 UUID、密钥和 ShortID
+
+如果你怀疑参数已经泄露，或者之前把真实参数发到了聊天、截图、日志里，建议执行一次完整轮换。
+
+这段脚本会自动完成：
+
+- 备份旧 `config.json`
+- 生成新的 `UUID`
+- 生成新的 `x25519` 密钥对
+- 生成新的 `ShortID`
+- 写回 `/opt/xray-reality/config.json`
+- 重启 `Xray`
+- 输出新的 `v2rayNG` 导入链接
+
+注意：
+
+- 执行后，旧手机链接和旧电脑配置会立即失效
+- 脚本会保留当前的 `PORT` 和 `SERVER_NAME`
+- 客户端只需要 `PUBLIC_KEY`，不要把 `PRIVATE_KEY` 发给客户端
+
+在服务器上执行：
+
+```bash
+set -euo pipefail
+
+export XRAY_DIR="/opt/xray-reality"
+cd "$XRAY_DIR"
+
+TS=$(date +%F-%H%M%S)
+sudo cp config.json "config.json.bak.$TS"
+
+export PORT=$(python3 - <<'PY'
+import json
+with open('/opt/xray-reality/config.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+print(data['inbounds'][0]['port'])
+PY
+)
+
+export SERVER_NAME=$(python3 - <<'PY'
+import json
+with open('/opt/xray-reality/config.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+print(data['inbounds'][0]['streamSettings']['realitySettings']['serverNames'][0])
+PY
+)
+
+export SERVER_IP=$(curl -4 -fsSL https://api.ipify.org || true)
+export NEW_UUID=$(python3 -c 'import uuid; print(uuid.uuid4())')
+KEY_OUTPUT=$(sudo docker run --rm ghcr.io/xtls/xray-core:latest x25519)
+export NEW_PRIVATE_KEY=$(printf '%s\n' "$KEY_OUTPUT" | awk '/Private key:/ {print $NF; exit}')
+export NEW_PUBLIC_KEY=$(printf '%s\n' "$KEY_OUTPUT" | awk '/Public key:|Password:/ {print $NF; exit}')
+export NEW_SHORT_ID=$(openssl rand -hex 8)
+
+if [ -z "${NEW_PRIVATE_KEY:-}" ] || [ -z "${NEW_PUBLIC_KEY:-}" ]; then
+  echo "未能解析 x25519 输出，请检查下面原始输出："
+  printf '%s\n' "$KEY_OUTPUT"
+  exit 1
+fi
+
+sudo env \
+  NEW_UUID="$NEW_UUID" \
+  NEW_PRIVATE_KEY="$NEW_PRIVATE_KEY" \
+  NEW_SHORT_ID="$NEW_SHORT_ID" \
+  python3 - <<'PY'
+import json
+import os
+
+path = '/opt/xray-reality/config.json'
+with open(path, 'r', encoding='utf-8') as f:
+    data = json.load(f)
+
+data['inbounds'][0]['settings']['clients'][0]['id'] = os.environ['NEW_UUID']
+data['inbounds'][0]['settings']['clients'][0]['flow'] = 'xtls-rprx-vision'
+data['inbounds'][0]['streamSettings']['realitySettings']['privateKey'] = os.environ['NEW_PRIVATE_KEY']
+data['inbounds'][0]['streamSettings']['realitySettings']['shortIds'] = [os.environ['NEW_SHORT_ID']]
+
+with open(path, 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+    f.write('\n')
+PY
+
+sudo docker compose -f "$XRAY_DIR/docker-compose.yml" restart xray
+sleep 2
+
+echo
+echo "=== 服务状态 ==="
+sudo docker compose -f "$XRAY_DIR/docker-compose.yml" ps
+ss -tlnp | grep "$PORT" || true
+sudo docker compose -f "$XRAY_DIR/docker-compose.yml" logs --tail=20
+
+echo
+echo "=== 新参数（请妥善保存） ==="
+echo "UUID=$NEW_UUID"
+echo "PUBLIC_KEY=$NEW_PUBLIC_KEY"
+echo "SHORT_ID=$NEW_SHORT_ID"
+echo "SERVER_NAME=$SERVER_NAME"
+echo "PORT=$PORT"
+echo "SERVER_IP=${SERVER_IP:-YOUR_SERVER_IP}"
+
+echo
+echo "=== v2rayNG 导入链接 ==="
+printf 'vless://%s@%s:%s?security=reality&encryption=none&pbk=%s&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=%s&sid=%s#Aliyun-Reality\n' \
+  "$NEW_UUID" "${SERVER_IP:-YOUR_SERVER_IP}" "$PORT" "$NEW_PUBLIC_KEY" "$SERVER_NAME" "$NEW_SHORT_ID"
+
+echo
+echo "=== 电脑端 Clash/Mihomo 需要同步替换的字段 ==="
+echo "server: ${SERVER_IP:-YOUR_SERVER_IP}"
+echo "port: $PORT"
+echo "uuid: $NEW_UUID"
+echo "servername: $SERVER_NAME"
+echo "public-key: $NEW_PUBLIC_KEY"
+echo "short-id: $NEW_SHORT_ID"
+
+echo
+echo "旧备份文件：$XRAY_DIR/config.json.bak.$TS"
+```
+
+执行完成后：
+
+- 手机端删除旧节点，重新导入脚本输出的 `vless://...` 链接
+- 电脑端同步替换 `clash-aliyun-reality.yaml` 里的 `server`、`uuid`、`public-key`、`short-id`
+- 不要把新的 `PRIVATE_KEY` 发给任何客户端
+
+如果轮换后发现哪里填错了，可以回滚：
+
+```bash
+cd /opt/xray-reality
+sudo cp config.json.bak.YYYY-MM-DD-HHMMSS config.json
+sudo docker compose restart xray
+```
+
+把上面的 `YYYY-MM-DD-HHMMSS` 替换成脚本输出的备份时间戳。
+
+---
+
 ## 最终上线前检查清单
 
 - 阿里云安全组已放行 `8443/tcp`
