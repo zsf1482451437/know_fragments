@@ -1,0 +1,76 @@
+{
+  "projects": [
+    {
+      "id": "goals",
+      "name": "年度",
+      "description": "年度目标和长期方向。"
+    },
+    {
+      "id": "monthly",
+      "name": "本月",
+      "description": "承接本月最重要的 3-5 件事。"
+    },
+    {
+      "id": "today",
+      "name": "今日",
+      "description": "今天真正要执行的关键动作。"
+    },
+    {
+      "id": "waiting",
+      "name": "等待",
+      "description": "等别人回复、等结果、待确认事项。"
+    },
+    {
+      "id": "someday",
+      "name": "想做",
+      "description": "未来想做但近期不推进的事项。"
+    },
+    {
+      "id": "work",
+      "name": "工作",
+      "description": "工作相关项目、交付物、会议后续。"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "2f8360f6-1afd-4034-a4b0-05dc76d7a484",
+      "title": "ui-design数据合成",
+      "projectId": "work",
+      "notes": "产出500+条过rubric质检的数据",
+      "priority": "week",
+      "completed": false,
+      "createdAt": "2026-06-02T11:28:39.125Z",
+      "updatedAt": "2026-06-02T11:28:39.125Z"
+    },
+    {
+      "id": "f9e2011b-51bf-425a-9f69-f785a4000730",
+      "title": "上架一款shopifyApp",
+      "projectId": "goals",
+      "notes": "1.上架审核通过\n2.沉淀上架流程skill",
+      "priority": "month",
+      "completed": false,
+      "createdAt": "2026-06-02T11:12:56.669Z",
+      "updatedAt": "2026-06-02T11:32:53.433Z"
+    },
+    {
+      "id": "dd8017ee-4e0c-4e9a-a8a2-7f87253f661d",
+      "title": "炒股学习",
+      "projectId": "goals",
+      "notes": "",
+      "priority": "month",
+      "completed": false,
+      "createdAt": "2026-06-02T10:57:19.867Z",
+      "updatedAt": "2026-06-02T11:42:45.524Z"
+    },
+    {
+      "id": "task-web3d-goal",
+      "title": "系统掌握 Web3D 工程化能力",
+      "projectId": "goals",
+      "notes": "目标层：长期方向，后续拆到本月重点和本周任务。",
+      "priority": "year",
+      "completed": false,
+      "createdAt": "2026-05-27T00:00:00.000Z",
+      "updatedAt": "2026-06-02T11:09:08.308Z"
+    }
+  ]
+}
