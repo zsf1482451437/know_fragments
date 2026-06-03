@@ -28,6 +28,17 @@
   ],
   "tasks": [
     {
+      "id": "8b2466fe-ec25-4503-b676-9e54db704aa5",
+      "title": "理论",
+      "projectId": "monthly",
+      "notes": "理解一些基础概念",
+      "priority": "month",
+      "parentId": "dd8017ee-4e0c-4e9a-a8a2-7f87253f661d",
+      "completed": false,
+      "createdAt": "2026-06-03T09:31:15.455Z",
+      "updatedAt": "2026-06-03T09:31:15.455Z"
+    },
+    {
       "id": "480b6186-b4d8-4a62-b041-4bed609cd6ca",
       "title": "审核",
       "projectId": "weekly",
@@ -74,23 +85,23 @@
     {
       "id": "f9e2011b-51bf-425a-9f69-f785a4000730",
       "title": "上架一款shopifyApp",
-      "projectId": "weekly",
+      "projectId": "monthly",
       "notes": "1.上架审核通过\n2.沉淀上架流程skill",
-      "priority": "week",
+      "priority": "month",
       "completed": false,
       "createdAt": "2026-06-02T11:12:56.669Z",
-      "updatedAt": "2026-06-03T07:40:37.335Z",
+      "updatedAt": "2026-06-03T09:33:17.150Z",
       "parentId": null
     },
     {
       "id": "dd8017ee-4e0c-4e9a-a8a2-7f87253f661d",
-      "title": "炒股学习",
+      "title": "投资",
       "projectId": "monthly",
       "notes": "",
       "priority": "month",
       "completed": false,
       "createdAt": "2026-06-02T10:57:19.867Z",
-      "updatedAt": "2026-06-02T11:42:45.524Z",
+      "updatedAt": "2026-06-03T09:33:37.466Z",
       "parentId": null
     },
     {
