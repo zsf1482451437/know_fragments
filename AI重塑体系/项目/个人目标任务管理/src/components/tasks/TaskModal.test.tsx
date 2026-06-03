@@ -22,6 +22,18 @@ describe('TaskModal', () => {
     expect(onClose).toHaveBeenCalled();
   });
 
+  it('子任务模式继承默认值并展示自定义标题', async () => {
+    const onSubmit = vi.fn().mockResolvedValue(undefined);
+    render(<TaskModal initialValues={{ projectId: 'weekly', priority: 'week', parentId: 'week-1' }} onClose={vi.fn()} onSubmit={onSubmit} open projects={projects} title="新增子任务" />);
+
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByText('新增子任务')).toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText('任务标题'), { target: { value: '子任务弹窗' } });
+    fireEvent.click(screen.getByRole('button', { name: '添加任务' }));
+
+    await waitFor(() => expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({ parentId: 'week-1' })));
+  });
+
   it('编辑模式展示保存修改按钮', () => {
     render(<TaskModal onClose={vi.fn()} onSubmit={vi.fn()} open projects={projects} task={tasks[1]} />);
 

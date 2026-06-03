@@ -11,7 +11,8 @@ export interface Task {
   title: string;
   projectId: string;
   notes: string;
-  priority: Priority;
+  priority?: Priority | null;
+  parentId?: string | null;
   completed: boolean;
   createdAt: string;
   updatedAt: string;
@@ -25,6 +26,7 @@ export interface AppState {
 export interface TaskDraft {
   title: string;
   projectId: string;
-  priority: Priority;
+  priority?: Priority | null;
   notes: string;
+  parentId?: string | null;
 }

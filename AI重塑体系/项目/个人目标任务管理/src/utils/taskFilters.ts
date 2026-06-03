@@ -19,5 +19,9 @@ export function countOpenTasks(tasks: Task[]) {
 }
 
 export function countByPriority(tasks: Task[], priority: Priority) {
-  return tasks.filter((task) => task.priority === priority && !task.completed).length;
+  return tasks.filter((task) => task.priority === priority && task.projectId !== 'work' && !task.completed).length;
+}
+
+export function countWorkTasks(tasks: Task[]) {
+  return tasks.filter((task) => task.projectId === 'work' && !task.completed).length;
 }

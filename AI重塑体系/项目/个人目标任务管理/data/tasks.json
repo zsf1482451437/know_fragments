@@ -11,19 +11,14 @@
       "description": "承接本月最重要的 3-5 件事。"
     },
     {
+      "id": "weekly",
+      "name": "本周",
+      "description": "本周重点推进任务。"
+    },
+    {
       "id": "today",
       "name": "今日",
       "description": "今天真正要执行的关键动作。"
-    },
-    {
-      "id": "waiting",
-      "name": "等待",
-      "description": "等别人回复、等结果、待确认事项。"
-    },
-    {
-      "id": "someday",
-      "name": "想做",
-      "description": "未来想做但近期不推进的事项。"
     },
     {
       "id": "work",
@@ -33,34 +28,70 @@
   ],
   "tasks": [
     {
+      "id": "480b6186-b4d8-4a62-b041-4bed609cd6ca",
+      "title": "审核",
+      "projectId": "weekly",
+      "notes": "填应用信息\n录制使用视频",
+      "priority": "week",
+      "parentId": "f9e2011b-51bf-425a-9f69-f785a4000730",
+      "completed": false,
+      "createdAt": "2026-06-03T07:15:57.719Z",
+      "updatedAt": "2026-06-03T07:18:57.065Z"
+    },
+    {
+      "id": "2a826710-af83-4f6c-beef-bc221a89d418",
+      "title": "docker部署",
+      "projectId": "weekly",
+      "notes": "链接可访问应用",
+      "priority": "week",
+      "parentId": "f9e2011b-51bf-425a-9f69-f785a4000730",
+      "completed": false,
+      "createdAt": "2026-06-03T07:12:17.362Z",
+      "updatedAt": "2026-06-03T07:12:17.362Z"
+    },
+    {
+      "id": "79acf043-09e7-4d50-aa4d-b5156dd210e5",
+      "title": "3d-game数据合成",
+      "projectId": "work",
+      "notes": "500+过rubric",
+      "priority": null,
+      "completed": false,
+      "createdAt": "2026-06-02T14:37:24.932Z",
+      "updatedAt": "2026-06-02T14:37:24.932Z",
+      "parentId": null
+    },
+    {
       "id": "2f8360f6-1afd-4034-a4b0-05dc76d7a484",
       "title": "ui-design数据合成",
       "projectId": "work",
       "notes": "产出500+条过rubric质检的数据",
-      "priority": "week",
+      "priority": null,
       "completed": false,
       "createdAt": "2026-06-02T11:28:39.125Z",
-      "updatedAt": "2026-06-02T11:28:39.125Z"
+      "updatedAt": "2026-06-02T11:28:39.125Z",
+      "parentId": null
     },
     {
       "id": "f9e2011b-51bf-425a-9f69-f785a4000730",
       "title": "上架一款shopifyApp",
-      "projectId": "goals",
+      "projectId": "weekly",
       "notes": "1.上架审核通过\n2.沉淀上架流程skill",
-      "priority": "month",
+      "priority": "week",
       "completed": false,
       "createdAt": "2026-06-02T11:12:56.669Z",
-      "updatedAt": "2026-06-02T11:32:53.433Z"
+      "updatedAt": "2026-06-03T07:40:37.335Z",
+      "parentId": null
     },
     {
       "id": "dd8017ee-4e0c-4e9a-a8a2-7f87253f661d",
       "title": "炒股学习",
-      "projectId": "goals",
+      "projectId": "monthly",
       "notes": "",
       "priority": "month",
       "completed": false,
       "createdAt": "2026-06-02T10:57:19.867Z",
-      "updatedAt": "2026-06-02T11:42:45.524Z"
+      "updatedAt": "2026-06-02T11:42:45.524Z",
+      "parentId": null
     },
     {
       "id": "task-web3d-goal",
@@ -70,7 +101,8 @@
       "priority": "year",
       "completed": false,
       "createdAt": "2026-05-27T00:00:00.000Z",
-      "updatedAt": "2026-06-02T11:09:08.308Z"
+      "updatedAt": "2026-06-03T06:51:16.289Z",
+      "parentId": null
     }
   ]
 }

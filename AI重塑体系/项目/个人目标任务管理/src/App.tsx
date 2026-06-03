@@ -1,17 +1,27 @@
 import { useEffect, useMemo, useState } from 'react';
 import { EmptyState } from './components/common/EmptyState';
 import { Header } from './components/layout/Header';
-import { ProjectSidebar } from './components/projects/ProjectSidebar';
+import { SectionSidebar } from './components/sections/SectionSidebar';
 import { SummaryCards } from './components/dashboard/SummaryCards';
 import { TaskBoard } from './components/tasks/TaskBoard';
 import { TaskModal } from './components/tasks/TaskModal';
 import { createTask, deleteTask, fetchState, updateTask } from './services/api';
-import type { AppState, Task, TaskDraft } from './types/task';
+import type { AppState, Priority, Task, TaskDraft } from './types/task';
+import { getTaskSectionId, priorityToSectionId } from './utils/taskSections';
+import { getAncestorTasks, getDescendantTasks } from './utils/taskTree';
+
+const nextPriorityMap: Partial<Record<Priority, Priority>> = {
+  year: 'month',
+  month: 'week',
+  week: 'today',
+};
 
 function App() {
   const [state, setState] = useState<AppState | null>(null);
-  const [selectedProjectId, setSelectedProjectId] = useState('all');
+  const [selectedSectionId, setSelectedSectionId] = useState('all');
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [taskDefaults, setTaskDefaults] = useState<Partial<TaskDraft> | undefined>(undefined);
+  const [modalTitle, setModalTitle] = useState<string | undefined>(undefined);
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const [error, setError] = useState('');
 
@@ -25,24 +35,37 @@ function App() {
     if (!state) {
       return [];
     }
-    if (selectedProjectId === 'all') {
+    if (selectedSectionId === 'all') {
       return state.tasks;
     }
-    return state.tasks.filter((task) => task.projectId === selectedProjectId);
-  }, [selectedProjectId, state]);
+    return state.tasks.filter((task) => getTaskSectionId(task) === selectedSectionId);
+  }, [selectedSectionId, state]);
 
   function openCreateModal() {
     setEditingTask(null);
+    setTaskDefaults(undefined);
+    setModalTitle('新增任务');
     setIsTaskModalOpen(true);
   }
 
   function openEditModal(task: Task) {
     setEditingTask(task);
+    setTaskDefaults(undefined);
+    setModalTitle('编辑任务');
+    setIsTaskModalOpen(true);
+  }
+
+  function openSubtaskModal(task: Task) {
+    setEditingTask(null);
+    setTaskDefaults({ projectId: getTaskSectionId(task), priority: task.priority, parentId: task.id });
+    setModalTitle(`为“${task.title}”新增子任务`);
     setIsTaskModalOpen(true);
   }
 
   function closeTaskModal() {
     setEditingTask(null);
+    setTaskDefaults(undefined);
+    setModalTitle(undefined);
     setIsTaskModalOpen(false);
   }
 
@@ -59,12 +82,56 @@ function App() {
     setState(await updateTask(editingTask.id, task));
   }
 
-  async function handleToggleTask(task: Task) {
-    setState(await updateTask(task.id, { completed: !task.completed }));
+  async function applyTaskUpdates(taskUpdates: Array<{ id: string; updates: Partial<Task> }>) {
+    let nextState = state;
+
+    for (const taskUpdate of taskUpdates) {
+      nextState = await updateTask(taskUpdate.id, taskUpdate.updates);
+    }
+
+    if (nextState) {
+      setState(nextState);
+    }
   }
 
-  async function handlePromoteToday(task: Task) {
-    setState(await updateTask(task.id, { priority: 'today', completed: false }));
+  async function handleToggleTask(task: Task) {
+    if (!state) {
+      return;
+    }
+
+    const nextCompleted = !task.completed;
+
+    if (nextCompleted) {
+      const descendants = getDescendantTasks(state.tasks, task.id).filter((item) => !item.completed);
+      await applyTaskUpdates([
+        { id: task.id, updates: { completed: true } },
+        ...descendants.map((item) => ({ id: item.id, updates: { completed: true } })),
+      ]);
+      return;
+    }
+
+    const ancestors = getAncestorTasks(state.tasks, task.id).filter((item) => item.completed);
+    await applyTaskUpdates([
+      { id: task.id, updates: { completed: false } },
+      ...ancestors.map((item) => ({ id: item.id, updates: { completed: false } })),
+    ]);
+  }
+
+  async function handleAdvanceTask(task: Task) {
+    if (!task.priority) {
+      return;
+    }
+
+    const nextPriority = nextPriorityMap[task.priority];
+    if (!nextPriority) {
+      return;
+    }
+
+    setState(await updateTask(task.id, {
+      priority: nextPriority,
+      projectId: priorityToSectionId[nextPriority],
+      completed: false,
+    }));
   }
 
   async function handleDeleteTask(task: Task) {
@@ -90,17 +157,18 @@ function App() {
           </button>
         </div>
         <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
-          <ProjectSidebar
-            onSelect={setSelectedProjectId}
+          <SectionSidebar
+            onSelect={setSelectedSectionId}
             projects={state.projects}
-            selectedProjectId={selectedProjectId}
+            selectedSectionId={selectedSectionId}
             tasks={state.tasks}
           />
-          {filteredTasks.length > 0 ? (
+          {filteredTasks.some((task) => !task.parentId) ? (
             <TaskBoard
+              onAddSubtask={openSubtaskModal}
+              onAdvance={handleAdvanceTask}
               onDelete={handleDeleteTask}
               onEdit={openEditModal}
-              onPromoteToday={handlePromoteToday}
               onToggle={handleToggleTask}
               projects={state.projects}
               tasks={filteredTasks}
@@ -111,11 +179,13 @@ function App() {
         </div>
       </div>
       <TaskModal
+        initialValues={taskDefaults}
         onClose={closeTaskModal}
         onSubmit={handleSaveTask}
         open={isTaskModalOpen}
         projects={state.projects}
         task={editingTask}
+        title={modalTitle}
       />
     </main>
   );

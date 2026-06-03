@@ -33,8 +33,8 @@ describe('storage', () => {
     const state = await readState();
     const raw = await readFile(path.join(tempDir, 'data', 'tasks.json'), 'utf-8');
 
-    expect(state.projects.map((project) => project.name)).toEqual(['年度', '本月', '今日', '等待', '想做', '工作']);
-    expect(state.tasks[0]).not.toHaveProperty('scope');
+    expect(state.projects.map((project) => project.name)).toEqual(['年度', '本月', '本周', '今日', '工作']);
+    expect(state.tasks.find((task) => task.projectId === 'work')?.priority).toBeNull();
     expect(JSON.parse(raw)).toEqual(state);
   });
 
@@ -50,16 +50,18 @@ describe('storage', () => {
     const { createTask } = await loadStorage();
     vi.spyOn(crypto, 'randomUUID').mockReturnValue('00000000-0000-4000-8000-000000000000');
 
-    const task = createTask({ title: '  新任务  ' });
+    const goalTask = createTask({ title: '  新任务  ' });
+    const workTask = createTask({ title: '工作任务', projectId: 'work' });
 
-    expect(task).toMatchObject({
+    expect(goalTask).toMatchObject({
       id: '00000000-0000-4000-8000-000000000000',
       title: '新任务',
       projectId: 'goals',
       priority: 'today',
       completed: false,
     });
-    expect(task.createdAt).toBeTruthy();
-    expect(task.updatedAt).toBeTruthy();
+    expect(workTask.priority).toBeNull();
+    expect(goalTask.createdAt).toBeTruthy();
+    expect(goalTask.updatedAt).toBeTruthy();
   });
 });

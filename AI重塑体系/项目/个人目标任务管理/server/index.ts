@@ -43,7 +43,21 @@ router.patch('/tasks/:id', async (ctx) => {
 
 router.delete('/tasks/:id', async (ctx) => {
   const state = await readState();
-  const nextTasks = state.tasks.filter((item) => item.id !== ctx.params.id);
+  const targetId = ctx.params.id;
+  const idsToDelete = new Set<string>([targetId]);
+
+  let expanded = true;
+  while (expanded) {
+    expanded = false;
+    for (const task of state.tasks) {
+      if (task.parentId && idsToDelete.has(task.parentId) && !idsToDelete.has(task.id)) {
+        idsToDelete.add(task.id);
+        expanded = true;
+      }
+    }
+  }
+
+  const nextTasks = state.tasks.filter((item) => !idsToDelete.has(item.id));
 
   if (nextTasks.length === state.tasks.length) {
     ctx.status = 404;

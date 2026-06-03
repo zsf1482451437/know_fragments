@@ -7,6 +7,6 @@ describe('EmptyState', () => {
     render(<EmptyState />);
 
     expect(screen.getByText('当前筛选下没有任务')).toBeInTheDocument();
-    expect(screen.getByText('可以新增一个下一步动作，或者切换到全部项目。')).toBeInTheDocument();
+    expect(screen.getByText('可以新增一个下一步动作，或者切换到全部阶段。')).toBeInTheDocument();
   });
 });

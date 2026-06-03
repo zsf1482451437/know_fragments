@@ -1,5 +1,5 @@
 import type { Task } from '../../types/task';
-import { countByPriority, countOpenTasks } from '../../utils/taskFilters';
+import { countByPriority, countOpenTasks, countWorkTasks } from '../../utils/taskFilters';
 
 interface SummaryCardsProps {
   tasks: Task[];
@@ -10,7 +10,7 @@ export function SummaryCards({ tasks }: SummaryCardsProps) {
     { label: '未完成任务', value: countOpenTasks(tasks), hint: '全部开放任务' },
     { label: '今日', value: countByPriority(tasks, 'today'), hint: '今日聚焦清单' },
     { label: '本周', value: countByPriority(tasks, 'week'), hint: '本周推进池' },
-    { label: '本年', value: countByPriority(tasks, 'year'), hint: '年度方向' },
+    { label: '工作', value: countWorkTasks(tasks), hint: '独立工作分区' },
   ];
 
   return (

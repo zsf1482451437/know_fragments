@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Priority, Project, Task, TaskDraft } from '../../types/task';
 import { priorityLabels } from '../../utils/taskFilters';
+import { getTaskSectionId, priorityToSectionId, sectionIdToPriority } from '../../utils/taskSections';
 
 interface TaskFormProps {
   projects: Project[];
   initialTask?: Task | null;
+  initialValues?: Partial<TaskDraft>;
   submitLabel?: string;
   onCancel?: () => void;
   onSubmit: (task: TaskDraft) => Promise<void>;
@@ -12,28 +14,44 @@ interface TaskFormProps {
 
 const priorities: Priority[] = ['today', 'week', 'month', 'year'];
 
-function createDraft(projects: Project[], initialTask?: Task | null): TaskDraft {
-  if (initialTask) {
-    return {
-      title: initialTask.title,
-      projectId: initialTask.projectId,
-      priority: initialTask.priority,
-      notes: initialTask.notes,
-    };
+function normalizeDraft(draft: TaskDraft): TaskDraft {
+  if (draft.projectId === 'work') {
+    return { ...draft, priority: null };
   }
 
+  const normalizedPriority = draft.priority ?? sectionIdToPriority[draft.projectId] ?? 'today';
   return {
-    title: '',
-    projectId: projects[0]?.id ?? 'goals',
-    priority: 'today',
-    notes: '',
+    ...draft,
+    priority: normalizedPriority,
+    projectId: priorityToSectionId[normalizedPriority],
   };
 }
 
-export function TaskForm({ projects, initialTask, submitLabel, onCancel, onSubmit }: TaskFormProps) {
-  const initialDraft = useMemo(() => createDraft(projects, initialTask), [initialTask, projects]);
+function createDraft(projects: Project[], initialTask?: Task | null, initialValues?: Partial<TaskDraft>): TaskDraft {
+  if (initialTask) {
+    return normalizeDraft({
+      title: initialTask.title,
+      projectId: getTaskSectionId(initialTask),
+      priority: initialTask.priority ?? null,
+      notes: initialTask.notes,
+      parentId: initialTask.parentId ?? null,
+    });
+  }
+
+  return normalizeDraft({
+    title: initialValues?.title ?? '',
+    projectId: initialValues?.projectId ?? projects[0]?.id ?? 'goals',
+    priority: initialValues?.priority ?? null,
+    notes: initialValues?.notes ?? '',
+    parentId: initialValues?.parentId ?? null,
+  });
+}
+
+export function TaskForm({ projects, initialTask, initialValues, submitLabel, onCancel, onSubmit }: TaskFormProps) {
+  const initialDraft = useMemo(() => createDraft(projects, initialTask, initialValues), [initialTask, initialValues, projects]);
   const [draft, setDraft] = useState<TaskDraft>(initialDraft);
   const [submitting, setSubmitting] = useState(false);
+  const isWorkProject = draft.projectId === 'work';
 
   useEffect(() => {
     setDraft(initialDraft);
@@ -46,19 +64,33 @@ export function TaskForm({ projects, initialTask, submitLabel, onCancel, onSubmi
     }
 
     setSubmitting(true);
-    await onSubmit({ ...draft, title: draft.title.trim() });
+    await onSubmit(normalizeDraft({ ...draft, title: draft.title.trim() }));
     setSubmitting(false);
 
     if (!initialTask) {
-      setDraft(createDraft(projects));
+      setDraft(createDraft(projects, undefined, initialValues));
     }
+  }
+
+  function handleProjectChange(projectId: string) {
+    if (projectId === 'work') {
+      setDraft((current) => ({ ...current, projectId, priority: null }));
+      return;
+    }
+
+    const priority = sectionIdToPriority[projectId];
+    setDraft((current) => ({ ...current, projectId, priority }));
+  }
+
+  function handlePriorityChange(priority: Priority) {
+    setDraft((current) => ({ ...current, priority, projectId: priorityToSectionId[priority] }));
   }
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
       <div>
         <h2 className="text-lg font-semibold text-slate-950">{initialTask ? '编辑任务' : '新增下一步动作'}</h2>
-        <p className="mt-1 text-sm text-slate-500">只保留项目分区和时间优先级，避免层级重复。</p>
+        <p className="mt-1 text-sm text-slate-500">工作任务走独立分区，不参与年/月/周/日优先级。</p>
       </div>
 
       <label className="block text-sm font-medium text-slate-700">
@@ -73,22 +105,26 @@ export function TaskForm({ projects, initialTask, submitLabel, onCancel, onSubmi
 
       <div className="grid gap-3 md:grid-cols-2">
         <label className="block text-sm font-medium text-slate-700">
-          项目分区
-          <select className="mt-2 w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm" onChange={(event) => setDraft({ ...draft, projectId: event.target.value })} value={draft.projectId}>
+          阶段分区
+          <select className="mt-2 w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm" onChange={(event) => handleProjectChange(event.target.value)} value={draft.projectId}>
             {projects.map((project) => (
               <option key={project.id} value={project.id}>{project.name}</option>
             ))}
           </select>
         </label>
-        <label className="block text-sm font-medium text-slate-700">
-          优先级
-          <select className="mt-2 w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm" onChange={(event) => setDraft({ ...draft, priority: event.target.value as Priority })} value={draft.priority}>
-            {priorities.map((priority) => (
-              <option key={priority} value={priority}>{priorityLabels[priority]}</option>
-            ))}
-          </select>
-        </label>
+        {!isWorkProject && (
+          <label className="block text-sm font-medium text-slate-700">
+            优先级
+            <select className="mt-2 w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm" onChange={(event) => handlePriorityChange(event.target.value as Priority)} value={draft.priority ?? 'today'}>
+              {priorities.map((priority) => (
+                <option key={priority} value={priority}>{priorityLabels[priority]}</option>
+              ))}
+            </select>
+          </label>
+        )}
       </div>
+
+      {isWorkProject && <p className="rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-500">工作分区不设置优先级，会显示在独立的工作看板中。</p>}
 
       <label className="block text-sm font-medium text-slate-700">
         备注
