@@ -1,0 +1,48 @@
+{
+  "records": [
+    {
+      "id": "e51a3962-43e7-46b9-ae49-4f6e20840e37",
+      "month": "2026-06",
+      "date": "2026-06-15",
+      "type": "debt",
+      "title": "支付宝备用金+抖音",
+      "amount": 8000,
+      "note": "",
+      "createdAt": "2026-06-05T05:33:59.007Z",
+      "updatedAt": "2026-06-05T05:33:59.007Z"
+    },
+    {
+      "id": "8add17a4-6b18-487a-9ab2-aab22b9c6923",
+      "month": "2026-06",
+      "date": "2026-06-15",
+      "type": "preincome",
+      "title": "工资",
+      "amount": 15100,
+      "note": "",
+      "createdAt": "2026-06-05T05:15:10.464Z",
+      "updatedAt": "2026-06-05T05:15:10.464Z"
+    },
+    {
+      "id": "8da8c339-8f5f-41b1-ba1d-1d5b353f51ca",
+      "month": "2026-06",
+      "date": "2026-06-05",
+      "type": "income",
+      "title": "微信余额",
+      "amount": 836,
+      "note": "",
+      "createdAt": "2026-06-05T04:54:38.933Z",
+      "updatedAt": "2026-06-08T03:45:29.642Z"
+    },
+    {
+      "id": "4e006a99-0049-4b45-84d8-c7df5aa297ac",
+      "month": "2026-06",
+      "date": "2026-06-05",
+      "type": "income",
+      "title": "卡账户",
+      "amount": 1607,
+      "note": "",
+      "createdAt": "2026-06-05T03:45:50.351Z",
+      "updatedAt": "2026-06-08T03:45:12.746Z"
+    }
+  ]
+}
