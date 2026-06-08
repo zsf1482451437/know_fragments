@@ -28,6 +28,61 @@
   ],
   "tasks": [
     {
+      "id": "42691ae6-cbad-478f-be34-b8d85db2dd98",
+      "title": "Agent体系理解",
+      "projectId": "goals",
+      "notes": "",
+      "priority": "year",
+      "parentId": null,
+      "completed": false,
+      "createdAt": "2026-06-05T03:51:50.188Z",
+      "updatedAt": "2026-06-05T03:51:50.188Z"
+    },
+    {
+      "id": "f794799a-5ad8-4975-9ee9-3d55f178ad26",
+      "title": "skill管理平台",
+      "projectId": "goals",
+      "notes": "",
+      "priority": "year",
+      "parentId": null,
+      "completed": false,
+      "createdAt": "2026-06-05T02:58:39.778Z",
+      "updatedAt": "2026-06-05T02:58:39.778Z"
+    },
+    {
+      "id": "0d96f53a-c8c8-4dee-8b20-aca68f98f1d9",
+      "title": "完善财务管理系统",
+      "projectId": "today",
+      "notes": "",
+      "priority": "today",
+      "parentId": null,
+      "completed": true,
+      "createdAt": "2026-06-05T02:55:32.741Z",
+      "updatedAt": "2026-06-05T03:57:55.480Z"
+    },
+    {
+      "id": "c77251da-f67a-4c95-b695-42c9d9a13819",
+      "title": "图片提取成文本，导入表格skill",
+      "projectId": "goals",
+      "notes": "",
+      "priority": "year",
+      "parentId": null,
+      "completed": false,
+      "createdAt": "2026-06-05T02:44:59.976Z",
+      "updatedAt": "2026-06-05T02:44:59.976Z"
+    },
+    {
+      "id": "75e0ae5e-c145-49d9-91c9-e9b363194b0a",
+      "title": "数据汇报skill",
+      "projectId": "work",
+      "notes": "",
+      "priority": null,
+      "parentId": null,
+      "completed": true,
+      "createdAt": "2026-06-05T02:29:43.889Z",
+      "updatedAt": "2026-06-05T06:43:17.619Z"
+    },
+    {
       "id": "8b2466fe-ec25-4503-b676-9e54db704aa5",
       "title": "理论",
       "projectId": "monthly",

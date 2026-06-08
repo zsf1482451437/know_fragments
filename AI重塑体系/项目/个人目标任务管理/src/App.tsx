@@ -41,6 +41,11 @@ function App() {
     return state.tasks.filter((task) => getTaskSectionId(task) === selectedSectionId);
   }, [selectedSectionId, state]);
 
+  const hasVisibleTasks = useMemo(() => {
+    const filteredTaskIds = new Set(filteredTasks.map((task) => task.id));
+    return filteredTasks.some((task) => !task.parentId || !filteredTaskIds.has(task.parentId));
+  }, [filteredTasks]);
+
   function openCreateModal() {
     setEditingTask(null);
     setTaskDefaults(undefined);
@@ -163,8 +168,9 @@ function App() {
             selectedSectionId={selectedSectionId}
             tasks={state.tasks}
           />
-          {filteredTasks.some((task) => !task.parentId) ? (
+          {hasVisibleTasks ? (
             <TaskBoard
+              allTasks={state.tasks}
               onAddSubtask={openSubtaskModal}
               onAdvance={handleAdvanceTask}
               onDelete={handleDeleteTask}

@@ -1,9 +1,11 @@
 import type { Priority, Project, Task } from '../../types/task';
 import { priorityLabels } from '../../utils/taskFilters';
+import { getTaskSectionId, priorityToSectionId } from '../../utils/taskSections';
 import { TaskCard } from './TaskCard';
 
 interface TaskBoardProps {
   tasks: Task[];
+  allTasks: Task[];
   projects: Project[];
   onToggle: (task: Task) => void;
   onAdvance: (task: Task) => void;
@@ -14,15 +16,16 @@ interface TaskBoardProps {
 
 const priorities: Priority[] = ['year', 'month', 'week', 'today'];
 
-export function TaskBoard({ tasks, projects, onToggle, onAdvance, onEdit, onAddSubtask, onDelete }: TaskBoardProps) {
-  const rootTasks = tasks.filter((task) => !task.parentId);
-  const workTasks = rootTasks.filter((task) => task.projectId === 'work');
-  const timeTasks = rootTasks.filter((task) => task.projectId !== 'work');
+export function TaskBoard({ tasks, allTasks, projects, onToggle, onAdvance, onEdit, onAddSubtask, onDelete }: TaskBoardProps) {
+  const taskIds = new Set(tasks.map((task) => task.id));
+  const visibleRootTasks = tasks.filter((task) => !task.parentId || !taskIds.has(task.parentId));
+  const workTasks = visibleRootTasks.filter((task) => getTaskSectionId(task) === 'work');
+  const timeTasks = visibleRootTasks.filter((task) => getTaskSectionId(task) !== 'work');
 
   return (
     <section className="space-y-5">
       {priorities.map((priority) => {
-        const groupedTasks = timeTasks.filter((task) => task.priority === priority);
+        const groupedTasks = timeTasks.filter((task) => getTaskSectionId(task) === priorityToSectionId[priority]);
         if (groupedTasks.length === 0) {
           return null;
         }
@@ -43,7 +46,7 @@ export function TaskBoard({ tasks, projects, onToggle, onAdvance, onEdit, onAddS
                   onEdit={onEdit}
                   onToggle={onToggle}
                   projects={projects}
-                  tasks={tasks}
+              tasks={allTasks}
                   task={task}
                 />
               ))}
@@ -67,7 +70,7 @@ export function TaskBoard({ tasks, projects, onToggle, onAdvance, onEdit, onAddS
                 onEdit={onEdit}
                 onToggle={onToggle}
                 projects={projects}
-                tasks={tasks}
+                tasks={allTasks}
                 task={task}
               />
             ))}

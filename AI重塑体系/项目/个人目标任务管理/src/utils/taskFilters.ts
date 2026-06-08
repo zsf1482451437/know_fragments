@@ -22,6 +22,10 @@ export function countByPriority(tasks: Task[], priority: Priority) {
   return tasks.filter((task) => task.priority === priority && task.projectId !== 'work' && !task.completed).length;
 }
 
+export function countCompletedByPriority(tasks: Task[], priority: Priority) {
+  return tasks.filter((task) => task.priority === priority && task.projectId !== 'work' && task.completed).length;
+}
+
 export function countWorkTasks(tasks: Task[]) {
   return tasks.filter((task) => task.projectId === 'work' && !task.completed).length;
 }

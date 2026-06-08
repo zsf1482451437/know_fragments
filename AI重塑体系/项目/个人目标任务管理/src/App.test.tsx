@@ -58,6 +58,80 @@ describe('App', () => {
     expect(screen.getByText('当前筛选下没有任务')).toBeInTheDocument();
   });
 
+  it('按本周筛选时会展示父任务不在当前视图中的周任务', async () => {
+    fetchStateMock.mockResolvedValueOnce({
+      ...appState,
+      tasks: [
+        {
+          ...appState.tasks[0],
+          id: 'month-parent',
+          title: '月度目标',
+          projectId: 'monthly',
+          priority: 'month',
+          parentId: null,
+        },
+        {
+          ...appState.tasks[1],
+          id: 'week-child-1',
+          title: '周任务一',
+          projectId: 'weekly',
+          priority: 'week',
+          parentId: 'month-parent',
+        },
+        {
+          ...appState.tasks[1],
+          id: 'week-child-2',
+          title: '周任务二',
+          projectId: 'weekly',
+          priority: 'week',
+          parentId: 'month-parent',
+        },
+      ],
+    });
+    render(<App />);
+
+    await screen.findByText('月度目标');
+    const sidebar = screen.getByText('阶段分区').closest('aside');
+    expect(sidebar).not.toBeNull();
+    fireEvent.click(within(sidebar as HTMLElement).getByRole('button', { name: /本周/ }));
+
+    expect(screen.getByText('周任务一')).toBeInTheDocument();
+    expect(screen.getByText('周任务二')).toBeInTheDocument();
+  });
+
+  it('按本月筛选时月任务仍可展开跨阶段子任务', async () => {
+    fetchStateMock.mockResolvedValueOnce({
+      ...appState,
+      tasks: [
+        {
+          ...appState.tasks[0],
+          id: 'month-parent',
+          title: '月度目标',
+          projectId: 'monthly',
+          priority: 'month',
+          parentId: null,
+        },
+        {
+          ...appState.tasks[1],
+          id: 'week-child-1',
+          title: '周子任务',
+          projectId: 'weekly',
+          priority: 'week',
+          parentId: 'month-parent',
+        },
+      ],
+    });
+    render(<App />);
+
+    await screen.findByText('月度目标');
+    const sidebar = screen.getByText('阶段分区').closest('aside');
+    expect(sidebar).not.toBeNull();
+    fireEvent.click(within(sidebar as HTMLElement).getByRole('button', { name: /本月/ }));
+    fireEvent.click(screen.getByRole('button', { name: '展开子任务 (1)' }));
+
+    expect(screen.getByText('周子任务')).toBeInTheDocument();
+  });
+
   it('新增任务通过弹窗调用 createTask 并刷新状态', async () => {
     render(<App />);
 
