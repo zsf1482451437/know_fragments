@@ -26,11 +26,11 @@
 ## 常用命令
 
 ```bash
-npm install
-npm run dev
-npm run test
-npm run build
-npm run typecheck:server
+pnpm install
+pnpm run dev
+pnpm run test
+pnpm run build
+pnpm run typecheck:server   
 ```
 
 默认后端端口：`4176`。
