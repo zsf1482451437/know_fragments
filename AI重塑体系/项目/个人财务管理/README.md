@@ -34,3 +34,72 @@ npm run typecheck:server
 ```
 
 默认后端端口：`4176`。
+
+## Docker 部署
+
+项目已提供生产可用的 `Dockerfile` 和 `docker-compose.yml`，默认由 Koa 同时提供：
+
+- 前端静态资源：`dist`
+- 后端 API：`/api/*`
+- 健康检查：`/api/health`
+
+### 本地构建镜像
+
+```bash
+docker build -t personal-finance-manager:latest .
+```
+
+### 服务器使用 Docker Compose 启动
+
+可先复制环境变量模板：
+
+```bash
+cp .env.example .env
+```
+
+```bash
+docker compose up -d --build
+```
+
+默认映射端口：
+
+- 容器内：`4176`
+- 宿主机：`${APP_PORT:-4176}`
+
+如果要改成服务器 `8080` 端口，可以这样启动：
+
+```bash
+APP_PORT=8080 docker compose up -d --build
+```
+
+### 常用运维命令
+
+```bash
+docker compose ps
+docker compose logs -f finance-app
+docker compose restart finance-app
+docker compose down
+```
+
+### 数据持久化
+
+`docker-compose.yml` 已配置命名卷 `finance-data` 挂载到容器内的 `/app/data`，默认数据文件路径为：
+
+```text
+/app/data/finance.json
+```
+
+这意味着：
+
+- 重建容器不会丢失财务数据
+- 登录日志和流水数据都会保存在 Docker 卷中
+
+### 更新部署
+
+服务器拉取新代码后，执行：
+
+```bash
+docker compose up -d --build
+```
+
+即可重新构建并滚动更新当前服务。

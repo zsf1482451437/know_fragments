@@ -1,0 +1,17 @@
+services:
+  finance-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: personal-finance-manager
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-4176}:4176"
+    environment:
+      PORT: 4176
+      FINANCE_DATA_FILE: /app/data/finance.json
+    volumes:
+      - finance-data:/app/data
+
+volumes:
+  finance-data:
