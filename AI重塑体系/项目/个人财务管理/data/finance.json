@@ -1,15 +1,54 @@
 {
   "records": [
     {
+      "id": "f33514a9-81ab-4c29-b00e-dcfaeefd8869",
+      "month": "2026-06",
+      "date": "2026-06-15",
+      "owner": "wenxin",
+      "type": "preincome",
+      "isRepayment": false,
+      "title": "",
+      "amount": 7000,
+      "note": "",
+      "createdAt": "2026-06-09T06:02:48.580Z",
+      "updatedAt": "2026-06-09T06:02:48.580Z"
+    },
+    {
+      "id": "4da68d20-5b29-419e-b3d9-b95c9b9059cd",
+      "month": "2026-06",
+      "date": "2026-06-09",
+      "type": "expense",
+      "title": "支付宝还款",
+      "amount": 1000,
+      "note": "",
+      "createdAt": "2026-06-09T02:35:59.986Z",
+      "updatedAt": "2026-06-09T03:17:39.927Z",
+      "isRepayment": false,
+      "owner": "sifeng"
+    },
+    {
+      "id": "c0b906b2-e913-4cd0-b597-5429b8b09529",
+      "month": "2026-06",
+      "date": "2026-06-09",
+      "type": "expense",
+      "title": "",
+      "amount": 3,
+      "note": "",
+      "createdAt": "2026-06-09T02:35:22.508Z",
+      "updatedAt": "2026-06-09T02:35:22.508Z",
+      "owner": "sifeng"
+    },
+    {
       "id": "e51a3962-43e7-46b9-ae49-4f6e20840e37",
       "month": "2026-06",
       "date": "2026-06-15",
       "type": "debt",
       "title": "支付宝备用金+抖音",
-      "amount": 8000,
+      "amount": 7000,
       "note": "",
       "createdAt": "2026-06-05T05:33:59.007Z",
-      "updatedAt": "2026-06-05T05:33:59.007Z"
+      "updatedAt": "2026-06-09T02:36:16.849Z",
+      "owner": "sifeng"
     },
     {
       "id": "8add17a4-6b18-487a-9ab2-aab22b9c6923",
@@ -20,7 +59,8 @@
       "amount": 15100,
       "note": "",
       "createdAt": "2026-06-05T05:15:10.464Z",
-      "updatedAt": "2026-06-05T05:15:10.464Z"
+      "updatedAt": "2026-06-05T05:15:10.464Z",
+      "owner": "sifeng"
     },
     {
       "id": "8da8c339-8f5f-41b1-ba1d-1d5b353f51ca",
@@ -31,7 +71,8 @@
       "amount": 836,
       "note": "",
       "createdAt": "2026-06-05T04:54:38.933Z",
-      "updatedAt": "2026-06-08T03:45:29.642Z"
+      "updatedAt": "2026-06-08T03:45:29.642Z",
+      "owner": "sifeng"
     },
     {
       "id": "4e006a99-0049-4b45-84d8-c7df5aa297ac",
@@ -42,7 +83,172 @@
       "amount": 1607,
       "note": "",
       "createdAt": "2026-06-05T03:45:50.351Z",
-      "updatedAt": "2026-06-08T03:45:12.746Z"
+      "updatedAt": "2026-06-08T03:45:12.746Z",
+      "owner": "sifeng"
+    }
+  ],
+  "logs": [
+    {
+      "id": "16dce62b-168c-42d9-ae0e-abdd7213ef91",
+      "actor": "wenxin",
+      "action": "删除流水",
+      "target": "record",
+      "detail": "未命名 1000",
+      "recordId": "1a6061c8-9e19-40a4-97c9-381f9492618c",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T06:03:59.355Z"
+    },
+    {
+      "id": "c57d0447-0c79-4e77-a3db-932264580da9",
+      "actor": "wenxin",
+      "action": "新增流水",
+      "target": "record",
+      "detail": "未命名 7000",
+      "recordId": "f33514a9-81ab-4c29-b00e-dcfaeefd8869",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T06:02:48.580Z"
+    },
+    {
+      "id": "1b115901-5240-4d91-8e90-8103cb83c389",
+      "actor": "wenxin",
+      "action": "新增流水",
+      "target": "record",
+      "detail": "未命名 1000",
+      "recordId": "1a6061c8-9e19-40a4-97c9-381f9492618c",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T06:00:49.007Z"
+    },
+    {
+      "id": "522f0c3d-ddfe-4ded-81ed-d8cc3d141711",
+      "actor": "wenxin",
+      "action": "删除流水",
+      "target": "record",
+      "detail": "未命名 1000",
+      "recordId": "70cf1c6b-b1d7-4008-b9c6-6c5430846e84",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T06:00:42.070Z"
+    },
+    {
+      "id": "87bdef0d-a8dc-41f4-b473-68cf89d88aba",
+      "actor": "wenxin",
+      "action": "新增流水",
+      "target": "record",
+      "detail": "未命名 1000",
+      "recordId": "70cf1c6b-b1d7-4008-b9c6-6c5430846e84",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T06:00:20.332Z"
+    },
+    {
+      "id": "06460124-b4cc-4edb-af06-0a3986c22111",
+      "actor": "wenxin",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T06:00:06.360Z"
+    },
+    {
+      "id": "a575affd-d71f-4603-ba9f-bc824e654588",
+      "actor": "sifeng",
+      "action": "退出登录",
+      "target": "auth",
+      "detail": "退出系统",
+      "createdAt": "2026-06-09T06:00:01.242Z"
+    },
+    {
+      "id": "536b17a5-b9c7-4fd7-95ac-70dcd8d0db3c",
+      "actor": "sifeng",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T05:59:55.571Z"
+    },
+    {
+      "id": "e03e1711-06f3-4f75-99d6-4f18546db827",
+      "actor": "wenxin",
+      "action": "退出登录",
+      "target": "auth",
+      "detail": "退出系统",
+      "createdAt": "2026-06-09T05:59:51.674Z"
+    },
+    {
+      "id": "86d1cc1c-4cd5-4832-910c-b4913f5d0429",
+      "actor": "wenxin",
+      "action": "删除流水",
+      "target": "record",
+      "detail": "未命名 100",
+      "recordId": "44b8401e-29f1-4bd4-8716-056b6da288e9",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T03:57:00.168Z"
+    },
+    {
+      "id": "954ac8c2-ec22-44ad-9e89-c0396f02686e",
+      "actor": "wenxin",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T03:54:54.540Z"
+    },
+    {
+      "id": "c4f93941-cbb8-4edb-84f9-1d8bdb99a1d0",
+      "actor": "sifeng",
+      "action": "新增流水",
+      "target": "record",
+      "detail": "未命名 100",
+      "recordId": "44b8401e-29f1-4bd4-8716-056b6da288e9",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T03:51:18.327Z"
+    },
+    {
+      "id": "91f57c46-478d-4206-bd48-8a5120082e63",
+      "actor": "sifeng",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T03:31:41.763Z"
+    },
+    {
+      "id": "d76eaafa-fd75-4a19-9c14-9aee78783f6b",
+      "actor": "wenxin",
+      "action": "编辑流水",
+      "target": "record",
+      "detail": "支付宝还款 1000",
+      "recordId": "4da68d20-5b29-419e-b3d9-b95c9b9059cd",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T03:17:39.927Z"
+    },
+    {
+      "id": "d110efb4-c4ed-44db-92f3-013376df574a",
+      "actor": "wenxin",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T03:16:22.392Z"
+    },
+    {
+      "id": "dbb2a7d0-58bc-4d9c-bcd8-406c6b5c9781",
+      "actor": "sifeng",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T03:13:14.357Z"
+    },
+    {
+      "id": "ffbfc768-16a8-4a78-ac5a-bd87b19030cd",
+      "actor": "sifeng",
+      "action": "编辑流水",
+      "target": "record",
+      "detail": "支付宝还款 1001",
+      "recordId": "4da68d20-5b29-419e-b3d9-b95c9b9059cd",
+      "recordMonth": "2026-06",
+      "createdAt": "2026-06-09T03:09:19.833Z"
+    },
+    {
+      "id": "afea4d08-5a65-4f08-b743-05ab870af738",
+      "actor": "sifeng",
+      "action": "登录",
+      "target": "auth",
+      "detail": "登录系统",
+      "createdAt": "2026-06-09T03:08:39.305Z"
     }
   ]
 }

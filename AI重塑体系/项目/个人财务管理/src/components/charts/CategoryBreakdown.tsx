@@ -50,13 +50,13 @@ export function CategoryBreakdown({ summary, includePreIncome }: CategoryBreakdo
   return (
     <section className="rounded-[1.5rem] bg-white p-5 shadow-soft">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-base font-bold text-slate-900">分类占比</h2>
+        <h2 className="text-base font-bold text-slate-900">分类</h2>
         <span className="rounded-full bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500">
           {includePreIncome ? '按收入 + 预收入计算' : '按收入计算'}
         </span>
       </div>
       <div className="mt-5 flex flex-col items-center gap-6">
-        <svg aria-label="分类占比圆形图表" className="h-[32rem] w-full max-w-[42rem]" viewBox={`0 0 ${size} ${size}`} role="img">
+        <svg aria-label="分类圆形图表" className="h-[32rem] w-full max-w-[42rem]" viewBox={`0 0 ${size} ${size}`} role="img">
           <g transform={`rotate(-90 ${size / 2} ${size / 2})`}>
             <circle cx={size / 2} cy={size / 2} fill="none" r={radius} stroke="#e5e7eb" strokeWidth={stroke} />
             {segments.map((segment) => (

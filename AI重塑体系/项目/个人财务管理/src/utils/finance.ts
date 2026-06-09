@@ -21,9 +21,19 @@ export function calculateDebtAffectingPrincipal(
 ) {
   return roundMoney(
     records
-      .filter((record) => record.type === 'debt' && record.month === month)
-      .filter((record) => includeFutureDebt || record.date <= currentDate)
-      .reduce((sum, record) => sum + record.amount, 0),
+      .filter((record) => record.month === month)
+      .reduce((sum, record) => {
+        if (record.type === 'debt') {
+          if (!includeFutureDebt && record.date > currentDate) {
+            return sum;
+          }
+          return sum + record.amount;
+        }
+        if (record.type === 'expense' && record.isRepayment) {
+          return sum - record.amount;
+        }
+        return sum;
+      }, 0),
   );
 }
 
@@ -36,6 +46,9 @@ export function calculateMonthSummary(records: FinanceRecord[], month: string): 
   const summary = monthRecords.reduce(
     (acc, record) => {
       acc[record.type] += record.amount;
+      if (record.type === 'expense' && record.isRepayment) {
+        acc.debt -= record.amount;
+      }
       return acc;
     },
     { preincome: 0, income: 0, expense: 0, debt: 0, investment: 0 },
@@ -83,6 +96,25 @@ export function formatCurrency(value: number) {
     currency: 'CNY',
     maximumFractionDigits: 0,
   }).format(value);
+}
+
+export function formatChinaDate(value: string) {
+  return new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date(value));
+}
+
+export function formatChinaTime(value: string) {
+  return new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Shanghai',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(new Date(value));
 }
 
 export function roundMoney(value: number) {

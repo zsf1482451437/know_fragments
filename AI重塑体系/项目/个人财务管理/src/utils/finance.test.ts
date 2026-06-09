@@ -33,6 +33,7 @@ describe('finance utils', () => {
       id: '5',
       month: '2026-06',
       date: '2026-06-05',
+      owner: 'sifeng',
       type: 'debt',
       title: '消费分期',
       amount: 1200,
@@ -54,6 +55,7 @@ describe('finance utils', () => {
       id: '5',
       month: '2026-06',
       date: '2026-06-30',
+      owner: 'sifeng',
       type: 'debt',
       title: '月底账单',
       amount: 3000,
@@ -64,6 +66,29 @@ describe('finance utils', () => {
 
     expect(calculateDebtAffectingPrincipal(recordsWithFutureDebt, '2026-06', '2026-06-05')).toBe(2000);
     expect(calculateDebtAffectingPrincipal(recordsWithFutureDebt, '2026-06', '2026-06-05', true)).toBe(5000);
+  });
+
+  it('开销标记为还款时会冲减当月负债', () => {
+    const recordsWithRepayment = financeRecords.concat({
+      id: '5',
+      month: '2026-06',
+      date: '2026-06-05',
+      owner: 'sifeng',
+      type: 'expense',
+      isRepayment: true,
+      title: '信用卡还款',
+      amount: 500,
+      note: '',
+      createdAt: '2026-06-05T00:00:00.000Z',
+      updatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(calculateMonthSummary(recordsWithRepayment, '2026-06')).toMatchObject({
+      expense: 6500,
+      debt: 1500,
+      principal: 14000,
+      recordCount: 6,
+    });
   });
 
   it('月份列表按倒序排列并包含当前月', () => {

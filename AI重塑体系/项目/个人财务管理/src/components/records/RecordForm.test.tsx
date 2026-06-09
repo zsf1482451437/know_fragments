@@ -41,6 +41,23 @@ describe('RecordForm', () => {
     });
   });
 
+  it('开销打开还款开关后会带上还款标记提交', async () => {
+    const onSubmit = vi.fn().mockResolvedValue(undefined);
+    render(<RecordForm onSubmit={onSubmit} />);
+
+    fireEvent.change(screen.getByLabelText('金额'), { target: { value: '500' } });
+    fireEvent.click(screen.getByRole('button', { name: '还款' }));
+    fireEvent.click(screen.getByRole('button', { name: '保存记录' }));
+
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({
+        type: 'expense',
+        isRepayment: true,
+        amount: 500,
+      }));
+    });
+  });
+
   it('新增负债时提示会影响月负债', () => {
     const onSubmit = vi.fn().mockResolvedValue(undefined);
     render(<RecordForm onSubmit={onSubmit} />);

@@ -1,4 +1,4 @@
-import type { MonthSummary } from '../../types/finance';
+import type { MonthSummary, PrincipalViewUser } from '../../types/finance';
 import { calculatePrincipal, formatCurrency } from '../../utils/finance';
 
 interface PrincipalChartProps {
@@ -8,6 +8,11 @@ interface PrincipalChartProps {
   onToggleIncludePreIncome: () => void;
   onToggleIncludeFutureDebtInPrincipal: () => void;
   principalDebt: number;
+  principalUser: PrincipalViewUser;
+  principalUserSummaries: {
+    wenxin: MonthSummary;
+    sifeng: MonthSummary;
+  };
 }
 
 export function PrincipalChart({
@@ -17,6 +22,8 @@ export function PrincipalChart({
   onToggleIncludePreIncome,
   onToggleIncludeFutureDebtInPrincipal,
   principalDebt,
+  principalUser,
+  principalUserSummaries,
 }: PrincipalChartProps) {
   const principal = calculatePrincipal({ ...summary, debt: principalDebt }, includePreIncome);
   const size = 240;
@@ -29,15 +36,29 @@ export function PrincipalChart({
   const dashOffset = circumference * (1 - ratio);
   const isPositive = principal >= 0;
   const accent = isPositive ? '#20ad80' : '#f43f5e';
-  const caption = isPositive ? '本金状态健康' : '本金已转负，建议收缩支出';
+  const hasWenxinRecords = principalUserSummaries.wenxin.recordCount > 0;
+  const caption = principalUser === 'both'
+    ? '两人合计'
+    : principalUser === 'wenxin'
+      ? hasWenxinRecords ? (isPositive ? '本金状态健康' : '本金已转负，建议收缩支出') : 'wenxin 当前默认未配置本金数据'
+      : isPositive ? '本金状态健康' : '本金已转负，建议收缩支出';
+  const showMergedHint = principalUser === 'both';
+  const formatMergedValue = (value: number) => new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 0 }).format(value);
+  const metricHints = {
+    preincome: [principalUserSummaries.wenxin.preincome, principalUserSummaries.sifeng.preincome],
+    income: [principalUserSummaries.wenxin.income, principalUserSummaries.sifeng.income],
+    outflow: [
+      principalUserSummaries.wenxin.expense + principalUserSummaries.wenxin.debt,
+      principalUserSummaries.sifeng.expense + principalUserSummaries.sifeng.debt,
+    ],
+    investment: [principalUserSummaries.wenxin.investment, principalUserSummaries.sifeng.investment],
+    debt: [principalUserSummaries.wenxin.debt, principalUserSummaries.sifeng.debt],
+  } as const;
 
   return (
     <section className="rounded-[1.5rem] bg-white p-5 shadow-soft">
       <div className="mb-5 flex items-center justify-between">
-        <div>
-          <h2 className="text-base font-bold text-slate-900">本金总览</h2>
-          <p className="text-xs text-slate-400">{summary.month} · 当前日期后的负债默认不计入本金，可切换预收入与未来负债口径</p>
-        </div>
+        <h2 className="text-base font-bold text-slate-900">本金总览</h2>
         <div className="flex flex-wrap items-center justify-end gap-3">
           <span className={`rounded-full px-3 py-1 text-xs font-semibold ${isPositive ? 'bg-mint-50 text-mint-600' : 'bg-rose-50 text-rose-600'}`}>{caption}</span>
           <label className="flex items-center gap-2 rounded-full bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-600">
@@ -90,24 +111,29 @@ export function PrincipalChart({
         </div>
         <div className="grid w-full gap-3 lg:max-w-md">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <div className="rounded-3xl bg-violet-50 px-4 py-3">
+            <div className="relative rounded-3xl bg-violet-50 px-4 py-3">
               <p className="text-xs font-semibold text-violet-600">预收入</p>
+              {showMergedHint ? <p className="absolute right-4 top-3 text-[11px] font-medium text-violet-500/80">{formatMergedValue(metricHints.preincome[0])} + {formatMergedValue(metricHints.preincome[1])}</p> : null}
               <p className="mt-1 text-lg font-black text-violet-700">{formatCurrency(summary.preincome)}</p>
             </div>
-            <div className="rounded-3xl bg-emerald-50 px-4 py-3">
+            <div className="relative rounded-3xl bg-emerald-50 px-4 py-3">
               <p className="text-xs font-semibold text-emerald-600">收入</p>
+              {showMergedHint ? <p className="absolute right-4 top-3 text-[11px] font-medium text-emerald-500/80">{formatMergedValue(metricHints.income[0])} + {formatMergedValue(metricHints.income[1])}</p> : null}
               <p className="mt-1 text-lg font-black text-emerald-700">{formatCurrency(summary.income)}</p>
             </div>
-            <div className="rounded-3xl bg-rose-50 px-4 py-3">
+            <div className="relative rounded-3xl bg-rose-50 px-4 py-3">
               <p className="text-xs font-semibold text-rose-600">总流出</p>
+              {showMergedHint ? <p className="absolute right-4 top-3 text-[11px] font-medium text-rose-500/80">{formatMergedValue(metricHints.outflow[0])} + {formatMergedValue(metricHints.outflow[1])}</p> : null}
               <p className="mt-1 text-lg font-black text-rose-700">{formatCurrency(summary.expense + summary.debt)}</p>
             </div>
-            <div className="rounded-3xl bg-sky-50 px-4 py-3">
+            <div className="relative rounded-3xl bg-sky-50 px-4 py-3">
               <p className="text-xs font-semibold text-sky-600">投资</p>
+              {showMergedHint ? <p className="absolute right-4 top-3 text-[11px] font-medium text-sky-500/80">{formatMergedValue(metricHints.investment[0])} + {formatMergedValue(metricHints.investment[1])}</p> : null}
               <p className="mt-1 text-lg font-black text-sky-700">{formatCurrency(summary.investment)}</p>
             </div>
-            <div className="rounded-3xl bg-orange-50 px-4 py-3">
+            <div className="relative rounded-3xl bg-orange-50 px-4 py-3">
               <p className="text-xs font-semibold text-orange-600">月负债</p>
+              {showMergedHint ? <p className="absolute right-4 top-3 text-[11px] font-medium text-orange-500/80">{formatMergedValue(metricHints.debt[0])} + {formatMergedValue(metricHints.debt[1])}</p> : null}
               <p className="mt-1 text-lg font-black text-orange-700">{formatCurrency(summary.debt)}</p>
             </div>
           </div>
