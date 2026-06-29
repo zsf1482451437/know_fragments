@@ -8,6 +8,10 @@
 - 仅在依赖或容器配置变更时执行 `--no-cache` 构建
 - 常见问题与排查方式
 
+如果你已经完成过首个项目部署，现在要在**同一台服务器**继续接第二个、第三个项目，请改看：
+
+- [多项目部署复用指南](file:///Users/bytedance/Desktop/项目/know_fragments/AI重塑体系/CICD/deploy-reusable-template.md)
+
 ## 1. 前置约定
 
 以下示例基于当前项目约定：
