@@ -17,7 +17,7 @@
 
 LCP 我一般会结合实验室数据和实际页面验证两种方式看。实验室侧主要用 Lighthouse、Chrome DevTools Performance 面板去跑重点页面，比如商品详情页、活动落地页，看最大内容元素出现的时间以及对应元素是什么；实际页面侧会结合 Web Vitals 指标，重点关注首屏主图、Banner、商品卖点图这些最容易成为 LCP 的元素。
 
-当时 Reolink Web 商城重点活动页的 LCP 主要受首屏大图、字体加载、首屏 JS 执行和接口返回影响，所以优化时不是只压图片，而是一起看资源体积、加载顺序和首屏渲染链路。具体做法包括首屏图片压缩和合理尺寸裁剪、懒加载非首屏图片、路由级代码分割、减少首屏无关 JS、Meta 和结构内容提前渲染。优化后重点活动页 LCP 稳定控制在 2.5s 内。
+当时 Reolink Web 商城重点活动页的 LCP 主要受首屏大图、字体加载、首屏 JS 执行和接口返回影响，所以优化时不是只压图片，而是一起看资源体积、加载顺序和首屏渲染链路。具体做法包括首屏图片压缩和合理尺寸裁剪、懒加载非首屏图片、路由级代码分割、减少首屏无关 JS、Meta 和结构内容提前渲染。优化后重点活动页在 Lighthouse / Web Vitals 验证中 LCP 控制在 2.5s 内。
 
 ### 可展开点
 
@@ -267,18 +267,20 @@ Native Modules 主要用于 React Native JS 层无法直接完成，或者用 JS
 - 列表和预览：重点验证横竖屏、长列表、视频预览区域、底部操作区。
 - 验收：覆盖小屏、大屏、高分辨率、不同 Android/iOS 版本。
 
-## 11. 崩溃率 0.2% 以下和 55fps 是怎么衡量的？
+## 11. 多端兼容和重点列表场景优化是怎么验证的？
 
 ### 推荐回答
 
-崩溃率这类指标需要以项目实际接入的 crash 统计或版本质量记录为准，通常按版本、机型、系统版本聚合，看核心场景发布后的 crash 趋势。55fps 主要针对列表滑动和高频页面交互，我会用 RN 性能面板、真机调试、Flipper，必要时结合 Android Studio Profiler 或 Xcode Instruments 观察帧率和卡顿情况。
+这类优化我会按“兼容验证”和“性能验证”两条线讲，不包装成全量线上绝对指标。
 
-这类指标是团队工程质量结果，我负责的部分是高频链路的兼容修复、渲染优化、测试补充和验证流程接入。
+多端兼容主要围绕 20+ 主流机型、不同屏幕尺寸、Android/iOS 系统版本、安全区、底部操作区、字体缩放等场景做验证，重点看设备管理、列表浏览、实时预览这些高频页面是否存在遮挡、错位、点击区域异常或平台差异问题。
+
+重点列表场景优化主要通过真机验证和调试工具观察卡顿改善，不说成全量线上帧率指标。技术上会用 RN Performance Monitor、Flipper、React DevTools Profiler，必要时结合 Android Studio Profiler 或 Xcode Instruments，看 JS/UI 线程是否阻塞，再针对 FlatList 参数、item memo、图片加载和状态更新粒度做优化。
 
 ### 技术方案细节
 
-- 崩溃率：线上 crash 平台按版本、设备、系统、页面聚合统计。
-- 帧率：RN Performance Monitor、Flipper、Android Studio Profiler、Xcode Instruments。
+- 兼容验证：安全区、屏幕尺寸、系统版本、字体缩放、Android/iOS 差异。
+- 性能验证：RN Performance Monitor、Flipper、React DevTools Profiler、Android Studio Profiler、Xcode Instruments。
 - 定位维度：JS 线程阻塞、UI 线程掉帧、图片加载、列表渲染、频繁 setState。
 - 优化手段：列表虚拟化、状态细粒度拆分、组件 memo、图片缓存、延迟非关键任务。
 
