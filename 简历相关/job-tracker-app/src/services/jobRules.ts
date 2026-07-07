@@ -35,12 +35,13 @@ export const userIntentLabel: Record<UserIntent, string> = {
 
 export const applicationStatusLabel: Record<ApplicationStatus, string> = {
   pending_apply: "待投递",
+  communicated: "已沟通",
   applied: "已投递",
   pending_interview: "待面试",
   first_interview: "一面",
   second_interview: "二面",
   rejected: "不通过",
-  offer: "Offer",
+  offer: "offer",
 };
 
 export const priorityLabel: Record<Priority, string> = {
@@ -83,6 +84,14 @@ export const tierOptions = Object.keys(jobTierLabel) as JobTier[];
 export const statusOptions = Object.keys(applicationStatusLabel) as ApplicationStatus[];
 export const techTagOptions = Object.keys(techTagLabel) as TechTag[];
 
+const statusRank: Record<ApplicationStatus, number> = statusOptions.reduce(
+  (rankMap, status, index) => ({
+    ...rankMap,
+    [status]: index,
+  }),
+  {} as Record<ApplicationStatus, number>,
+);
+
 export function getStageTier(stage: CompanyStage): JobTier {
   if (stage === "no_financing" || stage === "angel" || stage === "series_a") {
     return "practice";
@@ -120,6 +129,36 @@ export function parseSalaryText(salaryText: string): {
   };
 }
 
+export function normalizeSalaryText(salaryText: string): string {
+  const value = salaryText.trim();
+
+  if (!value) return "";
+
+  const singleNumberMatch = value.match(/^(\d+(?:\.\d+)?)(?:\s*k)?$/i);
+  if (singleNumberMatch) {
+    return `${singleNumberMatch[1]}k`;
+  }
+
+  const rangeMatch = value.match(/^(\d+(?:\.\d+)?)(?:\s*k)?\s*-\s*(\d+(?:\.\d+)?)(?:\s*k)?$/i);
+  if (rangeMatch) {
+    return `${rangeMatch[1]}-${rangeMatch[2]}k`;
+  }
+
+  return value;
+}
+
+export function isStatusAtOrAfter(status: ApplicationStatus, filterStatus: ApplicationStatus): boolean {
+  if (filterStatus === "pending_apply") {
+    return status === "pending_apply";
+  }
+
+  return statusRank[status] >= statusRank[filterStatus];
+}
+
+export function getStatusRank(status: ApplicationStatus): number {
+  return statusRank[status];
+}
+
 export function getSalaryLiftLevel(
   salaryMinK: number,
   salaryMaxK: number,
@@ -133,12 +172,14 @@ export function getSalaryLiftLevel(
 }
 
 export function normalizeJob(job: Job): Job {
-  const salary = parseSalaryText(job.salaryText);
+  const salaryText = normalizeSalaryText(job.salaryText);
+  const salary = parseSalaryText(salaryText);
   const stageTier = getStageTier(job.companyStage);
   const now = new Date().toISOString();
 
   return {
     ...job,
+    salaryText,
     ...salary,
     stageTier,
     currentSalaryK: job.currentSalaryK ?? 18,
@@ -183,6 +224,7 @@ export function getTierClasses(tier: JobTier): string {
 export function getStatusClasses(status: ApplicationStatus): string {
   const classes: Record<ApplicationStatus, string> = {
     pending_apply: "bg-slate-100 text-slate-700",
+    communicated: "bg-indigo-50 text-indigo-700",
     applied: "bg-blue-50 text-blue-700",
     pending_interview: "bg-cyan-50 text-cyan-700",
     first_interview: "bg-violet-50 text-violet-700",

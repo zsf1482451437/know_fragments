@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { sampleJobs } from "@/data/sampleJobs";
-import { getStageTier, parseSalaryText } from "@/services/jobRules";
+import {
+  applicationStatusLabel,
+  getStageTier,
+  isStatusAtOrAfter,
+  normalizeSalaryText,
+  parseSalaryText,
+  statusOptions,
+} from "@/services/jobRules";
 
 describe("jobRules", () => {
   it("maps company stage to default tier", () => {
@@ -18,6 +25,26 @@ describe("jobRules", () => {
       salaryMinK: 25,
       salaryMaxK: 40,
     });
+  });
+
+  it("normalizes numeric salary text to k by default", () => {
+    expect(normalizeSalaryText("25-40")).toBe("25-40k");
+    expect(normalizeSalaryText("25")).toBe("25k");
+    expect(normalizeSalaryText("25k-40k")).toBe("25-40k");
+  });
+
+  it("keeps communicated status before applied", () => {
+    expect(statusOptions.slice(0, 3)).toEqual(["pending_apply", "communicated", "applied"]);
+    expect(applicationStatusLabel.communicated).toBe("已沟通");
+    expect(applicationStatusLabel.offer).toBe("offer");
+  });
+
+  it("matches jobs that have reached the selected progress node", () => {
+    expect(isStatusAtOrAfter("pending_apply", "pending_apply")).toBe(true);
+    expect(isStatusAtOrAfter("communicated", "pending_apply")).toBe(false);
+    expect(isStatusAtOrAfter("communicated", "communicated")).toBe(true);
+    expect(isStatusAtOrAfter("applied", "communicated")).toBe(true);
+    expect(isStatusAtOrAfter("pending_apply", "communicated")).toBe(false);
   });
 
   it("keeps sample jobs with application status", () => {

@@ -6,6 +6,7 @@ import { JobEditorDrawer } from "@/components/JobEditorDrawer";
 import { JobFilters } from "@/components/JobFilters";
 import { JobTable } from "@/components/JobTable";
 import { StatCards } from "@/components/StatCards";
+import { isStatusAtOrAfter } from "@/services/jobRules";
 import { useJobStore } from "@/store/useJobStore";
 import type { Job } from "@/types/job";
 
@@ -21,7 +22,10 @@ export default function App() {
     return database.jobs
       .filter((job) => matchKeyword(job, filters.keyword))
       .filter((job) => filters.tier === "all" || job.fitTier === filters.tier)
-      .filter((job) => filters.status === "all" || job.applicationStatus === filters.status)
+      .filter(
+        (job) =>
+          filters.status === "all" || isStatusAtOrAfter(job.applicationStatus, filters.status),
+      )
       .filter((job) => filters.stage === "all" || job.companyStage === filters.stage)
       .sort((a, b) => {
         const priorityOrder = ["P0", "P1", "P2", "P3", "P4"];

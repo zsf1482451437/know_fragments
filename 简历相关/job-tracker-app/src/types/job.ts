@@ -14,6 +14,7 @@ export type UserIntent = "unset" | "not_interested" | "normal" | "want";
 
 export type ApplicationStatus =
   | "pending_apply"
+  | "communicated"
   | "applied"
   | "pending_interview"
   | "first_interview"

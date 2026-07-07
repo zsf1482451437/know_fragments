@@ -1,0 +1,1662 @@
+{
+  "version": 4,
+  "currentSalaryK": 18,
+  "updatedAt": "2026-07-06T08:39:34.537Z",
+  "jobs": [
+    {
+      "id": "job-1783320612955",
+      "companyName": "哩呐呐",
+      "companyStage": "no_financing",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "15-25k",
+      "currentSalaryK": 18,
+      "jdRaw": "1.本科及以上学历(学信网可查)，计算机相关专业，5年及以上React Native实际开发经验，有完整的RNAPP从开发、测试到上线的全流程经验。\n2.熟悉React技术体系，理解组件化开发思想。\n3.熟悉原生开发者优先，如熟悉iOS(Xcode、Pod、证书打包)、Android(Gradle、签名、混淆)开发流程能独立编写原生模块，读懂并调试原生崩溃问题。\n4.具备良好的UI还原能力，能根据Figma/蓝湖等设计工具的设计稿，精准实现页面样式，能与设计师高效协作，保障视觉一致性。\n5.熟悉移动端性能优化及问题排查。\n6.具有良好的代码习惯及团队协作能力。\n7.有应用上架经验者优先。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "applied",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-06T06:50:12.955Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 15,
+      "salaryMaxK": 25,
+      "salaryLiftLevel": "small_increase"
+    },
+    {
+      "id": "job-1783162756239",
+      "companyName": "众安科技",
+      "companyStage": "no_financing",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "25-35k",
+      "currentSalaryK": 18,
+      "jdRaw": "计算机科学、软件工程、人机交互、数字媒体或相关专业本科及以上学历。\n工作经验:\n3年以上前端开发或UX研发经验。\n具备1-2年以上深度使用AI辅助开发、搭建AI工作流或调用AI模型的实操经验(面试需提供相关独立完成的项目案例、开源代码或自动化脚本演示)\n专业技能:\n研发与AI能力:扎实的前端开发基础(如React/Vue/Node.js等)，精通运用主流AIl编程助手实现“10倍速开发。熟悉主流LLM的API接入与Prompt调优逻辑。设计理解力:懂设计语言，熟练掌握Figma等现代设计工具，能够精准理解设计意图并100%还原高品质的动态交互与视觉细节。\n综合能力:\n强烈的AI思维:对新技术极度敏感，充满极客精神，能主动思考“如何用AI颠覆现有流程”。\n复合型沟通协同:具备在“代码逻辑”与“设计感性”之间自由切换的能力，能与设计师同频对话，无缝跨团队推动项目落地。\n极强的执行力:具备出色的独立解决问题能力，在面对模糊的创新需求时，能迅速理清路径并交付高标准的成果。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:59:16.239Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 25,
+      "salaryMaxK": 35,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783162615252",
+      "companyName": "楠菲微电子",
+      "companyStage": "series_c",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "20-35k",
+      "currentSalaryK": 18,
+      "jdRaw": "1.本科及以上学历，计算机科学与技术、软件工程、电子信息等相关专业;\n2.5年以上前端开发经验，精通JavaScript或\nTypeScript，掌握React或Vue等主流框架，有Electron桌面应用开发经验者加分;\n3.深入理解浏览器渲染原理，有Canvas/WebGL/SVG等图形渲染技术实践经验;\n5.精通前端性能优化技术，包括但不限于:DOM操作优化、内存泄漏处理、懒加载、虚拟滚动等",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "fit",
+      "fitTier": "fit",
+      "userIntent": "unset",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:56:55.252Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 20,
+      "salaryMaxK": 35,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783162429578",
+      "companyName": "xbotgo",
+      "companyStage": "series_a",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "25-50k",
+      "currentSalaryK": 18,
+      "jdRaw": "1、负责前端技术选型、方案设计、开发编码等工作，包括但不限于 PC/H5/APP/小程序;\n2、负责前端业务的体验、性能以及开发效率提升，持续改进前端应用架构和工程架构;\n3、负责前端基础设施建设(包括组件库、低代码等)持续改进和优化开发流程、基础工具;\n4、建设全球化服务，技术出海，业务覆盖全球。\n【任职要求】\n1、统招本科及以上学历，5年及以前端开发工作经验:\n2、熟练掌握前端开发技术和主流前端框架，包括但不限于Vue/React等，有跨平台开发经验;\n3、追求极致的体验和性能，能够主导对移动端产品的体验和性能优化;\n4、有较强的规划和推动能力，能够推动技术产出在业务中快速落地;\n5、具备良好的沟通能力和团队协作能力。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:53:49.578Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 25,
+      "salaryMaxK": 50,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783162264545",
+      "companyName": "傲基",
+      "companyStage": "listed",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "20-35k",
+      "currentSalaryK": 18,
+      "jdRaw": "1.前端基础:精通HTML5、CSS3(SCSS/Tailwind)JavaScript (ES6+)， 熟悉 TypeScript; 有 React / Vue实际项目经验。\n2.批量开发经验:有独立站矩阵、多站点复用、主题模板化封装经验，能够快速基于一套基线主题衍生出多个品牌站点。\n3.AI工具实践:日常使用AI Coding Agent辅助开发，熟悉Prompt Engineering在代码生成、组件复用、批量配置中的应用\n4.电商业务理解:熟悉跨境电商流程(支付网关、物流、税务、多语言)，了解转化率优化(CRO)和基础数据埋点(GTM/GA4)。5.工程化能力:熟练使用Git版本控制，了解前端构建工具(Vite/Webpack)，有代码规范与组件库搭建意\n识。\n加分项\nShopify技术栈:2年以上Shopify主题开发经验，精通 Liquid、Shopify CLI、 Theme Kit / Shopify GitHub集成，熟悉Shopify数据对象(product、cart、\ncollection、 metafield 等)。\n有 Shopify App (Embedded App / Standalone) 开\n发经验，了解Node.js/Ruby后端基础。\n熟悉 Shopify Plus 功能 (Checkout Extensibility、\nB2B、 Launchpad 等)\n有Headless架构实战经验(Hydrogen/Next.js\nCommerce/Nuxt)\n搭建过内部建站脚手架、主题模板市场或低代码/A~ont白动化建站工目",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "target",
+      "fitTier": "target",
+      "userIntent": "unset",
+      "applicationStatus": "applied",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:51:04.545Z",
+      "updatedAt": "2026-07-06T08:39:34.537Z",
+      "salaryMinK": 20,
+      "salaryMaxK": 35,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783161654428",
+      "companyName": "长城证券",
+      "companyStage": "listed",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "15-30k",
+      "currentSalaryK": 18,
+      "jdRaw": "1、本科及以上学历，计算机或软件工程相关专业优先，3年以上前端开发经验;\n2、精通React或Vue框架，深入理解其核心原理、生命周期、状态管理等，熟练运用其生态系统高效开发;\n3、熟悉Web前端组件化、模块化开发模式和前端构建工程化;\n4、有pipeline部署工作经验者优先。\n5、工作积极主动，责任心强，有良好的团队协作精神、沟通能力。\n6、有证券从业资格优先考虑。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "target",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "communicated",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:40:54.428Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 15,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783161393650",
+      "companyName": "进化轮资产",
+      "companyStage": "no_financing",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "20-30k",
+      "currentSalaryK": 18,
+      "jdRaw": "1、计算机、理工科或相关专业本科及以上学历，一年及以上相关行业经验，有投行、资管、互联网公司工作经历优先，\n2、热爱编程和前端开发，具有良好的编程习惯和算法基础”\n3、熟悉服务端开发流程，熟练掌握React开发框架和网页端开发常用语言(JavaScript/TypeScript/CSS/HTML)，有ReactJS项目开发经验优先;\n4、精通数据结构，熟悉SQL语法，至少有一种数据库(Oracle/MySQL等)实际开发经验;\n5、客观开放，自我驱动，良好的团队协作、沟通表达和抗压能力。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:36:33.649Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 20,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783160900462",
+      "companyName": "优视科技",
+      "companyStage": "listed",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "25-50k",
+      "currentSalaryK": 18,
+      "jdRaw": "1、统招本科及以上学历，计算机相关专业优先，具备扎实的编程基础。\n2、精通HTML5、CSS3、JavaScript(ES6+)，熟练掌握React/Vue等主流框架，对前端技术体系有系统性理解\n3、3年以上前端开发经验，有大型Web应用或大型APP前端开发经验者优先。\n4、熟悉前端性能优化方法论，掌握Webpack/Vite/Rollup等构建工具链，对前端工程化有深入实践。\n5、能熟练运用AI Coding工具(如Copilot等)提升研发效率，具备AI辅助开发的实际经验者优先。\n6、有Electron桌面端开发经验或Weex等跨端技术经验者优先。\n7、沟通表达清晰，具备良好的团队协作意识与责任心。\n8、对新技术保持热情，具备持续学习与自我驱动能力。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "target",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:28:20.462Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 25,
+      "salaryMaxK": 50,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-1783160579590",
+      "companyName": "数字广东",
+      "companyStage": "no_financing",
+      "jobTitle": "前端开发工程师",
+      "salaryText": "15-30k",
+      "currentSalaryK": 18,
+      "jdRaw": "1、本科及以上学历，计算机相关专业，5年及以上前端开发经验，具备大型电子政务、ToB政企平台实战经验者优先。\n2、扎实的前端底层基础，精通ES6+、TypeScript、浏览器核心原理、HTTP网络机制，熟悉前端渲染、异步、跨域、缓存等核心底层逻辑，基础功底扎实。\n3、熟练掌握Vue3/React主流前端框架，深入理解框架底层原理与性能优化方案，具备大型项目架构落地、模块拆解和技术迭代经验。\n4、熟练掌握前端工程化体系，精通Vite、Webpack等构建工具，具备项目规范化搭建、脚手架优化、组件库/通用工具库封装能力。\n5、具备成熟的前端优化与安全把控能力，精通页面性能、渲染体验、长列表海量数据优化手段，熟悉XSS、CSRF等前端安全防护，适配多终端、多浏览器及国产化环境兼容。\n6、具备独立攻坚复杂业务、问题排查和架构优化能力拥有良好的沟通协作、技术沉淀和团队赋能意识，能独立承接核心项目模块开发与迭代。",
+      "techStack": [],
+      "businessTags": [],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "unset",
+      "applicationStatus": "communicated",
+      "greetingStatus": "not_generated",
+      "createdAt": "2026-07-04T10:22:59.590Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "salaryMinK": 15,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase"
+    },
+    {
+      "id": "job-001",
+      "sourceIndex": 1,
+      "companyName": "平安银行",
+      "companyStage": "listed",
+      "jobTitle": "Web 前端架构方向",
+      "salaryText": "18-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 18,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1、本科及以上学历(计算机或相关专业/全日制)，5年以上专业Web前端开发经验，有完整主导项目经验者优先。\n2、精通 JavaScript/TypeScript，具备良好的抽象能力、架构能力，以及优秀的面向对象/函数式编程思维。3、熟练掌握Next.js(尤其是App Router、SSR/SSG、路由与数据层、服务端能力)，具备大型项目实战经验。\n4、熟练掌握 Turborepo/Monorepo高级工程化体系:包含模块化设计、构建优化、依赖管理;内部npm包沉淀、跨项目复用、构建加速;熟悉pnpmworkspaces或类似工具。\n5、熟练掌握前端主流框架与生态:React、ReactNative、Node.js、Webpack/Vite、模块化构建等。\n5、熟悉WebSocket、HTTP、实时通信等网络协议，有大流量、高并发、实时场景经验者优先。\n7、对Web动效、交互体验、性能优化有深度理解，能基于Lighthouse、Performance Profiler 等工具定位瓶颈并提供优化方案。\n8、具备强责任心、自驱力和沟通能力，能带动团队、指导初中级开发者共同成长。\n9、有游戏相关前端架构、H5游戏接入、UnityWebGL对接等经验者优先。",
+      "responsibilities": [
+        "大型 Web 前端开发",
+        "工程化体系建设",
+        "性能优化",
+        "实时通信场景"
+      ],
+      "requirements": [
+        "5 年以上前端经验",
+        "Next.js App Router",
+        "Turborepo/Monorepo",
+        "React/RN/Node"
+      ],
+      "bonusItems": [
+        "游戏前端架构",
+        "H5 游戏接入",
+        "Unity WebGL"
+      ],
+      "techStack": [
+        "react",
+        "react_native",
+        "nextjs",
+        "nodejs",
+        "turborepo",
+        "websocket",
+        "webpack",
+        "vite"
+      ],
+      "businessTags": [
+        "bank",
+        "finance"
+      ],
+      "riskTags": [
+        "requires_5_years"
+      ],
+      "stageTier": "target",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 55,
+      "priority": "P2",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "上市公司和技术栈有价值，但 5 年、Monorepo、游戏方向要求偏高。",
+      "riskReason": "容易被追问 Next App Router、Turborepo 和团队带动经验，当前简历支撑不足。",
+      "prepNotes": [
+        "练 Next.js 渲染模式",
+        "练工程化和性能优化表达"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-002",
+      "sourceIndex": 2,
+      "companyName": "星火无限",
+      "companyStage": "no_financing",
+      "jobTitle": "AI Coding 工作流工程师",
+      "salaryText": "26-45k",
+      "currentSalaryK": 18,
+      "salaryMinK": 26,
+      "salaryMaxK": 45,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1.熟悉Claude Code、Codex等Al开发工具，有大量实际使用经验和心得\n2.熟练运用 SDD (Spec Driven Development)、TDD等方法论驱动开发，有成功交付案例\n3.具备全栈交付能力，能在AI辅助下覆盖前端、后端数据库等完整链路\n4. 基于 Claude Code / OpenClaw 编写过 Skills.\nSubAgent，有实际搭建业务场景的成功经验\n5.心态开放，拒绝教条，拥抱Vibe Coding方法论，愿意不断尝试新的AI工作流\n6.具备架构师视角，能独立做方案、定方案、判断技术选型\n7.能输出可复用的Skills、SubAgent体系和工作流规范，赋能团队\n8.持续探索并沉淀更高效的Vibe Coding方法论\n加分项\n1.有AI驱动需求自动化拆解的实践经验，能让AI从模糊需求生成结构化任务\n2.有Al 自动Code Review 的落地经验\n3.能分享\"完全不熟悉的语言/框架，在AI辅助下短时间内上线并解决复杂业务问题\"的实际案例\n4.持续关注并实践AI编程的前沿方法，能够将CodingAgent运用到多种业务场景中",
+      "responsibilities": [
+        "AI 工作流体系",
+        "Skills/SubAgent",
+        "团队提效规范"
+      ],
+      "requirements": [
+        "Claude Code/Codex",
+        "SDD/TDD",
+        "全栈交付",
+        "架构师视角"
+      ],
+      "bonusItems": [
+        "AI 需求拆解",
+        "AI Code Review",
+        "陌生技术快速上线案例"
+      ],
+      "techStack": [
+        "ai_agent",
+        "ai_coding",
+        "nodejs"
+      ],
+      "businessTags": [
+        "ai_application",
+        "agent_workflow"
+      ],
+      "riskTags": [
+        "requires_deep_backend"
+      ],
+      "stageTier": "practice",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 70,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "AI skills、SubAgent、工作流与个人叙事匹配，薪资空间高。",
+      "riskReason": "不需要融资按阶段为练手；全栈交付和架构师视角面试风险高。",
+      "prepNotes": [
+        "AI skills 示例",
+        "AI Code Review",
+        "SDD/TDD 边界"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-003",
+      "sourceIndex": 3,
+      "companyName": "小满科技",
+      "companyStage": "series_d",
+      "jobTitle": "AI 应用前端开发",
+      "salaryText": "20-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 20,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "本科及以上学历，计算机相关专业;2年及以上前端开发经验，有完整项目开发与上线经验。\n熟悉JavaScript/TypeScript，具备扎实的前端基础，包括HTML、CSS、ES6+、浏览器原理、网络请求、异步处理等。\n熟悉至少一种主流前端框架，如React/Vue，并具备中后台系统开发经验。\n熟悉常见前端工程化能力，包括组件化开发、状态管理、路由管理、接口封装、权限控制、Webpack/Vite构建等。\n具备良好的UI还原能力和交互实现能力，能够独立完成复杂页面开发与性能优化。\n具备一定后端理解能力，了解Node.js、RESTful API、WebSocket等常见服务端交互方式。\n有AI Coding 工具使用经验(Cursor、Copilot、Codex等)\n具备良好的问题分析能力、沟通协作能力与责任心，对新技术有持续学习热情。\n【优先】\n有AI应用相关开发经验，包括AIChat、工作流、Agent、知识库问答、Prompt配置等场景。\n熟悉 React 生态 (React Hooks、Next.js、Ant Design等)或Vue生态(Vue3、Pinia、Element Plus等)。有低代码平台、可视化平台、运营后台、数据平台等项目经验。\n熟悉Node.js/NestJS/Express等服务端技术，具备一定全栈开发能力。\n熟悉WebSocket、SSE、流式输出、实时消息等交互能",
+      "responsibilities": [
+        "中后台开发",
+        "AI 应用场景",
+        "工程化能力建设"
+      ],
+      "requirements": [
+        "React/Vue",
+        "TypeScript",
+        "Node.js 理解",
+        "WebSocket/SSE/流式输出"
+      ],
+      "bonusItems": [
+        "AI Chat",
+        "工作流",
+        "Agent",
+        "知识库问答"
+      ],
+      "techStack": [
+        "react",
+        "typescript",
+        "nextjs",
+        "nodejs",
+        "websocket",
+        "sse",
+        "ai_agent"
+      ],
+      "businessTags": [
+        "ai_application",
+        "agent_workflow",
+        "admin_dashboard"
+      ],
+      "riskTags": [
+        "requires_deep_backend"
+      ],
+      "stageTier": "target",
+      "fitTier": "target",
+      "userIntent": "normal",
+      "matchScore": 82,
+      "priority": "P0",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "D 轮公司，AI 应用前端和 AI skills 叙事高度契合。",
+      "riskReason": "Node/Nest/Express 是加分项，需要明确全栈边界。",
+      "prepNotes": [
+        "流式输出",
+        "Agent 工作流",
+        "知识库问答前端交互"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-004",
+      "sourceIndex": 4,
+      "companyName": "惠择",
+      "companyStage": "listed",
+      "jobTitle": "AI Agent 平台前端/全栈",
+      "salaryText": "18-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 18,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1、前端核心开发:负责平安银行综拓业务核心系统、Al应用平台的前端架构设计与高质量编码，提升大模型交互场景下的用户体验(如流式文本渲染、复杂交互画布、生成式UI等)\n2、全栈与AI编排:负责AIAgent(智能体)端到端应用的开发，利用Python或Node.js进行后端微服务编写、LLM(大语言模型)API对接、Prompt优化及\nAgent流程编排。\n3、技术创新:紧跟AI行业前沿，将主流的Agent框架与银行综拓业务场景相结合，落地高价值的智能辅助、自动化工作流等工具。\n4、跨团队协同:与产品经理、算法工程师紧密配合，准确理解业务需求，快速迭代AI创新产品。任职要求\n1、教育与经验:全日制本科及以上学历，计算机相关专业，具备3年以上前后端开发经验(其中前端需为核心技术栈)\n2、前端技术栈:熟练掌握Vue3或React，具备扎实的JavaScript功底及浏览器原理知识。熟练掌握前端工程化工具(Webpack、Vite)，具备优秀的组件封装能力和前端性能优化经验。\n3、全栈开发能力:熟悉至少一种后端语言，Python或Node.js优先，具备基础的数据库(MySQL、Redis等)设计与优化能力。\n4、AI&Agent领域(核心加分项):熟悉主流大模型的功能特性，有实际对接大模型接口的经验，能够通过编写和优化Prompt(提示词)来引导大模型高质高效地输出结果。",
+      "responsibilities": [
+        "AI 应用平台前端",
+        "Agent 端到端应用",
+        "LLM API 对接",
+        "跨团队协同"
+      ],
+      "requirements": [
+        "3 年以上前后端经验",
+        "Vue3/React",
+        "Python/Node.js",
+        "MySQL/Redis",
+        "Prompt 优化"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "nodejs",
+        "python",
+        "ai_agent"
+      ],
+      "businessTags": [
+        "ai_application",
+        "agent_workflow",
+        "bank",
+        "finance"
+      ],
+      "riskTags": [
+        "requires_deep_backend",
+        "requires_database"
+      ],
+      "stageTier": "target",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 74,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "上市公司，AI Agent 平台方向好，前端核心栈匹配。",
+      "riskReason": "后端微服务、数据库和 Agent 编排会被深入追问。",
+      "prepNotes": [
+        "LLM 流式输出",
+        "Prompt 配置",
+        "全栈边界"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-005",
+      "sourceIndex": 5,
+      "companyName": "Xmind",
+      "companyStage": "no_financing",
+      "jobTitle": "全栈开发工程师",
+      "salaryText": "20-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 20,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1.本科及以上学历，1-3年全栈开发经验;\n2.熟悉HTML/CSS/Javascript/Typescript/Node.js 的使用，熟悉现代原生JS的开发使用，熟悉vue3等MVVM框架的开发和使用:\n3.具备对云服务(AWS、阿里云、腾讯云、GoogleCloud等)了解和使用经验，具备AWS\nCloudFormation/ELB/DynamoDB 等服务的开发部署经验优先;\n4.具备一定的前端自动化开发部署经验、熟悉Docker相关技术栈的使用\n5.具备良好的英语读写习惯和追求代码质量，熟练掌握常见的设计模式和数据结构算法\n5.能快速学习、有效沟通，有团队合作精神，对新技术或不熟悉的领域有探索精神:\n6.掌握操作系统和网络通信原理，理解HTTP/HTTPS协议、文件系统、并发、分布式，锁等概念。加分项:\n1.有其他跨平台应用开发经验;有浏览器性能调试及优化经验\n2.有SVG或Canvas等图形化界面开发经验;对软件的安全性或可访问性有一定研究。",
+      "responsibilities": [
+        "全栈开发",
+        "云服务部署",
+        "前端自动化部署"
+      ],
+      "requirements": [
+        "Vue3",
+        "Node.js",
+        "AWS",
+        "Docker",
+        "英语读写"
+      ],
+      "bonusItems": [
+        "跨平台应用",
+        "浏览器性能优化",
+        "SVG/Canvas"
+      ],
+      "techStack": [
+        "vue",
+        "typescript",
+        "nodejs",
+        "docker"
+      ],
+      "businessTags": [
+        "visual_editor"
+      ],
+      "riskTags": [
+        "requires_deep_backend"
+      ],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 52,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "公司和产品有吸引力，但岗位偏 Vue + 云服务 + 全栈。",
+      "riskReason": "AWS/DynamoDB/CloudFormation 不是当前简历强项。",
+      "prepNotes": [
+        "可练全栈边界",
+        "可练 Docker 和部署表达"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-006",
+      "sourceIndex": 6,
+      "companyName": "真景科技",
+      "companyStage": "no_financing",
+      "jobTitle": "前端/Node 全栈开发",
+      "salaryText": "15-25k",
+      "currentSalaryK": 18,
+      "salaryMinK": 15,
+      "salaryMaxK": 25,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1、统招本科或以上学历，3年以上前端开发经验，参与过系统核心模块的设计与开发，熟悉整体架构设计，有0-1项目经验;\n2、熟练掌握JavaScript/TypeScript、HTML、CSS，熟悉JavaScript设计模式，至少精通Vue或React其中一项并理解其设计原理(Vue优先);\n3、熟悉Node.js生态，具备使用Nuxt/Next.js等全栈框架或Express/Koa/Nest.js等后端框架的实际项目经验了解数据库基本操作(MySQL/MongoDB/\nPostgreSQL) ;\n4、熟悉常规浏览器兼容性问题，有前端性能优化、可访问性、可维护性等方面的实践经验;\n5、熟悉前端工程化工具链，如Vite、Webpack、\nRollup、Turborepo 等;\n6、熟练使用AI编程工具(Cursor、GitHub Copilot、Claude Code 等)，具备Prompt Engineering 意识，能借助AI显著提升编码效率与代码质量;\n7、良好的团队协作能力，能够与产品、设计及后端团队紧密配合，推动需求高效落地。",
+      "responsibilities": [
+        "核心模块开发",
+        "Node 全栈协作",
+        "工程化建设"
+      ],
+      "requirements": [
+        "Vue/React",
+        "Node.js",
+        "Nuxt/Next",
+        "数据库基础",
+        "AI 编程工具"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "nextjs",
+        "nuxt",
+        "nodejs",
+        "vite",
+        "webpack",
+        "ai_coding"
+      ],
+      "businessTags": [
+        "admin_dashboard"
+      ],
+      "riskTags": [
+        "vue_first",
+        "requires_database"
+      ],
+      "stageTier": "practice",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 76,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "前端 + Node + AI 编程工具匹配，适合作为主力投递池。",
+      "riskReason": "Vue 优先，薪资上限一般。",
+      "prepNotes": [
+        "Node/Koa 边界",
+        "AI 编程工具真实案例"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-007",
+      "sourceIndex": 7,
+      "companyName": "汇量科技",
+      "companyStage": "listed",
+      "jobTitle": "AI/低代码/工作流方向前端",
+      "salaryText": "25-35k",
+      "currentSalaryK": 18,
+      "salaryMinK": 25,
+      "salaryMaxK": 35,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "技术功底扎实且高度契合业务:3年以内年工作经验重点本科及以上学历，理工类专业背景，能快速融入现有技术体系，具备复杂项目背景优先;\n积极主动，具备出色的沟通理解力，听得懂业务痛点读得懂上下游的“潜在需求”，能将抽象概念转化为清晰的执行步骤\n学习意识强，面对高挑战工作时，保持好奇心，能用AI弥补自身非核心技术领域的短板，持续沉淀自动化闭环，让系统越来越聪明:\n高韧性与持续进化能力:对业务充满激情，不设限、敢破圈，在面对复杂或不确定性场景时，能进行冷静的问题分解与结构化推理，有死磕解决问题的韧性。\n加分项\n多维技术栈:熟练掌握React/Vue/Go，有低代码、工作流、DSL等方向实际落地经验者优先;游戏/交互基因:接触过Cocos/Unity、游戏开发、交互或图形相关项目者优先",
+      "responsibilities": [
+        "业务需求拆解",
+        "AI 自动化闭环",
+        "工作流沉淀"
+      ],
+      "requirements": [
+        "React/Vue/Go",
+        "低代码",
+        "工作流",
+        "DSL"
+      ],
+      "bonusItems": [
+        "Cocos/Unity",
+        "游戏开发",
+        "图形交互"
+      ],
+      "techStack": [
+        "react",
+        "vue",
+        "golang",
+        "low_code",
+        "ai_agent"
+      ],
+      "businessTags": [
+        "agent_workflow",
+        "low_code"
+      ],
+      "riskTags": [
+        "requires_golang"
+      ],
+      "stageTier": "target",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 72,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "上市公司、薪资不错，AI/工作流方向可冲。",
+      "riskReason": "Go、DSL、游戏交互背景需要补充边界口径。",
+      "prepNotes": [
+        "低代码/工作流表达",
+        "AI 自动化闭环案例"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-008",
+      "sourceIndex": 8,
+      "companyName": "欢聚集团",
+      "companyStage": "listed",
+      "jobTitle": "电商后台前端开发",
+      "salaryText": "25-40k",
+      "currentSalaryK": 18,
+      "salaryMinK": 25,
+      "salaryMaxK": 40,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1.主导电商后台数据可视化界面，数据埋点SDK等业务开发\n2.作为模块主负责人，推动需求交付，对质量和效能负责\n3.合理运用AI技术，优化工作流程和基础设施，提升模块吞吐效率和质量\n岗位要求】\n1.4年以上前端经验，熟练运用HTML/CSS/JS/TS/React并了解最佳实践\n2.熟悉TCP/HTTP等网络协议及Webpack/Vite等工程化技术，对浏览器运行机制有充分了解\n3.熟练运用 ClaudeCode/Codex等Agent 工具进行开发，具备一定的AI使用经验与技巧\n4.追求技术精进，对新事物具有好奇心，敢想敢做\n5.良好的沟通能力，抗压和独立决策能力;具备较强责任心和团队精神\n6.有Golang使用经验优先;有电商系统开发经验优先;有开源项目贡献优先;有个人博客或GitHub请附在简历",
+      "responsibilities": [
+        "电商后台数据可视化",
+        "数据埋点 SDK",
+        "AI 提效工作流"
+      ],
+      "requirements": [
+        "4 年以上前端经验",
+        "React/TypeScript",
+        "浏览器运行机制",
+        "Claude Code/Codex"
+      ],
+      "bonusItems": [
+        "Golang 使用经验",
+        "电商系统开发经验",
+        "个人博客或 GitHub"
+      ],
+      "techStack": [
+        "react",
+        "typescript",
+        "webpack",
+        "vite",
+        "ai_agent",
+        "ai_coding",
+        "data_visualization"
+      ],
+      "businessTags": [
+        "ecommerce",
+        "admin_dashboard",
+        "data_platform"
+      ],
+      "riskTags": [
+        "requires_4_years",
+        "requires_golang"
+      ],
+      "stageTier": "target",
+      "fitTier": "target",
+      "userIntent": "want",
+      "matchScore": 88,
+      "priority": "P0",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "电商后台、React、AI Agent、数据可视化与当前简历主线高度匹配。",
+      "riskReason": "Golang 是加分项，不主动展开；4 年经验要求需要用项目完整度补足。",
+      "prepNotes": [
+        "电商后台表达",
+        "AI Agent 提效流程",
+        "埋点 SDK 设计"
+      ],
+      "interviewQuestions": [
+        "如何用 AI Agent 提升模块吞吐？",
+        "数据埋点 SDK 如何设计？"
+      ],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z",
+      "remark": "用户标记想去，第一批重点投递。"
+    },
+    {
+      "id": "job-009",
+      "sourceIndex": 9,
+      "companyName": "智品网络",
+      "companyStage": "series_a",
+      "jobTitle": "Web 前端开发",
+      "salaryText": "20-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 20,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1、本科及以上学历，计算机相关专业优先，同类岗位2年及以上经验;\n2、精通HTML、CSS、Javascript，熟悉ES6语法Typescript;\n3、至少熟悉一种主流前端框架，如React、Vue、Svelte等，熟悉响应式设计和移动web端开发，有处理浏览器兼容性的经验\n4、熟悉前端构建工具，如Webpack、Rollup、Vite等，了解并能使用基本的前端性能优化手段;\n5、良好的沟通能力和团队合作精神，能够积极主动地解决问题。",
+      "responsibilities": [
+        "Web 前端开发",
+        "移动 Web 适配",
+        "性能优化"
+      ],
+      "requirements": [
+        "React/Vue/Svelte",
+        "TypeScript",
+        "响应式设计",
+        "构建工具"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "webpack",
+        "vite"
+      ],
+      "businessTags": [
+        "marketing_page"
+      ],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 70,
+      "priority": "P2",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "普通前端岗位，门槛适中，适合练基础和拿反馈。",
+      "prepNotes": [
+        "响应式",
+        "兼容性",
+        "性能优化"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-010",
+      "sourceIndex": 10,
+      "companyName": "药师帮",
+      "companyStage": "listed",
+      "jobTitle": "B2B 电商前端开发",
+      "salaryText": "12-24k",
+      "currentSalaryK": 18,
+      "salaryMinK": 12,
+      "salaryMaxK": 24,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1、负责药师帮B2B电商平台相关业务前端开发和维护负责前端公共组件的开发:\n2、参与前端技术架构设计，承担核心模块的代码编写\n3、保障业务性能与稳定，通过数据分析，识别并解决瓶颈问题\n4、关注并实践前端前沿技术，通过新技术反哺团队与业务\n任职要求:\n1、本科或以上学历，2年以上前端开发经验;\n2、精通各种前端基础技术，包括HTML/CSS/\nJavaScript 等;\n3、熟悉至少一个主流框架(如Vue/React/Angular等);\n4、对前端技术有持续的热情，良好的团队协作与沟通能力、良好的自驱力，不断追求极致的性能与用户体验。",
+      "responsibilities": [
+        "B2B 电商业务",
+        "公共组件",
+        "性能稳定性"
+      ],
+      "requirements": [
+        "2 年以上前端",
+        "Vue/React/Angular",
+        "性能优化"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript"
+      ],
+      "businessTags": [
+        "ecommerce",
+        "b2b"
+      ],
+      "riskTags": [
+        "salary_low"
+      ],
+      "stageTier": "target",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 62,
+      "priority": "P3",
+      "applicationStatus": "communicated",
+      "greetingStatus": "not_generated",
+      "fitReason": "电商业务匹配，但薪资下限低、上限一般。",
+      "riskReason": "低于当前 18k 的区间较多，不建议高投入。",
+      "prepNotes": [
+        "练电商项目表达"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-011",
+      "sourceIndex": 11,
+      "companyName": "Bigo",
+      "companyStage": "series_d",
+      "jobTitle": "语音社交前端开发",
+      "salaryText": "15-23k",
+      "currentSalaryK": 18,
+      "salaryMinK": 15,
+      "salaryMaxK": 23,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1.从事语音社交产品功能迭代、h5活动页、运营后台等的开发;\n2.优化前端功能设计，解决各种浏览器和终端设备的兼容性问题:\n3.通过技术手段，提升用户体验并满足高性能要求\n4.通用组件、类库编写，提升开发效率和质量\n任职要求:\n1.本科及以上学历，计算机相关专业毕业;\n2.热爱编程，具备扎实的HTML、CSS、JS基础，熟悉\n前端开发流程，具备一定的前端项目经验;\n3.掌握各主流浏览器的兼容性情况及兼容调试方法;\n4.至少熟悉一个主流MVVM开发框架，如React、\nVueJS、AngularJS等;\n5.熟练掌握常见AI Coding工具使用;\n6.良好的沟通和团队协作能力、热爱技术、责任心强。\n能推动技术框架的落地使用。",
+      "responsibilities": [
+        "语音社交功能",
+        "H5 活动页",
+        "运营后台",
+        "通用组件"
+      ],
+      "requirements": [
+        "React/Vue/Angular",
+        "兼容性",
+        "AI Coding"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "ai_coding"
+      ],
+      "businessTags": [
+        "social",
+        "marketing_page",
+        "admin_dashboard"
+      ],
+      "riskTags": [
+        "salary_low"
+      ],
+      "stageTier": "target",
+      "fitTier": "target",
+      "userIntent": "normal",
+      "matchScore": 60,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "D 轮公司但薪资偏低，可用于恢复面试节奏。",
+      "riskReason": "薪资提升有限，业务和简历主线不算最贴。",
+      "prepNotes": [
+        "兼容性",
+        "H5 活动页",
+        "组件复用"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-012",
+      "sourceIndex": 12,
+      "companyName": "欢聚集团",
+      "companyStage": "listed",
+      "jobTitle": "电商页面组件前端开发",
+      "salaryText": "18-26k",
+      "currentSalaryK": 18,
+      "salaryMinK": 18,
+      "salaryMaxK": 26,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "岗位职责\n负责电商业务相关前端页面组件功能开发\n高质量还原设计稿，注重UI细节与用户体验\n-持续优化前端页面性能\n任职要求\n本科及以上学历，计算机相关专业优先\n-1-3年前端开发经验\n熟练掌握HTML5、CSS3、JavaScript等前端基础技术\n熟悉JavaScript ES6及以上语法\n-基本掌握TypeScript、Sass技术使用\n熟悉常用前端调试、测试工具，具备良好的代码规范和\n文档习惯\n-具备责任心、良好的沟通能力、团队协作精神、学习能力及自我驱动力\n加分项\n熟练掌握至少一种主流前端框架，如React、Vue或\nAngular\n-熟悉前端工程化、模块化开发，了解Webpack、Vite\n等构建工具\n- 具备Node.js开发经验",
+      "responsibilities": [
+        "电商页面组件",
+        "UI 还原",
+        "性能优化"
+      ],
+      "requirements": [
+        "1-3 年前端",
+        "HTML/CSS/JS",
+        "TypeScript/Sass",
+        "调试测试工具"
+      ],
+      "bonusItems": [
+        "React/Vue/Angular",
+        "工程化",
+        "Node.js"
+      ],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "nodejs",
+        "webpack",
+        "vite"
+      ],
+      "businessTags": [
+        "ecommerce",
+        "marketing_page"
+      ],
+      "riskTags": [],
+      "stageTier": "target",
+      "fitTier": "target",
+      "userIntent": "want",
+      "matchScore": 78,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "用户标记想去，电商页面、UI 还原、性能优化与简历匹配。",
+      "riskReason": "岗位偏初中级，薪资上限不高。",
+      "prepNotes": [
+        "UI 还原",
+        "电商性能优化",
+        "组件化"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-013",
+      "sourceIndex": 13,
+      "companyName": "忆纪元",
+      "companyStage": "angel",
+      "jobTitle": "前端开发",
+      "salaryText": "19-35k",
+      "currentSalaryK": 18,
+      "salaryMinK": 19,
+      "salaryMaxK": 35,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "岗位职责:\n1.负责公司产品的前端开发与维护，确保页面性能与兼容性\n2.与设计和后端团队协作，实现高质量的用户界面交互\n任职要求:\n1.熟悉HTML、CSS、JavaScript等前端基础技术，掌握\n主流框架的使用\n2.具备良好的沟通能力，能高效完成分配的任务\n3.有较强的学习能力和责任心，能适应快速迭代的开发节奏",
+      "responsibilities": [
+        "产品前端开发",
+        "页面性能",
+        "兼容性",
+        "协作交互"
+      ],
+      "requirements": [
+        "HTML/CSS/JavaScript",
+        "主流框架",
+        "沟通能力"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript"
+      ],
+      "businessTags": [
+        "admin_dashboard"
+      ],
+      "riskTags": [
+        "jd_too_generic",
+        "startup_uncertainty"
+      ],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 58,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "JD 泛化，适合简单试探，不建议重投入。",
+      "riskReason": "天使轮不确定性较高，JD 缺少明确技术场景。",
+      "prepNotes": [
+        "练自我介绍和基础项目表达"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-014",
+      "sourceIndex": 14,
+      "companyName": "自然选择",
+      "companyStage": "series_a",
+      "jobTitle": "React/Next.js 全栈开发",
+      "salaryText": "20-40k",
+      "currentSalaryK": 18,
+      "salaryMinK": 20,
+      "salaryMaxK": 40,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "职位描述\n1.使用React开发高响应性的用户界面组件\n2.构建和管理RESTAPI，实现数据库与网页端\n3.整合第三方API\n4.维护产品的稳定性和安全性，对用户反馈的问题进行\n修复和优化\n职位要求\n1.以JavaScript为基础的前端开发能力，包括HTML5、CSS、前端JS、React的开发能力\n2.对Node.js,Express等有基础使用能\n3.熟悉Next.js、Typescript\n4.三年以上web前端和Node后端开发经验\n5.具有扎实的编程功底，良好的设计能力和编程习惯有优秀的优化、调试和解决问题能力，逻辑思维清晰严谨\n加分项:\n有CICD经验，docker优先名校和硕士学位以上优先",
+      "responsibilities": [
+        "React UI",
+        "REST API",
+        "数据库和网页端",
+        "第三方 API"
+      ],
+      "requirements": [
+        "React",
+        "Node.js/Express",
+        "Next.js",
+        "TypeScript",
+        "Docker/CI/CD"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "typescript",
+        "nextjs",
+        "nodejs",
+        "docker",
+        "cicd"
+      ],
+      "businessTags": [
+        "admin_dashboard"
+      ],
+      "riskTags": [
+        "requires_deep_backend",
+        "requires_database"
+      ],
+      "stageTier": "practice",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 76,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "React/Next/Node 全栈方向有薪资空间，可作为全栈潜力岗。",
+      "riskReason": "后端和数据库会被追问，需要明确自己负责边界。",
+      "prepNotes": [
+        "REST API",
+        "Node/Express",
+        "CI/CD 和 Docker"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-015",
+      "sourceIndex": 15,
+      "companyName": "丰图科技",
+      "companyStage": "series_a",
+      "jobTitle": "Android 与跨端开发",
+      "salaryText": "18-28k",
+      "currentSalaryK": 18,
+      "salaryMinK": 18,
+      "salaryMaxK": 28,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1.精通Java/Kotlin，深入理解Android SDK、\nFramework、UI渲染机制、多线程、网络编程及性能优\n2.熟悉HTML5、CSS3、JavaScript/TypeScript，有React/Vue/Angular等至少一种前端框架的实际开发经验。理解WebView内核及优化策略，熟悉Flutter/ReactNative等跨平台框架的原理与开发者优先。\n3.具备AI应用开发经验，熟悉至少一种主流深度学习框架(如TensorFlow, PyTorch)，有移动端AI模型部署优化或相关项目落地经验优先\n4.具备出色的逻辑思维能力和问题分析能力，能够独立思考和解决复杂技术问题。\n5.良好的代码风格、文档习惯和团队协作精神，熟悉Git等版本控制工具;有大型Android应用架构设计经验者优先。\n6.对新技术有强烈好奇心，具备快速学习能力。",
+      "responsibilities": [
+        "Android 核心模块",
+        "跨端融合",
+        "移动端 AI"
+      ],
+      "requirements": [
+        "Java/Kotlin",
+        "Android Framework",
+        "React/Vue",
+        "AI 模型部署"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "android",
+        "react",
+        "typescript",
+        "react_native"
+      ],
+      "businessTags": [
+        "mobile_app"
+      ],
+      "riskTags": [
+        "requires_native_android",
+        "requires_ai_model"
+      ],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "not_interested",
+      "matchScore": 35,
+      "priority": "P4",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "可作为练手了解跨端岗位要求。",
+      "riskReason": "核心是 Android/Java/Kotlin 和 AI 模型部署，与当前前端主线偏离明显。",
+      "prepNotes": [
+        "不建议重点投入"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-016",
+      "sourceIndex": 16,
+      "companyName": "追觅",
+      "companyStage": "series_c",
+      "jobTitle": "React Native 跨平台开发",
+      "salaryText": "15-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 15,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1、负责公司核心产品的跨平台(iOS&Android&鸿蒙)移动应用开发、迭代和维护工作。\n2、参与需求评审，制定技术方案并高效实现。\n3、持续优化应用性能(启动速度、流畅度、内存占用\n等)，提升用户体验和应用稳定性。\n4、编写高质量、可维护、可测试的代码，并进行代码审查，保障团队代码风格统一\n5、跟踪和研究ReactNative及前端新技术，并尝试将其应用于产品实践，推动技术演进。\n任职要求\n1、本科及以上学历，计算机相关专业，4年以上ReactNative 实际项目开发经验。\n2、熟练掌握JavaScript(ES6+)或TypeScript，理解其核心概念(如异步编程、闭包、原型链等)\n3、深入理解React/ReactNative框架原理，熟悉生命周期、Hooks、状态管理(如 Redux, MobX,Zustand等)\n4、具备原生(iOS/Android)开发调试能力，能熟练处理Native模块的集成、链接和故障排除。\n5、熟悉常用移动端调试工具及性能优化手段。\n6、具备良好的编码习惯和文档编写能力，对代码质量和用户体验有追求。\n7、强烈的责任心和团队协作精神，良好的沟通能力和解决问题的能力。",
+      "responsibilities": [
+        "跨平台移动应用",
+        "性能优化",
+        "代码审查"
+      ],
+      "requirements": [
+        "4 年 RN",
+        "TypeScript",
+        "Hooks",
+        "原生调试",
+        "移动端性能优化"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "react_native",
+        "typescript",
+        "android"
+      ],
+      "businessTags": [
+        "mobile_app",
+        "iot"
+      ],
+      "riskTags": [
+        "requires_4_years",
+        "requires_native_android"
+      ],
+      "stageTier": "fit",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 74,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "C 轮公司，RN 跨平台和 IoT 场景匹配。",
+      "riskReason": "4 年 RN 和原生调试要求较高，需要收紧表达边界。",
+      "prepNotes": [
+        "RN 性能优化",
+        "Native Module 调试",
+        "资源释放"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-017",
+      "sourceIndex": 17,
+      "companyName": "乐信集团",
+      "companyStage": "listed",
+      "jobTitle": "电商/营销活动前端开发",
+      "salaryText": "12-20k",
+      "currentSalaryK": 18,
+      "salaryMinK": 12,
+      "salaryMaxK": 20,
+      "salaryLiftLevel": "same",
+      "jdRaw": "1、负责分期乐电商平台产品、营销活动的前端页面开发;\n2、负责页面可视化搭建平台的开发，参与前端组件库的搭建，管理端治理，探索全栈开发模式;\n3、在理解产品业务及运营需求的基础上，关注页面性能提升及用户体验优化和创新，以技术驱动业务的发展。\n任职资格:\n1、基础扎实，思路清晰，主动有担当，具备良好的沟通能力和团队协作精神;\n2、能够熟练运用至少一款主流的(Vue/React/Taro)JS框架，有多端开发经验(小程序/Weex/ReactNative)，具有良好的代码风格、接口设计与系统架构思想:\n3、对前端工程化、模块化开发有一定了解，熟悉相关技术(nodejs/webpack/lerna)，具备实践经验;\n4、至少掌握一门服务端编程语言(Node.js、PHP)，有NodeJSBFF层实践经验:\n5、熟悉HTTP协议相关知识，熟悉前端开发常见安全问题和原理，具备一定安全风险意识;掌握常用前端性能优化方法，并在项目中有一定实践经验;熟练使用前端调试和抓包工具，具有良好的分析和解决问题的能力;",
+      "responsibilities": [
+        "电商营销活动",
+        "可视化搭建平台",
+        "组件库",
+        "管理端治理"
+      ],
+      "requirements": [
+        "Vue/React/Taro",
+        "小程序/Weex/RN",
+        "Node BFF",
+        "HTTP 安全"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "react_native",
+        "nodejs",
+        "low_code"
+      ],
+      "businessTags": [
+        "ecommerce",
+        "marketing_page",
+        "visual_editor"
+      ],
+      "riskTags": [
+        "salary_low"
+      ],
+      "stageTier": "target",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 64,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "上市公司且电商/低代码方向有匹配点。",
+      "riskReason": "薪资偏低，不适合作为重点目标。",
+      "prepNotes": [
+        "电商活动页",
+        "组件库",
+        "Node BFF 边界"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-018",
+      "sourceIndex": 18,
+      "companyName": "丰巢网络",
+      "companyStage": "series_b",
+      "jobTitle": "数据智能平台前端开发",
+      "salaryText": "12-24k",
+      "currentSalaryK": 18,
+      "salaryMinK": 12,
+      "salaryMaxK": 24,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1、负责丰巢数据智能产品平台的前端开发;\n2、参与团队前端工程化体系建设，逐步提升研发效率、研发质量，通过前端技术的不断产出驱动业务的发展;\n3、与产品经理、设计师、后端工程师一起，提升产品的用户体验，打造卓越的互联网产品;\n4、关注前端前沿技术发展，能够将新知识传递给团队，并且转化到潜在项目中。\n职位要求\n1、扎实的计算机基础知识，熟悉常用的数据结构、算法和设计模式，并能在日常研发中灵活使用;\n2、深入理解Web前端开发技术，包括HTML/CSS/JavaScript等\n3、掌握至少一种主流前端框架(vuereact等)，有实际项目研发经验;\n4、熟悉网站性能优化，了解浏览器实现原理;\n5、熟悉交互设计理论，能够将优秀的交互设计落地到产品中\n6、能够独立完成一个复杂模块或项目的研发工作;\n7、具备较强的责任感、团队合作精神、逻辑思维能力和表达能力。\n如果您具备以下资格，我们会优先考虑:\n1、深入理解组件化开发，对于mvp、mvc和mvvm有自己的见解\n2、自我驱动，学习能力较强，性格活泼开朗;\n3、对于数据可视化有一定的研究;\n4、有开源作品或者技术博客。",
+      "responsibilities": [
+        "数据智能平台",
+        "工程化体系",
+        "用户体验优化"
+      ],
+      "requirements": [
+        "HTML/CSS/JavaScript",
+        "主流框架",
+        "性能优化",
+        "浏览器原理"
+      ],
+      "bonusItems": [
+        "组件化理解",
+        "数据可视化",
+        "技术博客"
+      ],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "data_visualization"
+      ],
+      "businessTags": [
+        "data_platform",
+        "data_visualization"
+      ],
+      "riskTags": [
+        "salary_low"
+      ],
+      "stageTier": "fit",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 63,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "B 轮公司，数据平台和工程化有匹配点。",
+      "riskReason": "薪资区间一般，更多适合练性能、组件化、数据可视化表达。",
+      "prepNotes": [
+        "组件化",
+        "数据可视化",
+        "浏览器性能"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-04T00:00:00.000Z"
+    },
+    {
+      "id": "job-019",
+      "sourceIndex": 19,
+      "companyName": "丰巢网络",
+      "companyStage": "series_b",
+      "jobTitle": "2D/3D 编辑器前端开发",
+      "salaryText": "12-24k",
+      "currentSalaryK": 18,
+      "salaryMinK": 12,
+      "salaryMaxK": 24,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1、负责Web前端开发;\n2、开发2D音视频编辑器、数据平台页面开发;\n3、开发3D机器人动作编辑与仿真界面，实现模型渲\n染、动作编辑、实时预览等功能\n4、还原设计稿UI交互，优化前端性能，保障2D编辑、3D场景的流畅体验;\n5、与产品、设计、后端协作，完成技术方案的落地，帮助项目上线。\n职位要求:\n1、2年以上前端开发经历;\n2、前端基础扎实(HTML、CSS、JS/TS)，熟悉\nReact/Vue:\n3、熟悉WebGL及 Three.js (或Babylon.js)，有3D图形学基础;\n4、熟悉前端工程化、性能优化，具备良好的开发规范;\n5、对技术充满热情、持续学习，具备优秀解决问题和协作能力;\n加分项:\n1、有编辑器、图形化开发经验;\n2、有跨端开发经验、熟悉ReactNative，有技术博客、开源项目贡献:\n3、了解机器人学/运动控制概念。",
+      "responsibilities": [
+        "2D 音视频编辑器",
+        "3D 机器人动作编辑",
+        "模型渲染",
+        "实时预览"
+      ],
+      "requirements": [
+        "React/Vue",
+        "WebGL",
+        "Three.js/Babylon.js",
+        "图形学"
+      ],
+      "bonusItems": [
+        "编辑器经验",
+        "跨端/RN",
+        "机器人学"
+      ],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "webgl",
+        "react_native"
+      ],
+      "businessTags": [
+        "visual_editor",
+        "robotics",
+        "data_platform"
+      ],
+      "riskTags": [
+        "requires_webgl"
+      ],
+      "stageTier": "fit",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 45,
+      "priority": "P4",
+      "applicationStatus": "communicated",
+      "greetingStatus": "not_generated",
+      "fitReason": "B 轮公司，但核心方向偏图形编辑器。",
+      "riskReason": "WebGL/Three.js/3D 图形学是核心要求，简历支撑不足。",
+      "prepNotes": [
+        "除非想练图形方向，否则不优先"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-020",
+      "sourceIndex": 20,
+      "companyName": "优钱科技",
+      "companyStage": "no_financing",
+      "jobTitle": "H5 与跨端前端开发",
+      "salaryText": "20-26k",
+      "currentSalaryK": 18,
+      "salaryMinK": 20,
+      "salaryMaxK": 26,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1、负责公司H5业务和跨端应用前端功能开发、日常维护与版本迭代，及时响应和解决生产反馈的问题。\n2、参与前端技术方案的讨论，根据业务场景制定合理的前端实现方案，推动前端技术体系持续演进。\n3、参与前端工程化建设，包括组件化、模块化、自动化构建与测试体系建设，提升开发效率与代码质量。\n4、负责业务性能优化、渲染效率提升、包体积控制与交互体验优化，持续提升应用流畅度与稳定性5、参与业务需求评审，与产品、后端紧密协作，完成需求分析、功能实现与上线交付。\n任职要求:\n1、全日制本科及以上学历，计算机或相关专业;3-5年前端开发经验，熟悉HTML5、CSS3、ES6+，具备扎实的JavaScript/TypeScript基础。\n2、熟悉Vue和React前端MVVM框架，理解框架其中的原理如响应式、虚拟DOM等。\n3、熟悉NuxtJS服务端渲染和React Native跨端开发有移动端H5业务或React Native跨端应用开发经验。\n4、掌握浏览器渲染原理、Lighthouse性能分析，了解常见的设计模式。\n5、掌握前端构建工具与工程化体系(Webpack、Vite、CI/CD等)，具备组件封装能力和了解常见的性能优化方式。\n6、具备良好的沟通能力和责任心，能够独立定位和快速解决问题，具备自驱与持续优化意识。",
+      "responsibilities": [
+        "H5 业务",
+        "跨端应用",
+        "工程化建设",
+        "性能优化"
+      ],
+      "requirements": [
+        "Vue/React",
+        "Nuxt",
+        "React Native",
+        "Lighthouse",
+        "Webpack/Vite"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "nuxt",
+        "react_native",
+        "webpack",
+        "vite",
+        "cicd"
+      ],
+      "businessTags": [
+        "hybrid_app",
+        "mobile_app"
+      ],
+      "riskTags": [],
+      "stageTier": "practice",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 82,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "Web + RN + 性能优化双主线匹配。",
+      "riskReason": "融资阶段按规则为练手，但技术匹配度高，可作为适合去。",
+      "prepNotes": [
+        "Lighthouse",
+        "RN 适配",
+        "工程化建设"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-021",
+      "sourceIndex": 21,
+      "companyName": "影石",
+      "companyStage": "listed",
+      "jobTitle": "Insta360 App 前端研发",
+      "salaryText": "25-50k",
+      "currentSalaryK": 18,
+      "salaryMinK": 25,
+      "salaryMaxK": 50,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "职位描述\n-负责Insta360App前端研发，包括Webapp、ReactNative、Hybrid、小程序、运营活动等;\n-负责Insta360APP对应的运营后台等PC系统的开发工作;\n-负责高质量编码设计，承担业务重点技术攻坚，保证高可靠、高性能、高可扩展的业务支撑;\n探索和优化前端、移动端团队的开发模式和流程规范，提高团队的效率。\n职位要求\n-计算机相关专业本科以上学历，3年以上前端开发经验\n-拥有扎实的计算机和前端基础知识，熟练掌握Javascript，ES5/6，CSS，熟练掌握各种布局;\n-熟悉React技术栈，熟悉工程化、浏览器特性、性能优化及前端安全知识;\n-有良好的产品意识，积极乐观，认真负责，乐于协:作\n-良好的设计和编码能力，对代码稳定性和性能有追求，能产出高质量的设计和代码;",
+      "responsibilities": [
+        "Webapp/RN/Hybrid 研发",
+        "运营后台",
+        "高可靠高性能业务支撑"
+      ],
+      "requirements": [
+        "3 年以上前端经验",
+        "React 技术栈",
+        "工程化",
+        "性能优化",
+        "前端安全"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "react_native",
+        "typescript",
+        "webpack",
+        "vite"
+      ],
+      "businessTags": [
+        "mobile_app",
+        "hybrid_app",
+        "admin_dashboard",
+        "marketing_page"
+      ],
+      "riskTags": [],
+      "stageTier": "target",
+      "fitTier": "target",
+      "userIntent": "want",
+      "matchScore": 90,
+      "priority": "P0",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "品牌、薪资、Web/RN/Hybrid 方向都非常匹配。",
+      "riskReason": "需要准备 RN 和 Hybrid 边界，避免夸大原生底层经验。",
+      "prepNotes": [
+        "RN 实时预览链路",
+        "Hybrid 和 JSBridge 区别",
+        "性能优化"
+      ],
+      "interviewQuestions": [
+        "RN Native Module 怎么设计？",
+        "Hybrid 和 RN 通信有什么区别？"
+      ],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-022",
+      "sourceIndex": 22,
+      "companyName": "腾乐科技",
+      "companyStage": "series_c",
+      "jobTitle": "React/RN 前端开发",
+      "salaryText": "15-30k",
+      "currentSalaryK": 18,
+      "salaryMinK": 15,
+      "salaryMaxK": 30,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "I.1年以上React开发经验(有ReactNative开发经验\n为佳);\n2.熟悉React的基本原理，熟悉React优化:\n3.熟悉web/小程序开发者优先\n4.思维敏捷，较强的自学能力，对新兴技术敏感，乐于学习并使用新技术;\n5.有github项目贡献经验，尤其是React-Native项目相关贡献经验者优先。",
+      "responsibilities": [
+        "React 开发",
+        "React 优化",
+        "Web/小程序协作"
+      ],
+      "requirements": [
+        "React",
+        "React Native 加分",
+        "React 优化",
+        "GitHub 项目"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "react_native",
+        "typescript"
+      ],
+      "businessTags": [
+        "mobile_app"
+      ],
+      "riskTags": [],
+      "stageTier": "fit",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 68,
+      "priority": "P2",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "C 轮公司，要求相对轻，适合练 React/RN 基础和 GitHub 表达。",
+      "prepNotes": [
+        "React 原理",
+        "RN 基础",
+        "GitHub/博客表达"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-023",
+      "sourceIndex": 23,
+      "companyName": "普渡机器人",
+      "companyStage": "series_c",
+      "jobTitle": "React Native App 前端开发",
+      "salaryText": "20-40k",
+      "currentSalaryK": 18,
+      "salaryMinK": 20,
+      "salaryMaxK": 40,
+      "salaryLiftLevel": "good_increase",
+      "jdRaw": "1、负责公司产品前端的开发、部署、维护等工作(基于React Native的App开发);\n2、优化前端性能，提升用户体验，持续改进前端架构;\n3、与产品经理、设计师和后端开发工程师紧密合作，确保产品设计的精确实现。经验要求:\n1、熟练掌握JavaScript/TypeScript，理解ES6+新特性，对闭包、异步编程、原型链、EventLoop等有深入理解。\n2、精通React/React Native 框架及其核心概念。\n3、熟悉移动端开发特点，如屏幕适配、触摸事件处理、网络状态处理、内存优化等。\n4、熟悉常用 状态管理库(如 Redux, MobX,Zustand等)和常用网络请求库(如Axios,Fetch)。\n5、具备独立开发、调试和解决问题的能力，有良好的编程习惯和代码规范意识。\n6、了解原生开发(iOS/Android)，能够编写NativeModule或解决底层兼容性问题。",
+      "responsibilities": [
+        "RN App 开发",
+        "移动端性能优化",
+        "前端架构改进"
+      ],
+      "requirements": [
+        "React Native",
+        "TypeScript",
+        "移动端适配",
+        "网络状态处理",
+        "NativeModule"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "react_native",
+        "typescript"
+      ],
+      "businessTags": [
+        "mobile_app",
+        "robotics"
+      ],
+      "riskTags": [
+        "requires_native_android"
+      ],
+      "stageTier": "fit",
+      "fitTier": "fit",
+      "userIntent": "normal",
+      "matchScore": 80,
+      "priority": "P1",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "C 轮公司，RN、移动端适配、性能优化和最近准备内容匹配。",
+      "riskReason": "NativeModule 和原生兼容会被追问，需要强调 RN 侧边界。",
+      "prepNotes": [
+        "Native Module",
+        "长列表优化",
+        "多机型适配",
+        "实时预览状态治理"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-024",
+      "sourceIndex": 24,
+      "companyName": "真景科技",
+      "companyStage": "no_financing",
+      "jobTitle": "资深前端/Node 全栈开发",
+      "salaryText": "18-25k",
+      "currentSalaryK": 18,
+      "salaryMinK": 18,
+      "salaryMaxK": 25,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1、5年以上前端开发经验，参与过系统核心模块的设计与开发，熟悉整体架构设计，有0-1项目经验;\n2、熟练掌握JavaScript/TypeScript、HTML、CSS，熟悉JavaScript设计模式，至少精通Vue或React其中一项并理解其设计原理(Vue优先);\n3、熟悉Node.js生态，具备使用Nuxt/Next.js等全栈框架或Express/Koa/Nest.js等后端框架的实际项目经验了解数据库基本操作(MySQL/MongoDB/\nPostgreSQL);\n4、熟悉常规浏览器兼容性问题，有前端性能优化、可访问性、可维护性等方面的实践经验;\n5、熟悉前端工程化工具链，如Vite、Webpack、\nRollup、 Turborepo 等;\n6、熟练使用AI编程工具(Cursor、GitHub Copilot、Claude Code 等)，具备 Prompt Engineering 意识，能借助AI显著提升编码效率与代码质量\n7、良好的团队协作能力，能够与产品、设计及后端团队紧密配合，推动需求高效落地。",
+      "responsibilities": [
+        "核心模块开发",
+        "整体架构设计",
+        "Node 全栈协作",
+        "工程化"
+      ],
+      "requirements": [
+        "5 年前端",
+        "Vue/React",
+        "Node.js",
+        "数据库基础",
+        "Turborepo",
+        "AI 编程工具"
+      ],
+      "bonusItems": [],
+      "techStack": [
+        "react",
+        "vue",
+        "typescript",
+        "nextjs",
+        "nuxt",
+        "nodejs",
+        "turborepo",
+        "ai_coding"
+      ],
+      "businessTags": [
+        "admin_dashboard"
+      ],
+      "riskTags": [
+        "requires_5_years",
+        "vue_first",
+        "requires_database"
+      ],
+      "stageTier": "practice",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 58,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "要求偏高但薪资一般，不建议重点投入。",
+      "riskReason": "5 年、Vue 优先、Node/数据库要求较重。",
+      "prepNotes": [
+        "可练工程化和 AI 工具表达"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    },
+    {
+      "id": "job-025",
+      "sourceIndex": 25,
+      "companyName": "观麦",
+      "companyStage": "series_c",
+      "jobTitle": "React 前端开发",
+      "salaryText": "18-22k",
+      "currentSalaryK": 18,
+      "salaryMinK": 18,
+      "salaryMaxK": 22,
+      "salaryLiftLevel": "small_increase",
+      "jdRaw": "1、本科及以上学历，计算机相关专业优先考虑，优秀者可放宽\n2、4年及以上工作经验，具备扎实的前端基础，精通HTML5、CSS3、JavaScript (ES6+)等Web开发技术，至少1年内有React项目经验或React技术栈占比≥50%，深入理解React核心原理(Fiber、Hooks、虚拟DOM、Diffing算法等)。\n3、具备丰富的前端工程化经验，熟练使用Webpack/Vite、Babel、ESLint、Git Flow、CI/CD等工具，熟悉Monorepo/微前端架构，有大型网站或高并发项目开发经验者优先。\n4、具备多端开发能力(加分项):如Taro、Uniapp、React Native、Flutter、Electron等多端开发经验者优先。\n5、具备一定的项目管理和团队协作能力，能够独立协调资源，推动功能落地，保证项目质量与开发效率，平均每份工作时长≥1.5年，能够主动推动技术升级,有长期稳定的项目经开发经验者优先。\n6、认真负责，具有Owner意识，热爱前端技术，保持开放心态，愿意接受挑战，并持续提升自身技术能力。",
+      "responsibilities": [
+        "React 前端开发",
+        "工程化",
+        "多端能力",
+        "项目协作"
+      ],
+      "requirements": [
+        "4 年前端",
+        "React",
+        "Fiber/Hooks/虚拟 DOM/Diff",
+        "Webpack/Vite",
+        "CI/CD",
+        "Monorepo"
+      ],
+      "bonusItems": [
+        "Taro/Uniapp/RN/Flutter/Electron",
+        "微前端",
+        "高并发项目"
+      ],
+      "techStack": [
+        "react",
+        "typescript",
+        "webpack",
+        "vite",
+        "cicd",
+        "monorepo",
+        "react_native"
+      ],
+      "businessTags": [
+        "ecommerce"
+      ],
+      "riskTags": [
+        "requires_4_years"
+      ],
+      "stageTier": "fit",
+      "fitTier": "practice",
+      "userIntent": "normal",
+      "matchScore": 62,
+      "priority": "P3",
+      "applicationStatus": "pending_apply",
+      "greetingStatus": "not_generated",
+      "fitReason": "C 轮公司，React 和工程化匹配，但薪资提升有限。",
+      "riskReason": "4 年要求和 React 原理深挖需要准备，薪资上限不高。",
+      "prepNotes": [
+        "React Fiber/Hooks/Diff",
+        "工程化",
+        "多端能力"
+      ],
+      "interviewQuestions": [],
+      "createdAt": "2026-07-04T00:00:00.000Z",
+      "updatedAt": "2026-07-06T08:09:41.705Z"
+    }
+  ]
+}

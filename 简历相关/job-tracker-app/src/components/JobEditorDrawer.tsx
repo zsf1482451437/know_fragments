@@ -108,7 +108,7 @@ export function JobEditorDrawer() {
               </select>
             </div>
             <div>
-              <FieldLabel>应聘进度</FieldLabel>
+              <FieldLabel>进度节点</FieldLabel>
               <select
                 value={job.applicationStatus}
                 onChange={(event) =>

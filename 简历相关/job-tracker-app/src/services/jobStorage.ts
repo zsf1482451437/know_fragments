@@ -1,7 +1,9 @@
 import { sampleDatabase } from "@/data/sampleJobs";
+import { normalizeJob } from "@/services/jobRules";
 import type { Job, JobDatabase } from "@/types/job";
 
 const STORAGE_KEY = "boss-job-tracker-db";
+const JOBS_API_BASE = import.meta.env.VITE_JOBS_API_BASE ?? "http://localhost:5175";
 
 function isJobDatabase(value: unknown): value is JobDatabase {
   if (!value || typeof value !== "object") return false;
@@ -31,6 +33,7 @@ export function loadDatabase(): JobDatabase {
 }
 
 function mergeMissingSampleJobs(database: JobDatabase): JobDatabase {
+  const normalizedDatabase = normalizeDatabase(database);
   const existingIndexes = new Set(database.jobs.map((job) => job.sourceIndex).filter(Boolean));
   const missingJobs = sampleDatabase.jobs.filter((job) => !existingIndexes.has(job.sourceIndex));
   const sampleJobsByIndex = new Map(
@@ -41,10 +44,10 @@ function mergeMissingSampleJobs(database: JobDatabase): JobDatabase {
   const shouldSyncSampleRawText = database.version < sampleDatabase.version;
 
   if (missingJobs.length === 0 && database.version >= sampleDatabase.version) {
-    return database;
+    return normalizedDatabase;
   }
 
-  const existingJobs = database.jobs.map((job) => {
+  const existingJobs = normalizedDatabase.jobs.map((job) => {
     const sampleJob = sampleJobsByIndex.get(job.sourceIndex);
     if (!shouldSyncSampleRawText || !sampleJob) return job;
 
@@ -67,6 +70,13 @@ function mergeMissingSampleJobs(database: JobDatabase): JobDatabase {
   return nextDatabase;
 }
 
+function normalizeDatabase(database: JobDatabase): JobDatabase {
+  return {
+    ...database,
+    jobs: database.jobs.map((job) => normalizeJob(job)),
+  };
+}
+
 export function saveDatabase(database: JobDatabase): void {
   const nextDatabase = {
     ...database,
@@ -74,6 +84,21 @@ export function saveDatabase(database: JobDatabase): void {
   };
 
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextDatabase, null, 2));
+  void syncJobsFile(nextDatabase);
+}
+
+async function syncJobsFile(database: JobDatabase): Promise<void> {
+  try {
+    await fetch(`${JOBS_API_BASE}/api/jobs`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(database),
+    });
+  } catch {
+    // The local Node API is optional in development. localStorage remains the fallback.
+  }
 }
 
 export function resetDatabase(): JobDatabase {
@@ -108,7 +133,7 @@ export function importDatabase(file: File): Promise<JobDatabase> {
           return;
         }
 
-        const normalized: JobDatabase = {
+        const normalized: JobDatabase = normalizeDatabase({
           ...parsed,
           updatedAt: new Date().toISOString(),
           jobs: parsed.jobs.map((job: Job) => ({
@@ -116,7 +141,7 @@ export function importDatabase(file: File): Promise<JobDatabase> {
             updatedAt: job.updatedAt ?? new Date().toISOString(),
             createdAt: job.createdAt ?? new Date().toISOString(),
           })),
-        };
+        });
 
         saveDatabase(normalized);
         resolve(normalized);

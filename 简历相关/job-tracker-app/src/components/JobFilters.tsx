@@ -61,7 +61,7 @@ export function JobFilters() {
           onChange={(event) => setFilter("status", event.target.value as ApplicationStatus | "all")}
           className="h-11 rounded-2xl border border-slate-200 bg-slate-50 px-3 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-50"
         >
-          <option value="all">全部进度</option>
+          <option value="all">全部进度节点</option>
           {statusOptions.map((status) => (
             <option key={status} value={status}>
               {applicationStatusLabel[status]}
