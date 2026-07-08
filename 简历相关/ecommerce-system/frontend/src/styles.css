@@ -1,0 +1,196 @@
+:root {
+  color: #172033;
+  background: #f5f7fb;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  align-items: center;
+  background: #111827;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 28px;
+}
+
+.brand,
+.topbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 16px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 28px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgb(15 23 42 / 8%);
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.product-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.product-card img,
+.product-hero {
+  background: linear-gradient(135deg, #e0f2fe, #fef3c7);
+  display: block;
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-card-body {
+  padding: 16px;
+}
+
+.muted {
+  color: #64748b;
+}
+
+.price {
+  color: #dc2626;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.toolbar {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  margin-bottom: 18px;
+}
+
+.toolbar input,
+.toolbar select,
+.form-grid input,
+.form-grid textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.button-primary {
+  background: #2563eb;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px 14px;
+}
+
+.button-secondary {
+  background: #e2e8f0;
+  border: 0;
+  border-radius: 10px;
+  color: #0f172a;
+  padding: 10px 14px;
+}
+
+.state {
+  background: #fff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.state-error {
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+.state-loading {
+  color: #475569;
+}
+
+.line-list {
+  display: grid;
+  gap: 12px;
+}
+
+.line-item {
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr auto auto;
+  padding: 16px 0;
+}
+
+.summary {
+  background: #f8fafc;
+  border-radius: 14px;
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.status-pill {
+  background: #dbeafe;
+  border-radius: 999px;
+  color: #1d4ed8;
+  display: inline-flex;
+  font-size: 12px;
+  padding: 4px 10px;
+}
