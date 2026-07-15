@@ -10,13 +10,13 @@
 
 ## 专业技能
 - 前端基础：熟悉 HTML5、CSS3、JavaScript/TypeScript ES6+，具备复杂页面还原、多端响应式适配、异步编程与模块化开发经验。
-- React 生态：熟悉 React、React Hooks、Redux、React Router 等技术栈，具备 Next.js SSR/SSG 与商城类项目实践经验。
+- React 生态：熟悉 React、React Hooks、Redux、React Router 等技术栈，具备 Next.js SSR/SSG 与 Vite 单页应用实践经验，能够围绕商城类业务完成商品、购物车、结算、订单等核心链路开发。
 - 跨端开发：熟悉 React Native 与 TypeScript，理解组件生命周期、Hooks 状态管理、Native Modules 原生通信，具备 iOS/Android 双端项目迭代经验。
-- 工程化能力：熟悉 Webpack/Vite、pnpm、ESLint、Prettier、Husky、CI/CD 等工程链路，具备构建优化、规范治理与自动化脚本实践。
-- 测试保障：具备单元测试与集成测试实践经验，熟悉 Jest、React Native Testing Library、Detox 等测试方式，能够围绕核心链路补充用例并接入研发验证流程。
+- 工程化能力：熟悉 Webpack/Vite、pnpm、ESLint、Prettier、Husky、CI/CD 等工程链路，具备构建优化、规范治理、自动化脚本与 TailwindCSS 样式体系落地经验。
+- 测试保障：具备单元测试与集成测试实践经验，熟悉 Jest、Vitest、Testing Library、React Native Testing Library、Detox 等测试方式，能够围绕核心链路补充用例并接入研发验证流程。
 - 业务平台：熟悉 Shopify 应用开发，具备 Liquid 模板、GraphQL 接口、Prisma、Docker 部署与应用上架经验。
-- 全栈协作：具备 Node.js 服务开发、GraphQL 接口联调、Prisma 数据建模与 Docker 部署实践，能够在 AI 辅助研发场景下快速理解前后端链路，具备向全栈交付扩展的潜力。
-- AI 工程化：具备 AI 辅助研发流程建设经验，能够基于 AI skills 将需求拆解、代码草拟、问题排查、测试补充、文档沉淀等环节沉淀为可复用、可校验的研发工作流。
+- 全栈协作：具备 Node.js、Go 基础服务开发经验，熟悉 REST API、GraphQL 接口联调、Prisma/SQLite 数据建模、事务处理与 Docker 部署实践，能够理解并落地前后端完整业务链路。
+- AI 工程化：具备 AI 辅助研发流程建设经验，能够基于 SDD、TDD 与 AI Agent 将需求拆解、方案设计、代码实现、测试验证、文档沉淀等环节形成可复用、可校验的研发工作流。
 - 计算机基础：熟悉 HTTP/HTTPS、浏览器缓存、跨域、前端安全等基础知识，了解常见设计模式。
 
 ## 工作经历
@@ -70,3 +70,13 @@
 - **部署方案优化**：针对脚手架依赖与服务器环境不兼容问题，引入 Docker 镜像化部署，隔离宿主机环境差异，保障应用稳定上线，部署成功率提升至 100%；
 - **发布流程提效**：编写 Shell 脚本自动化处理镜像打包、版本命名、文件压缩等流程，部署操作从 5 步简化为 1 步，发布效率提升 70%；
 - **团队知识沉淀**：输出 Shopify 应用开发、部署、上架全流程文档，帮助团队成员快速上手，新人应用开发上手周期显著缩短。
+
+### 服装商城
+**技术栈**：React、TypeScript、Vite、React Router、TailwindCSS、Go、SQLite、Vitest、Testing Library、OpenSpec
+面向服装零售场景，独立设计并实现一套覆盖商品浏览、购物车、下单结算、订单查询与后台管理的商城系统，重点关注前后端链路完整性、数据一致性与交付质量：
+- **前台交易链路**：基于 React + Vite 实现商品列表、商品详情、购物车、结算、订单查询等核心页面，封装类型化 API 客户端与可复用业务组件，支撑完整用户购买流程；
+- **商品与库存建模**：围绕商品、SKU、库存、订单、订单项、订单时间线等核心对象设计数据模型，支持服装规格、库存扣减、订单状态流转和运营侧基础管理；
+- **服务端接口落地**：基于 Go `net/http` 搭建 REST API，按 `handler -> service/domain -> repository` 分层组织代码，使用 SQLite 持久化业务数据，并在结算链路中处理库存校验、价格快照与事务提交；
+- **后台管理能力**：实现商品目录浏览、订单状态查看、库存变化追踪等后台入口，便于运营侧快速核对商品信息、订单进度和库存风险；
+- **体验与性能优化**：使用 TailwindCSS 统一页面间距、卡片、按钮与响应式布局；商品列表引入虚拟滚动与稳定布局策略，降低大商品量场景下的渲染压力；
+- **质量与交付保障**：使用 Vitest、Testing Library 和 Go Test 覆盖商品展示、购物车、结算、订单流转、库存事务等核心链路，并通过统一 `verify` 脚本串联 lint、typecheck、测试和生产构建。
