@@ -13,10 +13,10 @@
 - React 生态：熟悉 React、React Hooks、Redux、React Router 等技术栈，具备 Next.js SSR/SSG 与 Vite 单页应用实践经验，能够围绕商城类业务完成商品、购物车、结算、订单等核心链路开发。
 - 跨端开发：熟悉 React Native 与 TypeScript，理解组件生命周期、Hooks 状态管理、Native Modules 原生通信，具备 iOS/Android 双端项目迭代经验。
 - 工程化能力：熟悉 Webpack/Vite、pnpm、ESLint、Prettier、Husky、CI/CD 等工程链路，具备构建优化、规范治理、自动化脚本与 TailwindCSS 样式体系落地经验。
-- 测试保障：具备单元测试与集成测试实践经验，熟悉 Jest、Vitest、Testing Library、React Native Testing Library、Detox 等测试方式，能够围绕核心链路补充用例并接入研发验证流程。
+- 测试保障：具备单元测试、集成测试与 E2E 测试实践经验，熟悉 Jest、Vitest、Testing Library、Go Test、Playwright、React Native Testing Library、Detox 等测试方式，能够围绕登录、权限、交易等核心链路建立分层验证。
 - 业务平台：熟悉 Shopify 应用开发，具备 Liquid 模板、GraphQL 接口、Prisma、Docker 部署与应用上架经验。
-- 全栈协作：具备 Node.js、Go 基础服务开发经验，熟悉 REST API、GraphQL 接口联调、Prisma/SQLite 数据建模、事务处理与 Docker 部署实践，能够理解并落地前后端完整业务链路。
-- AI 工程化：具备 AI 辅助研发流程建设经验，能够基于 SDD、TDD 与 AI Agent 将需求拆解、方案设计、代码实现、测试验证、文档沉淀等环节形成可复用、可校验的研发工作流。
+- 全栈协作：具备 Node.js、Go 服务开发经验，熟悉 REST API、GraphQL 接口联调、Prisma/SQLite 数据建模、事务处理、Session 认证与角色权限控制，能够独立落地前后端完整业务链路。
+- AI 工程化：具备 AI 辅助研发流程建设经验，能够基于 OpenSpec、TDD 与 AI Agent 将需求拆解、方案设计、代码实现、测试验证、文档沉淀等环节形成可复用、可校验的研发工作流。
 - 计算机基础：熟悉 HTTP/HTTPS、浏览器缓存、跨域、前端安全等基础知识，了解常见设计模式。
 
 ## 工作经历
@@ -71,12 +71,11 @@
 - **发布流程提效**：编写 Shell 脚本自动化处理镜像打包、版本命名、文件压缩等流程，部署操作从 5 步简化为 1 步，发布效率提升 70%；
 - **团队知识沉淀**：输出 Shopify 应用开发、部署、上架全流程文档，帮助团队成员快速上手，新人应用开发上手周期显著缩短。
 
-### 服装商城
-**技术栈**：React、TypeScript、Vite、React Router、TailwindCSS、Go、SQLite、Vitest、Testing Library、OpenSpec
-面向服装零售场景，独立设计并实现一套覆盖商品浏览、购物车、下单结算、订单查询与后台管理的商城系统，重点关注前后端链路完整性、数据一致性与交付质量：
-- **前台交易链路**：基于 React + Vite 实现商品列表、商品详情、购物车、结算、订单查询等核心页面，封装类型化 API 客户端与可复用业务组件，支撑完整用户购买流程；
-- **商品与库存建模**：围绕商品、SKU、库存、订单、订单项、订单时间线等核心对象设计数据模型，支持服装规格、库存扣减、订单状态流转和运营侧基础管理；
-- **服务端接口落地**：基于 Go `net/http` 搭建 REST API，按 `handler -> service/domain -> repository` 分层组织代码，使用 SQLite 持久化业务数据，并在结算链路中处理库存校验、价格快照与事务提交；
-- **后台管理能力**：实现商品目录浏览、订单状态查看、库存变化追踪等后台入口，便于运营侧快速核对商品信息、订单进度和库存风险；
-- **体验与性能优化**：使用 TailwindCSS 统一页面间距、卡片、按钮与响应式布局；商品列表引入虚拟滚动与稳定布局策略，降低大商品量场景下的渲染压力；
-- **质量与交付保障**：使用 Vitest、Testing Library 和 Go Test 覆盖商品展示、购物车、结算、订单流转、库存事务等核心链路，并通过统一 `verify` 脚本串联 lint、typecheck、测试和生产构建。
+### React + Go 电商系统（个人项目）
+**技术栈**：React、TypeScript、Vite、React Router、TailwindCSS、Go、SQLite、Vitest、Testing Library、Playwright、OpenSpec
+面向零售电商场景，独立设计并实现覆盖商品发现、购物车、结算、订单与后台运营的全栈系统，重点验证交易链路、权限边界、数据一致性和工程交付能力：
+- **全栈交易链路**：基于 React + Vite 实现商品列表、详情、购物车、结算和订单查询，封装类型化 API 客户端；基于 Go `net/http` 按 `handler -> service/domain -> repository` 分层实现 REST API，形成可本地运行的前后端闭环；
+- **认证与权限隔离**：落地服务端 Session + HttpOnly Cookie 认证，建立 `user/admin` 角色守卫；后端从会话派生 `userId`，确保订单列表、详情与结算严格按用户归属隔离，并拆分用户侧和管理员侧订单动作边界；
+- **数据建模与一致性**：围绕商品、SKU、库存、账号、会话、订单、订单项和时间线设计 SQLite 模型，在结算事务中完成库存校验、价格快照、库存扣减与订单落库，保障失败场景回滚和服务重启后的数据可追溯；
+- **后台运营能力**：实现商品筛选、价格/库存编辑、上下架，订单查询、详情与状态流转，以及用户查询、详情和启停管理，并通过 `/api/admin/*` 后端守卫控制管理员权限；
+- **质量与研发闭环**：使用 Vitest、Testing Library、Go Test 和 Playwright 覆盖登录、角色权限、订单归属、结算、状态流转与 SQLite 事务；通过 `verify` 串联 lint、typecheck、测试和生产构建，并以 OpenSpec 管理 proposal、design、specs、tasks 及测试点文档。

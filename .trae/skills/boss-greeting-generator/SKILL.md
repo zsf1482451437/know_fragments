@@ -58,7 +58,7 @@ If the JD or resume is missing, ask for it. If the user provides only one side, 
    - proof points that can be said in one sentence
 
 3. Build Match Angle
-   Choose 1-2 strongest angles only:
+   Choose 1-2 strongest angles only, and prefer concrete proof over generic adjectives:
    - 技术栈匹配
    - 行业/业务匹配
    - 项目经验匹配
@@ -68,20 +68,22 @@ If the JD or resume is missing, ask for it. If the user provides only one side, 
    - 测试/质量保障匹配
 
 4. Generate Boss Message
-   - short and readable
+   - concise and readable
+   - lead with the candidate's strongest matching technology or project
+   - mention no more than 2 matching points
    - no long paragraphs
    - no exaggerated claims
    - no fake company-specific facts
-   - include 1 concrete proof point if possible
+   - include 1 concrete proof point when it fits naturally
    - end with a light conversation hook
 
 ## Output Requirements
 
-Default output should include:
+Default output should include only:
 
 1. 推荐版本: 1 best message
-2. 备选版本: 2-4 alternatives with different angles
-3. 匹配点: short bullet list explaining why these messages fit the JD
+
+Only include 备选版本 or 匹配点 when the user explicitly asks for multiple versions, comparison, or explanation.
 
 If the user asks for "只要一句", output only 1 sentence.
 
@@ -89,9 +91,9 @@ If the user asks for "只要一句", output only 1 sentence.
 
 Boss 直聘打招呼 should usually be:
 
-- 50-90 Chinese characters for very short version
-- 90-140 Chinese characters for standard version
-- no more than 180 Chinese characters unless user asks for detail
+- 50-80 Chinese characters by default
+- no more than 110 Chinese characters unless the user asks for detail
+- use one sentence or two short clauses; avoid long introductions
 
 Avoid writing like a cover letter.
 
@@ -122,25 +124,25 @@ Avoid:
 ### Web Frontend / React / Next.js
 
 ```text
-您好，我有 3 年前端经验，做过 React/Next.js 跨境商城、性能优化和组件化建设，参与过商品页、活动页、SEO 与多端适配，和岗位要求比较匹配，想了解下这个机会。
+您好，我有 3 年前端经验，主要做 React/Next.js 跨境商城，做过性能优化和组件化建设，和岗位方向比较匹配，想了解下。
 ```
 
 ### Cross-Platform / React Native
 
 ```text
-您好，我有 React Native 移动端项目经验，参与过设备接入、消息提醒、录像回放等核心链路，也补充过 Jest/Detox 测试用例，和岗位的跨端开发方向比较匹配，想进一步沟通下。
+您好，我有 React Native 项目经验，做过设备接入、实时预览和录像回放，和岗位的跨端开发方向比较匹配，想进一步沟通。
 ```
 
 ### E-commerce / Shopify
 
 ```text
-您好，我做过跨境商城和 Shopify 自研应用，涉及 React、GraphQL、Docker 部署、应用上架和性能优化，也有业务配置化经验，和岗位方向比较匹配，想了解下团队需求。
+您好，我做过 React 跨境商城和 Shopify 应用，熟悉 GraphQL、Docker 部署和性能优化，和岗位方向比较匹配，想了解下。
 ```
 
 ### Engineering Efficiency / AI Workflow
 
 ```text
-您好，我有前端工程化和 AI 辅助研发流程实践，做过规范治理、测试补充、文档沉淀和结构化任务模板，也有 React/Next.js 商城项目经验，想了解下岗位是否匹配。
+您好，我有 React/Next.js 和 AI 辅助研发实践，做过工程化治理、测试补充和流程沉淀，想了解下岗位是否匹配。
 ```
 
 ## Personalization Rules
@@ -185,16 +187,5 @@ Output:
 ```markdown
 ## 推荐版本
 
-您好，我有 3 年前端经验，做过 React/Next.js 跨境商城项目，参与商品页、活动页、SEO 和性能优化，也有 LCP、资源体积优化实践，和岗位方向比较匹配，想了解下这个机会。
-
-## 备选版本
-
-1. 您好，我主要做 React/Next.js 前端开发，做过跨境商城、商品页、活动页和多端适配，也有 Web 性能优化经验，感觉和岗位要求比较匹配，方便进一步沟通吗？
-2. 您好，我有跨境电商前端经验，参与过商城页面组件化、SEO、LCP 优化和工程化治理，技术栈以 React/Next.js/TypeScript 为主，想了解下这个岗位。
-
-## 匹配点
-
-- JD 要 React/Next.js，简历有对应商城项目经验
-- JD 要性能优化，简历有 LCP 和资源体积优化数据
-- JD 要电商经验，简历有 Reolink/GogoalShop 跨境商城经历
+您好，我有 3 年前端经验，做过 React/Next.js 跨境商城和性能优化，和岗位方向比较匹配，想进一步了解下。
 ```
