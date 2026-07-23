@@ -267,6 +267,74 @@ Shopify 多图多视频场景优化打法：
 - 不要说自己主导过完整投放归因模型。
 - 可以说“能基于文档快速接入和调试，重点保证事件准确性”。
 
+#### 埋点一般收集哪些数据？
+
+推荐回答：
+
+> 电商独立站埋点我会围绕“用户从哪里来、看了什么、点了什么、有没有加购、有没有结账、有没有支付成功”这条转化链路来设计。不是页面上所有行为都埋，而是优先覆盖能帮助判断转化漏斗和运营效果的数据。
+
+常见收集维度：
+
+| 维度 | 典型字段 | 用途 |
+| --- | --- | --- |
+| 用户和会话 | `user_id`、匿名 ID、session_id、设备、浏览器、国家/地区 | 区分新老用户、设备差异、地区表现 |
+| 流量来源 | utm_source、utm_medium、utm_campaign、referrer、landing_page | 判断广告、SEO、社媒、邮件来源质量 |
+| 页面行为 | page_view、页面路径、停留时长、滚动深度 | 判断页面内容是否被看到 |
+| 商品行为 | view_item、select_item、商品 ID、SKU、价格、分类、变体 | 判断商品曝光和点击表现 |
+| 加购链路 | add_to_cart、remove_from_cart、数量、变体、按钮位置 | 分析加购率和流失点 |
+| 结账链路 | begin_checkout、add_shipping_info、add_payment_info、purchase | 分析从购物车到支付的转化漏斗 |
+| 营销行为 | 弹窗曝光/点击、优惠码使用、订阅提交、推荐点击 | 判断营销组件是否真正贡献转化 |
+| 性能体验 | LCP、INP、CLS、JS 错误、接口失败 | 关联性能问题和转化下降 |
+
+电商核心事件链路：
+
+```text
+page_view
+  -> view_item_list
+  -> select_item
+  -> view_item
+  -> add_to_cart
+  -> begin_checkout
+  -> add_shipping_info
+  -> add_payment_info
+  -> purchase
+```
+
+GA4 电商事件示例：
+
+```js
+gtag('event', 'add_to_cart', {
+  currency: 'USD',
+  value: 129.99,
+  items: [
+    {
+      item_id: 'SKU_001',
+      item_name: 'Portable Printer',
+      item_category: 'Printer',
+      item_variant: 'Black',
+      price: 129.99,
+      quantity: 1
+    }
+  ]
+})
+```
+
+前端实现时我会注意三点：
+
+1. **事件命名统一**：比如统一使用 `view_item`、`add_to_cart`，不要一个页面叫 `click_buy`，另一个页面叫 `addCart`。
+2. **参数结构稳定**：商品 ID、SKU、价格、币种、数量、页面来源、按钮位置这些字段要稳定，否则后面数据分析会断。
+3. **避免重复上报**：React/Next.js 页面切换、组件重复挂载、按钮连点都可能导致重复埋点，需要加触发条件或去重逻辑。
+
+安全和合规边界：
+
+- 不采集密码、完整银行卡、身份证等敏感信息。
+- 邮箱、手机号等个人信息需要按业务和合规要求脱敏或 hash。
+- Cookie、广告追踪、跨境数据要遵守当地隐私政策和用户授权要求。
+
+面试表达：
+
+> 我会把埋点分成转化漏斗、商品维度、流量来源、营销组件和性能体验几类。核心事件包括 `view_item`、`add_to_cart`、`begin_checkout`、`purchase`，参数会带商品 ID、SKU、价格、币种、数量、页面来源和按钮位置。前端侧重点是保证事件触发准确、参数一致、避免重复上报，同时不采集敏感隐私数据。这样运营能看清楚用户从访问到支付每一步在哪里流失，也能评估性能优化、营销弹窗或广告投放是否真的带来转化。
+
 ### 第 3 小时：临场问答模板
 
 #### 60 秒自我介绍
@@ -290,6 +358,97 @@ Shopify 多图多视频场景优化打法：
 推荐回答：
 
 > PDP 转化我会从性能、信息表达、交互和数据四层看。性能上保证首屏快；信息上让价格、优惠、核心卖点、配送退换、评价和保修清晰；交互上保证变体选择、加购反馈、mini cart 和移动端 CTA 顺畅；数据上通过 GA4/Pixel 跟踪 `view_item -> add_to_cart -> begin_checkout -> purchase` 漏斗，判断是首屏、卖点、价格、信任还是结账链路在流失。
+
+#### 被问：Shopify 独立站安装很多 App 导致性能变差，该怎么解决？
+
+推荐回答：
+
+> 我不会先简单粗暴卸载 App，而是先审计 App 对首屏性能和业务转化的真实影响。Shopify App 变慢的本质通常是它们往主题里注入了大量第三方 JS、CSS、iframe、埋点和接口请求，导致首屏资源变多、主线程执行变重，最终影响 LCP、INP 和移动端体验。
+>
+> 我的处理会分三步：第一步用 Lighthouse、Network、Performance 和 Coverage 定位具体是哪类 App 造成问题，看它加载了多少 JS、是否阻塞首屏、是否全站加载、是否产生 Long Task；第二步按业务价值分级，支付、核心转化追踪、商品定制这类保留，客服、评论、推荐、营销弹窗、热力图这类延迟或按页面加载，重复埋点和低价值弹窗评估移除；第三步能用主题能力或轻量自研替代的，就用 Liquid、metafield、line item properties 或轻量组件替代重 App。
+>
+> 优化后我会看两组结果：技术上看请求数、JS 体积、LCP、INP、Long Task 是否下降；业务上看加购率、转化率、评论点击、客服使用率有没有受影响。目标不是为了 Lighthouse 分数把 App 全删掉，而是在性能和转化之间做平衡。
+
+排查链路：
+
+```text
+Lighthouse / Web Vitals 定位指标
+  -> Network 看第三方请求、体积、加载顺序
+  -> Performance 看 Long Task 和主线程阻塞
+  -> Coverage 看 JS/CSS 利用率
+  -> Shopify 后台检查 App embeds / theme app extensions
+  -> 主题代码检查 theme.liquid / snippets 残留脚本
+  -> 按业务价值决定保留、延迟、替换或移除
+```
+
+App 分级处理：
+
+| 类型 | 例子 | 处理方式 |
+| --- | --- | --- |
+| 必须保留 | 支付、必要转化追踪、核心商品定制 | 保留，但确认只加载必要脚本 |
+| 延迟加载 | 客服、评论、推荐、营销弹窗、热力图 | `load` 后、滚动到区域、用户交互后加载 |
+| 按页面加载 | PDP 评论、尺码推荐、商品推荐 | 只在对应模板加载，不全站注入 |
+| 替换自研 | 公告栏、FAQ、简单弹窗、商品自定义字段 | 用 Section、metafield、line item properties 或轻量 JS 实现 |
+| 移除 | 重复埋点、低价值弹窗、长期不用的 App | 卸载并清理残留 snippet/script |
+
+可操作步骤：
+
+```text
+1. 列出当前安装 App
+   -> 记录用途、加载页面、是否影响首屏、业务负责人
+
+2. 用 Network 过滤第三方域名
+   -> 看 app 脚本大小、请求数量、是否阻塞 LCP 图片和关键 CSS
+
+3. 用 Performance 找 Long Task
+   -> 判断是否是客服、评论、弹窗、推荐脚本占用主线程
+
+4. 检查 Shopify 注入位置
+   -> App embeds
+   -> theme.liquid
+   -> snippets
+   -> sections
+   -> 卸载后残留代码
+
+5. 分级处理
+   -> 核心 App 保留
+   -> 非首屏 App 延迟
+   -> 页面专属 App 条件加载
+   -> 低价值 App 移除
+   -> 简单能力轻量自研
+
+6. 回归验证
+   -> LCP / INP / CLS
+   -> 请求数和 JS transfer size
+   -> 加购率、转化率、客服点击率
+```
+
+条件加载示例：
+
+```liquid
+{% if template.name == 'product' %}
+  <script src="{{ 'review-app.js' | asset_url }}" defer></script>
+{% endif %}
+```
+
+延迟加载示例：
+
+```html
+<script>
+  window.addEventListener('load', function () {
+    requestIdleCallback(function () {
+      var script = document.createElement('script')
+      script.src = 'https://example.com/chat-widget.js'
+      script.async = true
+      document.body.appendChild(script)
+    })
+  })
+</script>
+```
+
+追问补充：
+
+> Shopify App 卸载后不一定完全干净，有些脚本和 snippet 可能还残留在主题里。所以我会在卸载后检查 `theme.liquid`、`snippets`、`sections` 和 App embeds，把无效脚本清掉。否则后台看起来卸载了，前台性能问题可能还在。
 
 #### 被问：如果营销插件拖慢页面怎么办？
 
