@@ -8,11 +8,11 @@
 - 前端基础：熟悉 HTML5、CSS3、JavaScript/TypeScript ES6+，具备复杂页面还原、多端响应式适配、异步编程与模块化开发经验。
 - React 生态：熟悉 React、React Hooks、Redux、React Router 等技术栈，具备 Next.js SSR/SSG 与 Vite 单页应用实践经验，能够围绕商城类业务完成商品、购物车、结算、订单等核心链路开发。
 - 跨端开发：熟悉 React Native 与 TypeScript，理解组件生命周期、Hooks 状态管理、Native Modules 原生通信，具备 iOS/Android 双端项目迭代经验。
-- 工程化能力：熟悉 Webpack/Vite、pnpm、ESLint、Prettier、Husky、CI/CD 等工程链路，具备构建优化、规范治理、自动化脚本与 TailwindCSS 样式体系落地经验。
-- 测试保障：具备单元测试、集成测试与 E2E 测试实践经验，熟悉 Jest、Vitest、Testing Library、Go Test、Playwright、React Native Testing Library、Detox 等测试方式，能够围绕登录、权限、交易等核心链路建立分层验证。
+- 工程化能力：熟悉 Webpack/Vite、pnpm、ESLint、Prettier、Husky、Docker 与 GitHub Actions，具备构建优化、规范治理、自动化脚本、CI/CD 和 TailwindCSS 样式体系落地经验。
+- 测试保障：具备单元测试、集成测试与 E2E 测试实践经验，熟悉 Jest、Vitest、Testing Library、Go Test、Playwright、React Native Testing Library、Detox 等测试方式，能够围绕登录、权限、交易和智能体链路建立分层验证。
 - 业务平台：熟悉 Shopify 应用开发，具备 Liquid 模板、GraphQL 接口、Prisma、Docker 部署与应用上架经验。
-- 全栈协作：具备 Node.js、Go 服务开发经验，熟悉 REST API、GraphQL 接口联调、MySQL/Redis、Prisma/SQLite 数据建模、事务处理、Session 认证与角色权限控制，能够独立落地前后端完整业务链路。
-- AI 工程化：具备 AI 辅助研发流程建设经验，能够基于 OpenSpec、TDD 与 AI Agent 将需求拆解、方案设计、代码实现、测试验证、文档沉淀等环节形成可复用、可校验的研发工作流。
+- 全栈协作：具备 Node.js、Go 服务开发经验，熟悉 REST API、GraphQL、SSE、MySQL/Redis/Qdrant、Prisma/SQLite 数据建模、事务处理、Session 认证与角色权限控制，能够独立落地前后端完整业务链路。
+- AI 工程化：具备 LLM、Embedding、RAG 与 AI Agent 实践经验，能够基于 Qdrant 构建知识索引与检索引用，处理流式输出、只读工具调用、会话持久化、操作白名单和高风险确认；能够结合 OpenSpec + TDD 完成需求拆解、方案设计、代码实现、测试验证和文档沉淀。
 - 计算机基础：熟悉 HTTP/HTTPS、浏览器缓存、跨域、前端安全等基础知识，了解常见设计模式。
 
 ## 工作经历
@@ -29,7 +29,7 @@
 - 独立开发 Shopify 自定义商品和黑名单下单拦截应用，并完成 Docker 部署、脚本化发布和商店上架，替代 2 款第三方付费应用，年节省数万元订阅成本；同时接入 GA4 埋点和提交规范，提升运营分析与协作质量。
 
 ## 项目经历
-### Reolink 跨境商城
+### Reolink 跨境商城  2024.07-至今
 **技术栈**：React、Node.js、TypeScript、Express、Webpack、TailwindCSS、Axios
 负责 Reolink 官网跨境商城自研 SSR 链路与核心业务页面研发，围绕智能安防产品展示、活动转化、内容运营、SEO 与首屏体验，支撑 Web 端业务迭代与自然流量获取：
 - **SSR 链路落地**：参与 Node.js 自研 SSR 渲染链路建设，负责路由匹配、页面组件映射、服务端数据预取、React 服务端渲染、HTML 模板拼接和 `window.__INITIAL_DATA__` 数据注水，保障首屏 HTML 可直接返回并与客户端 Hydration 对齐；
@@ -39,7 +39,7 @@
 - **性能与缓存优化**：围绕 LCP、JS 体积和图片加载链路做性能优化，结合图片懒加载、首屏图优先级、静态资源长缓存、CDN 缓存和页面级缓存策略，重点活动页在 Lighthouse / Web Vitals 验证中 LCP 控制在 2.5s 内；
 - **异常兜底与协作沉淀**：联动设计、运营、后端完成需求拆解、接口联调与上线验收，补充 SSR 渲染失败降级、接口异常兜底和活动页交付检查清单，减少上线遗漏与联调返工。
 
-### Reolink 智能安防App
+### Reolink 智能安防App  2024.07-至今
 **技术栈**：React Native、TypeScript、React Hooks、Axios、React Navigation、Native Modules
 负责 Reolink 智能安防移动端 RN 侧核心模块研发，围绕设备接入、实时预览、消息提醒、录像回放等核心场景，持续优化双端体验与工程可维护性：
 - **复杂链路落地**：负责设备接入、实时预览、消息提醒、录像回放 4 条核心链路的 RN 侧功能开发，覆盖设备在线状态、网络异常、权限授权、连接失败重试等场景，支撑用户通过移动端统一管理家庭/商用安防设备；
@@ -50,7 +50,7 @@
 - **AI 研发提效**：针对设备接入链路长、异常排查依赖经验、需求沟通成本高的问题，基于 AI skills 设计结构化研发流程，覆盖需求拆解、接口联调、异常排查、测试补充、文档沉淀 5 个环节，沉淀 1 套可复用流程与 10+ 任务模板，减少重复沟通与文档整理成本；
 
 
-### GogoalShop 跨境商城
+### GogoalShop 跨境商城  2023.06-2024.06
 **技术栈**：Next.js、TypeScript、next-intl、Redux、Axios、webpack、CSS Module、TailwindCSS、GA4
 作为核心开发负责跨境商城前端工程从 0 到 1 建设，主导多语言能力、性能优化、数据埋点、工程治理与业务工具建设，支撑跨境电商业务稳定增长：
 - **项目架构搭建**：参与基于 Next.js + TypeScript 的商城前端工程建设，完成路由结构、页面模板、组件分层、接口封装、环境配置和样式体系落地，支撑首页、商品页、活动页等核心页面迭代；
@@ -62,25 +62,29 @@
 - **构建与流程提效**：通过 `@next/bundle-analyzer` 分析首页和核心路由包体积，通过 `next/dynamic` 拆分非首屏模块并治理 lodash、图标库等依赖引入；完成 npm 到 pnpm 迁移，结合 `.next/cache`、pnpm store 和 Docker layer cache 优化 CI 构建与部署链路，将项目构建时间从 10s 降至 5s 以内；
 - **效率工具开发**：针对多语言配置链路繁琐、人工维护成本高的痛点，开发 Chrome 翻译数据抓取插件 + Node 自动写入服务，多语言配置效率提升，降低人工操作出错率。
 
-### Shopify 自研应用
+### Shopify 自研应用  2023.06-2024.06
 **技术栈**：React、Vite、TypeScript、Fetch、Prisma、GraphQL、Docker
 响应团队降本与定制化诉求，独立自研 Shopify 应用替代第三方付费工具，并沉淀团队可复用开发规范：
 - **应用落地**：独立完成「自定义印号 TT-Options」「黑名单下单拦截 TTBlacklist - Order Guard」两款 Shopify 应用开发、部署与商店上架，替代第三方付费工具；
 - **业务建模与拦截**：基于 Prisma 设计商品定制规则、黑名单、店铺配置和操作记录模型，对接 Shopify Admin API / GraphQL，实现商品配置读取、规则保存、订单风险识别与拦截；
 - **部署与提效**：引入 Docker 镜像化部署并编写 Shell 发布脚本，解决服务器环境不兼容问题，部署成功率提升至 100%，发布操作从 5 步简化为 1 步。
 
-### 喜动商城（个人全栈项目）
-**前端**：React、TypeScript、React Router、TailwindCSS  
-**后端**：Go、net/http、REST API、Session / Cookie 认证  
-**数据库与缓存**：MySQL、Redis  
-**测试与工程化**：Vite、Vitest、Testing Library、Playwright、OpenSpec
-面向零售电商场景，独立设计并实现覆盖商品发现、购物车、结算、订单、库存和后台运营的全栈系统，重点验证交易链路、库存一致性、缓存设计、权限边界和工程交付能力：
+### 喜动商城（个人全栈项目） 2026.05-至今 访问地址：http://47.251.26.205:8080
+**前端**：React、TypeScript、React Router、TailwindCSS
+
+**后端**：Go、net/http、REST API、SSE、Session / Cookie 认证
+
+**数据与 AI**：MySQL、Redis、Qdrant、LLM / Embedding、RAG
+
+**测试与工程化**：Vite、Vitest、Testing Library、Playwright、OpenSpec、Docker、GitHub Actions
+
+面向零售电商场景，独立设计并实现覆盖商品发现、购物车、结算、订单、后台运营与 AI 智能体的全栈系统，重点验证交易一致性、权限边界、智能体安全和工程交付能力：
 - **全栈交易链路**：基于 React + Vite 实现商品列表、详情、购物车、结算、订单查询和后台运营页面，封装类型化 API 客户端；基于 Go `net/http` 按 `handler -> service/domain -> repository` 分层实现 REST API，拆分商品、库存、订单、用户和后台管理模块；
-- **MySQL 数据建模**：围绕商品、SKU、库存、账号、会话、购物车、订单、订单项、支付流水和订单时间线设计 MySQL 表结构，通过唯一索引、外键约束和状态字段约束订单归属、库存扣减、支付状态和履约流转，保障核心交易数据可追溯；
-- **订单与库存一致性**：在结算链路中基于 MySQL 事务完成价格快照、库存校验、库存扣减、订单落库和订单项生成，结合行级锁控制同一 SKU 并发扣减，失败场景统一回滚，避免超卖和脏订单；
-- **Redis 缓存与稳定性**：使用 Redis 缓存商品摘要、分类列表、库存快照和用户购物车，结合 TTL、空值缓存和互斥锁降低热点商品查询压力，针对结算提交增加幂等 Key，避免重复点击或网络重试导致重复下单；
-- **认证与权限隔离**：落地服务端 Session + HttpOnly Cookie 认证，建立 `user/admin` 角色守卫；后端从会话派生 `userId`，确保购物车、订单列表、详情与结算严格按用户归属隔离，并通过 `/api/admin/*` 控制后台操作权限；
-- **后台运营与质量闭环**：实现商品筛选、价格/库存编辑、上下架、订单查询、详情与状态流转，以及用户查询、启停管理；使用 Vitest、Testing Library、Go Test 和 Playwright 覆盖登录、权限、结算、库存扣减、订单状态流转和缓存兜底，并通过 `verify` 串联 lint、typecheck、测试和生产构建。
+- **交易一致性与数据建模**：围绕商品、SKU、库存、账号、会话、购物车、订单、订单项和订单时间线设计 MySQL 表结构；在结算事务中完成价格快照、库存校验与扣减、订单落库、时间线写入和已选购物车清理，失败统一回滚，避免超卖和脏订单；
+- **认证、缓存与权限隔离**：使用 Redis 承载服务端 Session TTL 和商品读缓存，结合 HttpOnly Cookie 建立 `user/admin` 角色守卫；后端从会话派生 `userId`，确保购物车、地址、订单和智能体会话按用户归属隔离，并对后台接口实施独立权限控制；
+- **客户导购智能体**：设计并实现“需求识别 -> 商品候选 -> 地址选择 -> 结算确认 -> 订单结果”的结构化导购流程，支持对话持久化与刷新恢复、权限不足中文引导、购物车状态同步；通过操作白名单、分域授权、资源归属校验、幂等 Key 和高风险二次确认约束支付、取消、退款等动作；
+- **RAG 流式智能体**：构建后台只读智能体，将 README、业务文档和 OpenSpec 规范切块、Embedding 后写入 Qdrant，支持检索引用和只读商品/订单工具调用；基于 SSE 输出 `thinking/tool_call/tool_result/citation/delta/done/error` 事件，并持久化会话与消息，刷新后可恢复上下文；
+- **测试与交付闭环**：使用 Vitest、Testing Library、Go Test 和 Playwright 覆盖登录、权限、结算事务、订单流转、智能体导购与流式会话；以 OpenSpec + TDD 管理需求、设计、任务和验收，通过 Docker Compose 编排 Web、API、MySQL、Redis、Qdrant，并由 GitHub Actions 构建镜像、低配服务器仅拉取部署，降低本机构建 OOM 风险。
 
 ## 教育经历
 **仲恺农业工程学院** 本科 计算机科学与技术 | 2019-2023 | CET-4
