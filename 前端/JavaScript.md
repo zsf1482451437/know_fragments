@@ -14,7 +14,7 @@
 
 **硬盘、内存**都是保存的二进制数据；
 
-###  数据存储单位
+### 数据存储单位
 
 ```
 大小关系：bit < byte < kb < GB < TB<.....
@@ -58,26 +58,26 @@
 
 ### 作用
 
--  表单动态校验（密码强度检测）  （ JS 产生最初的目的 ）
--  网页特效
--  服务端开发(Node.js)
--  桌面程序(Electron)（而Vscode是由ts开发的，然后ts转换成js ）
--  App(Cordova) 
--  控制硬件-物联网(Ruff)
--  游戏开发(cocos2d-js)
+- 表单动态校验（密码强度检测）  （ JS 产生最初的目的 ）
+- 网页特效
+- 服务端开发(Node.js)
+- 桌面程序(Electron)（而Vscode是由ts开发的，然后ts转换成js ）
+- App(Cordova) 
+- 控制硬件-物联网(Ruff)
+- 游戏开发(cocos2d-js)
 
 ### 编写位置
 
 - **在HTML元素中直接执行js代码**
-
+  
   ```html
   <a href="" onClick="alert(123)"></a>
   ```
-
+  
   ```html
   <a href="javascript:alert(123)" ></a>
   ```
-
+  
   **但是这种写法不推荐**
 
 - **写到script标签中**
@@ -95,64 +95,64 @@
 ### 2.5 js与浏览器的交互
 
 - **浏览器弹出窗口**
-
+  
   `alert()`
 
 - **在控制台打印**
-
+  
   `console.log()`
 
 - **DOM操作时**
-
+  
   `document.write("<h2>hhh</h2>")`
 
 - **接收用户输入**
-
+  
   `var age = prompt("提示")`
-
+  
   `console.log(age)// 18`
 
-### 2.6 浏览器执行 JS 
+### 2.6 浏览器执行 JS
 
 **浏览器分成两部分：渲染引擎和 JS 引擎**
 
 ```
-	浏览器本身并不会执行JS代码，而是通过内置 JavaScript 引擎(解释器) 来执行 JS 代码 。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行，所以 JavaScript 语言归为脚本语言，会逐行解释执行。
+    浏览器本身并不会执行JS代码，而是通过内置 JavaScript 引擎(解释器) 来执行 JS 代码 。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行，所以 JavaScript 语言归为脚本语言，会逐行解释执行。
 ```
 
 ### 2.7 组成
 
 1. #### **ECMAScript**
-
-   	ECMAScript 是由ECMA 国际（ 原欧洲计算机制造商协会）进行标准化的一门编程语言，这种语言在万维网上应用广泛，它往往被称为 JavaScript或 JScript，但实际上后两者是 ECMAScript 语言的实现和扩展。
-
+   
+       ECMAScript 是由ECMA 国际（ 原欧洲计算机制造商协会）进行标准化的一门编程语言，这种语言在万维网上应用广泛，它往往被称为 JavaScript或 JScript，但实际上后两者是 ECMAScript 语言的实现和扩展。
+   
    ECMAScript：规定了**JS的编程语法**和**基础核心知识**，是所有**浏览器厂商**共同遵守的一套JS语法工业标准。
-
+   
    更多参看MDN: [MDN手册](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/JavaScript_technologies_overview)
 
 2. #### **DOM——文档对象模型**
-
+   
    **文档对象模型**（DocumentObject Model，简称DOM），是W3C组织推荐的处理可扩展标记语言的标准编程接口。**通过 DOM 提供的接口**可以对页面上的各种**元素**进行操作（大小、位置、颜色等）
 
 3. #### **BOM——浏览器对象模型**
-
+   
    **浏览器对象模型**(Browser Object Model，简称BOM) 是指浏览器对象模型，它提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。**通过BOM可以操作浏览器窗口**，比如弹出框、控制浏览器跳转、获取分辨率等。
 
-##  JavaScript注释
+## JavaScript注释
 
 ### 单行注释
 
 单行注释的注释方式如下：
 
 ```html
-// 我是一行文字，不想被 JS引擎 执行，所以 注释起来	
+// 我是一行文字，不想被 JS引擎 执行，所以 注释起来    
 ```
 
 ```
 // 用来注释单行文字（  快捷键   ctrl  +  /   ）
 ```
 
-###  多行注释
+### 多行注释
 
 多行注释的注释方式如下：
 
@@ -181,8 +181,6 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
 */
 ```
 
-
-
 ## 变量
 
 ### 为什么需要变量？
@@ -210,9 +208,7 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
 
 ![image-20220225172447938](JavaScript.assets/image-20220225172447938.png)
 
-​	**本质**：**变量**是**程序**在**内存中**申请的一块用来**存放数据的空间**。类似我们酒店的房间，一个房间就可以看做是一个变量。  
-
-
+​    **本质**：**变量**是**程序**在**内存中**申请的一块用来**存放数据的空间**。类似我们酒店的房间，一个房间就可以看做是一个变量。  
 
 ### 命名规范
 
@@ -235,7 +231,7 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
 
 标识符不能是关键字或保留字。
 
-###  关键字
+### 关键字
 
 关键字：是指 JS本身**已经使用**了的字，不能再用它们充当变量名、方法名。
 
@@ -260,19 +256,19 @@ vscode → 首选项按钮 → 键盘快捷方式 → 查找 原来的快捷键 
 **数据类型的分类**
 
 - 基本数据类型 
-
+  
   **Number**
-
+  
   **String**
-
+  
   **Boolean**
-
+  
   **Undefined**
-
+  
   **Null**
 
 - 复杂数据类型 
-
+  
   **object**
 
 ### 基本数据类型
@@ -335,14 +331,14 @@ const strMsg = '我是"高帅富程序猿';   // 我是"高帅富程序猿
 
 类似HTML里面的特殊字符，字符串中也有特殊字符，我们称之为转义符。
 
-| 转义符 | 解释说明                          |
-| ------ | --------------------------------- |
-| \n     | 换行符，n   是   newline   的意思 |
-| \ \    | 斜杠   \                          |
-| \\'    | '   单引号                        |
-| \\"    | ”双引号                           |
-| \t     | tab  缩进                         |
-| \b     | 空格 ，b   是   blank  的意思     |
+| 转义符 | 解释说明                      |
+| --- | ------------------------- |
+| \n  | 换行符，n   是   newline   的意思 |
+| \ \ | 斜杠   \                    |
+| \\' | '   单引号                   |
+| \\" | ”双引号                      |
+| \t  | tab  缩进                   |
+| \b  | 空格 ，b   是   blank  的意思    |
 
 #### 字符串长度.length
 
@@ -395,8 +391,6 @@ undefined值实际上是由null值衍生出来的，所以如果**比较undefine
 console.log(undefined == null)// true
 ```
 
-
-
 ### 判断数据类型
 
 如何获取变量的数据类型?
@@ -427,7 +421,6 @@ o instanceof C; // true，因为 Object.getPrototypeOf(o) === C.prototype
 - Object.prototype.toString()返回的是调用者的类型；
 
 - 而call()可以改变this指向，使得可以判断传入数据的类型；
-
 
 ### 数据类型转换
 
@@ -509,11 +502,10 @@ NaN
 - 隐式转换是我们在进行算数运算的时候，JS 自动转换了数据类型
 
 - 转换为布尔型
-
+  
   - 代表空、否定的值会被转换为 false  ，如 ''、0、NaN、null、undefined  
-
+  
   - 其余值都会被转换为 true
-
 
 ```js
 console.log(Boolean('')); // false
@@ -584,35 +576,30 @@ flag + ""// "true"
 
 ## 运算符
 
-
-
 **运算符**（operator）也被称为操作符，是用于实现**赋值**、**比较**和**执行算数运算**等功能的符号。
 
 JavaScript中常用的运算符有：
 
--  **算数**运算符
--  **递增和递减**运算符
--  **比较**运算符
--  **逻辑**运算符
--  **赋值**运算符
+- **算数**运算符
+- **递增和递减**运算符
+- **比较**运算符
+- **逻辑**运算符
+- **赋值**运算符
 
 ### 算数运算符
 
 - 算术运算符概述
-
+  
   概念：算术运算使用的符号，用于执行两个变量或值的算术运算。
 
 - **浮点数的精度问题**
-
+  
   浮点数值的最高精度是 17 位小数，但在进行算术计算时其精确度远远不如整数。
-
-
 
 ```js
 const result = 0.1 + 0.2;    // 结果不是 0.3，而是：0.30000000000000004
 console.log(0.07 * 100);   // 结果不是 7，  而是：7.000000000000001
 ```
-
 
 **所以：不要直接判断两个浮点数是否相等 !** 
 
@@ -629,7 +616,6 @@ alert(++num + 10);   // 21
 
 - 后置自增运算符
 
-
 **先返回原值，后自加** 
 
 ```js
@@ -641,7 +627,6 @@ alert(10 + num++);  // 20
 
 - 等号比较
 
-
 ```js
 console.log(18 == '18');//true，默认转换类型
 console.log(18 === '18'); //false，一模一样才行
@@ -652,40 +637,40 @@ console.log(18 === '18'); //false，一模一样才行
 ### 逻辑运算符
 
 - 逻辑与**&&**
-
+  
   两边都是 true才返回 true，否则返回 false
 
 - 逻辑或 **||**
-
+  
   只要有一边是true就返回true
 
 - 逻辑非 **！**
-
+  
   逻辑非（!）也叫作取反符，用来取一个布尔值相反的值，如 true 的相反值是 false
-
+  
   ```js
   const isOk = !true;
   console.log(isOk);  // false
   ```
-
+  
   **&& 特殊用法**：当访问了对象不存在的成员（如某个函数）时，要这样写 `a.eat && a.eat()`，等价于
-
+  
   ```js
   if (a.eat) {
-  	a.eat()
+      a.eat()
   }
   ```
-
+  
   如果不这么做，那js会**报错**，**不会执行后面的代码**，因为js是**解释型语言**，读一行执行一行
-
+  
   这叫**短路与**，有**一个条件为false**就不做后续判断
-
+  
   **|| 特殊用法** ：当需要从多个变量中取一个能用的时，可以这样
-
+  
   ```js
   const a = b || c || d
   ```
-
+  
   这叫**短路或**，只要**有一个条件为true**就不做后续判断
 
 ### 赋值运算符
@@ -701,7 +686,7 @@ age *= 10; // 相当于 age = age * 10;
 
 有张表，**（）**很高
 
-##  js执行顺序
+## js执行顺序
 
 - 顺序
 - 分支
@@ -746,7 +731,7 @@ switch 语句和 if else if 语句的区别
 
 **当分支比较多时，switch语句的执行效率比较高，而且结构更清晰。** 
 
-###  循环
+### 循环
 
 ### for循环
 
@@ -831,15 +816,13 @@ continue 关键字用于立即**跳出本次**循环，**执行下一次**循环
 
 **第一个图标** 跳过当前断点，执行下一个断点，如果没有下一个断点，程序运行结束
 
-
-
 ## 代码规范
 
 ### 标识符命名规范
 
--  **见名知义**
--  **变量**的名称一般用**名词**  
--  **函数**的名称一般用**动词**  
+- **见名知义**
+- **变量**的名称一般用**名词**  
+- **函数**的名称一般用**动词**  
 
 ### 操作符规范
 
@@ -868,11 +851,11 @@ for (let i = 1; i <= 5; i++) {
 }
 ```
 
-### 其他规范	
+### 其他规范
 
 关键词、操作符之间后加空格
 
-##  数组
+## 数组
 
 **为什么需要数组这种数据结构？**
 
@@ -884,13 +867,13 @@ for (let i = 1; i <= 5; i++) {
 JS 中创建数组有两种方式：
 
 - 使用  **Array对象**
-
+  
   ```js
   var arr = new Array();   // 创建一个新的空数组 
   ```
 
 - 利用数组**字面量**
-
+  
   ```js
   var  数组名 = []；
   var  数组名 = ['小白','小黑','大黄','瑞奇'];
@@ -927,7 +910,6 @@ alert(arrStus[1]);
 - 使用**for循环**
 - 数组**高阶函数**
 
-
 ### 新增元素
 
 数组中可以通过以下方式在数组的末尾插入新元素：
@@ -938,8 +920,6 @@ alert(arrStus[1]);
 
 ### 合并
 
-
-
 ## 高阶函数
 
 支持链式调用
@@ -947,8 +927,6 @@ alert(arrStus[1]);
 ### every()
 
 测试一个数组内**所有元素**是否能通过**某个指定函数的测试**;
-
-
 
 **返回值：**
 
@@ -978,8 +956,6 @@ console.log(array.some(even));
 // expected output: true
 ```
 
-
-
 ### filter()
 
 **返回值**：
@@ -999,8 +975,6 @@ let newNums = num.filter(function (n) {
 ```
 
 ### map()
-
-
 
 **返回值：**
 
@@ -1078,11 +1052,11 @@ array1.forEach((element) => console.log(element));
 
 ### 总结
 
-|  函数   |                           应用案例                           | 区别、注意事项 |
-| :-----: | :----------------------------------------------------------: | :------------: |
-| every() |              检测所有元素的的大小（全体性检查）              |  可以中断遍历  |
-| some()  | 1.判断数组中是否存在某个值（存在判断）；<br />2.将任意值转化为布尔值（转化为布尔值）； |                |
-|  map()  | 1.格式化数组中的对象（格式化）；<br />2.获取字符串中每个字符所对应的 ASCII 码组成的数组（字符串的ASCLL码）； |  不可中断遍历  |
+| 函数      | 应用案例                                                              | 区别、注意事项 |
+|:-------:|:-----------------------------------------------------------------:|:-------:|
+| every() | 检测所有元素的的大小（全体性检查）                                                 | 可以中断遍历  |
+| some()  | 1.判断数组中是否存在某个值（存在判断）；<br />2.将任意值转化为布尔值（转化为布尔值）；                  |         |
+| map()   | 1.格式化数组中的对象（格式化）；<br />2.获取字符串中每个字符所对应的 ASCII 码组成的数组（字符串的ASCLL码）； | 不可中断遍历  |
 
 **存在判断**
 
@@ -1139,7 +1113,6 @@ const reformattedArray = kvArray.map(function(obj) {
 // [{key: 1, value: 10},
 //  {key: 2, value: 20},
 //  {key: 3, value: 30}]
-
 ```
 
 **字符串的ASCLL码**
@@ -1150,8 +1123,6 @@ const a = map.call("Hello World", (x) => x.charCodeAt(0));
 console.log(a);
 // a 的值为 [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
 ```
-
-
 
 ## 常用方法
 
@@ -1186,8 +1157,6 @@ console.log(elements.join("-"));
 ```
 
 ```
-
-
 
 # 作用域
 
@@ -1287,8 +1256,6 @@ function (num) {
 在此之前打印会是**undefined**
 
 ![image-20220303151618962](JavaScript.assets/image-20220303151618962.png)
-
-
 
 ### 作用域链
 
@@ -1422,8 +1389,6 @@ var bar = obj.fn
 bar()//window,依然没有调用主题
 ```
 
-
-
 #### 隐式绑定
 
 v8引擎绑定的
@@ -1460,8 +1425,6 @@ var obj2 = {
 
 obj2.fn() // obj2
 ```
-
-
 
 #### 显式绑定
 
@@ -1532,8 +1495,6 @@ newFoo() // aaa
 
 bind绑定之后会生成一个**新的函数**返回
 
-
-
 #### new绑定
 
 js中的**函数**可以当做一个**类的构造函数**来使用，也就是使用**new**关键字
@@ -1561,7 +1522,6 @@ function foo() {
 
 foo.call(null) // window
 foo.call(undefined) // window
-
 ```
 
 call、apply、bind当传入参数为**null或undefined**时，自动将**this绑定到window对象**
@@ -1692,7 +1652,7 @@ setTimeout(function () {
 
 setTimeout内部使用的**独立函数调用**，所以**this默认绑定window对象**
 
-###  规则优先级
+### 规则优先级
 
 - 默认最低
 - 显式高于隐式
@@ -1754,10 +1714,9 @@ var p = new bar()//foo
 ```js
 var names = ['abc', 'abb', 'ccc']
 function foo (n1, n2, n3) {
-    
+
 }
 foo(...names)
-
 ```
 
 自己实现
@@ -1769,7 +1728,7 @@ Function.prototype.sfcall = function (thisArg, ...args) {
   // 问题1：如何获取到是哪个函数调用了sfcall?
   var fn = this
   // 边界情况edge case1 对thisArg转成对象类型（防止传入非对象类型报错）
-  
+
   // 边界情况edge case2 传入参数null/undefined
   thisArg = thisArg ? Object(thisArg) : window
   // 边界情况edge case2 调用者（函数）有一个或多个参数时
@@ -1891,7 +1850,7 @@ function () {
 }
 ```
 
-####   严格模式常见限制
+#### 严格模式常见限制
 
 - 意外创建全局变量
 - **不允许**函数有**相同参数名称**
@@ -2753,7 +2712,7 @@ new调用函数时，发生了什么？
 
 ```js
 function Person() {
-  
+
 }
 var p = new Person()
 ```
@@ -2807,8 +2766,6 @@ var p2 = new Person('hhh', 19)
 p1.eat()
 p2.eat()
 ```
-
-
 
 ### 对操作属性的控制
 
@@ -2927,7 +2884,7 @@ console.log(obj.address)
 
 ```js
 var obj = {
-  
+
 }
 // 多个属性描述符
 Object.defineProperties(obj, {
@@ -3200,7 +3157,7 @@ function createStudent(name) {
   stu.stufying = function () {
     console.log('study')
   }
-  
+
    return stu
 }
 
@@ -3316,7 +3273,7 @@ Student.prototype.studying = function () {
 
 ```js
 function foo() {
-  
+
 }
 // 等同于
 var foo = new Function()
@@ -3704,14 +3661,12 @@ test();
 
 #### var、let、const的选择
 
-| var            | let                            | const            |
-| -------------- | ------------------------------ | ---------------- |
-| 作用域提升     | 明确知道变量后续会被赋值在使用 | 优先使用         |
-| 没有块级作用域 |                                | 保证数据的安全性 |
-| window全局对象 |                                |                  |
-| 不要使用了     |                                |                  |
-
-
+| var        | let             | const    |
+| ---------- | --------------- | -------- |
+| 作用域提升      | 明确知道变量后续会被赋值在使用 | 优先使用     |
+| 没有块级作用域    |                 | 保证数据的安全性 |
+| window全局对象 |                 |          |
+| 不要使用了      |                 |          |
 
 ### 块级作用域
 
@@ -3725,7 +3680,6 @@ test();
 }
 console.log(v1) //v1
 console.log(foo) //找不到
-
 ```
 
 但是**function**特殊，不同浏览器有不同实现（**大部分浏览器**为了**兼容**以前的代码，让function是没有块级作用域的，**但要是有浏览器只支持es6**，那function也是**有块级作用域的**）
@@ -3788,7 +3742,6 @@ for (let i = 0; i < btns.length; i++) {
     console.log('第' + i + '个被点击')
   }
 }
-
 ```
 
 **let使for具有块级作用域，不会去全局作用域里找i**
@@ -3830,7 +3783,6 @@ const name1 = 'zsf'
 const age = 18
 // 标签模板字符串
 foo`hello ${ name1 } hh ${ age } h`
-
 ```
 
 **应用场景：**
@@ -3851,7 +3803,6 @@ function foo(m, n) {
 }
 
 foo(0, '')// zsf hhh
-
 ```
 
 **缺点：**
@@ -3881,7 +3832,6 @@ function foo({ name1, age } = { name1: 'zsf', age: 18 }) {
 }
 
 foo()
-
 ```
 
 **建议**
@@ -3899,7 +3849,6 @@ function foo(m, n, ...args) {
 }
 
 foo(1, 2, 3, 4)// 1 2 [3, 4]
-
 ```
 
 ##### 与arguments的区别
@@ -3940,8 +3889,6 @@ console.log(newNums)// 1 2 3
 const info = {name: 'zsf', age: 18}
 const obj = {...info, address: '广州市'}
 console.log(obj)// {name: 'zsf', age: 18, address: '广州市'}
-
-
 ```
 
 #### 本质
@@ -3958,7 +3905,6 @@ const obj = {...info, name: 'coderwhy'}
 obj.friend.name = 'james'
 
 console.log(info.friend.name)// james
-
 ```
 
 **改的是obj的，但是info的也被改了**
@@ -3970,8 +3916,6 @@ console.log(info.friend.name)// james
 而**深拷贝**会重新开辟一块新内存，防止原数据被修改
 
 ![image-20220307095033334](C:/Users/86131/Desktop/know_fragments/知识体系/JavaScript/es6.assets/image-20220307095033334.png)
-
-
 
 ### 数值
 
@@ -4176,7 +4120,6 @@ map.set(1, 'ccc')
 
 
 console.log(map)
-
 ```
 
 #### 常见属性、方法
@@ -4260,7 +4203,7 @@ if (arr.indexOf(NaN) !== -1) {
   console.log('包含NaN')
 } else {
   console.log('找不到')// 打印找不到
-  
+
 }
 // es7
 if (arr.includes(NaN)) {
@@ -4317,7 +4260,6 @@ console.log(Object.entries(obj))// [['name', 'zsf'], ['age', 18]]
 const msg = 'hello world'
 const newMsg =  msg.padStart(15, '*').padEnd(20, '-')
 console.log(newMsg)// ****hello world-----
-
 ```
 
 ## es10
@@ -4362,12 +4304,10 @@ const info = {
 
 if (info && info.friend && info.friend.girlFriend) {
   console.log(info.friend.girlFriend)
-  
+
 }
 
 console.log('其它代码逻辑') // 不会前面阻止这里的打印
-
-
 ```
 
 有了可选链，代码更加严谨，**不会因为某个属性是undefined而影响后面代码的执行**
@@ -4381,8 +4321,6 @@ console.log(info.friend?.girlFriend?.name)// undefined
 
 
 console.log('其它代码逻辑') // 不会前面阻止这里的打印
-
-
 ```
 
 ### 全局对象
@@ -4407,7 +4345,7 @@ let info = {
 }
 const finalRegistry = new FinalizationRegistry(() =>{
   console.log('注册在finalRegistery的对象，被销毁了')
-  
+
 })
 
 finalRegistry.register(info)
@@ -4430,12 +4368,6 @@ console.log(info.deref().name)// zsf
 ```
 
 在**WeakRef(obj)**的作用下，i**nfo是弱引用**，**obj**不久就会被**销毁**
-
-
-
-
-
-
 
 # Proxy-Reflect
 
@@ -4477,8 +4409,6 @@ console.log(obj.name)
 obj.name = 'hhh'
 console.log(obj.name)
 ```
-
-
 
 但是，这种方式存在比较大**缺点**：
 
@@ -4553,7 +4483,7 @@ delete objProxy.age
 **还有其它捕获器**
 
 | **getPropertyOf()**            | **Object.getPropertyOf()的捕获器**        |
-| ------------------------------ | ----------------------------------------- |
+| ------------------------------ | ------------------------------------- |
 | **setPropertyOf()**            | **Object.setPropertyOf()的捕获器**        |
 | isExtensible()                 | Object.isExtensible()的捕获器             |
 | preventExtensions()            | Object.preventExtensions()的捕获器        |
@@ -4651,8 +4581,6 @@ console.log(obj._name)// zsf
 
 es6转es5
 
-
-
 ```js
 function Student(name, age) {
   this.name = name
@@ -4660,7 +4588,7 @@ function Student(name, age) {
 }
 
 function Teachear() {
-  
+
 }
 
 const stu = new Student('zsf', 18)
@@ -4684,14 +4612,12 @@ function Student(name, age) {
 }
 
 function Teachear() {
-  
+
 }
 
 const obj = Reflect.construct(Student, ['zsf', 18], Teachear)
 console.log(obj)//Teachear {name: 'zsf', age: 18}
 ```
-
-
 
 # Promise
 
@@ -4713,10 +4639,10 @@ function requestData(url) {
     // 拿到请求结果
     if (url === 'ok') {
       let names = ['abc', 'ccc', 'cbc']
-      
+
     } else {
       let msg = '请求失败，url错误'
-      
+
     }
   }, 3000);
 }
@@ -4841,7 +4767,7 @@ promise.then(() => {
 ```js
 // request.js
 function requestData(url) {
-  
+
 
   return new Promise((resolve, reject) => {
     // 模拟
@@ -4872,10 +4798,10 @@ promise.then((res) => {
 
 ### promise3种状态
 
-| Pending            | 待定   | 执行executor，还没有结果 |
-| ------------------ | ------ | ------------------------ |
-| fulfilled/resolved | 已兑现 | 中执行了resolve          |
-| rejected           | 已拒绝 | 中执行了reject           |
+| Pending            | 待定  | 执行executor，还没有结果 |
+| ------------------ | --- | ---------------- |
+| fulfilled/resolved | 已兑现 | 中执行了resolve      |
+| rejected           | 已拒绝 | 中执行了reject       |
 
 **注意：**
 
@@ -4938,8 +4864,6 @@ new Promise((resolve, reject) => {
   console.log(':', err)
 })
 ```
-
-
 
 ### 对象方法
 
@@ -5308,7 +5232,7 @@ class SFPromise {
     const reject = () => {
 
     }
-    
+
     executor(resolve, reject)
   }
 }
@@ -5451,10 +5375,8 @@ const promise = new SFPromise((resolve, reject) => {
 promise.then((res) => {
 
 }, (err) => {
-  
+
 })
-
-
 ```
 
 报错：**Uncaught TypeError: this.onfulfilled is not a function**
@@ -5520,7 +5442,6 @@ promise.then((res) => {
 }, (err) => {
 
 })
-
 ```
 
 将那些代码放进**微任务**更好，用**queueMicrotask**
@@ -5582,8 +5503,6 @@ promise.then((res) => {
 }, (err) => {
 
 })
-
-
 ```
 
 #### 完整代码
@@ -5637,7 +5556,7 @@ class SFPromise {
 }
 
 const promise = new SFPromise((resolve, reject) => {
-  
+
   reject(222)
   resolve(111)
 })
@@ -5647,8 +5566,6 @@ promise.then((res) => {
 }, (err) => {
   console.log(err)
 })
-
-
 ```
 
 那些边界情况edge case就先不考虑啦~（多次调用、链式调用）
@@ -5687,7 +5604,7 @@ promise.then((res) => {
 class SFPromise {
   ...
   static all(promises) {
-    
+
   }
 }
 ```
@@ -5727,7 +5644,7 @@ all()既然可以调用then，那它必须返回一个promise
 ```js
 static all(promises) {
     return new SFPromise((resolve, reject) => {
-      
+
     })
   }
 ```
@@ -5735,8 +5652,6 @@ static all(promises) {
 **核心问题--什么时候调resolve呢？**
 
 所有promise都变成fulfilled状态
-
-
 
 遍历promises数组
 
@@ -5762,8 +5677,6 @@ static all(promises) {
     })
   }
 ```
-
-
 
 #### allSettled方法
 
@@ -5819,8 +5732,6 @@ static allSettled(promises) {
   }
 ```
 
-
-
 #### race方法
 
 待补充~
@@ -5829,11 +5740,7 @@ static allSettled(promises) {
 
 待补充~
 
-
-
 # Fetch
-
-
 
 - Fetch API是新的ajax解决方案 Fetch会返回Promise
 - **fetch不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象**。
@@ -5843,8 +5750,8 @@ static allSettled(promises) {
   <script type="text/javascript">
     /*
       Fetch API 基本用法
-      	fetch(url).then()
-     	第一个参数请求的路径   Fetch会返回Promise   所以我们可以使用then 拿到请求成功的结果 
+          fetch(url).then()
+         第一个参数请求的路径   Fetch会返回Promise   所以我们可以使用then 拿到请求成功的结果 
     */
     fetch('http://localhost:3000/fdata').then(function(data){
       // text()方法属于fetchAPI的一部分，它返回一个Promise实例对象，用于获取后台返回的数据
@@ -5871,20 +5778,20 @@ static allSettled(promises) {
         */
        #1.1 GET参数传递 - 传统URL  通过url  ？ 的形式传参 
         fetch('http://localhost:3000/books?id=123', {
-            	# get 请求可以省略不写 默认的是GET 
+                # get 请求可以省略不写 默认的是GET 
                 method: 'get'
             })
             .then(function(data) {
-            	# 它返回一个Promise实例对象，用于获取后台返回的数据
+                # 它返回一个Promise实例对象，用于获取后台返回的数据
                 return data.text();
             }).then(function(data) {
-            	# 在这个then里面我们能拿到最终的数据  
+                # 在这个then里面我们能拿到最终的数据  
                 console.log(data)
             });
 
       #1.2  GET参数传递  restful形式的URL  通过/ 的形式传递参数  即  id = 456 和id后台的配置有关   
         fetch('http://localhost:3000/books/456', {
-            	# get 请求可以省略不写 默认的是GET 
+                # get 请求可以省略不写 默认的是GET 
                 method: 'get'
             })
             .then(function(data) {
@@ -5906,9 +5813,9 @@ static allSettled(promises) {
        #3 POST请求传参
         fetch('http://localhost:3000/books', {
                 method: 'post',
-            	# 3.1  传递数据 
+                # 3.1  传递数据 
                 body: 'uname=lisi&pwd=123',
-            	#  3.2  设置请求头 
+                #  3.2  设置请求头 
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -5962,8 +5869,6 @@ static allSettled(promises) {
 ```js
     /*      Fetch响应结果的数据格式    */    fetch('http://localhost:3000/json').then(function(data){      // return data.json();   //  将获取到的数据使用 json 转换对象      return data.text(); //  //  将获取到的数据 转换成字符串     }).then(function(data){      // console.log(data.uname)      // console.log(typeof data)      var obj = JSON.parse(data);      console.log(obj.uname,obj.age,obj.gender)    })
 ```
-
-
 
 # 迭代器&生成器
 
@@ -6393,7 +6298,6 @@ function* foo(params) {
 const generator = foo()
 console.log(generator.next())
 console.log( generator.throw())
-
 ```
 
 ### 生成器替代迭代器
@@ -6429,7 +6333,6 @@ console.log(namesIterator.next())
 console.log(namesIterator.next())
 console.log(namesIterator.next())
 console.log(namesIterator.next())
-
 ```
 
 生成器替代
@@ -6471,7 +6374,6 @@ console.log(namesIterator.next())
 console.log(namesIterator.next())
 console.log(namesIterator.next())
 console.log(namesIterator.next())
-
 ```
 
 再优化
@@ -6546,7 +6448,7 @@ function requestData(url) {
       resolve(url)
     }, 1000)
   })
-  
+
 }
 
 // other.js
@@ -6575,7 +6477,7 @@ function requestData(url) {
       resolve(url)
     }, 1000)
   })
-  
+
 }
 
 // other.js
@@ -6592,8 +6494,6 @@ requestData('zsf').then((res) => {
 但是，这种方案的**可读性不好**
 
 #### promise+generator实现
-
-
 
 1. **generator.next()**拿到**yield requestData('zsf')**的返回值
 2. 所以generator.next()返回的是**{value: promise对象, done: ...}对象**
@@ -6612,7 +6512,7 @@ function requestData(url) {
       resolve(url)
     }, 1000)
   })
-  
+
 }
 
 // other.js
@@ -6644,7 +6544,7 @@ function requestData(url) {
       resolve(url)
     }, 1000)
   })
-  
+
 }
 
 // other.js
@@ -6693,7 +6593,7 @@ function requestData(url) {
       resolve(url)
     }, 1000)
   })
-  
+
 }
 
 // other.js
@@ -7099,12 +6999,11 @@ console.log(name, age)// zsf 18
 ```js
 export const name = 'zsf'
 export function foo() {
-  
+
 }
 export class Person{
 
 }
-
 ```
 
 #### export和声明分开
@@ -7112,7 +7011,7 @@ export class Person{
 ```js
 const name = 'zsf'
 function foo() {
-  
+
 }
 class Person{
 
@@ -7130,7 +7029,7 @@ export {
 ```js
 const name = 'zsf'
 function foo() {
-  
+
 }
 class {
 
@@ -7178,8 +7077,6 @@ export default foo
 import zsf from './bar.js'
 zsf() // foo
 ```
-
-
 
 ### 导入
 
@@ -7229,7 +7126,6 @@ import('./zsf.js')
 import('./foo').then((res) => {
   console.log(res)
 })
-
 ```
 
 res拿到的，就是原来foo里面的内容
@@ -7247,12 +7143,12 @@ meta本身也是个对象，里面有个人**url**属性，是**当前模块所�
 ```js
 // add.js
 export function add() {
-  
+
 }
 
 // sub.js
 export function sub() {
-  
+
 }
 
 // index.js
@@ -7277,12 +7173,12 @@ import { add, sub } from './index.js'
 ```js
 // add.js
 export function add() {
-  
+
 }
 
 // sub.js
 export function sub() {
-  
+
 }
 
 // index.js
@@ -7300,12 +7196,12 @@ import { add, sub } from './index.js'
 ```js
 // add.js
 export function add() {
-  
+
 }
 
 // sub.js
 export function sub() {
-  
+
 }
 
 // index.js
@@ -7441,7 +7337,6 @@ license （开源协议）
   "author": "'zsf'",
   "license": "ISC"
 }
-
 ```
 
 更多时候是脚手架创建出来的~
@@ -7519,14 +7414,14 @@ semver：https://semver/lang/zh-CN/
 
 就说说常用的
 
-| 命令                       | 参数 | 例子                   |
-| -------------------------- | ---- | ---------------------- |
-| 全局安装                   | -g   | npm install webpack -g |
-| 局部安装                   | 无   | npm install webpack    |
-| 安装开发和生产依赖         | 无   | npm install webpack    |
-| 安装开发依赖               | -D   | npm install webpack -D |
+| 命令                  | 参数  | 例子                     |
+| ------------------- | --- | ---------------------- |
+| 全局安装                | -g  | npm install webpack -g |
+| 局部安装                | 无   | npm install webpack    |
+| 安装开发和生产依赖           | 无   | npm install webpack    |
+| 安装开发依赖              | -D  | npm install webpack -D |
 | 安装package.json里所有依赖 | 无   | npm install            |
-| 清除缓存                   | 无   | npm cache clean        |
+| 清除缓存                | 无   | npm cache clean        |
 
 **卸载类似~**，其它官网走起~
 
@@ -7807,8 +7702,6 @@ function debounce(fn, delay, immediate = false) {
 }
 ```
 
-
-
 ### 节流
 
 throttle
@@ -7863,8 +7756,6 @@ function throttle(fn, interval) {
 }
 ```
 
-
-
 ### 第三方库
 
 当然，这两个工具函数也可以使用别人写好的，放在第三方库里
@@ -7917,8 +7808,6 @@ function throttle(fn, interval) {
 
   </script>
 ```
-
-
 
 ## 快速排序
 
@@ -7990,10 +7879,6 @@ function deepClone(source) {
 ```
 
 引用类型之Function，**怎么拷贝函数的函数体和参数呢？**直接调用
-
-
-
-
 
 # window对象
 
@@ -8079,7 +7964,6 @@ function deepClone(source) {
 </body>
 
 </html>
-
 ```
 
 ## 滚动到顶部--容器内
@@ -8104,8 +7988,6 @@ const features =
       newWindow.opener = null; // 设置新窗口的 opener 为 null，使其半开状态
       newWindow.focus();
 ```
-
-
 
 # 常见函数
 
@@ -8138,7 +8020,6 @@ console.log(arrFromSet); // [1, 2, 3, 4, 5]
 const arr = [1, 2, 3];
 const arrSquared = Array.from(arr, x => x * x);
 console.log(arrSquared); // [1, 4, 9]
-
 ```
 
 ### isArray
@@ -8177,10 +8058,7 @@ notAnArray.length = 1;
 // 尝试使用数组的一些方法，会发现它并不是真正的数组
 console.log(notAnArray.join(',')); // 输出: "[object Object]"
 console.log(notAnArray.push('baz')); // 抛出 TypeError: notAnArray.push is not a function
-
 ```
-
-
 
 ## Object
 
@@ -8223,8 +8101,6 @@ console.log(returnedTarget === target);
 
 ### entries
 
-
-
 ## 类型
 
 如何给一个第三方库的类型添加属性？比如Tree组件的DataNode添加属性
@@ -8241,8 +8117,6 @@ const node: DataNodeWithExtraProperty = {
   extraProperty: "Extra Data",
 };
 ```
-
-
 
 # 常见算法
 
@@ -8293,8 +8167,6 @@ moment(info.inspectTime).utcOffset(8).format('YYYY-MM-DD HH:mm:ss')
 // 输出 "17:46:42"
 ```
 
-
-
 # 
 
 # 优雅写法
@@ -8343,7 +8215,6 @@ const pickedObject = _.pick(sourceObject, ['name', 'age']);
 
 console.log(pickedObject);
 // Output: { name: 'John', age: 25 }
-
 ```
 
 注意事项：
@@ -8353,24 +8224,22 @@ console.log(pickedObject);
 2. **不存在的属性：** 如果指定的属性在原对象中不存在，它们会被忽略。
 
 3. **数组作为属性列表：** 第二个参数是一个包含属性名的数组，你也可以传递多个参数，每个参数都是一个属性名。例如：
-
+   
    ```js
    const pickedObject = _.pick(sourceObject, 'name', 'age');
    ```
 
 4. **回调函数：** 你也可以传递一个回调函数，它决定了挑选哪些属性。例如：
-
+   
    ```js
    const pickedObject = _.pick(sourceObject, (value, key) => key === 'name');
    ```
 
 5. **深度挑选：** `_.pick` 默认只进行浅层次的挑选。如果你希望进行深度挑选，可以使用 `_.pick` 的 `deep` 参数：
-
+   
    ```js
    const deepPickedObject = _.pick(sourceObject, ['name', 'address'], { deep: true });
    ```
-
-
 
 # 疑难杂症
 
@@ -8418,4 +8287,3 @@ Unexpected non-whitespace character after JSON at position 3 (line 1 column 4)
 ```
 
 这个错误提示意味着你试图解析的JSON字符串格式不正确。在JSON字符串中，所有的属性名和字符串值都必须用双引号包围，而且在属性名和值之间必须使用冒号。如果JSON字符串不符合这些规则，`JSON.parse()`方法就会抛出一个`SyntaxError`。
-
