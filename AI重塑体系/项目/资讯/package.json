@@ -1,0 +1,32 @@
+{
+  "name": "info-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Information fetching service for GitHub Trending daily and weekly digests.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json --ignoreDeprecations 6.0",
+    "dev": "tsx src/main.ts",
+    "scheduler": "tsx src/main.ts scheduler:start",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "github",
+    "trending",
+    "digest"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "tsx": "^4.22.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.6"
+  }
+}

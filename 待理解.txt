@@ -40,3 +40,16 @@ shopify 插件应用机制
 jsx中{0 && 1}显示0
 如何设置宽高，才不会导致图片变形，压缩？
 主题功能，怎么实现
+
+
+
+pem文件用途
+内容长度到达多少就换行
+ai结合git检测
+rpc协议概念√中间多加了两层client stub和server stub是为了什么：序列化，关注点分离
+ai是如何解析输入，如何检索，如何组织回复
+区分memo、useCallback、useMemo过度优化的场景
+
+项目怎么link本地构建好的库（1构建dist替换2？）
+如何用线上js进行调试
+display切换之后，dom在文档中的top值怎么获取，延迟100ms等待dom更新

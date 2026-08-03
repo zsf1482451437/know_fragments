@@ -1,671 +1,495 @@
-# 基础语法
+# Flutter
 
-## Dart环境搭建
+## 定位
 
-使用vscode开发flutter项目需要装**Flutter**和**Dart**插件（另外再加一个code runner插件，方便运行）；
+- 这份文档用于沉淀 Flutter 的学习笔记、环境知识、常见命令、问题排查和项目实践经验。
+- 当前先收录一个正在使用的主题：`本地原地升级 Flutter 到 3.44.0`。
 
-下载Dart SDK，**配置环境变量**；
+## 知识图谱
 
-官网下载地址：`https://dart.dev/get-dart/archive`；
+### 1. 环境与版本
 
-去终端查看一下版本验证是否配置环境变量成功：`dart --version`；
+- Flutter SDK
+- Dart SDK
+- Xcode / Android Toolchain
+- CocoaPods
+- PATH 配置
+- `flutter doctor`
 
-### 运行案例
+### 2. 工程与依赖
 
-dart有个入口函数，**main**函数
+- `pubspec.yaml`
+- `flutter pub get`
+- `flutter clean`
+- 多项目版本管理
+- FVM
 
-并且一行代码结尾要用**分号**结束
+### 3. 开发与调试
 
-```dart
-main() {
-  print("hello");
-}
+- `flutter run`
+- 热重载与热重启
+- Widget 调试
+- 日志与崩溃排查
+
+### 4. 测试与验证
+
+- `flutter test`
+- Widget Test
+- Golden Test
+- 集成测试
+
+### 5. 平台能力
+
+- iOS 构建
+- Android 构建
+- Web / Desktop
+- 原生桥接
+
+---
+
+## 本地原地升级到 Flutter 3.44.0
+
+### 当前环境
+
+- 当前 `flutter` 路径：`/Users/bytedance/Projects/SDK/flutter/bin/flutter`
+- 当前版本：`Flutter 3.41.5`
+- 当前 Dart：`3.11.3`
+- 目标版本：`Flutter 3.44.0`
+
+### 适用场景
+
+- 适合你继续沿用当前 SDK 目录：`/Users/bytedance/Projects/SDK/flutter`
+- 适合你明确知道自己是在维护一套固定 Flutter SDK，而不是为不同项目隔离多个版本
+- 不适合对 SDK 目录里的本地提交特别敏感的场景
+
+### 核心认知
+
+- Flutter 本质上就是一个 Git 仓库，很多升级动作本质上是在切换分支、tag 或提交。
+- 你当前这套 Flutter 是通过 Git 目录方式安装，不是 `brew` 管理。
+- 所以“升级 Flutter”在你这里，本质上就是：
+  1. 进入 Flutter SDK 目录
+  2. 拉取远端 tag 和提交
+  3. 切到目标版本
+  4. 运行 `flutter doctor` 初始化工具链
+
+### 升级步骤
+
+#### 1. 进入 Flutter SDK 目录
+
+```bash
+cd /Users/bytedance/Projects/SDK/flutter
 ```
 
-输出要是有乱码重启vscode即可
+#### 2. 查看当前仓库状态
 
-## 声明变量
-
-- 明确声明
-- 类型推导
-- 动态类型
-
-### 明确类型
-
-dart 是一门强类型的语言
-
-```dart
-void main(List<String> args) {
-  String foo = 'test';
-  int num = 1;
-}
+```bash
+git status --short --branch
 ```
 
-### 类型推导
+重点看两件事：
 
-- var
-- const
-- final
-- dynamic
+- 有没有未提交改动
+- 当前分支是否和远端偏离很多
 
-#### var、const、final
+如果你只是学习和自用环境，这一步主要是为了心里有数。
 
-const和final声明的变量不可以重新赋值
+#### 3. 拉取最新 tag 和远端信息
 
-```dart
-void main(List<String> args) {
-  var foo = 'test';
-  const foo1 = 'test';
-  final foo2 = 'test';
-}
+```bash
+git fetch --all --tags
 ```
 
-**const和final区别**
+这一步会把 `3.44.0` 这类版本 tag 拉到本地。
 
-const必须直接赋值常量，final可以通过**运行时**赋值
+#### 4. 切到目标版本
 
-```dart
-void main(List<String> args) {
-  const foo1 = test();// 报错
-  final foo2 = test();// 可以
-}
-int test() {
-  return 10;
-}
+```bash
+git checkout 3.44.0
 ```
 
-#### dynamic
+如果成功，当前 SDK 就已经切到 `Flutter 3.44.0` 对应代码了。
 
-**明确类型**和类型推导中**var、const、final**声明的类型都是不可以改变的，而**dynamic**就可以；
+#### 5. 初始化 SDK
 
-开发中尽量少用dynamic类型，存在类型潜在危险
-
-```dart
-void main(List<String> args) {
-  dynamic foo = 'test';
-  foo = 123;
-}
+```bash
+bin/flutter doctor
 ```
 
-## 类型
+第一次执行会做几件事：
 
-- 数字类型int、double
-- 布尔类型bool
-- 字符串String
-- 集合类型List、Set、Map 
+- 校验 Flutter SDK
+- 下载对应 Dart SDK
+- 检查 Xcode / Android / CocoaPods
+- 刷新缓存
 
-### bool类型注意
+#### 6. 验证版本
 
-dart中没有 **非0即真** 的说法
-
-```dart
-void main(List<String> args) {
-  var foo = 'test';
-  // 错误的写法
-  if(foo) {
-    print(foo);
-  }
-  // 这样写
-  if(foo != null) {
-    print(foo);
-  }
-}
+```bash
+bin/flutter --version
 ```
 
-### 字符串String
+预期看到：
 
-- 单双引号
-- 三引号，可以换行
-
-```dart
-void main(List<String> args) {
-  var foo = 'test';
-  var foo1 = "test";
-  var foo2 = '''
-  abc
-  cba
-  '''
-}
+```text
+Flutter 3.44.0
 ```
 
-#### 拼接
+---
 
-一般是**${}**这样，当$直接跟一个变量时是可以省略的；
+## 升级后的验证流程
 
-要是跟**表达式**就不可以省略；
+### 1. 验证 Flutter 和 Dart
 
-```dart
-void main(List<String> args) {
-  final name = 'zsf';
-  final age = 18;
-  print("name:$name age:$age");
-  print("${name.runtimeType}");
-}
+```bash
+flutter --version
 ```
 
-### 集合类型
+重点检查：
 
-- List，类似数组
-- Set，元素唯一且无序
-- Map，键值对
+- Flutter 是否为 `3.44.0`
+- Dart 是否已经高于项目要求，例如覆盖 `3.11.5`
 
-```dart
-void main(List<String> args) {
-  List<String> names = ['zsf', 'kebe', 'zsf'];
-  // Set一般应用于Lsit的去重
-  Set<int> nums = {101, 111};
-  List<String> name1 = List.from(Set.from(names));
-  print(name1); // [zsf, kobe]
+### 2. 验证本机开发环境
 
-  Map<String, dynamic> info = {
-    'name': 'zsf',
-    'age': 18,
-  };
-}
+```bash
+flutter doctor -v
 ```
 
-### dynamic和object区别
+重点看：
 
-dart中所有的类都默认继承**Object**；
+- Flutter SDK
+- Xcode
+- Android toolchain
+- CocoaPods
+- 可用设备
 
-使用dynamic类型可以进行类型转化，而使用Object类型则不行；
+### 3. 回到项目验证依赖
 
-## 函数
-
-dart中函数的定义是这样的
-
-```js
-int sum(int num1, int num2) {
-  return num1 + num2;
-}
+```bash
+cd "/Users/bytedance/Desktop/项目/know_fragments/AI重塑体系/项目/日历"
+flutter pub get
 ```
 
-### 参数
+### 4. 验证测试是否能跑
 
-dart中函数的参数有两种：**必传参数**和**可选参数**
-
-**必传参数**
-
-```dart
-void main(List<String> args) {
-  sum(1, 2);
-}
-
-int sum(int num1, int num2) {
-  return num1 + num2;
-}
+```bash
+flutter test
 ```
 
-#### 可选参数
+如果之前报的是 Dart 版本不满足，那么升级完成后，这一步应该能真正进入测试执行阶段。
 
-- 位置可选参数
-- 命名可选参数
+---
 
-##### **隐式可选参数**
+## Flutter 项目检测流程
 
-```dart
-void main(List<String> args) {
-  printInfo(1);
-  printInfo(1, 2);
-}
+### 使用前先确认设备
 
-void printInfo(int num1, [int? num2, String? str]) {
-  print('$num1 $num2 $str');
-}
+先执行：
+
+```bash
+flutter devices
 ```
 
-##### **命名可选参数**
+这条命令用于查看当前可运行设备，例如：
 
-传可选参数时需要指名参数名字
+- iOS Simulator
+- Android Emulator
+- 已连接真机
 
-```dart
+如果存在多个设备，推荐显式指定设备：
 
-void main(List<String> args) {
-  printInfo(1);
-  printInfo(1, num2: 2);
-}
-
-void printInfo(int num1, {int? num2, String? str}) {
-  print('$num1 $num2 $str');
-}
+```bash
+flutter run -d 设备id
 ```
 
-##### 默认值
+这样可以避免 Flutter 默认选错目标设备。
 
-默认值**只能给可选参数**，不可以给必传参数
+### iOS（Mac）
 
-```dart
-void main(List<String> args) {
-  printInfo(1);
-  printInfo(1, num2: 2);
-}
+推荐流程：
 
-void printInfo(int num1, {int? num2, String? str = 'hhh'}) {
-  print('$num1 $num2 $str');
-}
+```bash
+open -a Simulator
+flutter run
 ```
 
-### 匿名函数
+更稳妥的做法是：
 
-只有一行才能使用**箭头函数**
-
-```dart
-void main(List<String> args) {
-  List<String> names = ['zsf', 'hhh', 'kkk'];
-  names.forEach((item) {
-    print(item);
-  });
-
-  names.forEach((item) => print(item));
-}
+```bash
+flutter devices
+flutter run -d 设备id
 ```
 
-### 返回值
+适用说明：
 
-如果没有返回值，默认返回null
+- `open -a Simulator` 用于先启动 iOS 模拟器
+- 模拟器启动后，再执行 `flutter run`
+- 如果本机同时有多个 Apple 相关设备或目标，优先用 `flutter run -d 设备id`
 
-## 运算符
+### Android
 
-大部分运算符与其它语言类似，下面只说不同的
+推荐流程：
 
-### 整除
+1. 打开 Android Studio
+2. 进入 `Device Manager`
+3. 启动目标模拟器
+4. 回到项目目录执行 `flutter run`
 
-```dart
-const num = 7;
-print(num ~/ 3); // 2
+更稳妥的做法同样是：
+
+```bash
+flutter devices
+flutter run -d 设备id
 ```
 
-### ??=赋值
+适用说明：
 
-- 如果有值，使用原来的值；
-- 如果值为null，则赋值；
+- 先在 Android Studio 中把模拟器真正启动起来
+- 再让 Flutter 去识别设备并执行运行
+- 如果同时连接多个 Android 设备，也应优先指定 `设备id`
 
-```dart
-var name = 'zsf';
-name ??= 'hhh';
-print(name); // zsf
+### 最短检测命令
+
+#### iOS
+
+```bash
+open -a Simulator
+flutter devices
+flutter run -d 设备id
 ```
 
-### ??
+#### Android
 
-```dart
-var msg = null;
-var res = msg ?? 'hello';
-print(res); // hello
+```bash
+flutter devices
+flutter run -d 设备id
 ```
 
-如果**msg**有值则赋值给**res**，没有则使用后面的'**hello**'；
+### 检测时的判断顺序
 
-### ..级联
+- 先确认模拟器或真机是否已经启动
+- 再执行 `flutter devices` 看 Flutter 是否识别到设备
+- 最后执行 `flutter run -d 设备id`
 
-## 类和对象
+如果 `flutter devices` 看不到目标设备，优先排查：
 
-dart是面向对象的开发语言；
+- iOS Simulator / Android Emulator 是否真的启动完成
+- Xcode / Android Studio 对应工具链是否正常
+- 设备是否被其他进程占用
 
-类一般有两部分：**成员变量**和**方法**；
+---
 
-dart2.5之后，new关键字可以省略；
+## Flutter 项目最小排查 SOP
 
-```dart
-void main(List<String> args) {
-  final p = new Person();
-  p.name = 'zsf';
-  p.eat();
-}
+### 适用场景
 
-class Person {
-  String? name;
+- 新拉一个 Flutter 项目后，想快速判断本机能不能跑
+- 项目突然跑不起来，想按最小顺序排查
+- 不想一上来就到处试命令，希望先走一套固定流程
 
-  void eat() {
-    print('${name}吃东西');
-  }
-}
+### 最小排查顺序
 
+#### 1. 先看本机环境
+
+```bash
+flutter doctor -v
 ```
 
-当eat函数内有**同名变量**（比如name）时，需要使用this，指明**当前对象**的name，而不是根据**词法作用域**的name；
+先确认这些是否正常：
 
-### 构造函数
+- Flutter SDK
+- Dart SDK
+- Xcode
+- Android toolchain
+- CocoaPods
 
-当类中没有**构造函数**，会默认创建一个**无参**的构造函数；
+如果这里已经报红，先不要急着进项目目录，优先把环境问题处理掉。
 
-dart没有**函数的重载**，也就是没有同名的方法；
+#### 2. 进入项目目录并拉依赖
 
-```dart
-void main(List<String> args) {
-  final p = new Person('zsf');
-  p.eat();
-}
-
-class Person {
-  String? name;
-
-  Person(String name) {
-    this.name = name;
-  }
-
-  void eat() {
-    print('${name}吃东西');
-  }
-}
+```bash
+cd "你的 Flutter 项目目录"
+flutter pub get
 ```
 
-#### 语法糖
+这一步主要确认：
 
-```dart
-void main(List<String> args) {
-  final p = new Person('zsf');
-  p.eat();
-}
+- `pubspec.yaml` 没有明显问题
+- 依赖可以正常解析
+- 当前 Flutter / Dart 版本能满足项目约束
 
-class Person {
-  String? name;
-  int? age;
+如果这里失败，优先看：
 
-  Person({this.name, this.age})
+- Dart 版本是否满足项目要求
+- 网络或镜像问题
+- `pubspec.yaml` 依赖冲突
 
-  void eat() {
-    print('${name}吃东西');
-  }
-}
+#### 3. 确认可运行设备
+
+```bash
+flutter devices
 ```
 
-#### 命名构造函数
+这一步用于判断：
 
-当需要多种构造函数时，可以使用命名构造函数
+- 模拟器或真机是否真的被 Flutter 识别
+- 当前是否存在可运行目标
 
+如果没有设备，按前面的“Flutter 项目检测流程”去启动 iOS 或 Android 模拟器。
 
+#### 4. 指定设备运行项目
 
-#### 初始化列表
-
-```dart
-void main(List<String> args) {
-  final p = new Person('zsf');
-  p.eat();
-}
-
-class Person {
-  String? name;
-
-  Person(String name) : name = 'zsf';
-
-  void eat() {
-    print('${name}吃东西');
-  }
-}
+```bash
+flutter run -d 设备id
 ```
 
-#### 常量构造函数
+推荐始终显式指定 `设备id`，这样排查更稳定，尤其适合：
 
-- const修饰构造函数
-- final修饰成员变量
-- const声明实例
+- 同时开了多个模拟器
+- 同时连着真机和模拟器
+- 不想让 Flutter 自动选错设备
 
-```dart
-void main(List<String> args) {
-  const p1 = Person('zsf');
-  const p2 = Person('zsf');
-  print(identical(p1, p2)); // true
-}
+#### 5. 验证测试是否可执行
 
-class Person {
-  final String? name;
-  const Person(this.name);
-}
+```bash
+flutter test
 ```
 
-#### 工厂构造函数
+这一步主要看：
 
-有一个特点：需要在函数内部明确**返回一个对象**
+- 项目是否能进入测试阶段
+- 是否存在依赖、版本、初始化或测试代码层面的报错
 
-### setter和geter
+如果 `flutter run` 能跑但 `flutter test` 失败，说明问题更可能在：
 
-当需要监听属性的访问时，需要用到
+- 测试代码本身
+- 测试环境初始化
+- 依赖版本与测试框架兼容性
 
-### 继承
+### 一条日常检查链路
 
-继承可以复用代码；
+日常最推荐直接按这条顺序执行：
 
-子类使用super访问父类；
-
-当不满意父类方法可以重写，并且可以拥有自己的成员变量；
-
-```dart
-class Animal {
-  int age;
-
-  Animal(this.age);
-
-  run() {
-    print('在奔跑ing');
-  }
-}
-
-class Person extends Animal {
-  String name;
-
-  Person(String name, int age) : name=name, super(age);
-
-  @override
-  run() {
-    print('$name在奔跑ing');
-  }
-
-  @override
-  String toString() {
-    return 'name=$name, age=$age';
-  }
-}    
-
+```bash
+flutter doctor -v
+cd "你的 Flutter 项目目录"
+flutter pub get
+flutter devices
+flutter run -d 设备id
+flutter test
 ```
 
-### 抽象类
+### 最小判断逻辑
 
-- 使用关键字**abstract**修饰；
-- **不能被实例化**；
-- 抽象类中可以定义**抽象方法**；
-- 它的子类**必须重写**它的方法；
+- `flutter doctor -v` 失败：先修环境，不要急着看项目
+- `flutter pub get` 失败：先看版本约束和依赖解析
+- `flutter devices` 看不到设备：先启动模拟器或检查真机连接
+- `flutter run -d 设备id` 失败：再看运行日志、平台配置和工程问题
+- `flutter test` 失败：优先定位测试环境或测试代码
 
-普通类是不能定义抽象方法的
+### 排查失败时的补救命令
 
-**什么是抽象方法？**
+如果问题不明确，可以再补一轮基础清理：
 
-只有定义，没有实现
-
-```dart
-void eat();
+```bash
+flutter clean
+flutter pub get
+flutter run -d 设备id
+flutter test
 ```
 
-你可能会有个疑惑：抽象类有什么用？
+这套命令适合处理：
 
-**实现多态**
+- 缓存未刷新
+- 构建中间产物异常
+- 切换 Flutter 版本后残留旧状态
 
-```dart
-abstract class Shape {
-  getArea();
-}
+---
 
-class Circle extends Shape {
-  double r;
+## 常见问题
 
-  Circle(this.r);
+### 1. `flutter --version` 还是旧版本
 
-  @override
-  getArea() {
-    return r * r * 3.14;
-  }
-}
+先检查：
 
-class Reactangle extends Shape {
-  double w;
-  double h;
-
-  Reactangle(this.w, this.h);
-
-  @override
-  getArea() {
-    return w * h;
-  }
-}
-
+```bash
+which flutter
 ```
 
-### 接口
+如果输出的不是：
 
-dart中，默认所有类都是接口；
-
-可以定义成抽象类，由其它类实现；
-
-因为dart不能多继承，只能继承一个，当你想**复用多个类**的不同代码时，可以使用实现**implements**，也就是接口；
-
-```dart
-abstract class Runner {
-  run();
-}
-
-abstract class Flyer {
-  fly();
-}
-
-class SuperMan implements Runner, Flyer {
-  @override
-  run() {
-    print('超人在奔跑');
-  }
-
-  @override
-  fly() {
-    print('超人在飞');
-  }
-}
-
+```text
+/Users/bytedance/Projects/SDK/flutter/bin/flutter
 ```
 
-### mixin混入
+说明你当前 shell 用的不是这套 SDK。
 
-也是代码复用的一种方案
+### 2. `git checkout 3.44.0` 失败
 
-- 关键字mixin定义类
-- with关键字混入
+先执行：
 
-```dart
-main(List<String> args) {
-  var superMan = SuperMain();
-  superMan.run();
-  superMan.fly();
-}
-
-mixin Runner {
-  run() {
-    print('在奔跑');
-  }
-}
-
-mixin Flyer {
-  fly() {
-    print('在飞翔');
-  }
-}
-
-// implements的方式要求必须对其中的方法进行重新实现
-// class SuperMan implements Runner, Flyer {}
-
-class SuperMain with Runner, Flyer {
-
-}
-
+```bash
+git fetch --all --tags
+git tag --list "3.44*"
 ```
 
-### 泛型
+确认本地已经拉到 `3.44.0`。
 
-可以让使用者决定类型，能写出更多通用性的代码
+### 3. `flutter doctor` 很慢
 
-```dart
-main(List<String> args) {
-  Location l2 = Location<int>(10, 20);
-  print(l2.x.runtimeType); // int
+正常现象，尤其是第一次切到新版本时，会下载缓存和工具链。
 
-  Location l3 = Location<String>('aaa', 'bbb');
-  print(l3.x.runtimeType); // String
-}
+### 4. 升级后项目还是跑不起来
 
-class Location<T> {
-  T x;
-  T y;
+继续执行：
 
-  Location(this.x, this.y);
-}
+```bash
+flutter clean
+flutter pub get
+flutter test
 ```
 
-## 库
+如果还不行，再往这几个方向排查：
 
-dart任何一个**文件**都是一个库，即使没有使用关键字**library**声明；
+- Xcode 或 Android 本地环境缺失
+- CocoaPods 问题
+- 项目依赖冲突
+- 缓存未刷新
 
-- 标准库
-- 自定义
-- 第三方
+### 5. 原地升级的风险是什么
 
-**标准库**
+- 可能覆盖你当前 SDK 目录已有的本地上下文
+- 如果你依赖当前 SDK 里的特殊分支或本地提交，切 tag 后可能改变行为
+- 所以原地升级适合“你明确知道自己在切 SDK 仓库版本”的场景
 
-dart:io、dart:math、dart:html、dart:core等等
+---
 
-```dart
-import 'dart:io'
+## 最短命令清单
+
+```bash
+cd /Users/bytedance/Projects/SDK/flutter
+git fetch --all --tags
+git checkout 3.44.0
+bin/flutter doctor
+bin/flutter --version
 ```
 
-**自定义**
+然后回到项目：
 
-```dart
-import 'lib/student/student.dart';
+```bash
+cd "/Users/bytedance/Desktop/项目/know_fragments/AI重塑体系/项目/日历"
+flutter pub get
+flutter test
 ```
 
-**第三方**
+---
 
-```dart
-//Pub包管理系统中有很多功能强大、实用的库，可以使用前缀 package:
-import 'package:flutter/material.dart';
-```
+## 后续可继续补充的主题
 
-### 选择性导入
-
-如果希望`只导入`库中某些内容，或者刻意`隐藏`库里面某些内容，可以使用`show`和`hide`关键字
-
-```dart
-import 'lib/student/student.dart' show Student, Person;
-
-import 'lib/student/student.dart' hide Person;
-```
-
-#### 起别名
-
-当各个库有命名冲突的时候，可以使用`as关键字`来使用命名空间
-
-```dart
-import 'lib/student/student.dart' as Stu;
-
-Stu.Student s = new Stu.Student();
-```
-
-# 项目
-
-## 创建flutter项目
-
-- 命令行
-- 工具（比如Android studio）
-
-**命令行**
-
-```
-flutter create learn_flutter
-```
-
-注意项目名不能由**特殊符号**、**驼峰**
-
-**默认项目分析：**
-
-- 在目录下有一个`lib`文件夹，里面会存放我们编写的Flutter代码；
-- 打开发现里面有一个`main.dart`，它是我们Flutter启动的`入口文件`，里面有`main函数`；
-
-**运行**
-
-终端执行`flutter run`
+- Flutter 环境安装与 PATH 管理
+- Flutter 常用命令速查
+- Flutter 测试体系
+- Flutter 状态管理选型
+- Flutter iOS 构建问题
+- Flutter Android 构建问题
+- Flutter 多项目版本管理与 FVM
